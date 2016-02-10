@@ -441,7 +441,7 @@ code {
 #sidebar {
   background: #191919;
   color: #fff;
-  float: left;  
+  float: left;
   height: 100%;
   overflow: auto;
   position: fixed;
@@ -636,4 +636,33 @@ code {
   display: block;
   padding: 15px;
   white-space: pre;
+}
+
+/* Randy changes */
+body,
+input,
+textarea {
+  color: #10222B;
+}
+
+#sidebar {
+  background: #10222B;
+}
+
+body {
+    background: #E2F0D6;
+}
+
+#sidebar h1 {
+    background: #95AB63;
+    text-transform: none;
+}
+
+#content article > a {
+  background: #ACCFCC;
+}
+
+#content article > a:hover {
+  background: #8A0917;
+  text-decoration: none;
 }

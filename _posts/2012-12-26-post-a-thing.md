@@ -1,8 +1,8 @@
 ---
 category: Stuff
-path: '/stuff'
+#path: '/stuff'
 title: 'Post a thing'
-type: 'POST'
+#type: 'POST'
 
 layout: nil
 ---
