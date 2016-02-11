@@ -1,6 +1,6 @@
 ---
 exclude: ['README.markdown']
-permalink: ':title'
-pygments: true
+permalink: '/:categories/:title.html'
+highlighter: 'rouge'
 safe: false
 title: 'Randy Zwitch'

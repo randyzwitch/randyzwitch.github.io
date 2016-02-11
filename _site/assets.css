@@ -646,7 +646,7 @@ textarea {
 }
 
 #sidebar {
-  background: #10222B;
+  background: #738AA2;
 }
 
 body {
@@ -654,15 +654,34 @@ body {
 }
 
 #sidebar h1 {
-    background: #95AB63;
+    background: #263248;
     text-transform: none;
+    color: #fff;
 }
 
+#sidebar h2 {
+    color: #263248;
+}
+
+/*#content article  {
+  padding: 19px;
+}*/
+
 #content article > a {
-  background: #ACCFCC;
+  background: #263248;
 }
 
 #content article > a:hover {
-  background: #8A0917;
+  background: #738AA2;
   text-decoration: none;
+}
+
+a, a:hover {
+    color: #738AA2;
+    text-decoration: none;
+}
+
+#content article {
+    clear: both;
+    margin: 19px 0;
 }
