@@ -685,3 +685,13 @@ a, a:hover {
     clear: both;
     margin: 19px 0;
 }
+
+#sidebar h1 > a {
+    text-transform: none;
+    color: #fff;
+    font-size: 26px;
+}
+#sidebar h1 a > img {
+  padding-top: 15px;
+  padding-right: 15px;
+}
