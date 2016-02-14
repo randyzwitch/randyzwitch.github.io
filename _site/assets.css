@@ -663,10 +663,6 @@ body {
     color: #263248;
 }
 
-/*#content article  {
-  padding: 19px;
-}*/
-
 #content article > a {
   background: #263248;
 }
@@ -694,4 +690,8 @@ a, a:hover {
 #sidebar h1 a > img {
   padding-top: 15px;
   padding-right: 15px;
+}
+
+#content {
+  margin-top: 58px;
 }
