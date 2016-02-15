@@ -4,3 +4,6 @@ permalink: '/:categories/:title.html'
 highlighter: 'rouge'
 safe: false
 title: 'Randy Zwitch'
+
+gems:
+  - jekyll-feed

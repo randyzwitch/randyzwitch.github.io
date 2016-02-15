@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator>
+<link href="/feed.xml" rel="self" type="application/atom+xml" />
+<link href="/" rel="alternate" type="text/html" />
+<updated>2016-02-15T08:26:50-05:00</updated>
+<id>/</id>
+<entry>
+<title>RSiteCatalyst</title>
+<link href="/r/rsitecatalyst.html" rel="alternate" type="text/html" title="RSiteCatalyst" />
+<published>2016-02-01T00:00:00-05:00</published>
+<updated>2016-02-01T00:00:00-05:00</updated>
+<id>/r/rsitecatalyst</id>
+<content type="html" xml:base="/r/rsitecatalyst.html">&lt;p&gt;An R package for accessing the Adobe Analytics Reporting API.&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://cran.r-project.org/package=RSiteCatalyst&quot;&gt;https://cran.r-project.org/package=RSiteCatalyst&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst&quot;&gt;https://github.com/randyzwitch/RSiteCatalyst&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;https://marketing.adobe.com/developer/en_US/documentation&quot;&gt;https://marketing.adobe.com/developer/en_US/documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://33sticks.com/rsitecatalyst-market-basket-analysis-adobe-analytics/&quot;&gt;Market Basket Analysis With Adobe Analytics And RSiteCatalyst&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.computerworld.com/article/2921176/business-intelligence/great-r-packages-for-data-import-wrangling-visualization.html&quot;&gt;Great R packages for data import, wrangling &amp;amp; visualization&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/anomaly-detection-adobe-analytics-api/&quot;&gt;Anomaly Detection Using The Adobe Analytics API&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.milanor.net/blog/?p=1730&quot;&gt;Adobe Sitecatalyst API and R: integrate reports with the SAINT classification file&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://chrisnart.blogspot.com/2014/03/date-based-cohort-analysis-for-adobe.html&quot;&gt;Date Based Cohort Analysis for Adobe SiteCatalyst using R&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.madridgeekgirls.es/rsitecatalyst-o-como-conectar-r-con-sitecatalyst-de-adobe/&quot;&gt;RSiteCatalyst o cómo conectar R con SiteCatalyst de Adobe&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/real-time-reporting-adobe-analytics-api/&quot;&gt;Real-time Reporting with the Adobe Analytics API&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-website-pathing-sankey-charts/&quot;&gt;Visualizing Website Pathing With Sankey Charts&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-d3-network-graphs/&quot;&gt;Visualizing Website Structure With Network Graphs&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-implementation-documentation/&quot;&gt;Adobe Analytics Implementation Documentation in 60 Seconds&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-k-means-clustering/&quot;&gt;Clustering Search Keywords Using K-Means Clustering&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://community.alteryx.com/t5/Data-Sources/Anyone-successfully-using-Rtool-to-connect-to-Adobe-Analytics/td-p/5400&quot;&gt;Anyone successfully using Rtool to connect to Adobe Analytics?&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://blogs.adobe.com/digitalmarketing/analytics/playing-hits-summit-2014-filtered-metrics-error-monitoring/&quot;&gt;Playing the Hits at Summit 2014: Filtered Metrics, Error Monitoring, and More&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.tatvic.com/blog/q-a-from-our-webinar-how-to-perform-predictive-analytics-on-your-web-analytics-tool-data/&quot;&gt;Q &amp;amp; A from our webinar “How to perform Predictive Analytics on your Web Analytics Tool Data”&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://analyticsdemystified.com/analysis/so-r-we-ready-for-r-with-adobe/&quot;&gt;So, R We Ready For R With Adobe Analytics?&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+<category term="R" />
+<summary>An R package for accessing the Adobe Analytics Reporting API.</summary>
+</entry>
+<entry>
+<title>Vega.jl</title>
+<link href="/julia/vega.html" rel="alternate" type="text/html" title="Vega.jl" />
+<published>2016-01-31T00:00:00-05:00</published>
+<updated>2016-01-31T00:00:00-05:00</updated>
+<id>/julia/vega</id>
+<content type="html" xml:base="/julia/vega.html">
+</content>
+<category term="Julia" />
+<summary></summary>
+</entry>
+<entry>
+<title>UAParser.jl</title>
+<link href="/julia/uaparser.html" rel="alternate" type="text/html" title="UAParser.jl" />
+<published>2016-01-28T00:00:00-05:00</published>
+<updated>2016-01-28T00:00:00-05:00</updated>
+<id>/julia/uaparser</id>
+<content type="html" xml:base="/julia/uaparser.html">
+</content>
+<category term="Julia" />
+<summary></summary>
+</entry>
+<entry>
+<title>NoveltyColors.jl</title>
+<link href="/julia/noveltycolors.html" rel="alternate" type="text/html" title="NoveltyColors.jl" />
+<published>2016-01-26T00:00:00-05:00</published>
+<updated>2016-01-26T00:00:00-05:00</updated>
+<id>/julia/noveltycolors</id>
+<content type="html" xml:base="/julia/noveltycolors.html">
+</content>
+<category term="Julia" />
+<summary></summary>
+</entry>
+<entry>
+<title>Twitter.jl</title>
+<link href="/julia/twitter.html" rel="alternate" type="text/html" title="Twitter.jl" />
+<published>2016-01-24T00:00:00-05:00</published>
+<updated>2016-01-24T00:00:00-05:00</updated>
+<id>/julia/twitter</id>
+<content type="html" xml:base="/julia/twitter.html">
+</content>
+<category term="Julia" />
+<summary></summary>
+</entry>
+<entry>
+<title>OAuth.jl</title>
+<link href="/julia/oauth.html" rel="alternate" type="text/html" title="OAuth.jl" />
+<published>2016-01-22T00:00:00-05:00</published>
+<updated>2016-01-22T00:00:00-05:00</updated>
+<id>/julia/oauth</id>
+<content type="html" xml:base="/julia/oauth.html">
+</content>
+<category term="Julia" />
+<summary></summary>
+</entry>
+<entry>
+<title>LogParser.jl</title>
+<link href="/julia/logparser.html" rel="alternate" type="text/html" title="LogParser.jl" />
+<published>2016-01-20T00:00:00-05:00</published>
+<updated>2016-01-20T00:00:00-05:00</updated>
+<id>/julia/logparser</id>
+<content type="html" xml:base="/julia/logparser.html">
+</content>
+<category term="Julia" />
+<summary></summary>
+</entry>
+<entry>
+<title>ECharts.jl</title>
+<link href="/julia/echarts.html" rel="alternate" type="text/html" title="ECharts.jl" />
+<published>2016-01-18T00:00:00-05:00</published>
+<updated>2016-01-18T00:00:00-05:00</updated>
+<id>/julia/echarts</id>
+<content type="html" xml:base="/julia/echarts.html">
+</content>
+<category term="Julia" />
+<summary></summary>
+</entry>
+<entry>
+<title>H2O.jl</title>
+<link href="/julia/h2o.html" rel="alternate" type="text/html" title="H2O.jl" />
+<published>2016-01-16T00:00:00-05:00</published>
+<updated>2016-01-16T00:00:00-05:00</updated>
+<id>/julia/h2o</id>
+<content type="html" xml:base="/julia/h2o.html">
+</content>
+<category term="Julia" />
+<summary></summary>
+</entry>
+</feed>
