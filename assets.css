@@ -688,8 +688,9 @@ a, a:hover {
     font-size: 26px;
 }
 #sidebar h1 a > img {
-  padding-top: 15px;
-  padding-right: 15px;
+  padding-top: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
 }
 
 #content {
