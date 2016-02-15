@@ -4,7 +4,6 @@ title: 'RSiteCatalyst'
 #type: 'GET'
 layout: nil
 ---
-
 An R package for accessing the Adobe Analytics Reporting API.
 
 ### Relevant Links
@@ -12,6 +11,8 @@ An R package for accessing the Adobe Analytics Reporting API.
 Public Repository Link: [https://cran.r-project.org/package=RSiteCatalyst](https://cran.r-project.org/package=RSiteCatalyst)
 
 GitHub Link: [https://github.com/randyzwitch/RSiteCatalyst](https://github.com/randyzwitch/RSiteCatalyst)
+
+Package Documentation: [http://randyzwitch.com/rsitecatalyst/](http://randyzwitch.com/rsitecatalyst/)
 
 API Documentation: [https://marketing.adobe.com/developer/en_US/documentation](https://marketing.adobe.com/developer/en_US/documentation)
 

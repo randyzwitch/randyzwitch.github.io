@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator>
 <link href="/feed.xml" rel="self" type="application/atom+xml" />
 <link href="/" rel="alternate" type="text/html" />
-<updated>2016-02-15T08:26:50-05:00</updated>
+<updated>2016-02-15T08:31:49-05:00</updated>
 <id>/</id>
 <entry>
 <title>RSiteCatalyst</title>
@@ -18,6 +18,8 @@
 &lt;p&gt;Public Repository Link: &lt;a href=&quot;https://cran.r-project.org/package=RSiteCatalyst&quot;&gt;https://cran.r-project.org/package=RSiteCatalyst&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst&quot;&gt;https://github.com/randyzwitch/RSiteCatalyst&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst/&quot;&gt;http://randyzwitch.com/rsitecatalyst/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;API Documentation: &lt;a href=&quot;https://marketing.adobe.com/developer/en_US/documentation&quot;&gt;https://marketing.adobe.com/developer/en_US/documentation&lt;/a&gt;&lt;/p&gt;
 
