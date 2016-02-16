@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator>
 <link href="/feed.xml" rel="self" type="application/atom+xml" />
 <link href="/" rel="alternate" type="text/html" />
-<updated>2016-02-15T08:31:49-05:00</updated>
+<updated>2016-02-15T20:42:12-05:00</updated>
 <id>/</id>
 <entry>
 <title>RSiteCatalyst</title>
@@ -82,10 +82,31 @@
 <published>2016-01-31T00:00:00-05:00</published>
 <updated>2016-01-31T00:00:00-05:00</updated>
 <id>/julia/vega</id>
-<content type="html" xml:base="/julia/vega.html">
+<content type="html" xml:base="/julia/vega.html">&lt;p&gt;A Julia package for generating interactive visualizations, using &lt;a href=&quot;http://vega.github.io/vega/&quot;&gt;Vega.js&lt;/a&gt; as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside &lt;a href=&quot;http://jupyter.org/&quot;&gt;Jupyter Notebook&lt;/a&gt;, and also works with &lt;a href=&quot;https://github.com/JuliaLang/Interact.jl&quot;&gt;Interact.jl&lt;/a&gt; and &lt;a href=&quot;http://escher-jl.org/&quot;&gt;Escher.jl&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/juliacon-2015-everyday-analytics-and-visualization-video/&quot;&gt;JuliaCon 2015: Everyday Analytics and Visualization (video)&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/vega-jl-julia/&quot;&gt;Vega.jl Rebooted – Now with 100% More Pie and Donut Charts!&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 </content>
 <category term="Julia" />
-<summary></summary>
+<summary>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebook, and also works with Interact.jl and Escher.jl.</summary>
 </entry>
 <entry>
 <title>UAParser.jl</title>
@@ -93,10 +114,22 @@
 <published>2016-01-28T00:00:00-05:00</published>
 <updated>2016-01-28T00:00:00-05:00</updated>
 <id>/julia/uaparser</id>
-<content type="html" xml:base="/julia/uaparser.html">
+<content type="html" xml:base="/julia/uaparser.html">&lt;p&gt;A Julia package for&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/UAParser&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/UAParser&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/JuliaWeb/UAParser.jl&quot;&gt;https://github.com/JuliaWeb/UAParser.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation:&lt;/p&gt;
+
+&lt;p&gt;API Documentation:&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 </content>
 <category term="Julia" />
-<summary></summary>
+<summary>A Julia package for</summary>
 </entry>
 <entry>
 <title>NoveltyColors.jl</title>
@@ -104,10 +137,20 @@
 <published>2016-01-26T00:00:00-05:00</published>
 <updated>2016-01-26T00:00:00-05:00</updated>
 <id>/julia/noveltycolors</id>
-<content type="html" xml:base="/julia/noveltycolors.html">
+<content type="html" xml:base="/julia/noveltycolors.html">&lt;p&gt;A Julia package for&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/NoveltyColors&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/NoveltyColors&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/NoveltyColors.jl&quot;&gt;https://github.com/randyzwitch/NoveltyColors.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://randyzwitch.github.io/NoveltyColors.jl/&quot;&gt;http://randyzwitch.github.io/NoveltyColors.jl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 </content>
 <category term="Julia" />
-<summary></summary>
+<summary>A Julia package for</summary>
 </entry>
 <entry>
 <title>Twitter.jl</title>
@@ -115,10 +158,22 @@
 <published>2016-01-24T00:00:00-05:00</published>
 <updated>2016-01-24T00:00:00-05:00</updated>
 <id>/julia/twitter</id>
-<content type="html" xml:base="/julia/twitter.html">
+<content type="html" xml:base="/julia/twitter.html">&lt;p&gt;A Julia package for accessing the Twitter API, version v1.1. This package provides for most of the GET and POST methods of the API; the streaming API is not currently supported.&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Twitter&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Twitter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl&quot;&gt;https://github.com/randyzwitch/Twitter.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 </content>
 <category term="Julia" />
-<summary></summary>
+<summary>A Julia package for accessing the Twitter API, version v1.1. This package provides for most of the GET and POST methods of the API; the streaming API is not currently supported.</summary>
 </entry>
 <entry>
 <title>OAuth.jl</title>
@@ -126,10 +181,22 @@
 <published>2016-01-22T00:00:00-05:00</published>
 <updated>2016-01-22T00:00:00-05:00</updated>
 <id>/julia/oauth</id>
-<content type="html" xml:base="/julia/oauth.html">
+<content type="html" xml:base="/julia/oauth.html">&lt;p&gt;A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 </content>
 <category term="Julia" />
-<summary></summary>
+<summary>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.</summary>
 </entry>
 <entry>
 <title>LogParser.jl</title>
@@ -137,10 +204,22 @@
 <published>2016-01-20T00:00:00-05:00</published>
 <updated>2016-01-20T00:00:00-05:00</updated>
 <id>/julia/logparser</id>
-<content type="html" xml:base="/julia/logparser.html">
+<content type="html" xml:base="/julia/logparser.html">&lt;p&gt;A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 </content>
 <category term="Julia" />
-<summary></summary>
+<summary>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.</summary>
 </entry>
 <entry>
 <title>ECharts.jl</title>
@@ -148,10 +227,22 @@
 <published>2016-01-18T00:00:00-05:00</published>
 <updated>2016-01-18T00:00:00-05:00</updated>
 <id>/julia/echarts</id>
-<content type="html" xml:base="/julia/echarts.html">
+<content type="html" xml:base="/julia/echarts.html">&lt;p&gt;A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 </content>
 <category term="Julia" />
-<summary></summary>
+<summary>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.</summary>
 </entry>
 <entry>
 <title>H2O.jl</title>
@@ -159,9 +250,21 @@
 <published>2016-01-16T00:00:00-05:00</published>
 <updated>2016-01-16T00:00:00-05:00</updated>
 <id>/julia/h2o</id>
-<content type="html" xml:base="/julia/h2o.html">
+<content type="html" xml:base="/julia/h2o.html">&lt;p&gt;A Julia package for&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 </content>
 <category term="Julia" />
-<summary></summary>
+<summary>A Julia package for</summary>
 </entry>
 </feed>
