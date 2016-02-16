@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator>
 <link href="/feed.xml" rel="self" type="application/atom+xml" />
 <link href="/" rel="alternate" type="text/html" />
-<updated>2016-02-15T20:42:12-05:00</updated>
+<updated>2016-02-16T10:17:38-05:00</updated>
 <id>/</id>
 <entry>
 <title>RSiteCatalyst</title>
@@ -109,10 +109,79 @@
 <summary>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebook, and also works with Interact.jl and Escher.jl.</summary>
 </entry>
 <entry>
+<title>NoveltyColors.jl</title>
+<link href="/julia/noveltycolors.html" rel="alternate" type="text/html" title="NoveltyColors.jl" />
+<published>2016-01-29T00:00:00-05:00</published>
+<updated>2016-01-29T00:00:00-05:00</updated>
+<id>/julia/noveltycolors</id>
+<content type="html" xml:base="/julia/noveltycolors.html">&lt;p&gt;A Julia package for fun, non-standard color palettes. Color palettes range from fashion, to movie directors and even community-sourced contributions.&lt;/p&gt;
+
+&lt;p&gt;While there is no law against using these color palettes for scientific visualization, you should probably use more standard palette packages such as &lt;a href=&quot;https://github.com/timothyrenner/ColorBrewer.jl&quot;&gt;ColorBrewer.jl&lt;/a&gt; or &lt;a href=&quot;https://github.com/JuliaGraphics/Colors.jl&quot;&gt;Colors.jl&lt;/a&gt;, to ensure you account for proper contrast, colorblind readers and other considerations.&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/NoveltyColors&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/NoveltyColors&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/NoveltyColors.jl&quot;&gt;https://github.com/randyzwitch/NoveltyColors.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://randyzwitch.github.io/NoveltyColors.jl/&quot;&gt;http://randyzwitch.github.io/NoveltyColors.jl/&lt;/a&gt;&lt;/p&gt;
+</content>
+<category term="Julia" />
+<summary>A Julia package for fun, non-standard color palettes. Color palettes range from fashion, to movie directors and even community-sourced contributions.</summary>
+</entry>
+<entry>
+<title>Twitter.jl</title>
+<link href="/julia/twitter.html" rel="alternate" type="text/html" title="Twitter.jl" />
+<published>2016-01-24T00:00:00-05:00</published>
+<updated>2016-01-24T00:00:00-05:00</updated>
+<id>/julia/twitter</id>
+<content type="html" xml:base="/julia/twitter.html">&lt;p&gt;A Julia package for accessing the Twitter API, version v1.1. This package provides for most of the GET and POST methods of the API; the streaming API is not currently supported.&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Twitter&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Twitter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl&quot;&gt;https://github.com/randyzwitch/Twitter.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl/blob/master/test/runtests.jl&quot;&gt;https://github.com/randyzwitch/Twitter.jl/blob/master/test/runtests.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;https://dev.twitter.com/rest/public&quot;&gt;https://dev.twitter.com/rest/public&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://randyzwitch.com/twitter-api-julia/&quot;&gt;Introducing Twitter.jl&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+<category term="Julia" />
+<summary>A Julia package for accessing the Twitter API, version v1.1. This package provides for most of the GET and POST methods of the API; the streaming API is not currently supported.</summary>
+</entry>
+<entry>
+<title>OAuth.jl</title>
+<link href="/julia/oauth.html" rel="alternate" type="text/html" title="OAuth.jl" />
+<published>2016-01-23T00:00:00-05:00</published>
+<updated>2016-01-23T00:00:00-05:00</updated>
+<id>/julia/oauth</id>
+<content type="html" xml:base="/julia/oauth.html">&lt;p&gt;A Julia package implementing my reading of the OAuth 1.0a protocol. This package provides the OAuth support for &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl&quot;&gt;Twitter.jl&lt;/a&gt;, so it should be fairly complete in its implementation (to the extent that Twitter follows the protocol).&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/OAuth&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/OAuth&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/OAuth.jl&quot;&gt;https://github.com/randyzwitch/OAuth.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Package Documentation: &lt;a href=&quot;https://github.com/randyzwitch/OAuth.jl/blob/master/test/runtests.jl&quot;&gt;https://github.com/randyzwitch/OAuth.jl/blob/master/test/runtests.jl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API Documentation: &lt;a href=&quot;http://tools.ietf.org/html/rfc5849&quot;&gt;http://tools.ietf.org/html/rfc5849&lt;/a&gt;&lt;/p&gt;
+</content>
+<category term="Julia" />
+<summary>A Julia package implementing my reading of the OAuth 1.0a protocol. This package provides the OAuth support for Twitter.jl, so it should be fairly complete in its implementation (to the extent that Twitter follows the protocol).</summary>
+</entry>
+<entry>
 <title>UAParser.jl</title>
 <link href="/julia/uaparser.html" rel="alternate" type="text/html" title="UAParser.jl" />
-<published>2016-01-28T00:00:00-05:00</published>
-<updated>2016-01-28T00:00:00-05:00</updated>
+<published>2016-01-22T00:00:00-05:00</published>
+<updated>2016-01-22T00:00:00-05:00</updated>
 <id>/julia/uaparser</id>
 <content type="html" xml:base="/julia/uaparser.html">&lt;p&gt;A Julia package for&lt;/p&gt;
 
@@ -130,73 +199,6 @@
 </content>
 <category term="Julia" />
 <summary>A Julia package for</summary>
-</entry>
-<entry>
-<title>NoveltyColors.jl</title>
-<link href="/julia/noveltycolors.html" rel="alternate" type="text/html" title="NoveltyColors.jl" />
-<published>2016-01-26T00:00:00-05:00</published>
-<updated>2016-01-26T00:00:00-05:00</updated>
-<id>/julia/noveltycolors</id>
-<content type="html" xml:base="/julia/noveltycolors.html">&lt;p&gt;A Julia package for&lt;/p&gt;
-
-&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
-
-&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/NoveltyColors&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/NoveltyColors&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/NoveltyColors.jl&quot;&gt;https://github.com/randyzwitch/NoveltyColors.jl&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Package Documentation: &lt;a href=&quot;http://randyzwitch.github.io/NoveltyColors.jl/&quot;&gt;http://randyzwitch.github.io/NoveltyColors.jl/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
-</content>
-<category term="Julia" />
-<summary>A Julia package for</summary>
-</entry>
-<entry>
-<title>Twitter.jl</title>
-<link href="/julia/twitter.html" rel="alternate" type="text/html" title="Twitter.jl" />
-<published>2016-01-24T00:00:00-05:00</published>
-<updated>2016-01-24T00:00:00-05:00</updated>
-<id>/julia/twitter</id>
-<content type="html" xml:base="/julia/twitter.html">&lt;p&gt;A Julia package for accessing the Twitter API, version v1.1. This package provides for most of the GET and POST methods of the API; the streaming API is not currently supported.&lt;/p&gt;
-
-&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
-
-&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Twitter&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Twitter&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl&quot;&gt;https://github.com/randyzwitch/Twitter.jl&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
-</content>
-<category term="Julia" />
-<summary>A Julia package for accessing the Twitter API, version v1.1. This package provides for most of the GET and POST methods of the API; the streaming API is not currently supported.</summary>
-</entry>
-<entry>
-<title>OAuth.jl</title>
-<link href="/julia/oauth.html" rel="alternate" type="text/html" title="OAuth.jl" />
-<published>2016-01-22T00:00:00-05:00</published>
-<updated>2016-01-22T00:00:00-05:00</updated>
-<id>/julia/oauth</id>
-<content type="html" xml:base="/julia/oauth.html">&lt;p&gt;A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.&lt;/p&gt;
-
-&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
-
-&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
-</content>
-<category term="Julia" />
-<summary>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.</summary>
 </entry>
 <entry>
 <title>LogParser.jl</title>

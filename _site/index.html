@@ -61,13 +61,13 @@
       
         <li class=''><a href='#/julia/vega.html'>Vega.jl</a></li>
       
-        <li class=''><a href='#/julia/uaparser.html'>UAParser.jl</a></li>
-      
         <li class=''><a href='#/julia/noveltycolors.html'>NoveltyColors.jl</a></li>
       
         <li class=''><a href='#/julia/twitter.html'>Twitter.jl</a></li>
       
         <li class=''><a href='#/julia/oauth.html'>OAuth.jl</a></li>
+      
+        <li class=''><a href='#/julia/uaparser.html'>UAParser.jl</a></li>
       
         <li class=''><a href='#/julia/logparser.html'>LogParser.jl</a></li>
       
@@ -183,29 +183,11 @@
   </article>
 
   <article class=''>
-    <a name='/julia/uaparser.html' href='#/julia/uaparser.html'><h2>UAParser.jl</h2></a>
-    <section class='body'>
-      <p>A Julia package for</p>
-
-<h3 id="relevant-links">Relevant Links</h3>
-
-<p>Public Repository Link: <a href="https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/UAParser">https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/UAParser</a></p>
-
-<p>GitHub Link: <a href="https://github.com/JuliaWeb/UAParser.jl">https://github.com/JuliaWeb/UAParser.jl</a></p>
-
-<p>Package Documentation:</p>
-
-<p>API Documentation:</p>
-
-<h3 id="blog-posts">Blog Posts</h3>
-
-    </section>
-  </article>
-
-  <article class=''>
     <a name='/julia/noveltycolors.html' href='#/julia/noveltycolors.html'><h2>NoveltyColors.jl</h2></a>
     <section class='body'>
-      <p>A Julia package for</p>
+      <p>A Julia package for fun, non-standard color palettes. Color palettes range from fashion, to movie directors and even community-sourced contributions.</p>
+
+<p>While there is no law against using these color palettes for scientific visualization, you should probably use more standard palette packages such as <a href="https://github.com/timothyrenner/ColorBrewer.jl">ColorBrewer.jl</a> or <a href="https://github.com/JuliaGraphics/Colors.jl">Colors.jl</a>, to ensure you account for proper contrast, colorblind readers and other considerations.</p>
 
 <h3 id="relevant-links">Relevant Links</h3>
 
@@ -214,8 +196,6 @@
 <p>GitHub Link: <a href="https://github.com/randyzwitch/NoveltyColors.jl">https://github.com/randyzwitch/NoveltyColors.jl</a></p>
 
 <p>Package Documentation: <a href="http://randyzwitch.github.io/NoveltyColors.jl/">http://randyzwitch.github.io/NoveltyColors.jl/</a></p>
-
-<h3 id="blog-posts">Blog Posts</h3>
 
     </section>
   </article>
@@ -231,11 +211,15 @@
 
 <p>GitHub Link: <a href="https://github.com/randyzwitch/Twitter.jl">https://github.com/randyzwitch/Twitter.jl</a></p>
 
-<p>Package Documentation: <a href="http://johnmyleswhite.github.io/Vega.jl/">http://johnmyleswhite.github.io/Vega.jl/</a></p>
+<p>Package Documentation: <a href="https://github.com/randyzwitch/Twitter.jl/blob/master/test/runtests.jl">https://github.com/randyzwitch/Twitter.jl/blob/master/test/runtests.jl</a></p>
 
-<p>API Documentation: <a href="https://github.com/vega/vega/wiki">https://github.com/vega/vega/wiki</a></p>
+<p>API Documentation: <a href="https://dev.twitter.com/rest/public">https://dev.twitter.com/rest/public</a></p>
 
 <h3 id="blog-posts">Blog Posts</h3>
+
+<ul>
+  <li><a href="http://randyzwitch.com/twitter-api-julia/">Introducing Twitter.jl</a></li>
+</ul>
 
     </section>
   </article>
@@ -243,17 +227,35 @@
   <article class=''>
     <a name='/julia/oauth.html' href='#/julia/oauth.html'><h2>OAuth.jl</h2></a>
     <section class='body'>
-      <p>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.</p>
+      <p>A Julia package implementing my reading of the OAuth 1.0a protocol. This package provides the OAuth support for <a href="https://github.com/randyzwitch/Twitter.jl">Twitter.jl</a>, so it should be fairly complete in its implementation (to the extent that Twitter follows the protocol).</p>
 
 <h3 id="relevant-links">Relevant Links</h3>
 
-<p>Public Repository Link: <a href="https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega">https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega</a></p>
+<p>Public Repository Link: <a href="https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/OAuth">https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/OAuth</a></p>
 
-<p>GitHub Link: <a href="https://github.com/johnmyleswhite/Vega.jl">https://github.com/johnmyleswhite/Vega.jl</a></p>
+<p>GitHub Link: <a href="https://github.com/randyzwitch/OAuth.jl">https://github.com/randyzwitch/OAuth.jl</a></p>
 
-<p>Package Documentation: <a href="http://johnmyleswhite.github.io/Vega.jl/">http://johnmyleswhite.github.io/Vega.jl/</a></p>
+<p>Package Documentation: <a href="https://github.com/randyzwitch/OAuth.jl/blob/master/test/runtests.jl">https://github.com/randyzwitch/OAuth.jl/blob/master/test/runtests.jl</a></p>
 
-<p>API Documentation: <a href="https://github.com/vega/vega/wiki">https://github.com/vega/vega/wiki</a></p>
+<p>API Documentation: <a href="http://tools.ietf.org/html/rfc5849">http://tools.ietf.org/html/rfc5849</a></p>
+
+    </section>
+  </article>
+
+  <article class=''>
+    <a name='/julia/uaparser.html' href='#/julia/uaparser.html'><h2>UAParser.jl</h2></a>
+    <section class='body'>
+      <p>A Julia package for</p>
+
+<h3 id="relevant-links">Relevant Links</h3>
+
+<p>Public Repository Link: <a href="https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/UAParser">https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/UAParser</a></p>
+
+<p>GitHub Link: <a href="https://github.com/JuliaWeb/UAParser.jl">https://github.com/JuliaWeb/UAParser.jl</a></p>
+
+<p>Package Documentation:</p>
+
+<p>API Documentation:</p>
 
 <h3 id="blog-posts">Blog Posts</h3>
 
