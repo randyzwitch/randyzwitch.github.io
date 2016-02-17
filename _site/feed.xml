@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator>
 <link href="/feed.xml" rel="self" type="application/atom+xml" />
 <link href="/" rel="alternate" type="text/html" />
-<updated>2016-02-17T09:18:08-05:00</updated>
+<updated>2016-02-17T09:20:30-05:00</updated>
 <id>/</id>
 <entry>
 <title>RSiteCatalyst</title>
@@ -238,21 +238,19 @@
 <published>2016-01-16T00:00:00-05:00</published>
 <updated>2016-01-16T00:00:00-05:00</updated>
 <id>/julia/h2o</id>
-<content type="html" xml:base="/julia/h2o.html">&lt;p&gt;A Julia package for&lt;/p&gt;
+<content type="html" xml:base="/julia/h2o.html">&lt;p&gt;A Julia package for interacting with the H2O machine-learning API. This project is not currently under active development and not listed on METADATA.&lt;/p&gt;
 
 &lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
 
-&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Public Repository Link:&lt;/p&gt;
 
-&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/H2O.jl&quot;&gt;https://github.com/randyzwitch/H2O.jl&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Package Documentation:&lt;/p&gt;
 
-&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
+&lt;p&gt;API Documentation:&lt;/p&gt;
 </content>
 <category term="Julia" />
-<summary>A Julia package for</summary>
+<summary>A Julia package for interacting with the H2O machine-learning API. This project is not currently under active development and not listed on METADATA.</summary>
 </entry>
 </feed>
