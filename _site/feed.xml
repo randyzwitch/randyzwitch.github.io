@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator>
 <link href="/feed.xml" rel="self" type="application/atom+xml" />
 <link href="/" rel="alternate" type="text/html" />
-<updated>2016-02-16T10:17:38-05:00</updated>
+<updated>2016-02-17T09:18:08-05:00</updated>
 <id>/</id>
 <entry>
 <title>RSiteCatalyst</title>
@@ -183,22 +183,16 @@
 <published>2016-01-22T00:00:00-05:00</published>
 <updated>2016-01-22T00:00:00-05:00</updated>
 <id>/julia/uaparser</id>
-<content type="html" xml:base="/julia/uaparser.html">&lt;p&gt;A Julia package for&lt;/p&gt;
+<content type="html" xml:base="/julia/uaparser.html">&lt;p&gt;A Julia package for parsing user-agent strings, based on the &lt;a href=&quot;https://github.com/tobie/ua-parser&quot;&gt;ua-parser&lt;/a&gt; package, which itself is a port of the original &lt;a href=&quot;http://code.google.com/p/ua-parser/&quot;&gt;BrowserScope’s user agent string parser&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
 
 &lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/UAParser&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/UAParser&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/JuliaWeb/UAParser.jl&quot;&gt;https://github.com/JuliaWeb/UAParser.jl&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Package Documentation:&lt;/p&gt;
-
-&lt;p&gt;API Documentation:&lt;/p&gt;
-
-&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 </content>
 <category term="Julia" />
-<summary>A Julia package for</summary>
+<summary>A Julia package for parsing user-agent strings, based on the ua-parser package, which itself is a port of the original BrowserScope’s user agent string parser.</summary>
 </entry>
 <entry>
 <title>LogParser.jl</title>
@@ -206,22 +200,16 @@
 <published>2016-01-20T00:00:00-05:00</published>
 <updated>2016-01-20T00:00:00-05:00</updated>
 <id>/julia/logparser</id>
-<content type="html" xml:base="/julia/logparser.html">&lt;p&gt;A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.&lt;/p&gt;
+<content type="html" xml:base="/julia/logparser.html">&lt;p&gt;A Julia package for parsing the Apache combined log format. The ability to parse other log formats may be added at a later date.&lt;/p&gt;
 
 &lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
 
-&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/LogParser&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/LogParser&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/LogParser.jl&quot;&gt;https://github.com/randyzwitch/LogParser.jl&lt;/a&gt;&lt;/p&gt;
 </content>
 <category term="Julia" />
-<summary>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.</summary>
+<summary>A Julia package for parsing the Apache combined log format. The ability to parse other log formats may be added at a later date.</summary>
 </entry>
 <entry>
 <title>ECharts.jl</title>
@@ -229,22 +217,20 @@
 <published>2016-01-18T00:00:00-05:00</published>
 <updated>2016-01-18T00:00:00-05:00</updated>
 <id>/julia/echarts</id>
-<content type="html" xml:base="/julia/echarts.html">&lt;p&gt;A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.&lt;/p&gt;
+<content type="html" xml:base="/julia/echarts.html">&lt;p&gt;A Julia package for generating interactive visualizations, using ECharts.js as the underlying visualization engine. This package is still under beginning development and is not listed on METADATA.&lt;/p&gt;
 
 &lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
 
-&lt;p&gt;Public Repository Link: &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&quot;&gt;https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Public Repository Link:&lt;/p&gt;
 
-&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/johnmyleswhite/Vega.jl&quot;&gt;https://github.com/johnmyleswhite/Vega.jl&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/ECharts.jl&quot;&gt;https://github.com/randyzwitch/ECharts.jl&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Package Documentation: &lt;a href=&quot;http://johnmyleswhite.github.io/Vega.jl/&quot;&gt;http://johnmyleswhite.github.io/Vega.jl/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Package Documentation:&lt;/p&gt;
 
-&lt;p&gt;API Documentation: &lt;a href=&quot;https://github.com/vega/vega/wiki&quot;&gt;https://github.com/vega/vega/wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
+&lt;p&gt;API Documentation:&lt;/p&gt;
 </content>
 <category term="Julia" />
-<summary>A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.</summary>
+<summary>A Julia package for generating interactive visualizations, using ECharts.js as the underlying visualization engine. This package is still under beginning development and is not listed on METADATA.</summary>
 </entry>
 <entry>
 <title>H2O.jl</title>

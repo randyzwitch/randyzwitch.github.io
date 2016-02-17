@@ -6,16 +6,10 @@ title: 'LogParser.jl'
 
 layout: nil
 ---
-A Julia package for generating interactive visualizations, using Vega.js as the underlying visualization engine. Vega.jl can be run from the Julia REPL, from inside Jupyter Notebooks, and also works with Interact.jl and Escher.jl.
+A Julia package for parsing the Apache combined log format. The ability to parse other log formats may be added at a later date.
 
 ### Relevant Links
 
-Public Repository Link: [https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega](https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/Vega)
+Public Repository Link: [https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/LogParser](https://github.com/JuliaLang/METADATA.jl/tree/metadata-v2/LogParser)
 
-GitHub Link: [https://github.com/johnmyleswhite/Vega.jl](https://github.com/johnmyleswhite/Vega.jl)
-
-Package Documentation: [http://johnmyleswhite.github.io/Vega.jl/](http://johnmyleswhite.github.io/Vega.jl/)
-
-API Documentation: [https://github.com/vega/vega/wiki](https://github.com/vega/vega/wiki)
-
-### Blog Posts
+GitHub Link: [https://github.com/randyzwitch/LogParser.jl](https://github.com/randyzwitch/LogParser.jl)
