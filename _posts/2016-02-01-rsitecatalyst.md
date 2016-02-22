@@ -18,6 +18,8 @@ API Documentation: [https://marketing.adobe.com/developer/en_US/documentation](h
 
 ### Blog Posts
 
+* [Calling RSiteCatalyst from Python](http://randyzwitch.com/rsitecatalyst-adobe-analytics-python/)
+
 * [Market Basket Analysis With Adobe Analytics And RSiteCatalyst](http://33sticks.com/rsitecatalyst-market-basket-analysis-adobe-analytics/)
 
 * [Great R packages for data import, wrangling & visualization](http://www.computerworld.com/article/2921176/business-intelligence/great-r-packages-for-data-import-wrangling-visualization.html)
