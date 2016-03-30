@@ -3,8 +3,28 @@
 <generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator>
 <link href="/feed.xml" rel="self" type="application/atom+xml" />
 <link href="/" rel="alternate" type="text/html" />
-<updated>2016-02-17T09:20:30-05:00</updated>
+<updated>2016-03-30T13:45:51-04:00</updated>
 <id>/</id>
+<entry>
+<title>Analytics Playbook</title>
+<link href="/analyticsplaybook.html" rel="alternate" type="text/html" title="Analytics Playbook" />
+<published>2016-03-01T00:00:00-05:00</published>
+<updated>2016-03-01T00:00:00-05:00</updated>
+<id>/analyticsplaybook</id>
+<content type="html" xml:base="/analyticsplaybook.html">&lt;p&gt;The aim of this project is simple: information deserves to be free.&lt;/p&gt;
+
+&lt;p&gt;The “analytics” industry is no longer a community of like-minded analysts, sharing techniques and lifting each other up. Now, it’s just vendors and consultants writing advertisements about how they can “help” you (assuming you’re willing to fill out a lead-gen form, for no more details than thinly-veiled sales pitch). Gone are the days where people shared analysis techniques, provided code snippets or even wrote JavaScript plugins and gave them away to the community; now it’s just multi-thousand dollar conferences, where the speakers do nothing more than ape the knowledge that can be learned freely from a Tufte book, or from an (un-sourced) blog post.&lt;/p&gt;
+
+&lt;p&gt;All contributions are welcome; everyone knows something that someone else doesn’t!&lt;/p&gt;
+
+&lt;h3 id=&quot;relevant-links&quot;&gt;Relevant Links&lt;/h3&gt;
+
+&lt;p&gt;Public Link: &lt;a href=&quot;http://analyticsplaybook.org/&quot;&gt;http://analyticsplaybook.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/analyticsplaybook/analyticsplaybook.github.io&quot;&gt;https://github.com/analyticsplaybook/analyticsplaybook.github.io&lt;/a&gt;&lt;/p&gt;
+</content>
+<summary>The aim of this project is simple: information deserves to be free.</summary>
+</entry>
 <entry>
 <title>RSiteCatalyst</title>
 <link href="/r/rsitecatalyst.html" rel="alternate" type="text/html" title="RSiteCatalyst" />
@@ -26,6 +46,9 @@
 &lt;h3 id=&quot;blog-posts&quot;&gt;Blog Posts&lt;/h3&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-adobe-analytics-python/&quot;&gt;Calling RSiteCatalyst from Python&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;http://33sticks.com/rsitecatalyst-market-basket-analysis-adobe-analytics/&quot;&gt;Market Basket Analysis With Adobe Analytics And RSiteCatalyst&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -225,7 +248,7 @@
 
 &lt;p&gt;GitHub Link: &lt;a href=&quot;https://github.com/randyzwitch/ECharts.jl&quot;&gt;https://github.com/randyzwitch/ECharts.jl&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Package Documentation:&lt;/p&gt;
+&lt;p&gt;Package Documentation: &lt;a href=&quot;http://randyzwitch.github.io/ECharts.jl/&quot;&gt;http://randyzwitch.github.io/ECharts.jl/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;API Documentation:&lt;/p&gt;
 </content>
