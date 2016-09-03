@@ -1,9 +1,13 @@
----
-exclude: ['README.markdown']
-permalink: '/:categories/:title.html'
-highlighter: 'rouge'
-safe: false
-title: 'Randy Zwitch'
-
 gems:
-  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+twitter:
+  username: randyzwitch
+
+permalink: /:categories/:title.html
+
+name: randyzwitch
+url: http://randyzwitch.com
+
+paginate: 3
