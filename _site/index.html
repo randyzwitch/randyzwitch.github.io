@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <title>randyzwitch.com | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="alternate" type="application/rss+xml" title="My Site RSS" href="/feed.xml" />
-	<meta name="google-site-verification" content="jb8G-OKpGcofrmBS1UMKipsicRCLsh6qlYqI8vfi_6s" />
+	<link rel="alternate" type="application/rss+xml" title="randyzwitch.com RSS" href="/feed.xml" />
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- styles -->
@@ -58,14 +57,326 @@
 		</nav>
 
 		<div class="row">
+			<div class="col-md-9">
+				<!-- This loops through the paginated posts -->
+
+<h1 class="entry-title">
+
+    <a href="/rsitecatalyst-bulk-download-version-1-4-9-release-notes/">Bulk Downloading Adobe Analytics Data</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">July 21, 2016</a> &times; 
+      </div>
+  </div>
+  <div class="content">
+    <p><em>This blog post also serves as release notes for RSiteCatalyst v1.4.9, as only one feature was added (batch report request and download). But it’s a feature big enough for its own post!</em></p>
+
+<p>Recently, I was asked how I would approach replicating the <a href="http://33sticks.com/rsitecatalyst-market-basket-analysis-adobe-analytics/">market basket analysis</a> blog post I wrote for <a href="http://33sticks.com/">33 Sticks</a>, but using a lot more data. Like, months and months of order-level data. While you <em>might</em> be able to submit multiple months worth of data in a single RSiteCatalyst call, it’s a lot more elegant to request data from the Adobe Analytics API in several calls. With the new batch-submit and batch-receive functionality in RSiteCatalyst, this process can be a LOT faster.</p>
+
+<h2 id="non-batched-method">Non-Batched Method</h2>
+
+<p>Prior to version 1.4.9 of RSiteCatalyst, API calls could only be made in a serial fashion:</p>
+
+<p>The underlying assumption from a package development standpoint was that the user would be working in an interactive fashion; submit a report request, wait to get the answer back. There’s nothing inherently wrong with this code from an R standpoint that made this a slow process, you just had to wait until one report was calculated by the Adobe Analytics API until the next one was submitted.</p>
+
+<h2 id="batch-method">Batch Method</h2>
+
+<p>Of course, most APIs can process multiple calls simultaneously, and the Adobe Analytics API is no exception. Thanks to user <a href="https://github.com/shashispace">shashispace</a>, it’s now possible to submit all of your report calls at once, then retrieve the results:</p>
+
+<p>This code is nearly identical to the serial snippet above, except for 1) the addition of the <em><span class="pl-v">enqueueOnly</span> <span class="pl-k">=</span></em> <span class="pl-c1"><em>TRUE</em> keyword argument and 2) lowering the <em>interval.seconds</em> keyword argument to 1 second instead of 60. When you use the enqueueOnly keyword, instead of returning the report results back, a Queue* function will return the report.id; by accumulating these report.id values in a list, we can next retrieve the reports and bind them together using dplyr.</span></p>
+
+<h2 id="performance-gain-4x-speed-up">Performance gain: 4x speed-up</h2>
+
+<p>Although the code snippets are nearly identical, it is way faster to submit the reports all at once then retrieve the results. By submitting the requests all at once, the API will process numerous calls at once, and while you are retrieving the results of one call the others will continue to process in the background.</p>
+
+<p>I wouldn’t have thought this would make such a difference, but retrieving one month of daily order-level data went from taking 2420 seconds to 560 seconds! If you were to retrieve the same amount of daily data, but for an entire year, that would mean saving 6 hours in processing time.</p>
+
+<h2 id="keep-the-pull-requests-coming">Keep The Pull Requests Coming!</h2>
+
+<p>The last several RSiteCatalyst releases have been driven by contributions from the community and I couldn’t be happier! Given that I don’t spend much time in my professional life now using Adobe Analytics, having improvements driven by a community of users using the library daily is just so rewarding.</p>
+
+<p>So please, if you have a comment for improvement (and especially if you find a bug), please submit an <a href="https://github.com/randyzwitch/RSiteCatalyst/issues">issue on GitHub</a>. Submitting questions and issues to GitHub is the easiest way for me to provide support, while also giving other users the possibility to answer your question before I might. It will also provide a means for others to determine if they are experiencing a new or previously-known problem.</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
+    <a href="/adobe-analytics-clickstream-data-feed-calculations/">Adobe Analytics Clickstream Data Feed: Calculations and Outlier Analysis</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">May 24, 2016</a> &times; 
+      </div>
+  </div>
+  <div class="content">
+    <p>In a previous post, I outlined how to load <a href="http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/">daily Adobe Analytics Clickstream data feeds</a> into a PostgreSQL database. While this isn’t a long-term scalable solution for large e-commerce companies doing millions of page views per day, for exploratory analysis a relational database structure can work well until a more robust solution is put into place (such as Hadoop/Spark).</p>
+
+<h2 id="data-validation-groan">Data Validation <groan></groan></h2>
+
+<p>Before digging too deeply into the data, we should validate that data from the data feed in our database (<a href="https://gist.github.com/randyzwitch/7a9c48e7132e6ed9dfb0d02ec906961c">custom database view code</a>) matches what we observe from other sources (mainly, the Adobe Analytics interface and/or <a href="http://randyzwitch.com/tag/rsitecatalyst/">RSiteCatalyst</a>). Given the Adobe Analytics data feed represents an export of the underlying data, and Adobe provides the formulas in the <a href="https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_calculate.html">data feed documentation</a>, <em>in theory</em> you should be able to replicate the numbers exactly:</p>
+
+<p>The code snippet above shows the validation, and sure enough, the “two different sources” show the same exact values (i.e. differences are 0), so everything has been loaded properly into the PostgreSQL database.</p>
+
+<h2 id="finding-anomalies-for-creating-bot-rules">Finding Anomalies For Creating Bot Rules</h2>
+
+<p>With the data validated, we can now start digging deeper into the data. As an example, although I have <a href="https://marketing.adobe.com/resources/help/en_US/reference/bot_rules.html">bot filtering</a> enabled, this only handles bots on the <a href="http://www.iab.com/guidelines/iab-abc-international-spiders-bots-list/">IAB bot list</a> but not necessarily people trying to scrape my site (or worse).</p>
+
+<p>To create a <a href="https://marketing.adobe.com/resources/help/en_US/reference/t_create_bot_rules.html" target="_blank">custom bot rule in Adobe Analytics</a>, you can use IP address(es) and/or User-Agent string. However, as part of data exploration we are not limited to just these features (assuming, of course, that you can map your feature set back to an IP/User-Agent combo). To identify outlier behavior, I’m going to use a technique called ‘<a href="http://www.dbs.ifi.lmu.de/Publikationen/Papers/LOF.pdf">local outlier factors</a>‘ using the <a href="https://cran.r-project.org/web/packages/Rlof/index.html">Rlof</a> package in R with the following data features:</p>
+
+<ul>
+  <li>Distinct Days Visited</li>
+  <li>Total Pageviews</li>
+  <li>Total Visits</li>
+  <li>Distinct Pages Viewed</li>
+  <li>Pageviews Per Visit</li>
+  <li>Average Views Per Page</li>
+</ul>
+
+<p>These aren’t the only features I could’ve used, but it should be pretty easy to view bot/scraper traffic using these metrics. Here’s the code:</p>
+
+<p>A local outlier factor greater than 1 is classified as a potential outlier. Here’s a visual of the lof scores for the top 500 <em>worst</em> scoring IP addresses (<a href="https://gist.github.com/randyzwitch/178d72e01e30943f6af82c48a47c4478" target="_blank">vegalite R graph code</a>):</p>
+
+<div id="vis">
+</div>
+
+<p>We can see from the graph that there are at least 500 IP addresses that are potential outliers (since the line doesn’t go below a lof value of 1). These points are now a good starting place to go back to our overall table and inspect the entire datafeed records by IP address.</p>
+
+<h2 id="but-what-about-business-value">But what about business value?</h2>
+
+<p>The example above just scratches the surface on what’s possible when you have access to the raw data from Adobe Analytics. It’s possible to do these calculations on my laptop using R because I only have a few hundred-thousand records and IP addresses. But this kind of ops work is pretty low-value, since unless you are trying to detect system hacking, trying to find hidden scrapers/spiders in your data to filter out just modifies the denominator of your KPIs it doesn’t lead to real money per se.</p>
+
+<p>In the last post of this series, I’ll cover how to work with the datafeed using Spark, and provide an example of using <a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank">Spark MLLib</a> to increase site engagement.</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
+    <a href="/rsitecatalyst-not-adobe-product/">Adobe: Give Credit. You DID NOT Write RSiteCatalyst.</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">May 9, 2016</a> &times; 
+      </div>
+  </div>
+  <div class="content">
+    <p><strong>EDIT 5/10/2016 1:30pm: Several folks from Adobe Analytics/Adobe Marketing Cloud have contacted me, and everything is resolved. I can’t untweet other people’s retweets/shares or delete comments on LinkedIn, but if everyone could stop sharing any more that would be great. 🙂</strong></p>
+
+<hr />
+
+<p>As an <a href="https://github.com/randyzwitch">author of several open-source software projects</a>, I’ve taken for granted that people using the software share the same community values as I do. Open-source authors provide their code “<a href="http://www.howtogeek.com/howto/31717/what-do-the-phrases-free-speech-vs.-free-beer-really-mean/">free</a>” to the community so that others may benefit without having to re-invent the wheel. The only <em>expectation</em> (but not an actual <em>requirement</em> per se), is attribution to the package author(s) as a thank you for the time and effort they put into writing and maintaining a quality piece of software.</p>
+
+<p>However, when others take direct credit for writing a package they did not, it crosses into a different realm. Adobe, you DID NOT write RSiteCatalyst, nor have you made any <a href="https://github.com/randyzwitch/RSiteCatalyst/graphs/contributors">meaningful contributions</a>. To take credit for RSiteCatalyst, either implicitly or explicitly, is a slight to the work of those who have contributed.</p>
+
+<h2 id="adobe-summit-2014-attribution">Adobe Summit 2014: Attribution!</h2>
+
+<p>In the beginning, there seemed to be no problem providing <a href="https://blogs.adobe.com/digitalmarketing/analytics/playing-hits-summit-2014-filtered-metrics-error-monitoring/">proper attribution</a>. I count Ben Gaines as one of my stronger professional acquaintances (dare I say, even a friend), so I was honored that he not only mentioned me on stage at his Adobe Summit 2014 presentation, but also followed up with an <a href="https://blogs.adobe.com/digitalmarketing/analytics/playing-hits-summit-2014-filtered-metrics-error-monitoring/">official Adobe blog post</a> re-capping his main points:</p>
+
+<p><img class="aligncenter size-large wp-image-3924" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-attribution-1024x603.png?fit=1024%2C603" alt="rsitecatalyst-attribution" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-attribution.png?resize=1024%2C603 1024w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-attribution.png?resize=150%2C88 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-attribution.png?resize=300%2C177 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-attribution.png?resize=768%2C452 768w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-attribution.png?w=1494 1494w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /></p>
+
+<p>Perfect. My package got wide exposure to the intended audience, which in turn makes it easier to devote time for development and maintenance. The recognition also helped me professionally in that time period, so if I never thanked you publicly Ben, thank you!</p>
+
+<h2 id="adobe-summit-2015an-inconspicuous-absence">Adobe Summit 2015: An Inconspicuous Absence</h2>
+
+<p>In 2015, RSiteCatalyst moved from a “Tip” to a <a href="http://video.tv.adobe.com/v/2314t_876d7009-77fb-4a67-86bc-70475fddf88e/">full-fledged presentation</a>. I was honored when I first heard that an entire hour would be dedicated to reviewing the package, but no attribution was given:</p>
+
+<p><img class="aligncenter size-large wp-image-3919" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-resources-1024x569.png?fit=1024%2C569" alt="rsitecatalyst-resources" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-resources.png?resize=1024%2C569 1024w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-resources.png?resize=150%2C83 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-resources.png?resize=300%2C167 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-resources.png?resize=768%2C427 768w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-resources.png?w=2000 2000w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-resources.png?w=3000 3000w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /></p>
+
+<p>I mean, it was obviously okay to link to non-Adobe websites like <a href="http://statmethods.net/">statmethods.net</a> (a great reference btw) and to <a href="http://shiny.rstudio.com/">Shiny</a>…but okay, attribution is not a requirement.</p>
+
+<h2 id="adobe-summit-2016-8216we-at-adobe82308217">Adobe Summit 2016: ‘We at Adobe…’</h2>
+
+<p>The non-mention at Adobe Summit 2015 could be attributed to an oversight; the following during the <a href="http://summit.adobe.com/na/sessions/summit-online/online2016/#/video/15150t_b09a171f-dc7c-4ff3-b71c-cf79dedb6e94">2016 RSiteCatalyst Adobe Summit presentation</a> cannot:</p>
+
+<p><img class="aligncenter size-large wp-image-3921" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-randy-zwitch-1024x659.png?fit=1024%2C659" alt="rsitecatalyst-randy-zwitch" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-randy-zwitch.png?resize=1024%2C659 1024w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-randy-zwitch.png?resize=150%2C97 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-randy-zwitch.png?resize=300%2C193 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/05/rsitecatalyst-randy-zwitch.png?resize=768%2C494 768w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /></p>
+
+<p>Just so we’re clear, this isn’t me noticing the slide notes in a PDF or PPT I shouldn’t have access to. The screenshot above is directly from the <a href="http://summit.adobe.com/na/sessions/summit-online/online2016/#/video/15150t_b09a171f-dc7c-4ff3-b71c-cf79dedb6e94">Adobe Summit video</a> and the statement was said nearly verbatim during the presentation. And it’s not like this was a one-off comment…it’s the same damn presentation as 2015, and I KNOW this script went through several rounds of review and practice by the presenters.</p>
+
+<h2 id="it-costs-0-to-do-what-is-right">It Costs $0 To Do What Is Right</h2>
+
+<p>It may be hard for RSiteCatalyst users to believe, but this was the first open-source project I ever wrote AND the means by which I learned how to write R code AND the first time I ever accessed an API. Since then, <a href="https://github.com/WillemPaling">Willem Paling</a> did an amazing job refactoring/re-writing a majority of the package when the Adobe Analytics API was updated from version 1.3 to 1.4, and there have been numerous other contributions from the user community. Maybe even one day, <a href="https://github.com/randyzwitch/RSiteCatalyst">the repo</a> will reach even 100 stars on GitHub…</p>
+
+<p>But save for a <a href="https://github.com/randyzwitch/RSiteCatalyst/commit/706d2997cc9ec3a95eff756308110c12e217e1ca">single commit</a> to a README file from an employee, Adobe you have contributed <span style="text-decoration: underline;">zero</span> to the development and maintenance of this package. To claim otherwise is beyond distasteful to the ethos of open-source software. I’ve never asked for compensation of any kind; and again, I recognize that you don’t even need to attribute the work at all.</p>
+
+<p>Just don’t take credit yourselves for providing this functionality to your customers. You did not write <a href="https://github.com/randyzwitch/RSiteCatalyst">RSiteCatalyst</a> Adobe, a community of (unpaid) volunteers did.</p>
+
+    <hr>
+  </div>
+
+
+<!-- Pagination links -->
+
+<div class="pagination">
+  
+    <span>&laquo; Prev</span>
+  
+
+  
+    
+       1
+    
+  
+    
+      <a href="/page2">2</a>
+    
+  
+    
+      <a href="/page3">3</a>
+    
+  
+    
+      <a href="/page4">4</a>
+    
+  
+    
+      <a href="/page5">5</a>
+    
+  
+    
+      <a href="/page6">6</a>
+    
+  
+    
+      <a href="/page7">7</a>
+    
+  
+    
+      <a href="/page8">8</a>
+    
+  
+    
+      <a href="/page9">9</a>
+    
+  
+    
+      <a href="/page10">10</a>
+    
+  
+    
+      <a href="/page11">11</a>
+    
+  
+    
+      <a href="/page12">12</a>
+    
+  
+    
+      <a href="/page13">13</a>
+    
+  
+    
+      <a href="/page14">14</a>
+    
+  
+    
+      <a href="/page15">15</a>
+    
+  
+    
+      <a href="/page16">16</a>
+    
+  
+    
+      <a href="/page17">17</a>
+    
+  
+    
+      <a href="/page18">18</a>
+    
+  
+    
+      <a href="/page19">19</a>
+    
+  
+    
+      <a href="/page20">20</a>
+    
+  
+    
+      <a href="/page21">21</a>
+    
+  
+    
+      <a href="/page22">22</a>
+    
+  
+    
+      <a href="/page23">23</a>
+    
+  
+    
+      <a href="/page24">24</a>
+    
+  
+    
+      <a href="/page25">25</a>
+    
+  
+    
+      <a href="/page26">26</a>
+    
+  
+    
+      <a href="/page27">27</a>
+    
+  
+    
+      <a href="/page28">28</a>
+    
+  
+    
+      <a href="/page29">29</a>
+    
+  
+    
+      <a href="/page30">30</a>
+    
+  
+    
+      <a href="/page31">31</a>
+    
+  
+    
+      <a href="/page32">32</a>
+    
+  
+    
+      <a href="/page33">33</a>
+    
+  
+    
+      <a href="/page34">34</a>
+    
+  
+    
+      <a href="/page35">35</a>
+    
+  
+
+  
+    <a href="/page2">Next &raquo;</a>
+  
+</div>
+
+
+				<div id="tweet">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-via="randyzwitch" data-size="large" data-hashtags="measure">Tweet</a>
+					<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				</div>
+			</div>
 			<div class="col-md-3">
 						
-				<div class="panel-group" id="panel-datascience">
+				<div class="panel-group" id="panel-WordPress Tutorials">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							 <a class="panel-title" data-toggle="collapse" data-parent="#panel-datascience" href="#datascience">datascience</a>
+							 <a class="panel-title" data-toggle="collapse" data-parent="#panel-WordPress Tutorials" href="#WordPress Tutorials">WordPress Tutorials</a>
 						</div>
-						<div id="datascience" class="panel-collapse collapse">
+						<div id="WordPress Tutorials" class="panel-collapse collapse">
 							<div class="panel-body">
 								
 									
@@ -74,7 +385,59 @@
 								
 									
 									  
-										<li data-section='/datascience/json_datalayer_w3c_based.html'><a href='/datascience/json_datalayer_w3c_based.html'>post of some kind</a></li>
+										<li data-section='/back-to-top-wordpress-scrappy/'><a href='/back-to-top-wordpress-scrappy/'>Adding a &#8216;Back to Top&#8217; Link on WordPress</a></li>
+									  
+									
+									  
+										<li data-section='/google-adsense-and-wordpress/'><a href='/google-adsense-and-wordpress/'>Get Rich With Google AdSense And WordPress!</a></li>
+									  
+									
+									  
+										<li data-section='/removing-powered-by-wordpress-scrappy/'><a href='/removing-powered-by-wordpress-scrappy/'>Removing &#8216;Powered by WordPress&#8217; From Scrappy</a></li>
+									  
+									
+									  
+										<li data-section='/page-navigation-wordpress-twenty-eleven/'><a href='/page-navigation-wordpress-twenty-eleven/'>Page Navigation For WordPress Twenty Eleven</a></li>
+									  
+									
+									  
+										<li data-section='/wordpress-remove-this-entry-was-posted-in/'><a href='/wordpress-remove-this-entry-was-posted-in/'>How To Remove &#8220;This entry was posted in&#8221; on WordPress single posts</a></li>
+									  
+									
+									  
+										<li data-section='/disable-mobile-theme-in-wordpress/'><a href='/disable-mobile-theme-in-wordpress/'>How to Disable Mobile Theme in WordPress</a></li>
+									  
+									
+									  
+										<li data-section='/google-plus-button-wordpress-twenty-eleven/'><a href='/google-plus-button-wordpress-twenty-eleven/'>Installing Google Plus Button on WordPress</a></li>
+									  
+									
+									  
+										<li data-section='/prevent-google-analytics-tracking-logged-in/'><a href='/prevent-google-analytics-tracking-logged-in/'>Prevent Google Analytics From Tracking Logged-in Users</a></li>
+									  
+									
+									  
+										<li data-section='/removing-powered-by-wordpress-twenty-eleven/'><a href='/removing-powered-by-wordpress-twenty-eleven/'>Removing &#8220;Powered by WordPress&#8221; in Twenty Eleven</a></li>
+									  
+									
+									  
+										<li data-section='/google-analytics-for-wordpress/'><a href='/google-analytics-for-wordpress/'>Google Analytics for WordPress: Two Methods</a></li>
+									  
+									
+									  
+										<li data-section='/comment-bubble-twenty-eleven/'><a href='/comment-bubble-twenty-eleven/'>Removing Comment Bubble From Twenty Eleven Theme</a></li>
+									  
+									
+									  
+										<li data-section='/custom-header-twenty-eleven-child-theme/'><a href='/custom-header-twenty-eleven-child-theme/'>Twenty Eleven Child Theme:  Custom Header</a></li>
+									  
+									
+									  
+										<li data-section='/twenty-eleven-child-theme-creating-css-file/'><a href='/twenty-eleven-child-theme-creating-css-file/'>Twenty Eleven Child Theme: Creating CSS File</a></li>
+									  
+									
+									  
+										<li data-section='/wordpress-theme-twentyeleven-athualpa/'><a href='/wordpress-theme-twentyeleven-athualpa/'>Picking a WordPress Theme:  Fancy or Basic?</a></li>
 									  
 									
 								
@@ -83,34 +446,485 @@
 					</div>
 				</div>
 			
-			</div>
-			<div class="col-md-9">
-				<!-- This loops through the paginated posts -->
-
-<h1 class="entry-title">
-
-    <a href="/datascience/json_datalayer_w3c_based.html">post of some kind</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/index.html">September 3, 2016</a> &times; datascience
-      </div>
-  </div>
-  <div class="content">
-    
-
-    <hr>
-  </div>
-
-
-<!-- Pagination links -->
-
-
-				<div id="tweet">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-via="randyzwitch" data-size="large" data-hashtags="measure">Tweet</a>
-					<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				<div class="panel-group" id="panel-Social Media">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Social Media" href="#Social Media">Social Media</a>
+						</div>
+						<div id="Social Media" class="panel-collapse collapse">
+							<div class="panel-body">
+								
+									
+									  
+									
+								
+									
+									  
+										<li data-section='/declaring-twitter-bankruptcy/'><a href='/declaring-twitter-bankruptcy/'>Declaring Twitter Bankruptcy</a></li>
+									  
+									
+									  
+										<li data-section='/twitter-promoted-tweets/'><a href='/twitter-promoted-tweets/'>Where&#8217;s The Relevance, Twitter?</a></li>
+									  
+									
+									  
+										<li data-section='/klout-perk-wahooly/'><a href='/klout-perk-wahooly/'>Claim Your Newest Klout Perk:  An SEC Investigation!</a></li>
+									  
+									
+									  
+										<li data-section='/social-influence-another-fico/'><a href='/social-influence-another-fico/'>Have Social &#8216;Influence&#8217; Scores Become Another FICO?</a></li>
+									  
+									
+								
+							</div>
+						</div>
+					</div>
 				</div>
+			
+				<div class="panel-group" id="panel-Digital Analytics">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Digital Analytics" href="#Digital Analytics">Digital Analytics</a>
+						</div>
+						<div id="Digital Analytics" class="panel-collapse collapse">
+							<div class="panel-body">
+								
+									
+									  
+									
+								
+									
+									  
+										<li data-section='/rsitecatalyst-bulk-download-version-1-4-9-release-notes/'><a href='/rsitecatalyst-bulk-download-version-1-4-9-release-notes/'>Bulk Downloading Adobe Analytics Data</a></li>
+									  
+									
+									  
+										<li data-section='/adobe-analytics-clickstream-data-feed-calculations/'><a href='/adobe-analytics-clickstream-data-feed-calculations/'>Adobe Analytics Clickstream Data Feed: Calculations and Outlier Analysis</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-not-adobe-product/'><a href='/rsitecatalyst-not-adobe-product/'>Adobe: Give Credit. You DID NOT Write RSiteCatalyst.</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-4-8-release-notes/'><a href='/rsitecatalyst-version-1-4-8-release-notes/'>RSiteCatalyst Version 1.4.8 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/adobe-analytics-clickstream-data-feed-relational-database/'><a href='/adobe-analytics-clickstream-data-feed-relational-database/'>Adobe Analytics Clickstream Data Feed: Loading To Relational Database</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-adobe-analytics-python/'><a href='/rsitecatalyst-adobe-analytics-python/'>Calling RSiteCatalyst From Python</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-4-7-release-notes/'><a href='/rsitecatalyst-version-1-4-7-release-notes/'>RSiteCatalyst Version 1.4.7 (and 1.4.6.) Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-4-5-release-notes/'><a href='/rsitecatalyst-version-1-4-5-release-notes/'>RSiteCatalyst Version 1.4.5 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/adobe-analytics-clickstream-raw-data-feed/'><a href='/adobe-analytics-clickstream-raw-data-feed/'>Getting Started: Adobe Analytics Clickstream Data Feed</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-4-4-release-notes/'><a href='/rsitecatalyst-version-1-4-4-release-notes/'>RSiteCatalyst Version 1.4.4 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-4-3-release-notes/'><a href='/rsitecatalyst-version-1-4-3-release-notes/'>RSiteCatalyst Version 1.4.3 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-4-2-release-notes/'><a href='/rsitecatalyst-version-1-4-2-release-notes/'>RSiteCatalyst Version 1.4.2 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-4-1-release-notes/'><a href='/rsitecatalyst-version-1-4-1-release-notes/'>RSiteCatalyst Version 1.4.1 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-website-pathing-sankey-charts/'><a href='/rsitecatalyst-website-pathing-sankey-charts/'>Visualizing Website Pathing With Sankey Charts</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-d3-network-graphs/'><a href='/rsitecatalyst-d3-network-graphs/'>Visualizing Website Structure With Network Graphs</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-4-release-notes/'><a href='/rsitecatalyst-version-1-4-release-notes/'>RSiteCatalyst Version 1.4 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/r-language-oddities/'><a href='/r-language-oddities/'>Maybe I Don&#8217;t Really Know R After All</a></li>
+									  
+									
+									  
+										<li data-section='/r-json-jsonlite-sprintf-paste/'><a href='/r-json-jsonlite-sprintf-paste/'>Building JSON in R: Three Methods</a></li>
+									  
+									
+									  
+										<li data-section='/real-time-reporting-adobe-analytics-api/'><a href='/real-time-reporting-adobe-analytics-api/'>Real-time Reporting with the Adobe Analytics API</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-3-release-notes/'><a href='/rsitecatalyst-version-1-3-release-notes/'>RSiteCatalyst Version 1.3 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/adobe-analytics-implementation-documentation/'><a href='/adobe-analytics-implementation-documentation/'>Adobe Analytics Implementation Documentation in 60 Seconds</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-2-release-notes/'><a href='/rsitecatalyst-version-1-2-release-notes/'>RSiteCatalyst Version 1.2 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-k-means-clustering/'><a href='/rsitecatalyst-k-means-clustering/'>Clustering Search Keywords Using K-Means Clustering</a></li>
+									  
+									
+									  
+										<li data-section='/rsitecatalyst-version-1-1-release-notes/'><a href='/rsitecatalyst-version-1-1-release-notes/'>RSiteCatalyst Version 1.1 Release Notes</a></li>
+									  
+									
+									  
+										<li data-section='/anomaly-detection-adobe-analytics-api/'><a href='/anomaly-detection-adobe-analytics-api/'>Anomaly Detection Using The Adobe Analytics API</a></li>
+									  
+									
+									  
+										<li data-section='/r-google-analytics-api/'><a href='/r-google-analytics-api/'>(not provided): Using R and the Google Analytics API</a></li>
+									  
+									
+									  
+										<li data-section='/least-useful-omniture-reports/'><a href='/least-useful-omniture-reports/'>My Top 20 Least Useful Omniture Reports</a></li>
+									  
+									
+									  
+										<li data-section='/customize-adobe-sitecatalyst-menu/'><a href='/customize-adobe-sitecatalyst-menu/'>For Maximum User Understanding, Customize the SiteCatalyst Menu</a></li>
+									  
+									
+									  
+										<li data-section='/bounce-rate-modification-google-analytics-cutroni/'><a href='/bounce-rate-modification-google-analytics-cutroni/'>Effect Of Modified Bounce Rate In Google Analytics</a></li>
+									  
+									
+									  
+										<li data-section='/adobe-discover-3-first-impressions/'><a href='/adobe-discover-3-first-impressions/'>Adobe Discover 3:  First Impressions</a></li>
+									  
+									
+									  
+										<li data-section='/optimizely-wordpress-install/'><a href='/optimizely-wordpress-install/'>How To Install Optimizely on WordPress</a></li>
+									  
+									
+									  
+										<li data-section='/omniture-sitecatalyst-target-report/'><a href='/omniture-sitecatalyst-target-report/'>Using Omniture SiteCatalyst Target Report To Calculate YOY growth</a></li>
+									  
+									
+									  
+										<li data-section='/google-analytics-individual-qualification/'><a href='/google-analytics-individual-qualification/'>Google Analytics Individual Qualification (IQ) &#8211; Passed!</a></li>
+									  
+									
+									  
+										<li data-section='/google-analytics-seo-reports-inaccurate/'><a href='/google-analytics-seo-reports-inaccurate/'>Google Analytics SEO reports: Not Ready For Primetime?</a></li>
+									  
+									
+									  
+										<li data-section='/an-afternoon-with-edward-tufte/'><a href='/an-afternoon-with-edward-tufte/'>An Afternoon With Edward Tufte</a></li>
+									  
+									
+									  
+										<li data-section='/google-analytics-custom-variables/'><a href='/google-analytics-custom-variables/'>Google Analytics Custom Variables: A Page-Level Example</a></li>
+									  
+									
+									  
+										<li data-section='/xchange-2011-think-tank/'><a href='/xchange-2011-think-tank/'>Xchange 2011: Think Tank and Harbor Cruise</a></li>
+									  
+									
+									  
+										<li data-section='/google-analytics-for-wordpress/'><a href='/google-analytics-for-wordpress/'>Google Analytics for WordPress: Two Methods</a></li>
+									  
+									
+									  
+										<li data-section='/wordpress-stats-or-google-analytics/'><a href='/wordpress-stats-or-google-analytics/'>WordPress Stats or Google Analytics?  Yes!</a></li>
+									  
+									
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			
+				<div class="panel-group" id="panel-Technology">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Technology" href="#Technology">Technology</a>
+						</div>
+						<div id="Technology" class="panel-collapse collapse">
+							<div class="panel-body">
+								
+									
+									  
+									
+								
+									
+									  
+										<li data-section='/apple-macbook-pro-model-a1286-late-2008-vintage/'><a href='/apple-macbook-pro-model-a1286-late-2008-vintage/'>Apple MacBook Pro Model A1286 Declared Vintage &#8211; The End Of An Era</a></li>
+									  
+									
+									  
+										<li data-section='/broken-macbook-pro-hinge-fixed-free/'><a href='/broken-macbook-pro-hinge-fixed-free/'>Apple Has Earned a Customer for Life</a></li>
+									  
+									
+									  
+										<li data-section='/iphone-4s-activation-issues/'><a href='/iphone-4s-activation-issues/'>iPhone 4S: A Worthy Upgrade Clouded By Activation Issues</a></li>
+									  
+									
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			
+				<div class="panel-group" id="panel-Miscellany">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Miscellany" href="#Miscellany">Miscellany</a>
+						</div>
+						<div id="Miscellany" class="panel-collapse collapse">
+							<div class="panel-body">
+								
+									
+									  
+									
+								
+									
+									  
+										<li data-section='/well-thought-out-business-requirements/'><a href='/well-thought-out-business-requirements/'>Four Tactics For Well Thought Out Business Requirements</a></li>
+									  
+									
+									  
+										<li data-section='/excel-destroys-data/'><a href='/excel-destroys-data/'>Destroy Your Data Using Excel With This One Weird Trick!</a></li>
+									  
+									
+									  
+										<li data-section='/100-miles-for-charitywater-update-1/'><a href='/100-miles-for-charitywater-update-1/'>100 Miles For charity:water &#8211; 12/1 Update</a></li>
+									  
+									
+									  
+										<li data-section='/charitywater-campaign/'><a href='/charitywater-campaign/'>100 Miles For charity:water</a></li>
+									  
+									
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			
+				<div class="panel-group" id="panel-Data Science">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Data Science" href="#Data Science">Data Science</a>
+						</div>
+						<div id="Data Science" class="panel-collapse collapse">
+							<div class="panel-body">
+								
+									
+									  
+									
+								
+									
+									  
+										<li data-section='/juliacon-2015-everyday-analytics-and-visualization-video/'><a href='/juliacon-2015-everyday-analytics-and-visualization-video/'>JuliaCon 2015: Everyday Analytics and Visualization (video)</a></li>
+									  
+									
+									  
+										<li data-section='/vega-jl-julia/'><a href='/vega-jl-julia/'>Vega.jl Rebooted &#8211; Now with 100% More Pie and Donut Charts!</a></li>
+									  
+									
+									  
+										<li data-section='/sessionizing-log-data-using-data-table-follow-2/'><a href='/sessionizing-log-data-using-data-table-follow-2/'>Sessionizing Log Data Using data.table [Follow-up #2]</a></li>
+									  
+									
+									  
+										<li data-section='/sessionizing-log-data-dplyr-r-window-functions/'><a href='/sessionizing-log-data-dplyr-r-window-functions/'>Sessionizing Log Data Using dplyr [Follow-up]</a></li>
+									  
+									
+									  
+										<li data-section='/sessionizing-log-data-sql/'><a href='/sessionizing-log-data-sql/'>Sessionizing Log Data Using SQL</a></li>
+									  
+									
+									  
+										<li data-section='/data-science-command-line-review-janssens/'><a href='/data-science-command-line-review-janssens/'>Review: Data Science at the Command Line</a></li>
+									  
+									
+									  
+										<li data-section='/twitter-api-julia/'><a href='/twitter-api-julia/'>Introducing Twitter.jl</a></li>
+									  
+									
+									  
+										<li data-section='/julia-metaprogramming-refactoring/'><a href='/julia-metaprogramming-refactoring/'>Code Refactoring Using Metaprogramming</a></li>
+									  
+									
+									  
+										<li data-section='/twitter-breakoutdetection-r-package-evaluation/'><a href='/twitter-breakoutdetection-r-package-evaluation/'>Evaluating BreakoutDetection</a></li>
+									  
+									
+									  
+										<li data-section='/creating-stacked-bar-chart-seaborn/'><a href='/creating-stacked-bar-chart-seaborn/'>Creating A Stacked Bar Chart in Seaborn</a></li>
+									  
+									
+									  
+										<li data-section='/visualizing-analytics-languages-venneuler-jl/'><a href='/visualizing-analytics-languages-venneuler-jl/'>Visualizing Analytics Languages With VennEuler.jl</a></li>
+									  
+									
+									  
+										<li data-section='/string-interpolation-julia/'><a href='/string-interpolation-julia/'>String Interpolation for Fun and Profit</a></li>
+									  
+									
+									  
+										<li data-section='/julia-odbc-jl/'><a href='/julia-odbc-jl/'>Using Julia As A &#8216;Glue&#8217; Language</a></li>
+									  
+									
+									  
+										<li data-section='/hive-five-hard-won-lessons/'><a href='/hive-five-hard-won-lessons/'>Five Hard-Won Lessons Using Hive</a></li>
+									  
+									
+									  
+										<li data-section='/sql-workbench-apache-hadoop-hive/'><a href='/sql-workbench-apache-hadoop-hive/'>Using SQL Workbench with Apache Hive</a></li>
+									  
+									
+									  
+										<li data-section='/getting-started-hadoop-hive-pig/'><a href='/getting-started-hadoop-hive-pig/'>Getting Started With Hadoop, Final: Analysis Using Hive &#038; Pig</a></li>
+									  
+									
+									  
+										<li data-section='/creating-dummy-variables-data-frame-r/'><a href='/creating-dummy-variables-data-frame-r/'>Quickly Create Dummy Variables in a Data Frame</a></li>
+									  
+									
+									  
+										<li data-section='/ipython-notebook-amazon-ec2/'><a href='/ipython-notebook-amazon-ec2/'>Using Amazon EC2 with IPython Notebook</a></li>
+									  
+									
+									  
+										<li data-section='/line-numbers-ipython-notebook/'><a href='/line-numbers-ipython-notebook/'>Adding Line Numbers in IPython/Jupyter Notebooks</a></li>
+									  
+									
+									  
+										<li data-section='/python-pypy-julia-r-pqr-jit-just-in-time-compiler/'><a href='/python-pypy-julia-r-pqr-jit-just-in-time-compiler/'>Fun With Just-In-Time Compiling: Julia, Python, R and pqR</a></li>
+									  
+									
+									  
+										<li data-section='/hadoop-creating-tables-hive/'><a href='/hadoop-creating-tables-hive/'>Getting Started Using Hadoop, Part 4: Creating Tables With Hive</a></li>
+									  
+									
+									  
+										<li data-section='/julia-import-data/'><a href='/julia-import-data/'>Tabular Data I/O in Julia</a></li>
+									  
+									
+									  
+										<li data-section='/amazon-elastic-map-reduce-mrjob-python/'><a href='/amazon-elastic-map-reduce-mrjob-python/'>Hadoop Streaming with Amazon Elastic MapReduce, Python and mrjob</a></li>
+									  
+									
+									  
+										<li data-section='/julia-language-beginners/'><a href='/julia-language-beginners/'>A Beginner&#8217;s Look at Julia</a></li>
+									  
+									
+									  
+										<li data-section='/uploading-data-hadoop-amazon-ec2-cloudera-part-3/'><a href='/uploading-data-hadoop-amazon-ec2-cloudera-part-3/'>Getting Started Using Hadoop, Part 3: Loading Data</a></li>
+									  
+									
+									  
+										<li data-section='/data-science-innovation/'><a href='/data-science-innovation/'>Innovation Will Never Be At The Push Of A Button</a></li>
+									  
+									
+									  
+										<li data-section='/big-data-hadoop-amazon-ec2-cloudera-part-2/'><a href='/big-data-hadoop-amazon-ec2-cloudera-part-2/'>Getting Started Using Hadoop, Part 2: Building a Cluster</a></li>
+									  
+									
+									  
+										<li data-section='/big-data-hadoop-amazon-ec2-cloudera-part-1/'><a href='/big-data-hadoop-amazon-ec2-cloudera-part-1/'>Getting Started Using Hadoop, Part 1: Intro</a></li>
+									  
+									
+									  
+										<li data-section='/r-amazon-ec2/'><a href='/r-amazon-ec2/'>Instructions for Installing &#038; Using R on Amazon EC2</a></li>
+									  
+									
+									  
+										<li data-section='/sqldf-package-r/'><a href='/sqldf-package-r/'>Video:  SQL Queries in R using sqldf</a></li>
+									  
+									
+									  
+										<li data-section='/overlay-histogram-in-r/'><a href='/overlay-histogram-in-r/'>Video: Overlay Histogram in R (Normal, Density, Another Series)</a></li>
+									  
+									
+									  
+										<li data-section='/video-r-rstudio-rcmdr-rattle/'><a href='/video-r-rstudio-rcmdr-rattle/'>Video:  R, RStudio, Rcmdr &#038; rattle</a></li>
+									  
+									
+									  
+										<li data-section='/getting-started-using-r-rcmdr/'><a href='/getting-started-using-r-rcmdr/'>Getting Started Using R, Part 2: Rcmdr</a></li>
+									  
+									
+									  
+										<li data-section='/getting-started-using-rstudio/'><a href='/getting-started-using-rstudio/'>Getting Started Using R, Part 1:  RStudio</a></li>
+									  
+									
+									  
+										<li data-section='/learning-r-sas/'><a href='/learning-r-sas/'>Learning R Has Really Made Me Appreciate SAS</a></li>
+									  
+									
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			
+				<div class="panel-group" id="panel-General Programming">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							 <a class="panel-title" data-toggle="collapse" data-parent="#panel-General Programming" href="#General Programming">General Programming</a>
+						</div>
+						<div id="General Programming" class="panel-collapse collapse">
+							<div class="panel-body">
+								
+									
+									  
+									
+								
+									
+									  
+										<li data-section='/travisci-10minute-timeout-build-error/'><a href='/travisci-10minute-timeout-build-error/'>Travis CI: &#8220;You Have Too Many Tests LOLZ!&#8221;</a></li>
+									  
+									
+									  
+										<li data-section='/gnu-parallel-medium-data/'><a href='/gnu-parallel-medium-data/'>A Million Text Files And A Single Laptop</a></li>
+									  
+									
+									  
+										<li data-section='/21st-century-c-error-64-osx/'><a href='/21st-century-c-error-64-osx/'>21st Century C: Error 64 on OSX When Using Make</a></li>
+									  
+									
+									  
+										<li data-section='/authentication-travis-ci/'><a href='/authentication-travis-ci/'>Authenticated API Testing Using Travis CI</a></li>
+									  
+									
+									  
+										<li data-section='/automated-re-install-of-packages-for-r-3-0/'><a href='/automated-re-install-of-packages-for-r-3-0/'>Automated Re-Install of Packages for R 3.0</a></li>
+									  
+									
+									  
+										<li data-section='/r-error-message-fun/'><a href='/r-error-message-fun/'>The Fun of Error Trapping: R Package Edition</a></li>
+									  
+									
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			
+
 			</div>
 		</div>
 	</div>

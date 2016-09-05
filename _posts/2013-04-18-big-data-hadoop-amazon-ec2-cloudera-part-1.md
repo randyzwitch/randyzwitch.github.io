@@ -1,0 +1,81 @@
+---
+id: 1703
+title: 'Getting Started Using Hadoop, Part 1: Intro'
+date: 2013-04-18T12:47:15+00:00
+author: Randy Zwitch
+layout: post
+guid: http://randyzwitch.com/?p=1703
+permalink: /big-data-hadoop-amazon-ec2-cloudera-part-1/
+tweetbackscheck:
+  - 1472943735
+shorturls:
+  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1703";s:7:"tinyurl";s:26:"http://tinyurl.com/ck556t2";s:4:"isgd";s:19:"http://is.gd/E6gxZc";}'
+twittercomments:
+  - 'a:0:{}'
+tweetcount:
+  - 0
+livefyre_version:
+  - 3
+categories:
+  - Data Science
+tags:
+  - Amazon EC2
+  - Cloudera
+  - Hadoop
+  - SAS
+---
+For the last couple of days I&#8217;ve been at the eMetrics conference in San Francisco. There were several panels that discussed big data, both from an engineering standpoint as well as how to adopt newer technologies from a business perspective.
+
+Unfortunately, there wasn&#8217;t a whole lot of practical information on how to actually get started using &#8216;big data&#8217; technologies, of which Hadoop is one.  Luckily, it&#8217;s fairly easy to create a proof-of-concept Hadoop cluster using Amazon EC2 and Cloudera.
+
+This series will be at least 5 parts, as follows:
+
+  1. Intro to Hadoop ecosystem and concepts
+  2. [Setting up Hadoop cluster on Amazon EC2](http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/ "Setting up Hadoop Cluster on Amazon EC2") using <a title="Cloudera Amazon EC2" href="http://blog.cloudera.com/blog/2013/03/how-to-create-a-cdh-cluster-on-amazon-ec2-via-cloudera-manager/" target="_blank">Cloudera</a>
+  3. <a title="Populating HDFS using Hue" href="http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/" target="_blank">Populating HDFS with airline dataset</a> files using <a title="Hadoop Hue" href="http://cloudera.github.io/hue/" target="_blank">Hue</a>
+  4. Use <a title="Hive joins" href="https://cwiki.apache.org/Hive/languagemanual-joins.html" target="_blank">Hive</a> and/or <a title="Apache Pig" href="http://pig.apache.org/" target="_blank">Pig</a> to <a title="Creating Tables with Hive" href="http://randyzwitch.com/hadoop-creating-tables-hive/" target="_blank">stack datasets into one master dataset</a>
+  5. <a title="Analysis using Pig & Hive" href="http://randyzwitch.com/getting-started-hadoop-hive-pig/" target="_blank">Doing analytics on the combined Airline dataset using Pig and/or Hive</a>
+
+My aim with this series is to _simply_ explain why you might want to consider using Hadoop for your data storage and processing. There&#8217;s a lot of marketing & vendor <del>bullshit</del> excitement surrounding the term &#8216;big data&#8217;, so for this blog series, I&#8217;m just going to focus on the most important points for an analyst/marketer to understand. And other than this sentence, there will be no mentions of _MS Excel_ in terms of &#8216;big data&#8217;, which is <a title="Use R not Excel" href="http://blog.revolutionanalytics.com/2013/04/more-reasons-not-to-use-excel-for-modeling.html" target="_blank">barely an appropriate tool for analysis</a> in general, let alone analysis at scale.
+
+<!--more-->
+
+### What Is Hadoop & Why Are People Talking About It?
+
+At it&#8217;s simplest, Hadoop provides a parallel-processing computing framework for data storage and processing. The reason why a parallel-processing framework is important for enterprise-level analysis is due to physical limitations on how quickly a single machine can process information.
+
+As an example, suppose  you want to create a report that looks at 1 trillion daily credit card transactions. It&#8217;s possible to do your calculations on your local desktop using a tool like SAS. However, the amount of time to process that much data on a desktop with 8GB-16GB of RAM might be 8 hours, 10 hours&#8230;.24 hours?! So an analyst trying to get an answer can start a SINGLE business question at 8am and _hope_ they get their answer before it&#8217;s time to leave at the end of the day. Suffice to say, not a particularly efficient way to run a business.
+
+The solution might seem to add more processors and RAM to a desktop, but what happens when you add more users asking questions? Now you need an enterprise-class server such as Oracle or Teradata (and a few million dollars!). And for every terabyte of data you want to store, you&#8217;ll need a few thousand dollars. And that&#8217;s just for your nicely structured data&#8230;what happens when you want to start storing data such as free-form text that&#8217;s not so cleanly structured? Eventually, these types of _engineering questions_ lead you towards a solution like Hadoop.
+
+The reason why there is so much discussion around Hadoop as a data platform is that it solves the problems stated above: excessive time to process vast amounts of data and excessive cost of data storage. By using &#8220;commodity hardware&#8221; along with some fancy engineering, Hadoop provides an extremely cost-effective and flexible way to handle your enterprise data.
+
+
+  
+
+
+### If Hadoop is so Great, Why Doesn&#8217;t Everyone Use It?
+
+_&#8220;Fast, Cheap And Good. Everyone should use Hadoop!&#8221; &#8211; Every vendor in marketplace_
+
+Just like you (probably) don&#8217;t use a screwdriver to stir a pot of chicken soup, not every data storage and analysis problem requires the extreme flexibility that Hadoop can provide. From the example above with credit card transactions, a standard relational database might continue to be an acceptable solution if you&#8217;re just running a basic SQL query to sum across the rows. But once your data starts moving beyond &#8220;rows and columns&#8221; and into things such as free-form text, images, clickstream data&#8230;the more Hadoop makes sense.
+
+While it&#8217;s a tautology, how you know you need a solution like Hadoop is when you suspect you need a solution like Hadoop! If you already have a highly functioning data mart that answers your business questions, you probably don&#8217;t need to re-engineer everything _just because_. If you&#8217;re an Internet startup trying to create the next Facebook, then a standard relational database probably won&#8217;t cut it.
+
+The best example I heard at eMetrics about the need for Hadoop was from Bob Page (now at Hortonworks, a Hadoop vendor): when Bob was at Ebay, for the longest time they were throwing away data, specifically images from the listings. So prior high storage costs leading to undesirable business outcome (deletion), unstructured data in the form of images&#8230;a Hadoop framework made sense to implement. Once implemented, Ebay could look across years of auctions to answer their business questions.
+
+### I&#8217;m An Analyst, Not An Engineer&#8230;What&#8217;s The Minimum I Need To Know To Get Started?
+
+_&#8220;MapReduce, Pigs, HCatalogs, Elephants, Bees, Zoos&#8230;Ooozie (Uzi&#8217;s)? WTF is everyone talking about?&#8221;_
+
+If you&#8217;ve made it this far and you&#8217;re not an engineer or DBA, you&#8217;re probably someone who&#8217;s interested in data science. You may be someone who already uses R, Python, Ruby or Java. Or, you&#8217;re a masochist. In any case, here are the minimum concepts I think you need to know to get started for later blog posts:
+
+  * <span style="text-decoration: underline;">MapReduce:</span> Not explicitly a Hadoop idea, but the idea that data can be split into chunks by a key (&#8220;Map&#8221;) and then processed into information by one or more functions/transformations (&#8220;Reduce&#8221;). In the Hadoop sense, MapReduce is generally a reference to a &#8220;job&#8221; written in Java that performs a data transformation
+  * <span style="text-decoration: underline;">HDFS:</span> Hadoop Distributed File System. Raw data gets imported into HDFS (either structured or unstructured), the distributed around to all of the various nodes to allow for parallel processing
+  * <span style="text-decoration: underline;">Hive:</span> SQL-like interface so that analysts don&#8217;t have to write MapReduce code directly
+  * <span style="text-decoration: underline;">Pig:</span> A scripting language used for analysis. Generally, an analyst will use Hive and/or Pig to do their work
+  * <span style="text-decoration: underline;">HCatalog:</span> A &#8216;Data Warehouse&#8217; layer on top of HDFS, similar to how you define a database table (a series of columns in a table with formats)
+
+### Next Steps
+
+With the above five Hadoop concepts in place, the next few posts will be to set up a proof-of-concept Hadoop cluster on Amazon EC2, processing ~12GB of publicly available data from the &#8216;<a title="Airline dataset" href="http://stat-computing.org/dataexpo/2009/the-data.html" target="_blank">Airline dataset</a>&#8216;. That&#8217;s not &#8216;big&#8217; as &#8216;big data&#8217; goes, but it&#8217;s big enough to be fun to work with.

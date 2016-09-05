@@ -2,21 +2,1682 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>randyzwitch - Articles</title>
-    <description>An Open Source Repository for Analytical Techniques.</description>
+    <description></description>
     <link>
     http://randyzwitch.com</link>
     
       
       <item>
-        <title>post of some kind</title>
+        <title>Bulk Downloading Adobe Analytics Data</title>
         
-          <description>
+          <description>&lt;p&gt;&lt;em&gt;This blog post also serves as release notes for RSiteCatalyst v1.4.9, as only one feature was added (batch report request and download). But it’s a feature big enough for its own post!&lt;/em&gt;&lt;/p&gt;
+
 </description>
         
-        <pubDate>Sat, 03 Sep 2016 00:00:00 -0400</pubDate>
+        <pubDate>Thu, 21 Jul 2016 04:25:02 -0400</pubDate>
         <link>
-        http://randyzwitch.com/datascience/json_datalayer_w3c_based.html</link>
-        <guid isPermaLink="true">http://randyzwitch.com/datascience/json_datalayer_w3c_based.html</guid>
+        http://randyzwitch.com/rsitecatalyst-bulk-download-version-1-4-9-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-bulk-download-version-1-4-9-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Adobe Analytics Clickstream Data Feed: Calculations and Outlier Analysis</title>
+        
+          <description>&lt;p&gt;In a previous post, I outlined how to load &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/&quot;&gt;daily Adobe Analytics Clickstream data feeds&lt;/a&gt; into a PostgreSQL database. While this isn’t a long-term scalable solution for large e-commerce companies doing millions of page views per day, for exploratory analysis a relational database structure can work well until a more robust solution is put into place (such as Hadoop/Spark).&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 24 May 2016 07:11:20 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Adobe: Give Credit. You DID NOT Write RSiteCatalyst.</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;EDIT 5/10/2016 1:30pm: Several folks from Adobe Analytics/Adobe Marketing Cloud have contacted me, and everything is resolved. I can’t untweet other people’s retweets/shares or delete comments on LinkedIn, but if everyone could stop sharing any more that would be great. 🙂&lt;/strong&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 May 2016 08:31:51 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-not-adobe-product/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-not-adobe-product/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Travis CI: &amp;#8220;You Have Too Many Tests LOLZ!&amp;#8221;</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;pre&gt;&lt;span id=&quot;1-2082&quot;&gt;No output has been received in the last 10m0s, this potentially indicates a 
+stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Tue, 05 Apr 2016 07:41:53 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/travisci-10minute-timeout-build-error/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/travisci-10minute-timeout-build-error/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4.8 Release Notes</title>
+        
+          <description>&lt;p&gt;For being in RSiteCatalyst retirement, I’m ending up working on more functionality lately ¯_(ツ)_/¯. Here are the changes for RSiteCatalyst 1.4.8, which should be &lt;a href=&quot;https://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;available on CRAN&lt;/a&gt; shortly:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 04 Apr 2016 06:05:15 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Adobe Analytics Clickstream Data Feed: Loading To Relational Database</title>
+        
+          <description>&lt;p&gt;In my &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/&quot; target=&quot;_blank&quot;&gt;previous post about the Adobe Analytics Clickstream Data Feed&lt;/a&gt;, I showed how it was possible to take a single day worth of data and build a dataframe in R. However, most likely your analysis will require using multiple days/weeks/months of data, and given the size and complexity of the feed, loading the files into a relational database makes a lot of sense. Although there may be database-specific “fast-load” tools more appropriate for this application, this blog post will show how to handle this process using only R and &lt;a href=&quot;http://www.postgresql.org/download/&quot; target=&quot;_blank&quot;&gt;PostgresSQL&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 18 Mar 2016 10:42:23 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Calling RSiteCatalyst From Python</title>
+        
+          <description>&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;
+  &lt;p dir=&quot;ltr&quot; lang=&quot;en&quot;&gt;
+    &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt; Do you know if anyone has gotten RSiteCat running in a Jupyter Notebook that ran RPY2? Tired of using 2 different environments
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    — Adam Gitzes (@FootballActuary) &lt;a href=&quot;https://twitter.com/FootballActuary/status/700350988842995712&quot;&gt;February 18, 2016&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Mon, 22 Feb 2016 05:34:44 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-adobe-analytics-python/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-adobe-analytics-python/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4.7 (and 1.4.6.) Release Notes</title>
+        
+          <description>&lt;p&gt;It seems as though I missed release notes for version RSiteCatalyst 1.4.6, so we’ll do those and RSiteCatalyst 1.4.7 (now on CRAN) and the same time…&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 01 Feb 2016 04:24:04 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-7-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-7-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>A Million Text Files And A Single Laptop</title>
+        
+          <description>&lt;div id=&quot;attachment_3770&quot; style=&quot;width: 410px&quot; class=&quot;wp-caption alignright&quot;&gt;
+  &lt;img class=&quot;wp-image-3770 size-full&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?fit=400%2C227&quot; alt=&quot;GNU Parallel Cat Unix&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?w=400 400w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?resize=150%2C85 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?resize=300%2C170 300w&quot; sizes=&quot;(max-width: 400px) 100vw, 400px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Wait&amp;#8230;What? Why?
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Thu, 28 Jan 2016 04:53:42 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/gnu-parallel-medium-data/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/gnu-parallel-medium-data/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>21st Century C: Error 64 on OSX When Using Make</title>
+        
+          <description>&lt;p&gt;To end 2015, I decided to finally learn C, instead of making it a 2016 resolution! I had previously done the ‘&lt;a href=&quot;http://c.learncodethehardway.org/book/&quot; target=&quot;_blank&quot;&gt;Learn C The Hard Way&lt;/a&gt;‘ tutorials, taken about a year off, and thus forgotten everything.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 31 Dec 2015 08:17:30 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/21st-century-c-error-64-osx/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/21st-century-c-error-64-osx/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Four Tactics For Well Thought Out Business Requirements</title>
+        
+          <description>&lt;blockquote class=&quot;twitter-tweet&quot; data-partner=&quot;tweetdeck&quot;&gt;
+  &lt;p dir=&quot;ltr&quot; lang=&quot;en&quot;&gt;
+    &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt; how to get (reasonably) well thought-through requirements from business people?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    — Art Webb (@arthurlwebb) &lt;a href=&quot;https://twitter.com/arthurlwebb/status/634710548685418496&quot;&gt;August 21, 2015&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Fri, 21 Aug 2015 06:42:13 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/well-thought-out-business-requirements/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/well-thought-out-business-requirements/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4.5 Release Notes</title>
+        
+          <description>&lt;p&gt;It’s only been a month since the &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/&quot; target=&quot;_blank&quot;&gt;last RSiteCatalyst update&lt;/a&gt;, and this update is also a pretty minor update in terms of functionality.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 17 Aug 2015 05:43:36 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-5-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-5-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>JuliaCon 2015: Everyday Analytics and Visualization (video)</title>
+        
+          <description>&lt;p&gt;At long last, here’s the video of my presentation from JuliaCon 2015, discussion common analytics tasks and visualization. This is really two talks, the first being an example of using the citibike NYC API to analyze ridership of their public bike program, and the second a discussion of the Vega.jl package.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 14 Aug 2015 06:29:41 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/juliacon-2015-everyday-analytics-and-visualization-video/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/juliacon-2015-everyday-analytics-and-visualization-video/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Apple MacBook Pro Model A1286 Declared Vintage &amp;#8211; The End Of An Era</title>
+        
+          <description>&lt;p&gt;It’s hard to believe it’s been over 2.5 years since I wrote about my experience with Apple trying to get my &lt;a title=&quot;Apple Has Earned a Customer for Life&quot; href=&quot;http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/&quot; target=&quot;_blank&quot;&gt;Broken MacBook Pro Hinge&lt;/a&gt; fixed. Since that time, my Late 2008 MacBook Pro continued to work flawlessly, most of the time keeping up with the scientific programming I would do in R, Python or Julia.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 07 Aug 2015 16:07:12 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/apple-macbook-pro-model-a1286-late-2008-vintage/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/apple-macbook-pro-model-a1286-late-2008-vintage/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Authenticated API Testing Using Travis CI</title>
+        
+          <description>&lt;p&gt;As I’ve become more serious about contributing in the open-source community, having quality tests for my packages has been something I’ve spent much more time on than when I was just writing quick-and-dirty code for my own purposes. My most used open-sourced package is &lt;a href=&quot;http://randyzwitch.com/tag/rsitecatalyst/&quot;&gt;RSiteCatalyst&lt;/a&gt;, which accesses the Adobe Analytics (authenticated) API, which poses a problem: how do you maintain a project on GitHub with a full test suite, while at the same time not hard-coding your credentials in plain sight for everyone to see?&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 06 Aug 2015 16:21:50 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/authentication-travis-ci/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/authentication-travis-ci/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Started: Adobe Analytics Clickstream Data Feed</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;“Well, first you need a TMS and a three-tiered data layer, then some jQuery with a node backend to inject customer data into the page asynchronously if you want to avoid cookie-based limitations with cross-domain tracking and be Internet Explorer 4 compatible…”&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Tue, 04 Aug 2015 05:00:35 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4.4 Release Notes</title>
+        
+          <description>&lt;p&gt;It’s been about six months since the &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/&quot; target=&quot;_blank&quot;&gt;last RSiteCatalyst update&lt;/a&gt;, and this update is really just a single bug fix, but a big bug fix at that!&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 13 Jul 2015 05:40:20 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Vega.jl Rebooted &amp;#8211; Now with 100% More Pie and Donut Charts!</title>
+        
+          <description>&lt;p&gt;&lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png&quot;&gt;&lt;img class=&quot; size-medium wp-image-3466 alignleft&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie-300x251.png?fit=300%2C251&quot; alt=&quot;pie&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=300%2C251 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=150%2C125 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?w=610 610w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/donut-e1432224478621.png&quot;&gt;&lt;img class=&quot; size-full wp-image-3467 alignright&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/donut-e1432224478621.png?fit=294%2C251&quot; alt=&quot;donut&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 21 May 2015 08:56:07 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/vega-jl-julia/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/vega-jl-julia/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Sessionizing Log Data Using data.table [Follow-up #2]</title>
+        
+          <description>&lt;p&gt;Thanks to user &lt;a title=&quot;dnlbrky comment&quot; href=&quot;http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/#comment-16205&quot; target=&quot;_blank&quot;&gt;dnlbrky&lt;/a&gt;, we now have a third way to accomplish sessionizing log data for any arbitrary time out period (see methods &lt;a href=&quot;http://randyzwitch.com/sessionizing-log-data-sql/&quot; title=&quot;Sessionizing Log Data Using SQL&quot;&gt;1&lt;/a&gt; and &lt;a href=&quot;http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/&quot; title=&quot;Sessionizing Log Data Using dplyr [Follow-up]&quot;&gt;2&lt;/a&gt;), this time using data.table from R along with magrittr for piping:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 20 Jan 2015 04:01:19 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/sessionizing-log-data-using-data-table-follow-2/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-using-data-table-follow-2/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Sessionizing Log Data Using dplyr [Follow-up]</title>
+        
+          <description>&lt;p&gt;Last week, I wrote a blog post showing how to &lt;a title=&quot;Sessionizing Log Data Using SQL&quot; href=&quot;http://randyzwitch.com/sessionizing-log-data-sql/&quot; target=&quot;_blank&quot;&gt;sessionize log data using standard SQL&lt;/a&gt;. The main idea of that post is that if your analytics platform supports window functions (like Postgres and Hive do), you can make quick work out of sessionizing logs. Here’s the winning query:One nested sub-query and two window functions are all it takes to calculate the event boundaries and create a unique identifier for sessions for any arbitrary timeout chosen.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 13 Jan 2015 11:24:52 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Sessionizing Log Data Using SQL</title>
+        
+          <description>&lt;p&gt;Over my career as a predictive modeler/data scientist, the most important step(s) in any data project without question have been data cleaning and feature engineering. By taking the data you have, correcting flaws and reformulating raw data into additional business-specific concepts, you ensure that you move beyond pure mathematical optimization and actually solve a &lt;em&gt;business problem&lt;/em&gt;. While “big data” is often held up as the future of knowing everything, when it comes down to it, a Hadoop cluster is more often a “Ha-dump” cluster: the place data gets dumped without any proper ETL.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 08 Jan 2015 06:57:56 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/sessionizing-log-data-sql/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-sql/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4.3 Release Notes</title>
+        
+          <description>&lt;p&gt;It’s a new year, so…new version of RSiteCatalyst on CRAN! For the most part, this release fixes a handful of bugs that weren’t noticed with the prior release 1.4.2 (oops!), but there are pieces of additional functionality.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 06 Jan 2015 08:00:40 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Review: Data Science at the Command Line</title>
+        
+          <description>&lt;p&gt;Admission: I didn’t &lt;em&gt;really know&lt;/em&gt; how computers worked until around 2012.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 15 Dec 2014 05:22:46 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/data-science-command-line-review-janssens/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/data-science-command-line-review-janssens/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Introducing Twitter.jl</title>
+        
+          <description>&lt;p&gt;This is possibly the latest “announcement” of a package ever, given that &lt;a title=&quot;Twitter API Julia client&quot; href=&quot;https://github.com/randyzwitch/Twitter.jl&quot; target=&quot;_blank&quot;&gt;Twitter.jl&lt;/a&gt; has actually existed on &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl&quot; title=&quot;Julia METADATA&quot;&gt;METADATA&lt;/a&gt; for nearly a year now, but that’s how things go sometimes. Here’s how to get started with Twitter.jl and some of the highlights.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 08 Dec 2014 12:12:58 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/twitter-api-julia/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/twitter-api-julia/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4.2 Release Notes</title>
+        
+          <description>&lt;p&gt;RSiteCatalyst version 1.4.2 is now available on CRAN. This update was primarily bug fixes with one additional feature added.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 03 Dec 2014 18:01:05 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-2-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-2-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Destroy Your Data Using Excel With This One Weird Trick!</title>
+        
+          <description>&lt;div id=&quot;attachment_3201&quot; style=&quot;width: 621px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png&quot;&gt;&lt;img class=&quot;size-full wp-image-3201&quot; src=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?fit=611%2C369&quot; alt=&quot;All you pie-chart haters are wishing I used one here.&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?w=611 611w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=150%2C90 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=300%2C181 300w&quot; sizes=&quot;(max-width: 611px) 100vw, 611px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    All you pie-chart haters are wishing I used one here.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Thu, 20 Nov 2014 05:07:55 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/excel-destroys-data/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/excel-destroys-data/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Code Refactoring Using Metaprogramming</title>
+        
+          <description>&lt;p&gt;It’s been nearly a year since I wrote &lt;a title=&quot;Twitter Julia API&quot; href=&quot;https://github.com/randyzwitch/Twitter.jl/&quot; target=&quot;_blank&quot;&gt;Twitter.jl&lt;/a&gt;, back when I seemingly had MUCH more free time. In these past 10 months, I’ve used Julia quite a bit to develop other packages, and I try to use it at work when I know I’m not going to be collaborating with others (since my colleagues don’t know Julia, not because it’s bad for collaboration!).&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 18 Nov 2014 04:11:06 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/julia-metaprogramming-refactoring/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/julia-metaprogramming-refactoring/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4.1 Release Notes</title>
+        
+          <description>&lt;h2 id=&quot;changes&quot;&gt;Changes&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 10 Nov 2014 05:01:36 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-1-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-1-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Declaring Twitter Bankruptcy</title>
+        
+          <description>&lt;blockquote class=&quot;twitter-tweet&quot; data-partner=&quot;tweetdeck&quot;&gt;
+  &lt;p&gt;
+    Is Twitter bankruptcy a thing? Delete all the people you follow and force yourself to re-discover them again?
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    — Randy Zwitch (@randyzwitch) &lt;a href=&quot;https://twitter.com/randyzwitch/status/530792792713621504&quot;&gt;November 7, 2014&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Fri, 07 Nov 2014 09:43:53 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/declaring-twitter-bankruptcy/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/declaring-twitter-bankruptcy/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Evaluating BreakoutDetection</title>
+        
+          <description>&lt;p&gt;A couple of weeks ago, Twitter open-sourced their &lt;a title=&quot;Breakout Detection Twitter R&quot; href=&quot;https://blog.twitter.com/2014/breakout-detection-in-the-wild&quot; target=&quot;_blank&quot;&gt;BreakoutDetection&lt;/a&gt; package for R, a package designed to determine shifts in time-series data. The &lt;a title=&quot;Twitter Breakout Detection&quot; href=&quot;https://blog.twitter.com/2014/breakout-detection-in-the-wild&quot; target=&quot;_blank&quot;&gt;Twitter announcement&lt;/a&gt; does a great job of explaining the main technique for detection (E-Divisive with Medians), so I won’t rehash that material here. Rather, I wanted to see how this package works relative to the &lt;a title=&quot;RSiteCatalyst Anomaly Detection&quot; href=&quot;http://randyzwitch.com/anomaly-detection-adobe-analytics-api/&quot; target=&quot;_blank&quot;&gt;anomaly detection&lt;/a&gt; feature in the Adobe Analytics API, which I’ve &lt;a title=&quot;Anomaly Detection Adobe API&quot; href=&quot;http://randyzwitch.com/anomaly-detection-adobe-analytics-api/&quot; target=&quot;_blank&quot;&gt;written about previously&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 06 Nov 2014 16:24:00 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/twitter-breakoutdetection-r-package-evaluation/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/twitter-breakoutdetection-r-package-evaluation/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Visualizing Website Pathing With Sankey Charts</title>
+        
+          <description>&lt;p&gt;In my prior post on &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-d3-network-graphs/&quot; title=&quot;Visualizing Website Structure With Network Graphs&quot;&gt;visualizing website structure using network graphs&lt;/a&gt;, I referenced that network graphs showed the pairwise relationships between two pages (in a bi-directional manner). However, if you want to analyze how your visitors are pathing through your site, you can visualize your data using a Sankey chart.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 10 Sep 2014 17:27:10 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-website-pathing-sankey-charts/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-website-pathing-sankey-charts/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Creating A Stacked Bar Chart in Seaborn</title>
+        
+          <description>&lt;p&gt;The other day I was having a heck of a time trying to figure out how to make a stacked bar chart in Seaborn. But in true open-source/community fashion, I ended up getting a response from the creator of Seaborn via Twitter:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 09 Sep 2014 04:01:39 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/creating-stacked-bar-chart-seaborn/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/creating-stacked-bar-chart-seaborn/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Visualizing Website Structure With Network Graphs</title>
+        
+          <description>&lt;p&gt;Last week, &lt;a title=&quot;RSiteCatalyst Version 1.4 Release Notes&quot; href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/&quot; target=&quot;_blank&quot;&gt;version 1.4 of RSiteCatalyst&lt;/a&gt; was released, and now it’s possible to get site pathing information directly within R. Now, it’s easy to create impressive looking network graphs from your Adobe Analytics data using &lt;a title=&quot;RSiteCatalyst CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt; and &lt;a title=&quot;d3Network CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/d3Network/index.html&quot; target=&quot;_blank&quot;&gt;d3Network&lt;/a&gt;. In this blog post, I will cover simple and force-directed network graphs, which show the pairwise representation between pages. In a follow-up blog post, I will show how to visualize longer paths using &lt;a title=&quot;Examples of Sankey Diagrams&quot; href=&quot;http://www.sankey-diagrams.com/&quot; target=&quot;_blank&quot;&gt;Sankey diagrams&lt;/a&gt;, also from the d3Network package.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 08 Sep 2014 02:40:38 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-d3-network-graphs/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-d3-network-graphs/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4 Release Notes</title>
+        
+          <description>&lt;p&gt;It felt like it would never happen, but &lt;a title=&quot;RSiteCatalyst CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst v1.4&lt;/a&gt; is now available on CRAN! There are numerous changes in this version of the package, so unlike previous posts, there won’t be any code examples.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 01 Sep 2014 16:30:14 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Visualizing Analytics Languages With VennEuler.jl</title>
+        
+          <description>&lt;p&gt;It often doesn’t take much to get me off track, and on a holiday weekend…well, I was just begging for a fun way to shirk. Enter Harlan Harris:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 29 Aug 2014 11:16:24 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/visualizing-analytics-languages-venneuler-jl/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/visualizing-analytics-languages-venneuler-jl/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>String Interpolation for Fun and Profit</title>
+        
+          <description>&lt;p&gt;In a previous post, I showed how I frequently use &lt;a title=&quot;Using Julia As A ‘Glue’ Language&quot; href=&quot;http://randyzwitch.com/julia-odbc-jl/&quot; target=&quot;_blank&quot;&gt;Julia as a ‘glue’ language&lt;/a&gt; to connect multiple systems in a complicated data pipeline. For this blog post, I will show two more examples where I use Julia for general programming, rather than for computationally-intense programs.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 14 Jul 2014 08:01:10 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/string-interpolation-julia/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/string-interpolation-julia/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Maybe I Don&amp;#8217;t Really Know R After All</title>
+        
+          <description>&lt;p&gt;Lately, I’ve been feeling that I’m spreading myself too thin in terms of programming languages. At work, I spend most of my time in &lt;a title=&quot;Hive blog posts&quot; href=&quot;http://randyzwitch.com/tag/hive/&quot; target=&quot;_blank&quot;&gt;Hive&lt;/a&gt;/SQL, with the occasional Python for my smaller data. I really prefer &lt;a title=&quot;Julia blog posts&quot; href=&quot;http://randyzwitch.com/tag/julia/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt;, but I’m alone at work on that one. And since I maintain a package on CRAN (&lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;), I frequently spend my evenings bug fix programming in R. Then, there’s the desire to learn a Java-based language like Scala (or, Java)…maybe Spark for my Hadoop work…&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 26 Jun 2014 07:18:36 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/r-language-oddities/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/r-language-oddities/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Using Julia As A &amp;#8216;Glue&amp;#8217; Language</title>
+        
+          <description>&lt;p&gt;While much of the focus in the Julia community has been on the performance aspects of Julia relative to other scientific computing languages, Julia is also perfectly suited to ‘glue’ together multiple data sources/languages. In this blog post, I will cover how to create an interactive plot using &lt;a title=&quot;Gadfly.jl documentation&quot; href=&quot;http://dcjones.github.io/Gadfly.jl/&quot; target=&quot;_blank&quot;&gt;Gadfly.jl&lt;/a&gt;, by first preparing the data using Hadoop and &lt;a title=&quot;Teradata Aster&quot; href=&quot;http://www.asterdata.com/&quot; target=&quot;_blank&quot;&gt;Teradata Aster&lt;/a&gt; via &lt;a title=&quot;Julia ODBC&quot; href=&quot;https://github.com/quinnj/ODBC.jl&quot; target=&quot;_blank&quot;&gt;ODBC.jl&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 24 Jun 2014 04:57:31 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/julia-odbc-jl/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/julia-odbc-jl/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Five Hard-Won Lessons Using Hive</title>
+        
+          <description>&lt;p&gt;I’ve been spending a ton of time lately on the data &lt;em&gt;engineering&lt;/em&gt; side of ‘data science’, so I’ve been writing a lot of Hive queries. Hive is a great tool for querying large amounts of data, without having to know very much about the underpinnings of Hadoop. Unfortunately, there are a lot of things about Hive (version 0.12 and before) that aren’t quite the same as SQL and have caused me a bunch of frustration; here they are, in no particular order.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 12 Jun 2014 09:01:18 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/hive-five-hard-won-lessons/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/hive-five-hard-won-lessons/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Building JSON in R: Three Methods</title>
+        
+          <description>&lt;p&gt;When I set out to build &lt;a title=&quot;RSiteCatalyst CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;, I had a few major goals: learn R, build a &lt;a title=&quot;CRAN&quot; href=&quot;http://cran.r-project.org/&quot; target=&quot;_blank&quot;&gt;CRAN&lt;/a&gt;-worthy package and learn the &lt;a title=&quot;Adobe Analytics API documentation&quot; href=&quot;https://marketing.adobe.com/developer/en_US/documentation&quot; target=&quot;_blank&quot;&gt;Adobe Analytics API&lt;/a&gt;. As I reflect back on how the package has evolved over the past two years and what I’ve learned, I think my greatest learning was around how to deal with JSON (and strings in general).  JSON is ubiquitous as a data-transfer mechanism over the web, and R does a decent job providing the functionality to not only read JSON but also to create JSON. There are at least three methods I know of to build JSON strings, and this post will cover the pros and cons of each method.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 13 May 2014 09:27:39 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/r-json-jsonlite-sprintf-paste/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/r-json-jsonlite-sprintf-paste/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Using SQL Workbench with Apache Hive</title>
+        
+          <description>&lt;p&gt;If you’ve spent any non-trivial amount of time working with Hadoop and Hive at the command line, you’ve likely wished that you could interact with Hadoop like you would any other database. If you’re lucky, your Hadoop administrator has already installed the &lt;a title=&quot;Apache Hue&quot; href=&quot;http://gethue.com/&quot; target=&quot;_blank&quot;&gt;Apache Hue&lt;/a&gt; front-end to your cluster, which allows for &lt;a title=&quot;Getting Started Using Hadoop, Part 3: Loading Data&quot; href=&quot;http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/&quot; target=&quot;_blank&quot;&gt;interacting with Hadoop via an easy-to-use browser interface&lt;/a&gt;. However, if you don’t have Hue, Hive also supports access via JDBC; the downside is, setup is not as easy as including a single JDBC driver.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 25 Apr 2014 10:05:57 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/sql-workbench-apache-hadoop-hive/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/sql-workbench-apache-hadoop-hive/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Real-time Reporting with the Adobe Analytics API</title>
+        
+          <description>&lt;p&gt;Starting with &lt;a title=&quot;RSiteCatalyst Version 1.3 Release Notes&quot; href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/&quot; target=&quot;_blank&quot;&gt;version 1.3.1 of RSiteCatalyst&lt;/a&gt;, you can now access the &lt;a title=&quot;Realtime reporting Adobe Analytics API documentation&quot; href=&quot;https://developer.omniture.com/en_US/documentation/sitecatalyst-reporting/c-real-time#concept_AD1D9EC2BC9C4897B9DE3C99D0066B8E&quot; target=&quot;_blank&quot;&gt;real-time reporting capabilities of the Adobe Analytics API&lt;/a&gt; through a familiar R interface. Here’s how to get started…&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 10 Mar 2014 07:28:21 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/real-time-reporting-adobe-analytics-api/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/real-time-reporting-adobe-analytics-api/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.3 Release Notes</title>
+        
+          <description>&lt;p&gt;Version 1.3 of the RSiteCatalyst package to access the Adobe Analytics API is now available on CRAN! Changes include:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 04 Feb 2014 04:44:19 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Started With Hadoop, Final: Analysis Using Hive &amp;#038; Pig</title>
+        
+          <description>&lt;p&gt;We’ve finally made it to the final post in this tutorial! In my prior posts about getting started with &lt;a title=&quot;Hadoop posts&quot; href=&quot;http://randyzwitch.com/tag/hadoop/&quot; target=&quot;_blank&quot;&gt;Hadoop&lt;/a&gt;, we’ve covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the &lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;airline dataset&lt;/a&gt; using Hive and Pig.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 12 Jan 2014 15:25:32 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/getting-started-hadoop-hive-pig/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/getting-started-hadoop-hive-pig/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Quickly Create Dummy Variables in a Data Frame</title>
+        
+          <description>&lt;p&gt;On Quora, a question was asked about how to fix the error of the &lt;a title=&quot;Error in Random Forest 32 levels categorical variable&quot; href=&quot;https://www.quora.com/Random-Forests/How-can-I-fix-the-error-in-the-package-randomForest&quot; target=&quot;_blank&quot;&gt;randomForest package in R not being able to handle more than 32 levels in a categorical variable&lt;/a&gt;. Seeing as how I’ve seen this question asked on Kaggle forums, StackOverflow and elsewhere, here’s the answer: code your own &lt;em&gt;dummy variables&lt;/em&gt; instead of relying on Factors!&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 02 Jan 2014 08:58:51 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/creating-dummy-variables-data-frame-r/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/creating-dummy-variables-data-frame-r/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Adobe Analytics Implementation Documentation in 60 Seconds</title>
+        
+          <description>&lt;p&gt;When I was working as a digital analytics consultant, no question quite had the ability to cause belly laughs AND angst as, “Can you send me an updated copy of your implementation documentation?” I saw companies that were spending six-or-seven-figures annually on their analytics infrastructure, multi-millions in salary for employees and yet the only way to understand what data they were collecting was to inspect their JavaScript code.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 Dec 2013 04:46:30 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/adobe-analytics-implementation-documentation/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-implementation-documentation/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Using Amazon EC2 with IPython Notebook</title>
+        
+          <description>&lt;p&gt;Last week, I wrote a guest blog post at &lt;a title=&quot;Guest post at Bad Hessian&quot; href=&quot;http://badhessian.org/2013/11/cluster-computing-for-027hr-using-amazon-ec2-and-ipython-notebook/&quot; target=&quot;_blank&quot;&gt;Bad Hessian&lt;/a&gt; about how to use IPython Notebook along with Amazon EC2 as your data science &amp;amp; analytics platform. I won’t reproduce the whole article here, but if you are interested in step-by-step instruction on how to setup an Amazon EC2 instance to use IPython Notebook, see the SlideShare presentation below which outlines the steps needed to setup a remote IPython Notebook environment (or, &lt;a title=&quot;amazon-ec2-ipython-installation PDF&quot; href=&quot;http://randyzwitch.com/wp-content/uploads/2013/11/cluster-computing-ipython-ec2.pdf&quot; target=&quot;_blank&quot;&gt;PDF download&lt;/a&gt;).&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 21 Nov 2013 15:13:11 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/ipython-notebook-amazon-ec2/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/ipython-notebook-amazon-ec2/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Adding Line Numbers in IPython/Jupyter Notebooks</title>
+        
+          <description>&lt;p&gt;Lately, I’ve been using Jupyter Notebooks for all of my Python and Julia coding. The ability to develop and submit small snippets of code and create plots inline is just so useful that it has broken the stranglehold of using an IDE while I’m coding. However, the one thing that was missing for a smooth transition was line numbers in the cells; luckily, this can be achieved in two ways.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 19 Nov 2013 03:48:18 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/line-numbers-ipython-notebook/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/line-numbers-ipython-notebook/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.2 Release Notes</title>
+        
+          <description>&lt;p&gt;Version 1.2 of the &lt;a title=&quot;RSiteCatalyst CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt; package to access the Adobe Analytics API is now available on CRAN! Changes include:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 05 Nov 2013 03:29:16 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-2-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-2-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Clustering Search Keywords Using K-Means Clustering</title>
+        
+          <description>&lt;p&gt;One of the key tenets to doing impactful digital analysis is understanding what your visitors are trying to accomplish. One of the easiest methods to do this is by analyzing the words your visitors use to arrive on site (search keywords) and what words they are using while on the site (on-site search). Although Google has made it much more difficult to analyze search keywords over the past several years (due to their passing of &lt;a title=&quot;(not provided): Using R and the Google Analytics API&quot; href=&quot;http://randyzwitch.com/r-google-analytics-api/&quot; target=&quot;_blank&quot;&gt;“(not provided)”&lt;/a&gt; instead of the actual keywords), we can create customer intent segments based on the keywords that are still being passed using unsupervised clustering methods such as k-means clustering.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+</description>
+        
+        <pubDate>Tue, 17 Sep 2013 10:41:01 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-k-means-clustering/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-k-means-clustering/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Fun With Just-In-Time Compiling: Julia, Python, R and pqR</title>
+        
+          <description>&lt;p&gt;Recently I’ve been spending a lot of time trying to learn &lt;a title=&quot;Julia language&quot; href=&quot;http://julialang.org/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt; by doing the problems at &lt;a title=&quot;Project Euler&quot; href=&quot;http://projecteuler.net/&quot; target=&quot;_blank&quot;&gt;Project Euler&lt;/a&gt;. What’s great about these problems is that it gets me out of my normal design patterns, since I don’t generally think about prime numbers, factorials and other number theory problems during my normal workday. These problems have also given me the opportunity to really think about how computers work, since Julia allows the programmer to pass type declarations to the just-in-time compiler (JIT).&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 02 Sep 2013 15:57:45 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/python-pypy-julia-r-pqr-jit-just-in-time-compiler/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/python-pypy-julia-r-pqr-jit-just-in-time-compiler/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.1 Release Notes</title>
+        
+          <description>&lt;p&gt;&lt;a title=&quot;RSiteCatalyst on CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst &lt;/a&gt;version 1.1 is now available on CRAN. Changes from version 1 include:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 25 Aug 2013 09:54:32 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-1-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-1-release-notes/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Started Using Hadoop, Part 4: Creating Tables With Hive</title>
+        
+          <description>&lt;p&gt;In the previous three tutorials (&lt;a title=&quot;Hadoop for beginners&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot; target=&quot;_blank&quot;&gt;1&lt;/a&gt;, &lt;a title=&quot;Building Hadoop cluster on Amazon EC2&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/&quot; target=&quot;_blank&quot;&gt;2&lt;/a&gt;, &lt;a title=&quot;Loading data Hadoop Hue&quot; href=&quot;http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/&quot; target=&quot;_blank&quot;&gt;3&lt;/a&gt;), we’ve covered the background of Hadoop, how to build a proof-of-concept Hadoop cluster using Amazon EC2 and how to upload a .zip file to the cluster using Hue. In Part 4, we’ll use the data uploaded from the .zip file to create a master table of all files, as well as creating a view.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 22 Aug 2013 14:03:19 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/hadoop-creating-tables-hive/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/hadoop-creating-tables-hive/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Anomaly Detection Using The Adobe Analytics API</title>
+        
+          <description>&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics.jpg&quot;&gt;&lt;img class=&quot;size-full wp-image-2019 aligncenter&quot; alt=&quot;anomaly-detection-adobe-analytics&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics-e1376429163809.jpg?fit=550%2C188&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 15 Aug 2013 06:57:56 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/anomaly-detection-adobe-analytics-api/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/anomaly-detection-adobe-analytics-api/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Tabular Data I/O in Julia</title>
+        
+          <description>&lt;p&gt;Importing tabular data into Julia can be done in (at least) three ways: reading a delimited file into an array, reading a delimited file into a DataFrame and accessing databases using ODBC.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 06 Aug 2013 06:05:38 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/julia-import-data/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/julia-import-data/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Hadoop Streaming with Amazon Elastic MapReduce, Python and mrjob</title>
+        
+          <description>&lt;p&gt;In a previous rant about &lt;a title=&quot;Data Science &amp;amp; Innovation&quot; href=&quot;http://randyzwitch.com/data-science-innovation/&quot; target=&quot;_blank&quot;&gt;data science &amp;amp; innovation&lt;/a&gt;, I made reference to a problem I’m having at work where I wanted to classify roughly a quarter-billion URLs by predicted website content (without having to actually visit the website). A few colleagues have asked how you go about even starting to solve a problem like that, and the answer is &lt;em&gt;massively parallel processing&lt;/em&gt;.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 31 Jul 2013 08:34:58 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/amazon-elastic-map-reduce-mrjob-python/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/amazon-elastic-map-reduce-mrjob-python/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>A Beginner&amp;#8217;s Look at Julia</title>
+        
+          <description>&lt;p&gt;Over the past month or so, I’ve been playing with a new scientific programming language called ‘&lt;a title=&quot;Julia language&quot; href=&quot;http://julialang.org/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt;‘, which aims to be a high-level language with performance approaching that of C. With that goal in mind, Julia could be a replacement for the ‘multi-language’ problem of needing to move between R, Python, MATLAB, C, Fortran, Scala, etc. within a single scientific programming project.  Here are some observations that might be helpful for others looking to get started with Julia.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 23 Jul 2013 08:16:34 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/julia-language-beginners/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/julia-language-beginners/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Started Using Hadoop, Part 3: Loading Data</title>
+        
+          <description>&lt;p&gt;In part 2 of the “Getting Started Using Hadoop” series, I discussed how to &lt;a title=&quot;Build a Hadoop cluster Amazon EC2&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/&quot; target=&quot;_blank&quot;&gt;build a Hadoop cluster on Amazon EC2&lt;/a&gt; using Cloudera CDH. This post will cover how to get your data into the Hadoop Distributed File System (HDFS) using the publicly available “&lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;Airline Dataset&lt;/a&gt;“. While there are multiple ways to upload data into HDFS, this post will only cover the easiest method, which is to use the Hue ‘File Browser’ interface.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 22 May 2013 07:39:19 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Innovation Will Never Be At The Push Of A Button</title>
+        
+          <description>&lt;blockquote class=&quot;twitter-tweet&quot; data-conversation=&quot;none&quot;&gt;
+  &lt;p&gt;
+    @&lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;randyzwitch&lt;/a&gt; @&lt;a href=&quot;https://twitter.com/benjamingaines&quot;&gt;benjamingaines&lt;/a&gt; @&lt;a href=&quot;https://twitter.com/usujason&quot;&gt;usujason&lt;/a&gt; I am envisioning the data science equivalent of an autonomous vehicle pileup.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    — Todd Belcher (@toddmetrics) &lt;a href=&quot;https://twitter.com/toddmetrics/status/335030724375756800&quot;&gt;May 16, 2013&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Fri, 17 May 2013 06:28:47 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/data-science-innovation/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/data-science-innovation/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Started Using Hadoop, Part 2: Building a Cluster</title>
+        
+          <description>&lt;p&gt;In &lt;a title=&quot;Getting Started With Hadoop, Part 1&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot; target=&quot;_blank&quot;&gt;Part 1 of this series&lt;/a&gt;, I discussed some of the basic concepts around Hadoop, specifically when it’s appropriate to use Hadoop to solve your data engineering problems and the terminology of the Hadoop eco-system. This post will cover how to install your own Hadoop cluster on Amazon EC2 using Cloudera Manager.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 25 Apr 2013 13:33:48 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Started Using Hadoop, Part 1: Intro</title>
+        
+          <description>&lt;p&gt;For the last couple of days I’ve been at the eMetrics conference in San Francisco. There were several panels that discussed big data, both from an engineering standpoint as well as how to adopt newer technologies from a business perspective.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 18 Apr 2013 08:47:15 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Instructions for Installing &amp;#038; Using R on Amazon EC2</title>
+        
+          <description>&lt;p&gt;If you’re an R user, you’ve surely heard all the hype around ‘big data’ and how R is commonly used to analyze these volumes of data. One thing that’s often missing from the discussion is HOW to work around issues using big data and R, specifically how to deal with the fact that R stores all its objects in-memory.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 08 Apr 2013 12:36:07 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/r-amazon-ec2/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/r-amazon-ec2/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Automated Re-Install of Packages for R 3.0</title>
+        
+          <description>&lt;p&gt;With the big release of &lt;a title=&quot;R 3.0 introduction&quot; href=&quot;http://www.r-bloggers.com/r-3-0-0-is-released-whats-new-and-how-to-upgrade/&quot; target=&quot;_blank&quot;&gt;R 3.0&lt;/a&gt; today comes an unfortunate side effect of needing to re-install all of your packages. Luckily, R provides a pretty easy method of getting all of your packages into a list for automated re-install.  Here’s how to do it for OSX users with a default install to the Library:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 03 Apr 2013 06:10:09 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/automated-re-install-of-packages-for-r-3-0/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/automated-re-install-of-packages-for-r-3-0/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>The Fun of Error Trapping: R Package Edition</title>
+        
+          <description>&lt;p&gt;For the last month or so I’ve been working on an R package to make accessing the &lt;a title=&quot;Omniture Reporting API&quot; href=&quot;https://developer.omniture.com/&quot; target=&quot;_blank&quot;&gt;Adobe (Omniture) Digital Marketing Suite Reporting API&lt;/a&gt; easier.  As part of this development effort, I’m at the point where I’m intentionally introducing errors into my function inputs, trying to guess some of the ways useRs might incorrectly input arguments into each function.  Imagine my surprise when I saw this:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 25 Feb 2013 12:15:46 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/r-error-message-fun/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/r-error-message-fun/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>(not provided): Using R and the Google Analytics API</title>
+        
+          <description>&lt;div id=&quot;attachment_1432&quot; style=&quot;width: 610px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;img class=&quot;size-full wp-image-1432&quot; alt=&quot;(not provided) terms from Google average 35%-60% of all organic search terms&quot; src=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?fit=600%2C331&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?w=600 600w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=150%2C82 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=300%2C165 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=500%2C275 500w&quot; sizes=&quot;(max-width: 600px) 100vw, 600px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    (not provided) terms from Google average 35%-60% of all Google organic search terms
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Fri, 11 Jan 2013 11:27:33 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/r-google-analytics-api/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/r-google-analytics-api/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Video:  SQL Queries in R using sqldf</title>
+        
+          <description>&lt;p&gt;This video covers how to run SQL queries using the ‘sqldf’ package within R. This sqldf tutorial was part of a &lt;a title=&quot;Keystone Solutions data science&quot; href=&quot;http://www.keystonesolutions.com/index.php/blog/entry/podcast-2-r-u-serious&quot; target=&quot;_blank&quot;&gt;Keystone Solutions podcast discussion about data science&lt;/a&gt; and what skills beginning analysts should be learning to improve their skill set.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 17 Dec 2012 08:22:51 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/sqldf-package-r/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/sqldf-package-r/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Adding a &amp;#8216;Back to Top&amp;#8217; Link on WordPress</title>
+        
+          <description>&lt;p&gt;In a previous post, I discussed how to &lt;a href=&quot;http://randyzwitch.com/removing-powered-by-wordpress-scrappy/&quot; title=&quot;Remove Powered By WordPress Scrappy theme&quot;&gt;remove “Powered By WordPress”&lt;/a&gt; from the footer of the Scrappy theme.  You might also want to add a “Back to Top” link in the footer, especially if your blog has a lot of vertical distance from the top to the bottom.  Here’s how to do it…&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 21 Nov 2012 12:44:30 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/back-to-top-wordpress-scrappy/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/back-to-top-wordpress-scrappy/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Video: Overlay Histogram in R (Normal, Density, Another Series)</title>
+        
+          <description>&lt;p&gt;This video explains how to overlay histogram plots in R for 3 common cases: overlaying a histogram with a normal curve, overlaying a histogram with a density curve, and overlaying a histogram with a second data series plotted on a secondary axis.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 09 Nov 2012 08:40:01 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/overlay-histogram-in-r/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/overlay-histogram-in-r/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Video:  R, RStudio, Rcmdr &amp;#038; rattle</title>
+        
+          <description>&lt;p&gt;I did a screencast for my co-workers to show how to get started with R, specifically what a base installation of R looks like, then showing how to improve your workflow using RStudio, Rcmdr or rattle.  The examples are somewhat pedestrian, but it gives a feel for what using R actually looks like.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 07 Sep 2012 08:07:45 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/video-r-rstudio-rcmdr-rattle/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/video-r-rstudio-rcmdr-rattle/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Started Using R, Part 2: Rcmdr</title>
+        
+          <description>&lt;p&gt;In my first post in this series, I discussed &lt;em&gt;&lt;a title=&quot;Getting Started Using R, Part 1:  RStudio&quot; href=&quot;http://randyzwitch.com/getting-started-using-rstudio/&quot; target=&quot;_blank&quot;&gt;RStudio&lt;/a&gt;&lt;/em&gt;, an IDE that adds significant functionality and consistency to a basic installation of R.  In this post, I will discuss &lt;a title=&quot;Rcmdr download at CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/Rcmdr/index.html&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Rcmdr&lt;/em&gt;&lt;/a&gt;, a GUI that provides the ability to do basic business statistics without having to code in R.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 06 Aug 2012 06:54:18 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/getting-started-using-r-rcmdr/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/getting-started-using-r-rcmdr/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Started Using R, Part 1:  RStudio</title>
+        
+          <description>&lt;p&gt;Despite &lt;a href=&quot;http://randyzwitch.com/learning-r-sas/&quot; title=&quot;Learning R has really made me appreciate SAS&quot;&gt;my preference for SAS over R&lt;/a&gt;, there are some add-ons to “basic” R that I’ve found that have made my learning process way easier.  While I’m still in my infancy in learning R, I feel like once I found these additional tools, my ability to use R to get work done improved significantly.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 04 Aug 2012 07:58:14 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/getting-started-using-rstudio/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/getting-started-using-rstudio/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Learning R Has Really Made Me Appreciate SAS</title>
+        
+          <description>&lt;p&gt;For the past 18 months, it seems like all I’ve heard about in the digital marketing industry is “big data”, and with that, mentions of using Hadoop and R to solve these sorts of problems.  Why are these tools the most often mentioned?  Because they are open source, i.e. free of charge!&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 25 Jul 2012 07:34:03 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/learning-r-sas/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/learning-r-sas/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>My Top 20 Least Useful Omniture Reports</title>
+        
+          <description>&lt;div id=&quot;attachment_1233&quot; style=&quot;width: 272px&quot; class=&quot;wp-caption alignright&quot;&gt;
+  &lt;img class=&quot;size-medium wp-image-1233&quot; title=&quot;data-squirrel&quot; src=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel-262x300.png?fit=262%2C300&quot; alt=&quot;&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=262%2C300 262w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=131%2C150 131w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?w=362 362w&quot; sizes=&quot;(max-width: 262px) 100vw, 262px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Just because data CAN be captured doesn&amp;#8217;t mean it SHOULD be!
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Tue, 17 Jul 2012 20:14:04 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/least-useful-omniture-reports/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/least-useful-omniture-reports/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Apple Has Earned a Customer for Life</title>
+        
+          <description>&lt;div id=&quot;attachment_1177&quot; style=&quot;width: 710px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;img class=&quot; wp-image-1177 &quot; title=&quot;macbook-pro-broken-hinge-screen&quot; alt=&quot;macbook pro broken hinge&quot; src=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=700%2C259&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?w=700 700w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=150%2C55 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=300%2C111 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=500%2C185 500w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Broken MacBook Pro hinge (due to glue failure)
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Mon, 25 Jun 2012 16:38:57 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Where&amp;#8217;s The Relevance, Twitter?</title>
+        
+          <description>&lt;div id=&quot;attachment_1153&quot; style=&quot;width: 652px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;img class=&quot;size-full wp-image-1153&quot; title=&quot;twitter-promoted-tweets-spam&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?fit=642%2C481&quot; alt=&quot;twitter promoted tweets no better than spam&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?w=642 642w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=150%2C112 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=300%2C224 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=400%2C300 400w&quot; sizes=&quot;(max-width: 642px) 100vw, 642px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Left: #WWDC (Apple developer conference)           Right: #EdLoverDance
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Thu, 14 Jun 2012 04:42:36 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/twitter-promoted-tweets/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/twitter-promoted-tweets/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Get Rich With Google AdSense And WordPress!</title>
+        
+          <description>&lt;p&gt;&lt;img class=&quot;alignright size-medium wp-image-1139&quot; title=&quot;google-adsense-wordpress&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress-300x240.png?fit=300%2C240&quot; alt=&quot;Google Adsense graphic&quot; srcset=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=300%2C240 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=150%2C120 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=374%2C300 374w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?w=438 438w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;There are as many reasons to blog as there are people on Earth.  Whether it’s to use a blog as a personal diary, a means to share something you are passionate about (like &lt;a title=&quot;Food blog&quot; href=&quot;http://zwitchen.com/&quot; target=&quot;_blank&quot;&gt;cooking&lt;/a&gt;, as my wife does), a “voice” for your professional career or something else, eventually the question comes up:  should I try and earn advertising income from Google AdSense from my readership?&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 07 Jun 2012 04:37:28 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/google-adsense-and-wordpress/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/google-adsense-and-wordpress/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>For Maximum User Understanding, Customize the SiteCatalyst Menu</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Customizing anything is better than customizing nothing – Jason Egan (&lt;a title=&quot;Jason Egan tweet&quot; href=&quot;https://twitter.com/jasonegan/status/210398632082538497&quot; target=&quot;_blank&quot;&gt;@jasonegan&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Wed, 06 Jun 2012 13:31:39 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/customize-adobe-sitecatalyst-menu/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/customize-adobe-sitecatalyst-menu/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Effect Of Modified Bounce Rate In Google Analytics</title>
+        
+          <description>&lt;p&gt;A few months back, Justin Cutroni posted on his &lt;a title=&quot;Justin Cutroni web analytics blog&quot; href=&quot;http://cutroni.com/blog&quot; target=&quot;_blank&quot;&gt;blog&lt;/a&gt; some jQuery code that &lt;a title=&quot;Modifying Bounce Rate and Time on Site in Google Analytics&quot; href=&quot;http://cutroni.com/blog/2012/02/21/advanced-content-tracking-with-google-analytics-part-1/&quot; target=&quot;_blank&quot;&gt;modifies how Google Analytics tracks content&lt;/a&gt;.  Specifically, the code snippet changes how bounce rate and time on site are calculated, creates a custom variable to classify whether visitors are “Readers” vs. “Scanners” and adds some Google Analytics events to track how far down the page visitors are reading.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 10 May 2012 04:05:02 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/bounce-rate-modification-google-analytics-cutroni/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/bounce-rate-modification-google-analytics-cutroni/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Adobe Discover 3:  First Impressions</title>
+        
+          <description>&lt;p&gt;&lt;img class=&quot;alignright size-full wp-image-1020&quot; title=&quot;adobe-discover-logo&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-logo.png?fit=184%2C43&quot; alt=&quot;Adobe Discover&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-logo.png?w=184 184w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-logo.png?resize=150%2C35 150w&quot; sizes=&quot;(max-width: 184px) 100vw, 184px&quot; data-recalc-dims=&quot;1&quot; /&gt;With yesterday’s code release, &lt;del&gt;Omniture&lt;/del&gt; Adobe released version 3 of their “Discover” tool, THE way to perform web analysis within the Adobe Digital Marketing Suite.  While SiteCatalyst has its place for basic reporting, to really dig deep into your data for actionable insights there’s no substitute to using Discover.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 27 Apr 2012 04:24:21 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/adobe-discover-3-first-impressions/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/adobe-discover-3-first-impressions/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Removing &amp;#8216;Powered by WordPress&amp;#8217; From Scrappy</title>
+        
+          <description>&lt;p&gt;My wife started a &lt;a title=&quot;Zwitchen.com | What's Cookin'?&quot; href=&quot;http://zwitchen.com&quot; target=&quot;_blank&quot;&gt;food blog&lt;/a&gt; this weekend and decided to use the &lt;a title=&quot;Scrappy WordPress theme&quot; href=&quot;http://wordpress.org/extend/themes/scrappy&quot; target=&quot;_blank&quot;&gt;“Scrappy” WordPress theme&lt;/a&gt; by &lt;a href=&quot;http://carolinethemes.com/2011/11/04/scrappy/&quot; target=&quot;_blank&quot;&gt;Caroline Moore&lt;/a&gt;.  But like all WordPress themes, there are a few customizations that are usually made to personalize the theme, the first of which is removing “Powered by WordPress” in the footer.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 23 Apr 2012 17:23:37 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/removing-powered-by-wordpress-scrappy/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/removing-powered-by-wordpress-scrappy/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>How To Install Optimizely on WordPress</title>
+        
+          <description>&lt;p&gt;If you’ve spent any time working in digital marketing or analytics, you’re already familiar with the power of A/B testing.  A/B testing (and it’s more complicated brother &lt;a href=&quot;http://www.smashingmagazine.com/2011/04/04/multivariate-testing-101-a-scientific-method-of-optimizing-design/&quot; target=&quot;_blank&quot;&gt;multivariate testing&lt;/a&gt;) allows site owners to find out optimal combinations of site design and content for their visitors &lt;em&gt;without having to directly ask/inconvenience the user&lt;/em&gt;.  All it takes to improve a website is forming a hypothesis of something that could work better, creating multiple versions of a page (or other content), setting up the experiment…and the money flows in faster than you can count it.  At least, that’s the hope!&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 19 Apr 2012 03:45:22 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/optimizely-wordpress-install/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/optimizely-wordpress-install/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Using Omniture SiteCatalyst Target Report To Calculate YOY growth</title>
+        
+          <description>&lt;p&gt;Of the hundreds of stock reports and capabilities present within Adobe (Omniture) SiteCatalyst, calculating year-over-year growth isn’t the easiest thing to do.  And while conversion reports (eVars) have the “Compare Dates” functionality within the calendar menu, we can’t quickly plot the difference between two time periods within a dashboard.  This is where the Omniture SiteCatalyst Target report comes in handy.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 22 Feb 2012 03:15:18 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/omniture-sitecatalyst-target-report/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/omniture-sitecatalyst-target-report/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Claim Your Newest Klout Perk:  An SEC Investigation!</title>
+        
+          <description>&lt;div id=&quot;attachment_923&quot; style=&quot;width: 682px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;img class=&quot;size-full wp-image-923&quot; title=&quot;klout-perk-wahooly&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?fit=672%2C239&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?w=672 672w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=150%2C53 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=300%2C106 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=500%2C177 500w&quot; sizes=&quot;(max-width: 672px) 100vw, 672px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    &amp;#8220;Ownership in startup companies for nothing&amp;#8230;sign up today!&amp;#8221;
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Fri, 16 Dec 2011 05:41:26 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/klout-perk-wahooly/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/klout-perk-wahooly/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>100 Miles For charity:water &amp;#8211; 12/1 Update</title>
+        
+          <description>&lt;div id=&quot;attachment_910&quot; style=&quot;width: 551px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;img class=&quot;size-full wp-image-910&quot; title=&quot;100milesfor-charitywater&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?fit=541%2C365&quot; alt=&quot;charity:water campaign progress&quot; srcset=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?w=541 541w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=150%2C101 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=300%2C202 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=444%2C300 444w&quot; sizes=&quot;(max-width: 541px) 100vw, 541px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Donations come in spurts, but the running continues!
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Thu, 01 Dec 2011 03:26:24 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/100-miles-for-charitywater-update-1/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/100-miles-for-charitywater-update-1/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>100 Miles For charity:water</title>
+        
+          <description>&lt;p&gt;&lt;a href=&quot;http://mycharitywater.org/100milesforcharitywater&quot;&gt;&lt;img class=&quot;alignright&quot; style=&quot;border: 1px solid black;&quot; src=&quot;http://i1.wp.com/www.charitywater.org/media/banners/220x220_8glasses.jpg?resize=220%2C220&quot; alt=&quot;&quot; border=&quot;1&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;In the past couple of weeks, I’ve started a project through the &lt;a title=&quot;What is the Analysis Exchange?&quot; href=&quot;http://www.webanalyticsdemystified.com/ae/what-is-analysis-exchange.asp&quot; target=&quot;_blank&quot;&gt;Analysis Exchange&lt;/a&gt; working with &lt;a title=&quot;Jason Thompson&quot; href=&quot;http://emptymind.org/&quot; target=&quot;_blank&quot;&gt;Jason Thompson&lt;/a&gt; and &lt;a title=&quot;charity:water&quot; href=&quot;http://www.charitywater.org/&quot; target=&quot;_blank&quot;&gt;charity:water&lt;/a&gt;.  If you’re not familiar with the Analysis Exchange, it’s a program where aspiring web analysts and grizzled veterans* volunteer to provide analytics services to charities.  Through the Analysis Exchange, charities are helped, students are mentored, and the World is a slightly better place than when the project was started.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 27 Oct 2011 10:09:09 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/charitywater-campaign/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/charitywater-campaign/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Page Navigation For WordPress Twenty Eleven</title>
+        
+          <description>&lt;p&gt;By default, most WordPress themes (including Twenty Eleven) have relatively weak page-to-page navigation.  Users can improve content structure on their WordPress blogs by using categories, tags, and custom menus, but one navigation element that’s a bit more difficult to modify are the “Next Page/Previous Page” links.  These links are great if you want to move a page at a time, but if your blog has lots of pages, users won’t easily be able to navigate very deeply into your content.  That’s where a page navigation menu comes in handy.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 21 Oct 2011 07:18:47 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/page-navigation-wordpress-twenty-eleven/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/page-navigation-wordpress-twenty-eleven/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Google Analytics Individual Qualification (IQ) &amp;#8211; Passed!</title>
+        
+          <description>&lt;div id=&quot;attachment_856&quot; style=&quot;width: 310px&quot; class=&quot;wp-caption alignright&quot;&gt;
+  &lt;img class=&quot;size-full wp-image-856&quot; title=&quot;google-iq-certificate&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?fit=300%2C231&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?w=300 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?resize=150%2C115 150w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    I'm going to print this out and put it on my fridge!
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Tue, 18 Oct 2011 03:21:31 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/google-analytics-individual-qualification/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/google-analytics-individual-qualification/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>iPhone 4S: A Worthy Upgrade Clouded By Activation Issues</title>
+        
+          <description>&lt;p&gt;When the iPhone 4S was announced on October 4th, there was much gnashing of teeth by Apple fanboys and stock market &lt;a title=&quot;Yahoo Finance Apple 4S&quot; href=&quot;http://finance.yahoo.com/blogs/breakout/apple-iphone-4s-opens-door-competitors-analyst-210516885.html&quot; target=&quot;_blank&quot;&gt;analysts&lt;/a&gt; about how this “lackluster” iPhone refresh was going to allow competitors to overtake Apple. That without a re-designed case and bigger screen and more storage and…and…and. All of the rumors (and the subsequent disappointment) ignored one of the simple economic realities of the cell phone market:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 14 Oct 2011 11:07:29 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/iphone-4s-activation-issues/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/iphone-4s-activation-issues/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Google Analytics SEO reports: Not Ready For Primetime?</title>
+        
+          <description>&lt;p&gt;On October 4th, Google &lt;a title=&quot;Webmaster Tools in GA&quot; href=&quot;http://analytics.blogspot.com/2011/10/webmaster-tools-in-google-analytics-for.html&quot; target=&quot;_blank&quot;&gt;announced&lt;/a&gt; that the Webmaster Tools/Google Analytics integration was now available to all users. The three new reports (Queries, Landing Pages, and Geographical Summary) are intended to allow site owners and content creators to monitor how well their content is indexed in Google for their keywords of interest across time, all within the Google Analytics interface.  However, based on my preliminary research from the first few days of data, I have to question the current algorithm’s accuracy.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 06 Oct 2011 04:40:58 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/google-analytics-seo-reports-inaccurate/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/google-analytics-seo-reports-inaccurate/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>An Afternoon With Edward Tufte</title>
+        
+          <description>&lt;div id=&quot;attachment_713&quot; style=&quot;width: 310px&quot; class=&quot;wp-caption alignright&quot;&gt;
+  &lt;img class=&quot;size-medium wp-image-713 &quot; title=&quot;tufte-data-visualization&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization-300x225.jpg?fit=300%2C225&quot; alt=&quot;Tufte Seminar Philly&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=300%2C225 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=150%2C112 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=400%2C300 400w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?w=640 640w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    There had to be 400+ people in the seminar!
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Wed, 05 Oct 2011 04:22:22 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/an-afternoon-with-edward-tufte/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/an-afternoon-with-edward-tufte/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Google Analytics Custom Variables: A Page-Level Example</title>
+        
+          <description>&lt;p&gt;Once you’ve &lt;a title=&quot;Google Analytics for WordPress: Two Methods&quot; href=&quot;http://randyzwitch.com/2011/08/google-analytics-for-wordpress/&quot; target=&quot;_blank&quot;&gt;implemented&lt;/a&gt; Google Analytics on your WordPress blog, you’ll likely find that the default reports aren’t providing the site-specific information you are looking for…or, maybe just not at the level of aggregation you’d prefer.   Google Analytics custom variables provide a method of capturing your site-specific information, depending on whether the information changes once per visitor, once per session, or once per page.  Examples of custom variable usage includes:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 02 Oct 2011 07:10:37 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/google-analytics-custom-variables/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/google-analytics-custom-variables/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>How To Remove &amp;#8220;This entry was posted in&amp;#8221; on WordPress single posts</title>
+        
+          <description>&lt;p&gt;In prior &lt;a title=&quot;Removing “Powered by WordPress” in Twenty Eleven&quot; href=&quot;http://randyzwitch.com/2011/08/removing-powered-by-wordpress-twenty-eleven/&quot; target=&quot;_blank&quot;&gt;posts&lt;/a&gt;, I’ve commented that I’m a fan of clean, sleek design when it comes to WordPress themes.  I’ve added the “breadcrumb” style navigation to the top of my posts, which makes the “This Entry was Posted in &lt;category&gt;&amp;#8221; and &amp;#8220;Bookmark the Permalink&amp;#8221; text at the bottom of each post redundant.&lt;/category&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 27 Sep 2011 11:29:42 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/wordpress-remove-this-entry-was-posted-in/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/wordpress-remove-this-entry-was-posted-in/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Xchange 2011: Think Tank and Harbor Cruise</title>
+        
+          <description>&lt;div id=&quot;attachment_558&quot; style=&quot;width: 637px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;img class=&quot;size-full wp-image-558&quot; title=&quot;sunset-san-diego-harbor&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?fit=627%2C338&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?w=627 627w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=300%2C161 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=500%2C269 500w&quot; sizes=&quot;(max-width: 627px) 100vw, 627px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Sunset over Coronado Island - 9/12/11
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Tue, 13 Sep 2011 07:06:58 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/xchange-2011-think-tank/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/xchange-2011-think-tank/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>How to Disable Mobile Theme in WordPress</title>
+        
+          <description>&lt;p&gt;With smartphone usage on the rise, you might wonder why anyone would want to disable mobile support in WordPress (specifically, in the Twenty Eleven theme).  Answer: It’s poorly implemented, or at minimum sub-optimal in its default settings.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 09 Sep 2011 07:53:04 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/disable-mobile-theme-in-wordpress/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/disable-mobile-theme-in-wordpress/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Installing Google Plus Button on WordPress</title>
+        
+          <description>&lt;p&gt;If you’ve been anywhere on the internet in the past few months, you’ve seen the +1 button from Google right next to Facebook, Twitter, StumbleUpon and other social media sharing buttons.  It’s pretty clear that Google intends the “plus one” to be THE most important form of approval on the ‘net, integrating all those “plusses” into search results as well as showing them within the Google+ Plus network.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 03 Sep 2011 07:33:11 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/google-plus-button-wordpress-twenty-eleven/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/google-plus-button-wordpress-twenty-eleven/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Prevent Google Analytics From Tracking Logged-in Users</title>
+        
+          <description>&lt;p&gt;In a previous &lt;a title=&quot;WordPress Stats or Google Analytics?  Yes!&quot; href=&quot;http://randyzwitch.com/2011/07/wordpress-stats-or-google-analytics/&quot; target=&quot;_blank&quot;&gt;post&lt;/a&gt;, I discussed how it’s useful to have &lt;em&gt;both&lt;/em&gt; WordPress Stats and Google Analytics installed on a WordPress blog; the former can be used as a quick dashboard to check in on the day’s traffic, and the latter can be used for more advanced analysis.  But in order to keep our datasets comparable, we need to track users in a similar manner.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 24 Aug 2011 04:22:15 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/prevent-google-analytics-tracking-logged-in/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/prevent-google-analytics-tracking-logged-in/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Removing &amp;#8220;Powered by WordPress&amp;#8221; in Twenty Eleven</title>
+        
+          <description>&lt;p&gt;So far in the child theme tutorials for the WordPress Twenty Eleven theme, we’ve created a &lt;a title=&quot;Twenty Eleven Child Theme: Creating CSS file&quot; href=&quot;http://randyzwitch.com/2011/07/twenty-eleven-child-theme-creating-css-file/&quot; target=&quot;_blank&quot;&gt;custom CSS&lt;/a&gt; file and &lt;a title=&quot;Twenty Eleven Child Theme:  Custom Header&quot; href=&quot;http://randyzwitch.com/2011/07/custom-header-twenty-eleven-child-theme/&quot; target=&quot;_blank&quot;&gt;custom header&lt;/a&gt;.  Now, let’s add a custom footer and remove “Powered by WordPress”.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 20 Aug 2011 06:14:38 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Google Analytics for WordPress: Two Methods</title>
+        
+          <description>&lt;p&gt;There are two ways to install Google Analytics for WordPress:  manually in your theme or by using a plugin.  While most of this post will cover the manual installation of the tracking code, I will also briefly discuss some of the WordPress Google Analytics plugins I have used over the years.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 16 Aug 2011 04:19:40 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/google-analytics-for-wordpress/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/google-analytics-for-wordpress/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Removing Comment Bubble From Twenty Eleven Theme</title>
+        
+          <description>&lt;p&gt;If you’re like me, one of the things that seems odd about the WordPress Twenty Eleven theme is the comment bubble in the upper right of each post on the front page of the blog.  If you don’t know what I’m talking about, here’s a picture:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 29 Jul 2011 17:23:16 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/comment-bubble-twenty-eleven/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/comment-bubble-twenty-eleven/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>WordPress Stats or Google Analytics?  Yes!</title>
+        
+          <description>&lt;p&gt;To understand the success of your blog content and site design, you need actionable data on your visitors and how they are interacting with your site.  Whether to use WordPress Stats or Google Analytics (or both) to obtain this data depends on your goals.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 22 Jul 2011 09:57:14 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/wordpress-stats-or-google-analytics/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/wordpress-stats-or-google-analytics/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Twenty Eleven Child Theme:  Custom Header</title>
+        
+          <description>&lt;p&gt;In a previous &lt;a href=&quot;http://randyzwitch.com/2011/07/twenty-eleven-child-theme-creating-css-file/&quot;&gt;post&lt;/a&gt; about creating a child theme for Twenty-Eleven, we created a custom CSS file using the &lt;a title=&quot;Import CSS rule&quot; href=&quot;http://www.w3.org/TR/CSS2/cascade.html#at-import&quot; target=&quot;_blank&quot;&gt;@import CSS rule&lt;/a&gt;.  Technically, the new CSS file is all that is needed to create a child theme in WordPress, but &lt;em&gt;just&lt;/em&gt; changing the colors and font styles isn’t that much fun.  If it’s worth making your own WordPress child theme, it’s worth changing _everything…_starting with creating a custom header file.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 20 Jul 2011 09:16:53 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/custom-header-twenty-eleven-child-theme/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/custom-header-twenty-eleven-child-theme/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Have Social &amp;#8216;Influence&amp;#8217; Scores Become Another FICO?</title>
+        
+          <description>&lt;div id=&quot;attachment_139&quot; style=&quot;width: 205px&quot; class=&quot;wp-caption alignright&quot;&gt;
+  &lt;img class=&quot;size-full wp-image-139   &quot; title=&quot;zwitch-klout-july-2011&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/07/zwitch-klout-july-2011.png?fit=195%2C179&quot; alt=&quot;&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Klout thinks I'm a 'Networker'
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+        
+        <pubDate>Wed, 13 Jul 2011 07:52:32 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/social-influence-another-fico/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/social-influence-another-fico/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Twenty Eleven Child Theme: Creating CSS File</title>
+        
+          <description>&lt;p&gt;With the Twenty Eleven child theme directory &lt;a title=&quot;Picking a WordPress Theme:  Fancy or Basic?&quot; href=&quot;http://randyzwitch.com/2011/07/wordpress-theme-twentyeleven-athualpa/&quot; target=&quot;_blank&quot;&gt;created&lt;/a&gt; as “twentyeleven-child” in the ‘/wp-content/themes’ directory, we’re now ready to create the first file as part of the child theme: the CSS file.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Jul 2011 08:37:42 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Picking a WordPress Theme:  Fancy or Basic?</title>
+        
+          <description>&lt;h2 id=&quot;a-complicated-wordpress-theme-may-look-better8230&quot;&gt;A complicated WordPress theme may LOOK better…&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sat, 09 Jul 2011 03:43:20 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/</guid>
       </item>
       
     

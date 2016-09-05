@@ -1,13 +1,20 @@
+---
 gems:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-
+- jekyll-seo-tag
+- jekyll-sitemap
+- jekyll-paginate
+- jekyll-admin
 twitter:
   username: randyzwitch
-
-permalink: /:categories/:title.html
-
+permalink: /:title.html
 name: randyzwitch
 url: http://randyzwitch.com
-
 paginate: 3
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Randy Zwitch"

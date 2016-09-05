@@ -1,0 +1,64 @@
+---
+id: 2530
+title: Real-time Reporting with the Adobe Analytics API
+date: 2014-03-10T11:28:21+00:00
+author: Randy Zwitch
+layout: post
+guid: http://randyzwitch.com/?p=2530
+permalink: /real-time-reporting-adobe-analytics-api/
+tweetbackscheck:
+  - 1472931898
+shorturls:
+  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2530";s:7:"tinyurl";s:26:"http://tinyurl.com/klsdnb8";s:4:"isgd";s:19:"http://is.gd/14Cxw5";}'
+twittercomments:
+  - 'a:0:{}'
+tweetcount:
+  - 0
+categories:
+  - Digital Analytics
+tags:
+  - Adobe Analytics
+  - R
+  - RSiteCatalyst
+---
+Starting with <a title="RSiteCatalyst Version 1.3 Release Notes" href="http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/" target="_blank">version 1.3.1 of RSiteCatalyst</a>, you can now access the <a title="Realtime reporting Adobe Analytics API documentation" href="https://developer.omniture.com/en_US/documentation/sitecatalyst-reporting/c-real-time#concept_AD1D9EC2BC9C4897B9DE3C99D0066B8E" target="_blank">real-time reporting capabilities of the Adobe Analytics API</a> through a familiar R interface. Here&#8217;s how to get started&#8230;
+
+## GetRealTimeConfiguration
+
+Before using the real-time reporting capabilities of Adobe Analytics, you first need to indicate which metrics and elements you are interested in seeing in real-time. To see which reports are already set up for real-time access on a given report suite, you can use the _GetRealTimeConfiguration()_ function:It&#8217;s likely the case that the first time you set this up, you&#8217;ll already see a real-time report for &#8216;Instances-Page-Site Section-Referring Domain&#8217;. You can leave this report in place, or switch the parameters using _SaveRealTimeConfiguration()._ 
+
+## SaveRealTimeConfiguration
+
+If you want to add/modify which real-time reports are available in a report suite, you can use the _SaveRealTimeConfiguration()_ function:
+
+Up to three real-time reports are available to be stored at any given time. Note that you can mix-and-match what reports you want to modify, you don&#8217;t have to submit all three reports at a given time. Finally, keep in mind that it can take up to 15 minutes for the API to incorporate your real-time report changes, so if you don&#8217;t get your data right away don&#8217;t keep re-submitting the function call!
+
+
+  
+
+
+## GetRealTimeReport
+
+Once you have your real-time reports set up in the API, you can use the GetRealTimeReport() function in order to access your reports. There are numerous parameters for customization; selected examples are below.
+
+### Minimum Example &#8211; Overtime Report
+
+The simplest function call for a real-time report is to create an &#8220;Overtime&#8221; report (monitoring a metric over a specific time period):The result of this call will be a DataFrame having 15 rows of one minute granularity for your metric. This is a great way to monitor real-time orders & revenue during a flash sale, see how users are accessing a landing page for an email marketing campaign or any other metric where you want up-to-the-minute status updates. 
+
+### Granularity, Offset, Periods
+
+If you want to have a time period other than the last 15 minutes, or one minute granularity is too volatile for the metric you are monitoring, you can add additional arguments to modify the returned DataFrame:
+
+For this function call, we will receive instances for the last hour (12 periods) of five minute granularity, with a 10 minute offset (meaning, now &#8211; 10 minutes ago is the first time period reported).
+
+### Single Elements
+
+Beyond just monitoring a metric over time, you can specify an element such as Page Name to receive your metrics by:
+
+This function call will return Instances by Page, for the last 27 minutes (3 rows/periods per page, 9 minute granularity&#8230;just because!). Additionally, there are other arguments such as _algorithm, algorithmArgument, firstRankPeriod and floorSensitivity_ that allow for creating reports similar to what is provided in the Real-Time tab in the Adobe Analytics interface.
+
+Currently, even through the Adobe Analytics API supports real-time reports with three breakdowns, only one element breakdown is supported by RSiteCatalyst; it is planned to extend these functions in RSiteCatalyst to full support the real-time capabilities in the near future.
+
+## From DataFrame to Something &#8216;Shiny&#8217;
+
+If we&#8217;re talking real-time reports, we&#8217;re probably talking about dashboarding. If we&#8217;re talking about R and dashboarding, then naturally, <a title="R ggvis" href="http://ggvis.rstudio.com/" target="_blank">ggvis</a>/<a title="Shiny Web Applications" href="http://www.rstudio.com/shiny/" target="_blank">Shiny</a> comes to mind. While providing a full ggvis/Shiny example is beyond the scope of this blog post, it&#8217;s my hope to provide a working example in a future blog post. Stay tuned!
