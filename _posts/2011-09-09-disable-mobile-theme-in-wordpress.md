@@ -16,7 +16,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - CSS
@@ -29,7 +29,7 @@ With smartphone usage on the rise, you might wonder why anyone would want to dis
 
 <div id="attachment_524" style="width: 168px" class="wp-caption alignleft">
   <img class="size-full wp-image-524" title="wordpress-mobile" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/wordpress-mobile.png?fit=158%2C632" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/wordpress-mobile.png?w=158 158w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/wordpress-mobile.png?resize=75%2C300 75w" sizes="(max-width: 158px) 100vw, 158px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Default WordPress mobile theme view
   </p>
@@ -52,7 +52,7 @@ In order to turn off the mobile theme, all we need to do is comment out a single
 
 <div id="attachment_527" style="width: 210px" class="wp-caption alignright">
   <img class="size-medium wp-image-527 " title="css-modifications-ruin-wordpress-mobile-theme" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/09/css-modifications-ruin-wordpress-mobile-theme-200x300.png?fit=200%2C300" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/09/css-modifications-ruin-wordpress-mobile-theme.png?resize=200%2C300 200w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/09/css-modifications-ruin-wordpress-mobile-theme.png?w=320 320w" sizes="(max-width: 200px) 100vw, 200px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Any CSS mods and the mobile theme breaks down
   </p>

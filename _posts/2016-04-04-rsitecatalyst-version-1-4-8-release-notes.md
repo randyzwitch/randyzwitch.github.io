@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -29,13 +29,13 @@ For being in RSiteCatalyst retirement, I&#8217;m ending up working on more func
 RSiteCatalyst now has the ability to take multiple values in the _segment.id _keyword for the Queue* functions. This functionality was graciously provided by <a href="https://twitter.com/FootballActuary" target="_blank">Adam Gitzes</a>, closing an <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/129" target="_blank">issue that was nearly a year old</a>. At times it felt like I was hazing him with change requests, but for Adam&#8217;s first open-source contribution, this is a huge addition in functionality.
 
 So now you are able to pass multiple segments into a function call and get an &#8216;AND&#8217; behavior like so:
-  
-The result (Visits from Social AND Visits from Apple Browsers):
-  
-<img class="aligncenter size-large wp-image-3883" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking-1024x58.png?fit=1024%2C58" alt="rsitecatalyst-segment-stacking" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=1024%2C58 1024w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=150%2C8 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=300%2C17 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=768%2C43 768w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?w=2000 2000w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />
-  
 
-  
+The result (Visits from Social AND Visits from Apple Browsers):
+
+<img class="aligncenter size-large wp-image-3883" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking-1024x58.png?fit=1024%2C58" alt="rsitecatalyst-segment-stacking" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=1024%2C58 1024w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=150%2C8 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=300%2C17 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=768%2C43 768w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?w=2000 2000w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />
+
+
+
 
 
 ## QueueSummary: Now with date.to and date.from keywords

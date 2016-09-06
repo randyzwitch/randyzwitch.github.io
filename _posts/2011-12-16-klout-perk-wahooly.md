@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Social Media
 tags:
   - Klout
@@ -23,7 +23,7 @@ tags:
 ---
 <div id="attachment_923" style="width: 682px" class="wp-caption aligncenter">
   <img class="size-full wp-image-923" title="klout-perk-wahooly" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?fit=672%2C239" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?w=672 672w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=150%2C53 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=300%2C106 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=500%2C177 500w" sizes="(max-width: 672px) 100vw, 672px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     &#8220;Ownership in startup companies for nothing&#8230;sign up today!&#8221;
   </p>
@@ -40,9 +40,9 @@ In a previous post on <a title="Klout will never be FICO" href="http://randyzwit
 That said, trying to get &#8220;influential&#8221; people using your goods is a tried-and-true advertising technique, and one that companies pay handsomely for.  You see it in car commercials, luxury goods like watches and clothing, and even home goods retail. So again, I can&#8217;t fault large companies that are testing into new markets, as top-line growth can often be hard to find (and expensive!)
 
 But once you start moving into investment offers, venture capital, and startups, now you&#8217;re moving into a whole other world of due diligence&#8230;
-  
 
-  
+
+
 
 
 ## I qualify for &#8220;Wahooly&#8221;&#8230;what&#8217;s that?
@@ -62,7 +62,7 @@ Wanting to know more, I dug farther into the article to find these two gems:
 > **&#8220;If you&#8217;re an equity stakeholder in a company, I can guarantee that the FTC is going to think that&#8217;s a relationship that needs to be disclosed,&#8221;** she said&#8230;
 
 > <snip>
-> 
+>
 > &#8230;Wahooly is looking to structure itself like a venture capital fund, in which it would be the sole shareholder and represent the interests of its users, and thereby avoid registering itself and the startups it represents with the Securities and Exchange Commission as public companies&#8230;
 
 > <snip>

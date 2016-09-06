@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Postgres
@@ -22,16 +22,16 @@ tags:
   - SQL
   - Window functions
 ---
-Last week, I wrote a blog post showing how to <a title="Sessionizing Log Data Using SQL" href="http://randyzwitch.com/sessionizing-log-data-sql/" target="_blank">sessionize log data using standard SQL</a>. The main idea of that post is that if your analytics platform supports window functions (like Postgres and Hive do), you can make quick work out of sessionizing logs. Here&#8217;s the winning query:One nested sub-query and two window functions are all it takes to calculate the event boundaries and create a unique identifier for sessions for any arbitrary timeout chosen. 
+Last week, I wrote a blog post showing how to <a title="Sessionizing Log Data Using SQL" href="http://randyzwitch.com/sessionizing-log-data-sql/" target="_blank">sessionize log data using standard SQL</a>. The main idea of that post is that if your analytics platform supports window functions (like Postgres and Hive do), you can make quick work out of sessionizing logs. Here&#8217;s the winning query:One nested sub-query and two window functions are all it takes to calculate the event boundaries and create a unique identifier for sessions for any arbitrary timeout chosen.
 
 ## It&#8217;s Hadley&#8217;s House, We&#8217;re Just Leasing
 
 Up until today, I hadn&#8217;t really done anything using dplyr.  But having a bunch of free time this week and hearing people talk so much about how great dplyr is, I decided to see what it would take to replicate this same exercise using R. dplyr has support for Postgres as a back-end, and has verbs that translate R code into window functions, so I figured it had to be possible. Here&#8217;s what I came up with:
-  
-Generally, I&#8217;m not a fan of the pipe operator, but I figured I&#8217;d give it a shot since everyone else seems to like it. This is one nasty bit of R code, but ultimately, it is possible to get the same result as writing SQL directly. I did need to take a few roundabout ways, specifically in calculating the minutes between timestamps and substituting the CASE expression into the window function rather than call it by name, but it&#8217;s basically the same logic.
-  
 
-  
+Generally, I&#8217;m not a fan of the pipe operator, but I figured I&#8217;d give it a shot since everyone else seems to like it. This is one nasty bit of R code, but ultimately, it is possible to get the same result as writing SQL directly. I did need to take a few roundabout ways, specifically in calculating the minutes between timestamps and substituting the CASE expression into the window function rather than call it by name, but it&#8217;s basically the same logic.
+
+
+
 
 
 ## Why Does This Work?

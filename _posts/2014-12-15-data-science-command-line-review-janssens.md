@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Command Line
@@ -33,13 +33,13 @@ Then I became a consultant at a boutique digital analytics firm. To say I was pu
 [<img class="alignright wp-image-3302 size-full" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/12/data-science-command-line.png?fit=309%2C403" alt="data-science-command-line" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/12/data-science-command-line.png?w=309 309w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/12/data-science-command-line.png?resize=115%2C150 115w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/12/data-science-command-line.png?resize=230%2C300 230w" sizes="(max-width: 309px) 100vw, 309px" data-recalc-dims="1" />](http://datascienceatthecommandline.com/)I&#8217;m starting off this review with this admission, because my story of learning to work from the command line parallels <a title="Data Science at the Command Line" href="http://datascienceatthecommandline.com/" target="_blank"><em>Data Science at the Command Line</em></a> author <a title="Jeroen Janssens Twitter" href="https://twitter.com/jeroenhjanssens" target="_blank">Jeroen Janssens</a>:
 
 > Around five years ago, during my PhD program, I gradually switched from using Microsoft Windows to GNU/Linux&#8230;Out of necessity I quickly became comfortable using the command line. Eventually, as spare time got more precious, I settled down with a GNU/Linux distribution known as Ubuntu&#8230;
-> 
+>
 > &#8212; Preface, pg. xi
 
 Because a solid majority of people have never learned anything beyond point-and-click interface (Windows or Mac), the title of the book _Data Science at the Command Line_ is somewhat unfortunate; this is a book for ANYONE looking to start manipulating files efficiently from the command line.
-  
 
-  
+
+
 
 
 ## Getting Started, Safely

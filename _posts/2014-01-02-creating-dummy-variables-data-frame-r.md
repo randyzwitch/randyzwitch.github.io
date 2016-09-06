@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Machine Learning
@@ -42,7 +42,7 @@ While it may make sense to generate dummy variables for Customer State (~50 for 
   <p>
     <a href="https://twitter.com/randyzwitch">@randyzwitch</a> If you&#8217;re running out of RAM with dummy variables, you probably want to use a sparse matrix instead of a data.frame.
   </p>
-  
+
   <p>
     — John Myles White (@johnmyleswhite) <a href="https://twitter.com/johnmyleswhite/statuses/418821463563829248">January 2, 2014</a>
   </p>

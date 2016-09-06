@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Social Media
 tags:
   - Advertising
@@ -24,7 +24,7 @@ tags:
 ---
 <div id="attachment_1153" style="width: 652px" class="wp-caption aligncenter">
   <img class="size-full wp-image-1153" title="twitter-promoted-tweets-spam" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?fit=642%2C481" alt="twitter promoted tweets no better than spam" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?w=642 642w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=150%2C112 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=300%2C224 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=400%2C300 400w" sizes="(max-width: 642px) 100vw, 642px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Left: #WWDC (Apple developer conference)           Right: #EdLoverDance
   </p>
@@ -43,9 +43,9 @@ Like many, I was interested in reading about the Apple Worldwide Developer Confe
 _BOOM!  Nicki Manaj!  Barbie shot a commercial, gave up her underground hood status!_
 
 Uh, ok.  Can&#8217;t think of anything further from a tech conference than a rapper whose name is a no-so-subtle reference to sex.
-  
 
-  
+
+
 
 
 ## Promoted Tweet 2:  Ed Lover Dance vs. Dell for Business

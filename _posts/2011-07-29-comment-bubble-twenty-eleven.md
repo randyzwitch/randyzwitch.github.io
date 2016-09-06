@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - Child Theme
@@ -24,7 +24,7 @@ If you&#8217;re like me, one of the things that seems odd about the WordPress Tw
 
 <div id="attachment_309" style="width: 610px" class="wp-caption alignleft">
   <img class="size-full wp-image-309" title="wordpress-twenty-eleven-comment-bubble" alt="wordpress-twenty-eleven-comment-bubble" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/07/wordpress-twenty-eleven-comment-bubble.png?fit=600%2C206" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/07/wordpress-twenty-eleven-comment-bubble.png?w=600 600w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/07/wordpress-twenty-eleven-comment-bubble.png?resize=300%2C103 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/07/wordpress-twenty-eleven-comment-bubble.png?resize=500%2C171 500w" sizes="(max-width: 600px) 100vw, 600px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     In the upper right, the comment bubble (highlighted blue) clutters up the front page
   </p>
@@ -40,7 +40,7 @@ To find out what any HTML element is called on a page, all you need to do is to 
 
 <div id="attachment_317" style="width: 610px" class="wp-caption alignleft">
   <img class="size-full wp-image-317 " title="firefox-5-inspect-element" alt="" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/07/firefox-5-inspect-element.png?fit=600%2C162" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/07/firefox-5-inspect-element.png?w=600 600w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/07/firefox-5-inspect-element.png?resize=300%2C81 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/07/firefox-5-inspect-element.png?resize=500%2C135 500w" sizes="(max-width: 600px) 100vw, 600px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     &#8216;Inspect Element&#8217; is one of the most useful tools in web development
   </p>
@@ -50,7 +50,7 @@ Once you click &#8220;Inspect Element&#8221;, you&#8217;ll see that the comment 
 
 <div id="attachment_326" style="width: 610px" class="wp-caption alignleft">
   <img class="size-full wp-image-326" title="comment-link" alt="" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/07/comment-link.png?fit=600%2C50" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/07/comment-link.png?w=600 600w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/07/comment-link.png?resize=300%2C25 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/07/comment-link.png?resize=500%2C41 500w" sizes="(max-width: 600px) 100vw, 600px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     We need to look for &#8220;comment-link&#8221; in our WordPress template
   </p>
@@ -63,7 +63,7 @@ Now that we&#8217;ve found what the comment bubble element is called, we need to
 Once you&#8217;ve copied this file to your directory, open it up in your favorite text editor.  What we&#8217;re looking for is &#8220;comment-link&#8221;&#8230;using Command-F, we can see that it is contained in this file twice.  We want to modify the first one, as it controls the element at the top right of the post; the second &#8220;comment-link&#8221; refers to the link at the bottom of each post.
 
 
-  
+
 
 
 ## When in doubt, comment it out!
@@ -73,5 +73,5 @@ Any time you are making changes in code, it&#8217;s good practice to first &#821
 Using the HTML comment tag of &#8220;Left arrow, exclamation point, two dashes&#8221;, we can start commenting out at the first line of the code snippet (to the left of the <? <!--? symbol), and close the comment tag at the last line (to the right of the ?--> symbol).  Use the &#8220;Two dashes, Right arrow&#8221; HTML comment tag to the right of the &#8220;php endif&#8221; statement.  When you are done, your code will look like the following:
 
 
-  
+
 Hit save and you&#8217;re done!  No more comment bubble on your theme.  Of course, once you verify that the code is working correctly on your theme, you can delete these lines of code.  It&#8217;s really up to you and your needs&#8230;if you think you might want to re-instate the comment bubble at a later date, leave the code.  If you&#8217;re like me and don&#8217;t like the comment bubble, then delete!

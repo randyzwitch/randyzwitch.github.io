@@ -14,19 +14,19 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - General Programming
 tags:
   - Open Source
   - R
 ---
-> <pre><span id="1-2082">No output has been received in the last 10m0s, this potentially indicates a 
+> <pre><span id="1-2082">No output has been received in the last 10m0s, this potentially indicates a
 stalled build or something wrong with the build itself.</span></pre>
 
 As part of getting <a href="http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/" target="_blank">RSiteCatalyst 1.4.8 ready for CRAN</a>, I&#8217;ve managed to accumulate hundreds of <a href="https://github.com/hadley/testthat" target="_blank">testthat</a> tests across 63 test files. Each of these tests runs on <a href="http://randyzwitch.com/authentication-travis-ci/" target="_blank">Travis CI against an authenticated API</a>, and the API frequently queues long-running reports. Long-story-short, my builds started failing, creating the error log message quoted above.
-  
 
-  
+
+
 
 
 ## Stalled Build?
@@ -34,9 +34,9 @@ As part of getting <a href="http://randyzwitch.com/rsitecatalyst-version-1-4-8-r
 The most frustrating about this error is that all my tests run (albeit, a looooong time) successfully through RStudio, so I wasn&#8217;t quite sure what the problem was with the <a href="https://travis-ci.org/" target="_blank">Travis CI</a> build. Travis CI does provide a comment about this in their <a href="https://docs.travis-ci.com/user/common-build-problems/#My-builds-are-timing-out" target="_blank">documentation</a>, but even then it didn&#8217;t solve my problem:
 
 > When a long running command or compile step regularly takes longer than 10 minutes without producing any output, you can adjust your build configuration to take that into consideration.
-> 
+>
 > The shell environment in our build system provides a function that helps to work around that, at least for longer than 10 minutes.
-> 
+>
 > If you have a command that doesn’t produce output for more than 10 minutes, you can prefix it with `travis_wait`, a function that’s exported by our build environment.
 
 The _travis_wait_ command would work if I were installing packages, but my errors were during tests, so this parameter isn&#8217;t the answer. Luckily, _testthat_ provides a test filtering mechanism, providing a solution by allowing the tests to be broken up into smaller chunks.

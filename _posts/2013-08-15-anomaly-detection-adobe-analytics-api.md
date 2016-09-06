@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -46,7 +46,7 @@ The formulas behind each of the techniques are easily found elsewhere, but the m
 The Adobe Analytics API simplifies the choice of which technique to use by calculating a forecast using all three methods, then choosing the method that has the best fit as calculated by the model having the minimum (squared) error. It&#8217;s important to note that while this is probably an okay model selection method for detecting anomalies, this method does not guarantee that the model chosen is the actual &#8220;best&#8221; forecast model to fit the data.
 
 
-  
+
 
 
 ### RSiteCatalyst API call

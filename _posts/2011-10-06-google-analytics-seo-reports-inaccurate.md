@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Data Accuracy
@@ -30,7 +30,7 @@ On October 4th, Google <a title="Webmaster Tools in GA" href="http://analytics.
 
 <div id="attachment_786" style="width: 610px" class="wp-caption aligncenter">
   <img class="size-full wp-image-786" title="google-seo-query-report" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-query-report.png?fit=600%2C209" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-query-report.png?w=600 600w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-query-report.png?resize=150%2C52 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-query-report.png?resize=300%2C104 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-query-report.png?resize=500%2C174 500w" sizes="(max-width: 600px) 100vw, 600px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Google Analytics SEO Report: Queries
   </p>
@@ -48,7 +48,7 @@ To avoid problems of false precision, these reports appear to round impressions 
 
 <div id="attachment_785" style="width: 610px" class="wp-caption aligncenter">
   <img class="size-full wp-image-785" title="google-seo-report-womens-body-part" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-report-womens-body-part.png?fit=600%2C97" alt="" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-report-womens-body-part.png?w=600 600w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-report-womens-body-part.png?resize=150%2C24 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-report-womens-body-part.png?resize=300%2C48 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-seo-report-womens-body-part.png?resize=500%2C80 500w" sizes="(max-width: 600px) 100vw, 600px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Ranked 8th on average for these keywords Google? I think not.
   </p>
@@ -57,9 +57,9 @@ To avoid problems of false precision, these reports appear to round impressions 
 In the web analytics world, if you aren&#8217;t comfortable with imprecision and incomplete data, you&#8217;ll get burned out pretty quickly.  My above example of the exact click-through rate calculated from an inexact display of clicks is a minor nitpick.  However, when I see data from the table above being written into my account, I have to wonder just how precisely Google is measuring their impressions data.
 
 The table above is from my other blog about the <a title="Duke Cross Continent MBA blog" href="http://the-fuqua-experience.com/" target="_blank">Duke MBA</a>; I&#8217;m QUITE certain it doesn&#8217;t rank, on average, 8th for anything to do with female body parts!  I&#8217;d be the most in demand SEO in the world if I could pull that off, without even having the words on my page.  I would&#8217;ve been comfortable chalking that result up to a weird bug, had the page the query references was mangled.  It turns out, they all link to the <a title="Small town girl with BIG ambitions" href="http://the-fuqua-experience.com/blog/2011/06/30/small-town-girl-with-big-ambitions/" target="_blank">same exact blog post</a>, the story of a current (female, naturally) student&#8217;s journey from a small town in India to attending business school.  From what I can tell, the error is persistent as well, showing a small number of impressions every day.
-  
 
-  
+
+
 
 
 ## Web Analytics:  Again, it all comes down to the Analyst

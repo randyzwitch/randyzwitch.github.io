@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Hadoop
@@ -35,7 +35,7 @@ A simple query like this is a great way to get a feel for the table, including d
 
 <div id="attachment_2312" style="width: 560px" class="wp-caption alignleft">
   <a href="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/hive-visualization-results.png"><img class=" wp-image-2312" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/hive-visualization-results.png?resize=550%2C318" alt="hive-visualization-results" data-recalc-dims="1" /></a>
-  
+
   <p class="wp-caption-text">
     1994 and 2004 have too few rows, which was validated using `wc -l 1994.csv` at the command line (outside of Hadoop)
   </p>
@@ -48,7 +48,7 @@ Besides just simple counts, Hive supports nearly all standard SQL syntax relativ
 It&#8217;s important to realize that Hadoop isn&#8217;t just another RDBMS where you run SQL. Using Pig, you can <a title="Pig syntax basics" href="http://pig.apache.org/docs/r0.12.0/start.html#data-work-with" target="_blank">write scripts for calculation</a> in a similar manner to using other high-level languages such as Python or R.
 
 For example, suppose we wanted to calculate the average distance for each route. A Pig script to calculate this might look like the following:While it is possible to calculate average distance using Hive and a GROUP BY statement, one of the benefits to using Pig is having control over every step of the data flow. So while Hive queries tend to answer a single question at a time, Pig allows an analyst to chain together any number of steps in a data flow. In the example above, we could pass the average distance for each route to another transformation, join it back to the original dataset or do anything else our analyst minds can imagine!
-  
+
 
 
 ## Summary

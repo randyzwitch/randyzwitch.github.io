@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - Child Theme
@@ -34,11 +34,11 @@ Once I moved away from the &#8220;must put every widget and plugin everywhere&#8
 ## &#8230;but eventually you run out of flexibility
 
 While complex themes like Atahualpa are great, eventually you come upon a problem that you can&#8217;t solve.  For me, it was adding a JavaScript &#8220;onclick&#8221; event to the &#8220;Read More&#8221; tag in WordPress (for tracking in Google Analytics).  Because of how the theme is set up, you can go right into the options area and modify what text is shown on the link (say, &#8220;_Continue Reading_&#8221; or &#8220;_Read this, Fool!_&#8221; instead of &#8220;Read More&#8221;), but you can&#8217;t put JavaScript in that box.
-  
 
-  
 
-  
+
+
+
 After contacting the theme developer, I still haven&#8217;t solved that problem!  So rather than make the same mistake again, I sought out the easiest, cleanest theme I could:  [Twenty Eleven](http://theme.wordpress.com/themes/twentyeleven/ "Twenty Eleven"), designed by WordPress.  Compared to Cutline and (definitely) Atahualpa, Twenty Eleven looks like it is written in English instead of PHP!
 
 ## Creating a Child Theme

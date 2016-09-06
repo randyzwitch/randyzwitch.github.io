@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -28,13 +28,13 @@ In my prior post on [visualizing website structure using network graphs](http://
 ## Visualizing Single Page-to-Next Page Pathing
 
 Most digital analytics tools allow you to visualize the path between pages. In the case of Adobe Analytics, the Next Page Flow diagram is limited to 10 second-level branches in the visualization. However, the Adobe Analytics API has no such limitation, and as such we can use RSiteCatalyst to create the following visualization (<a title="RSiteCatalyst Sankey Chart" href="https://gist.github.com/randyzwitch/008be202b94bde7c4359" target="_blank">GitHub Gist containing R code</a>):
-  
 
-  
+
+
 The data processing for this visualization is near identical to the network diagrams. We can use _QueuePathing()_ from RSiteCatalyst to download our pathing data, except in this case, I specified an exact page name as the first level of the pathing pattern instead of using the **::anything::** operator. In all Sankey charts created by d3Network, you can hover over the right-hand side nodes to see the values (you can also drag around the nodes on either side if you desire!). It&#8217;s pretty clear from this diagram that I need to do a better job retaining my visitors, as the most common path from this page is to leave. 🙁
-  
 
-  
+
+
 
 
 <!--more-->
@@ -42,11 +42,11 @@ The data processing for this visualization is near identical to the network diag
 ## Many-to-Many Page Pathing
 
 The example above picks a single page related to Hadoop, then shows how my visitors continue through my site; sometimes, they go to other Hadoop pages, some view <a title="Data Science content" href="http://randyzwitch.com/category/data-science/" target="_blank">Data Science related content</a> or any number of other paths. If we want, however, we can visualize how all visitors path through all pages. Like the force-directed graph, we can get this information by using the **(&#8220;::anything::&#8221;, &#8220;::anything::&#8221;)** path pattern with _QueuePathing()_:
-  
-Running the code above provides the following visualization:
-  
 
-  
+Running the code above provides the following visualization:
+
+
+
 For legibility purposes, I&#8217;m only plotting paths that occur more than 120 times. But given a large enough display, it would be possible to visualize all valid combinations of paths.
 
 One thing to keep in mind is that with the d3.js library, there is a weird hiccup where if your dataset contains &#8220;duplicate&#8221; paths such that both Source -> Target & Target -> Source exists, d3.js will go into an infinite loop/not show any visualization. My R code doesn&#8217;t provide a solution to this issue, but it should be trivial to remove these &#8220;duplicates&#8221; should they arise in your dataset.

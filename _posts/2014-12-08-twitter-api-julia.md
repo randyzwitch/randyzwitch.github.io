@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Julia
@@ -26,9 +26,9 @@ This is possibly the latest &#8220;announcement&#8221; of a package ever, given 
 ## Hello, World!
 
 If &#8216;Hello, World!&#8217; is the canonical example of getting started with a programming language, the Twitter API is becoming the first place to start for people wanting to learn about APIs. Authenticating with the Twitter API using Julia is similar to using the R or Python packages, except that rather than doing the OAuth &#8220;dance&#8221;, Twitter.jl takes all four authentication values in one function:All four of these values can be found after registering at the <a title="Twitter Dev" href="https://dev.twitter.com/" target="_blank">Twitter Developer page</a> and creating an application. Having all four values in your script is less secure than just providing the api key and api secret, but in the future, I&#8217;ll likely implement the full OAuth &#8220;handshake&#8221;. One thing to keep in mind with this function as it currently works is that no validation of your credentials is performed; the only thing this function does is define a global variable _twittercred_ for later use by the various functions that create the OAuth headers. To shout &#8220;Hello, World!&#8221; to all of your Twitter followers, you can use the following code:
-  
 
-  
+
+
 
 
 ## General Package/Function Structure

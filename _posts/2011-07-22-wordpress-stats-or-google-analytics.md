@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Google Analytics
@@ -26,7 +26,7 @@ To understand the success of your blog content and site design, you need actiona
 
 <div id="attachment_262" style="width: 331px" class="wp-caption alignright">
   <img class="size-full wp-image-262" title="wordpress-stats-dashboard" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/wordpress-stats-dashboard.png?fit=321%2C297" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/wordpress-stats-dashboard.png?w=321 321w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/wordpress-stats-dashboard.png?resize=300%2C277 300w" sizes="(max-width: 321px) 100vw, 321px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     WordPress Stats dashboard
   </p>
@@ -39,9 +39,9 @@ Once installed, this plugin will let you know how many page views your content h
 <!--more-->
 
 
-  
 
-  
+
+
 This plugin will also tell you what search terms readers are using to find your site in search engines, and any other blogs or websites that are linking to your site (known as &#8220;referrers&#8221;).  Like page views, knowing these search terms and referring sites will let you know the type of content visitors to your site are most interested in reading, because either a visitor was interested in learning more about a topic (search terms) or read an article on your site and wanted to share it with others (referring link).
 
 As a casual blogger, you can do much worse than just monitoring these simple data points.  But if you want to really _analyze_ what&#8217;s happening when visitors come to your site, you&#8217;re going to need a bit more data collection.
@@ -52,7 +52,7 @@ Have you ever thought, &#8220;I wonder where my readers are located geographical
 
 <div id="attachment_282" style="width: 366px" class="wp-caption alignleft">
   <img class="size-full wp-image-282 " title="google-analytics-dashboard" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/google-analytics-dashboard.png?fit=356%2C175" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/google-analytics-dashboard.png?w=356 356w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/google-analytics-dashboard.png?resize=300%2C147 300w" sizes="(max-width: 356px) 100vw, 356px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Google Analytics dashboard from The Fuqua Experience
   </p>

@@ -16,7 +16,7 @@ tweetcount:
   - 0
 livefyre_version:
   - 3
-categories:
+category:
   - Data Science
 tags:
   - Amazon EC2
@@ -32,7 +32,7 @@ In part 2 of the &#8220;Getting Started Using Hadoop&#8221; series, I discussed 
 
 <div id="attachment_1762" style="width: 560px" class="wp-caption aligncenter">
   <img class="size-full wp-image-1762 " src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/05/hadoop-hue-file-browser-e1367455309802.png?fit=550%2C162" alt="hadoop-hue-file-browser" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     &#8216;File Browser&#8217; in Hue (Cloudera)
   </p>
@@ -41,19 +41,19 @@ In part 2 of the &#8220;Getting Started Using Hadoop&#8221; series, I discussed 
 Loading data into Hadoop using Hue is by far the easiest way to get started. Hue provides a GUI that provides a &#8220;File Browser&#8221; like you normally see in Windows or OSX.  The workflow here would be to download each year of Airline data to your local machine, then upload each file using the &#8220;Upload &#8211;> Files&#8221; menu drop-down.
 
 While downloading files from one site on the Internet, then uploading files to somewhere else on the Internet is somewhat wasteful of time and bandwidth, as a tutorial to _get started_ with Hadoop this isn&#8217;t the worst thing in the world. For those of you who are OSX users and comfortable using Bash from the command line, here&#8217;s some code so you don&#8217;t have to babysit the download process:
-  
+
 Because you are going to be uploading a bunch of text files to your Hadoop cluster, I&#8217;d recommend zipping the files prior to upload. It doesn&#8217;t matter if you use .zip or .gz files with one key distinction: if you use **.zip** files, you will upload using the <span style="text-decoration: underline;">&#8220;Zip Files&#8221;</span> button in the File Browser; if you choose **.gz**, then you must use the <span style="text-decoration: underline;">&#8220;Files&#8221;</span> line in the File Browser. Not only will zipping the files make the upload faster, but it will also make sure you only need to do the process once (as opposed to hitting the upload button on each file). Using the .zip file upload process, you should something like the following&#8230;a new folder with all of the files extracted automatically:
 
 <div id="attachment_1846" style="width: 680px" class="wp-caption aligncenter">
   <a href="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/05/hue-file-browser-unzipped.png"><img class=" wp-image-1846 " src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/05/hue-file-browser-unzipped.png?resize=670%2C202" alt="hue-file-browser-unzipped" data-recalc-dims="1" /></a>
-  
+
   <p class="wp-caption-text">
     .zip file automatically extracted into folder with files (Hortonworks)
   </p>
 </div>
 
 
-  
+
 
 
 ### Next Steps

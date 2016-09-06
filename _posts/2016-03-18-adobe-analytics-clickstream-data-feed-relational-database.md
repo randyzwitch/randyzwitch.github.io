@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -41,9 +41,9 @@ With this small amount of code, we&#8217;ve generated the table definition struc
 With the server call data loaded into our database, we now need to load our lookup tables. Lucky for us, these do maintain a constant format, so we don&#8217;t need to worry about setting all the fields to text, RPostgreSQL should get the column types correct.
 
 **SHORTCUT**: The dimension tables that are common to all report suites don&#8217;t really change over time, although that isn&#8217;t _guaranteed_.  In the 758 days of files I loaded (<a href="https://gist.github.com/randyzwitch/5ed2f4fc8574b91efd29" target="_blank">code</a>), the only files having more than one value for a given key were: _browser_, _browser_type_, _operating_system_, _search_engines_, _event_ (report suite specific for every company) and _column_headers_ (report suite specific for every company). So if you&#8217;re doing a bulk load of data, it&#8217;s generally sufficient to use the newest lookup table and save yourself some time. If you are processing the data every day, you can use an [upsert process](https://wiki.postgresql.org/wiki/UPSERT) and generally there will be few if any updates.
-  
 
-  
+
+
 
 
 ## Let&#8217;s Do Analytics!!!!???!!!

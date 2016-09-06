@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Hadoop
@@ -28,9 +28,9 @@ Over my career as a predictive modeler/data scientist, the most important step(s
 For this blog post, I&#8217;m going to highlight a common request for time-series data: combining discrete events into sessions. Whether you are dealing with sensor data, television viewing data, digital analytics data or any other stream of events, the problem of interest is usually how a human interacts with a machine over a given period of time, not each individual event.
 
 While I usually use Hive (Hadoop) for daily work, I&#8217;m going to use Postgres (via OSX <a title="Postgres.app OSX" href="http://postgresapp.com" target="_blank">Postgres.app</a>) to make this as widely accessible as possible. In general, this process will work with any infrastructure/SQL-dialect that supports <a title="SQL window function explanation" href="http://www.postgresql.org/docs/9.1/static/tutorial-window.html" target="_blank">window functions</a>.
-  
 
-  
+
+
 
 
 ## Connecting to Database/Load Data
@@ -43,16 +43,16 @@ These files contain timestamps generated for 1000 uid values.
 
 ## Query 1 (&#8220;Inner&#8221;): Determining Session Boundary Using A Window Function
 
-In order to determine the boundary of each session, we can use a window function along with _lag()_, which will allow the current row being processed to compare vs. the prior row. Of course, for all of this to work correctly, we need to have our data sorted in time order by each of our users:For this query, we use the _lag()_ function on the &#8216;event\_timestamp&#8217; column, and we use &#8216;over partition by uid order by event\_timestamp&#8217; to define the window over which we want to do our calculation. To provide additional clarification about how this syntax works, I&#8217;ve added a column showing how many minutes have passed between intervals to validate that the 30-minute window is calculated correctly. The result is as follows: [<img class="aligncenter size-full wp-image-3357" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png?fit=947%2C341" alt="sql-session-boundary-definition" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png?w=947 947w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png?resize=150%2C54 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png?resize=300%2C108 300w" sizes="(max-width: 947px) 100vw, 947px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png) For each row where the value of &#8216;minutes\_since\_last\_interval&#8217; > 30, there is a value of 1 for &#8216;new\_event_boundary&#8217;. 
+In order to determine the boundary of each session, we can use a window function along with _lag()_, which will allow the current row being processed to compare vs. the prior row. Of course, for all of this to work correctly, we need to have our data sorted in time order by each of our users:For this query, we use the _lag()_ function on the &#8216;event\_timestamp&#8217; column, and we use &#8216;over partition by uid order by event\_timestamp&#8217; to define the window over which we want to do our calculation. To provide additional clarification about how this syntax works, I&#8217;ve added a column showing how many minutes have passed between intervals to validate that the 30-minute window is calculated correctly. The result is as follows: [<img class="aligncenter size-full wp-image-3357" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png?fit=947%2C341" alt="sql-session-boundary-definition" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png?w=947 947w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png?resize=150%2C54 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png?resize=300%2C108 300w" sizes="(max-width: 947px) 100vw, 947px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sql-session-boundary-definition.png) For each row where the value of &#8216;minutes\_since\_last\_interval&#8217; > 30, there is a value of 1 for &#8216;new\_event_boundary&#8217;.
 
 ## Query 2 (&#8220;Outer&#8221;): Creating A Session ID
 
 The query above defines the event boundaries (which is helpful), but if we want to calculate session-level metrics, we need to create a unique id for each set of rows that are part of one session. To do this, we&#8217;re again going to use a window function:
-  
+
 This query defines the same &#8216;over partition by uid order by event_timestamp&#8217; window, but rather than using _lag()_ this time, we&#8217;re going to use _sum()_ for the outer query. The effect of using _sum()_ in our window function is to do a cumulative sum; every time &#8216;1&#8217; shows up, the &#8216;session\_id&#8217; field gets incremented by 1. If there is a value of &#8216;0&#8217;, the sum is still the same as the row above and thus has the same session\_id. This is easier to see visually:
 
 [<img class="aligncenter size-full wp-image-3361" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sessionized-data.png?fit=1017%2C427" alt="sessionized-data" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sessionized-data.png?w=1017 1017w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sessionized-data.png?resize=150%2C63 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sessionized-data.png?resize=300%2C126 300w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/01/sessionized-data.png)
-  
+
 At this point, we have a session_id for a group of rows where there have been no 30 minute gaps in behavior.
 
 ## Final Query: Cleaned Up

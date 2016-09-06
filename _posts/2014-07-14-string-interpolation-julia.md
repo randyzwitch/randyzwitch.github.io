@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Julia
@@ -26,11 +26,11 @@ In a previous post, I showed how I frequently use <a title="Using Julia As A �
 The <a title="Julia Documentation - Strings" href="http://docs.julialang.org/en/latest/manual/strings/" target="_blank">Strings section of the Julia Manual</a> provides a very in-depth treatment of the considerations when using strings within Julia. For the purposes of my examples, there are only three things to know:
 
   * Strings are immutable within Julia and 1-indexed
-  * Strings are easily created through the a syntax familiar to most languages: 
+  * Strings are easily created through the a syntax familiar to most languages:
     <pre>julia&gt; authorname = "randy zwitch"
 "randy zwitch"</pre>
 
-  * String interpolation is easiest done using dollar-sign notation. Additionally, parenthesis can be used to avoid symbol ambiguity: 
+  * String interpolation is easiest done using dollar-sign notation. Additionally, parenthesis can be used to avoid symbol ambiguity:
     <pre>julia&gt; interpolated = "the author of this blog post is $(authorname)"
 "the author of this blog post is randy zwitch"</pre>
 
@@ -39,7 +39,7 @@ If you are using large volumes of textual data, you&#8217;ll want to pay attenti
 ## Example 1: Repetitive Queries
 
 As part of my data engineering responsibilities at work, I often get requests to pull a sample of every table in a new database in our Hadoop cluster. This type of request is usually from the business owner, who wants to evaluate the data set has been imported correctly, but doesn&#8217;t actually want to write any sort of queries. So using the <a title="Julia ODBC" href="https://github.com/quinnj/ODBC.jl" target="_blank">ODBC.jl</a> package, I repeatedly do the same &#8216;select * from <tablename>&#8217; query and save to individual .tab files:While the query is simple, writing/running this hundreds of times would be a waste of effort. So with a simple loop over the array of tables, I can provide a sample of hundreds of tables in .tab files with five lines of code.
-  
+
 
 
 ## Example 2: Generating Query Code

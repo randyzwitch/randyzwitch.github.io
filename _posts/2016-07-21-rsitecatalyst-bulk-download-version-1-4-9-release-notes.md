@@ -14,8 +14,8 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
-  - Digital Analytics
+category:
+  - "Digital Analytics"
 tags:
   - Adobe Analytics
   - Omniture
@@ -25,9 +25,9 @@ tags:
 _This blog post also serves as release notes for RSiteCatalyst v1.4.9, as only one feature was added (batch report request and download). But it&#8217;s a feature big enough for its own post!_
 
 Recently, I was asked how I would approach replicating the [market basket analysis](http://33sticks.com/rsitecatalyst-market-basket-analysis-adobe-analytics/) blog post I wrote for [33 Sticks](http://33sticks.com/), but using a lot more data. Like, months and months of order-level data. While you _might_ be able to submit multiple months worth of data in a single RSiteCatalyst call, it&#8217;s a lot more elegant to request data from the Adobe Analytics API in several calls. With the new batch-submit and batch-receive functionality in RSiteCatalyst, this process can be a LOT faster.
-  
 
-  
+
+
 
 
 ## Non-Batched Method

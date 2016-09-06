@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -34,9 +34,9 @@ While not the most important _improvement_, it can&#8217;t be stressed enough th
 Of the changes listed above, I think #2 and #3 are the biggest benefit to end-users of RSiteCatalyst. The codebase is now much cleaner and more consistent in terms of the keyword arguments, has better error handling, and having a second person helping maintain the project has led to a better overall package.
 
 Where you&#8217;ll see the most difference is that all keyword arguments are now all lowercase and multi-word keyword arguments are now separated by a period instead of underscores or weird caMelCAse. We tried to maintain the same keyword order where possible, to minimize code re-writes where possible.
-  
 
-  
+
+
 
 
 ## Pathing and Fallout Reports

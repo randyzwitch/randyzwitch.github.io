@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Miscellany
 tags:
   - Analysis Exchange
@@ -22,9 +22,9 @@ tags:
   - charity:water
 ---
 [<img class="alignright" style="border: 1px solid black;" src="http://i1.wp.com/www.charitywater.org/media/banners/220x220_8glasses.jpg?resize=220%2C220" alt="" border="1" data-recalc-dims="1" />](http://mycharitywater.org/100milesforcharitywater)In the past couple of weeks, I&#8217;ve started a project through the <a title="What is the Analysis Exchange?" href="http://www.webanalyticsdemystified.com/ae/what-is-analysis-exchange.asp" target="_blank">Analysis Exchange</a> working with <a title="Jason Thompson" href="http://emptymind.org/" target="_blank">Jason Thompson</a> and <a title="charity:water" href="http://www.charitywater.org/" target="_blank">charity:water</a>.  If you&#8217;re not familiar with the Analysis Exchange, it&#8217;s a program where aspiring web analysts and grizzled veterans* volunteer to provide analytics services to charities.  Through the Analysis Exchange, charities are helped, students are mentored, and the World is a slightly better place than when the project was started.
-  
 
-  
+
+
 
 
 But just because I&#8217;m volunteering my time doesn&#8217;t mean I can&#8217;t raise some money also.  As we go into the holiday season, I&#8217;ve started a charity:water campaign:

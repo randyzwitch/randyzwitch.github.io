@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Adobe Analytics
@@ -30,12 +30,12 @@ A couple of weeks ago, Twitter open-sourced their <a title="Breakout Detection T
 To use a real-world dataset to evaluate this package, I&#8217;m going to use roughly ten months of daily pageviews generated from my blog. The hypothesis here is that if the BreakoutDetection package works well, it should be able to detect the boundaries around when I publish a blog post (of which the dates I know with certainty) and when articles of mine get shared on sites such as Reddit. From past experience, I get about a 3-day lift in pageviews post-publishing, as the article gets tweeted out, published on <a title="R Bloggers" href="http://www.r-bloggers.com/" target="_blank">R-Bloggers</a> or <a title="Julia Bloggers" href="http://www.juliabloggers.com/" target="_blank">JuliaBloggers</a> and shared accordingly.
 
 Here&#8217;s the code to get daily pageviews using [RSiteCatalyst](http://cran.r-project.org/web/packages/RSiteCatalyst/index.html "RSiteCatalyst") (Adobe Analytics):One thing to notice here is that BreakoutDetection requires either a single R vector or a specifically formatted data frame. In this case, because I have a timestamp, I use lines 17-18 to get the data into the required format.
-  
+
 
 
 ## BreakoutDetection &#8211; Default Example
 
-In the Twitter announcement, they provide an example, so let&#8217;s evaluate those defaults first:[<img class="aligncenter size-full wp-image-3091" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?fit=800%2C384" alt="breakoutdetection-defaults" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?w=800 800w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?resize=150%2C72 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?resize=300%2C144 300w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" />](http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png) In order to validate my hypothesis, the package would need to detect 12 &#8216;breakouts&#8217; or so, as I&#8217;ve published 12 blog posts during the sample time period. Mentally drawing lines between the red boundaries, we can see three definitive upward mean shifts, but far fewer than the 12 I expected. 
+In the Twitter announcement, they provide an example, so let&#8217;s evaluate those defaults first:[<img class="aligncenter size-full wp-image-3091" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?fit=800%2C384" alt="breakoutdetection-defaults" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?w=800 800w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?resize=150%2C72 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?resize=300%2C144 300w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" />](http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png) In order to validate my hypothesis, the package would need to detect 12 &#8216;breakouts&#8217; or so, as I&#8217;ve published 12 blog posts during the sample time period. Mentally drawing lines between the red boundaries, we can see three definitive upward mean shifts, but far fewer than the 12 I expected.
 
 ## BreakoutDetection &#8211; Modifying The Parameters
 
@@ -64,12 +64,12 @@ From my prior post about <a title="Anomaly Detection Adobe API" href="http://ran
 To use a real-world dataset to evaluate this package, I&#8217;m going to use roughly ten months of daily pageviews generated from my blog. The hypothesis here is that if the BreakoutDetection package works well, it should be able to detect the boundaries around when I publish a blog post (of which the dates I know with certainty) and when articles of mine get shared on sites such as Reddit. From past experience, I get about a 3-day lift in pageviews post-publishing, as the article gets tweeted out, published on <a title="R Bloggers" href="http://www.r-bloggers.com/" target="_blank">R-Bloggers</a> or <a title="Julia Bloggers" href="http://www.juliabloggers.com/" target="_blank">JuliaBloggers</a> and shared accordingly.
 
 Here&#8217;s the code to get daily pageviews using [RSiteCatalyst](http://cran.r-project.org/web/packages/RSiteCatalyst/index.html "RSiteCatalyst") (Adobe Analytics):One thing to notice here is that BreakoutDetection requires either a single R vector or a specifically formatted data frame. In this case, because I have a timestamp, I use lines 17-18 to get the data into the required format.
-  
+
 
 
 ## BreakoutDetection &#8211; Default Example
 
-In the Twitter announcement, they provide an example, so let&#8217;s evaluate those defaults first:[<img class="aligncenter size-full wp-image-3091" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?fit=800%2C384" alt="breakoutdetection-defaults" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?w=800 800w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?resize=150%2C72 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?resize=300%2C144 300w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" />](http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png) In order to validate my hypothesis, the package would need to detect 12 &#8216;breakouts&#8217; or so, as I&#8217;ve published 12 blog posts during the sample time period. Mentally drawing lines between the red boundaries, we can see three definitive upward mean shifts, but far fewer than the 12 I expected. 
+In the Twitter announcement, they provide an example, so let&#8217;s evaluate those defaults first:[<img class="aligncenter size-full wp-image-3091" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?fit=800%2C384" alt="breakoutdetection-defaults" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?w=800 800w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?resize=150%2C72 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png?resize=300%2C144 300w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" />](http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/breakoutdetection-defaults.png) In order to validate my hypothesis, the package would need to detect 12 &#8216;breakouts&#8217; or so, as I&#8217;ve published 12 blog posts during the sample time period. Mentally drawing lines between the red boundaries, we can see three definitive upward mean shifts, but far fewer than the 12 I expected.
 
 ## BreakoutDetection &#8211; Modifying The Parameters
 
@@ -91,7 +91,7 @@ With 17 predicted intervals, we&#8217;ve somewhat overshot the number of blog po
 
 ## Anomaly Detection &#8211; Adobe Analytics
 
-From my prior post about <a title="Anomaly Detection Adobe API" href="http://randyzwitch.com/anomaly-detection-adobe-analytics-api/" target="_blank">Anomaly Detection with the Adobe Analytics API</a>, Adobe has chosen to use Holt-Winters/Exponential Smoothing as their technique. Here&#8217;s what that looks like for the same time-period (code as <a title="ggplot gist" href="https://gist.github.com/10ee7e43f1974015bf55.git" target="_blank">GitHub Gist</a>):](http://randyzwitch.com/wp-content/uploads/2014/11/adobe_anomaly.png) 
+From my prior post about <a title="Anomaly Detection Adobe API" href="http://randyzwitch.com/anomaly-detection-adobe-analytics-api/" target="_blank">Anomaly Detection with the Adobe Analytics API</a>, Adobe has chosen to use Holt-Winters/Exponential Smoothing as their technique. Here&#8217;s what that looks like for the same time-period (code as <a title="ggplot gist" href="https://gist.github.com/10ee7e43f1974015bf55.git" target="_blank">GitHub Gist</a>):](http://randyzwitch.com/wp-content/uploads/2014/11/adobe_anomaly.png)
 
 [<img class="aligncenter size-full wp-image-3103" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/adobe_analytics.png?fit=800%2C502" alt="adobe_analytics" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/adobe_analytics.png?w=800 800w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/adobe_analytics.png?resize=150%2C94 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/adobe_analytics.png?resize=300%2C188 300w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/adobe_analytics.png)
 

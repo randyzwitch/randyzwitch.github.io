@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Hive
@@ -43,7 +43,7 @@ Because this is such a small data frame, and because *apply functions are too f
 So I successfully created an (84,10)-sized data frame, but _cbind()_ allowed me to name two columns in the data frame &#8220;name&#8221;! Running &#8216;parsed_df$name&#8217; at the REPL returns the first instance. So now, I have to use the unstable method of referring to the second &#8216;name&#8217; column by position number if I want to access it (or, rename it using names() of course). The way I realized this behavior was occurring was that I tried to use _plyr::rename_ and kept changing the name of two columns!
 
 
-  
+
 
 
 ## Final Solution

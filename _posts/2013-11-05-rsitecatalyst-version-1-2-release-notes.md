@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -38,7 +38,7 @@ For the most part, the only noticeable change for most users will be that you no
 For any of you out there that may have installed the 1.2 development version directly from GitHub, the only difference between the 1.2 development version and the stable, CRAN version of the package is that support for the Adobe Analytics Real Time API has been removed. This functionality will continue to be developed on the <a title="RSiteCatalyst version 1.3" href="https://github.com/randyzwitch/RSiteCatalyst/tree/version_1_3" target="_blank">1.3 development branch</a> on GitHub.
 
 
-  
+
 
 
 ### Testing

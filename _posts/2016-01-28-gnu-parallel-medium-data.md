@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - General Programming
 tags:
   - Bash
@@ -26,7 +26,7 @@ tags:
 ---
 <div id="attachment_3770" style="width: 410px" class="wp-caption alignright">
   <img class="wp-image-3770 size-full" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?fit=400%2C227" alt="GNU Parallel Cat Unix" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?w=400 400w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?resize=150%2C85 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?resize=300%2C170 300w" sizes="(max-width: 400px) 100vw, 400px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Wait&#8230;What? Why?
   </p>
@@ -45,9 +45,9 @@ Surprisingly, with judicious use of <a href="http://www.gnu.org/software/paralle
 For this blog post, I used a <a href="https://gist.github.com/randyzwitch/c44ff2a76d81fa1e77cb" target="_blank">combination of R and Python to generate the data</a>: the &#8220;Groceries&#8221; dataset from the _<a href="https://cran.r-project.org/web/packages/arules/vignettes/arules.pdf" target="_blank">arules</a>_ package for sampls ing transactions (with replacement), and the Python _<a href="https://github.com/joke2k/faker" target="_blank">Faker (fake-factory)</a>_ package to generate fake customer profiles and for creating the 1MM+ text files.
 
 The contents of the data itself isn&#8217;t important for this blog post, but the <a href="https://gist.github.com/randyzwitch/c44ff2a76d81fa1e77cb" target="_blank">data generation code is posted as a GitHub gist</a> should you want to run these commands yourself.
-  
 
-  
+
+
 
 
 ## Problem 1: Concatenating (cat * >> out.txt ?!)
@@ -94,9 +94,9 @@ If it&#8217;s not clear from the list above, in all three questions there is an 
 ##### Q1: Unique Products
 
 Given the format of the data file (transactions in a single column array), this question is the hardest to parallelize, but using a neat trick with the \`[tr](http://www.linfo.org/tr.html)\` (transliterate) utility, we can map our data to one product per row as we stream over the file:
-  
 
-   
+
+
 The trick here is that we swap the comma-delimited transactions with the newline character; the effect of this is taking a single transaction row and returning multiple rows, one for each product. Then we pass that down the line, eventually using \`sort -u\` to de-dup the list and \`wc -l\` to count the number of unique lines (i.e. products).
 
 In a serial fashion, it takes quite some time to calculate the number of unique products. Incorporating GNU Parallel, just using the defaults, gives nearly a 4x speedup!

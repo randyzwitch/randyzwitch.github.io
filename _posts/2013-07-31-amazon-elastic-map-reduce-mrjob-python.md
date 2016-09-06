@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - EMR
@@ -28,15 +28,15 @@ In a previous rant about <a title="Data Science & Innovation" href="http://randy
 
 ## Attacking the problem using a local machine
 
-In order to classify the URLs, the first thing that&#8217;s needed is a customized dictionary of words relative to our company&#8217;s subject matter. When you have a corpus of words that are already defined (such as a digitized book), finding the population of words is relatively simple: split the text based on spaces & punctuation and you&#8217;re more or less done. However, with a URL, you have one continuous string with no word boundaries. One way to try and find the boundaries would be the following in Python:The problem with approaching the word searching problem in this manner is you are limited to the power of your local machine. In my case with a relatively new MacBook Pro, I can process 1,000 lines in 19 seconds as a single-threaded process. At 250,000,000 URLs, that&#8217;s 4.75 million seconds&#8230;197,916 minutes&#8230;3,298 hours&#8230;137 days&#8230;**4.58 months! ** Of course, 4.58 months is for the data I have <span style="text-decoration: underline;">now</span>, which is accumulating every second of every day. Clearly, to find just the custom dictionary of words, I&#8217;ll need to employ MANY more computers/tasks. 
+In order to classify the URLs, the first thing that&#8217;s needed is a customized dictionary of words relative to our company&#8217;s subject matter. When you have a corpus of words that are already defined (such as a digitized book), finding the population of words is relatively simple: split the text based on spaces & punctuation and you&#8217;re more or less done. However, with a URL, you have one continuous string with no word boundaries. One way to try and find the boundaries would be the following in Python:The problem with approaching the word searching problem in this manner is you are limited to the power of your local machine. In my case with a relatively new MacBook Pro, I can process 1,000 lines in 19 seconds as a single-threaded process. At 250,000,000 URLs, that&#8217;s 4.75 million seconds&#8230;197,916 minutes&#8230;3,298 hours&#8230;137 days&#8230;**4.58 months! ** Of course, 4.58 months is for the data I have <span style="text-decoration: underline;">now</span>, which is accumulating every second of every day. Clearly, to find just the custom dictionary of words, I&#8217;ll need to employ MANY more computers/tasks.
 
 
-  
+
 
 
 ## Amazon ElasticMapreduce = Lots of Horsepower
 
-One thing you might notice about the Python code above is that the two loops have no real reason to be run serially; each comparison of URL and dictionary word can be run independently of each other (often referred to as &#8220;<a title="Embarassingly parallel" href="http://english.stackexchange.com/questions/83677/what-is-embarrassing-about-an-embarrassingly-parallel-problem" target="_blank">embarrassingly parallel</a>&#8220;). This type of programming pattern is one that is well suited to running on a Hadoop cluster. With Amazon ElasticMapReduce (EMR), we can provision tens, hundreds, even thousands of computer instances to process this URL-dictionary word comparison, and thus getting our answer much faster. The one downside of using Amazon EMR to access Hadoop is that EMR expects to get a Java .jar file containing your MapReduce code. Luckily, there is a Python package called <a title="MRjob Python package" href="http://pythonhosted.org/mrjob/" target="_blank">MRJob</a> that does the Python-to-Java translation automatically, so that users don&#8217;t have to switch languages to get massively parallel processing. 
+One thing you might notice about the Python code above is that the two loops have no real reason to be run serially; each comparison of URL and dictionary word can be run independently of each other (often referred to as &#8220;<a title="Embarassingly parallel" href="http://english.stackexchange.com/questions/83677/what-is-embarrassing-about-an-embarrassingly-parallel-problem" target="_blank">embarrassingly parallel</a>&#8220;). This type of programming pattern is one that is well suited to running on a Hadoop cluster. With Amazon ElasticMapReduce (EMR), we can provision tens, hundreds, even thousands of computer instances to process this URL-dictionary word comparison, and thus getting our answer much faster. The one downside of using Amazon EMR to access Hadoop is that EMR expects to get a Java .jar file containing your MapReduce code. Luckily, there is a Python package called <a title="MRjob Python package" href="http://pythonhosted.org/mrjob/" target="_blank">MRJob</a> that does the Python-to-Java translation automatically, so that users don&#8217;t have to switch languages to get massively parallel processing.
 
 ## Writing MapReduce code
 

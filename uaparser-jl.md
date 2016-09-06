@@ -3,7 +3,7 @@ id: 2483
 title: UAParser.jl
 date: 2014-01-21T16:18:23+00:00
 author: Randy Zwitch
-layout: page
+layout: post
 guid: http://randyzwitch.com/?page_id=2483
 tweetbackscheck:
   - 1472923284
@@ -36,7 +36,7 @@ Given the simplicity of the package, it&#8217;s likely the case that you&#8217;l
 
 In-depth examples can be found in an IJulia Notebook listed <a title="UAParser examples" href="http://nbviewer.ipython.org/gist/randyzwitch/8548024" target="_blank">here</a>. The UAParser API is intended to mimic the Python version of the ua-parser module as close as possible, so that users coming from Python should feel familiar.
 
-To use UAParser, all you need is String data, whether a single user-agent string or an array of user-agent strings:Each UAParser function returns a custom type (DeviceResult, OSResult, or UAResult). Each function is also vectorized, so that passing an array into a UAParser function will evaluate the function over the entire array. There are also DataFrame methods defined, in order to parse an array of UAParser types into a DataFrame.  
+To use UAParser, all you need is String data, whether a single user-agent string or an array of user-agent strings:Each UAParser function returns a custom type (DeviceResult, OSResult, or UAResult). Each function is also vectorized, so that passing an array into a UAParser function will evaluate the function over the entire array. There are also DataFrame methods defined, in order to parse an array of UAParser types into a DataFrame. 
 
 ### Performance
 

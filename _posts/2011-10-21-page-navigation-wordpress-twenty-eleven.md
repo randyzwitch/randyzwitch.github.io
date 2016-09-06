@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - Child Theme
@@ -33,9 +33,9 @@ Here&#8217;s how to implement page navigation, using a plugin and a simple modif
 Usually, I&#8217;m not a big fan of using plugins for every little modification on my blogs. While there are some amazing WordPress developers out there, there are many _less than perfect_ ones as well, and by loading up your blog with their buggy code can really slow (or brick!) your blog.  However, for something as complex as page navigation, I&#8217;ve opted to use the [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/ "WordPress Page Navigation plugin") plugin.  With over a million downloads, I&#8217;m fairly confident that this plugin&#8217;s popularity indicates its code quality.  Since I&#8217;ve installed it, I&#8217;ve seen no performance deterioration&#8230;
 
 So the first step for this tutorial is to install this plugin!
-  
 
-  
+
+
 
 
 ## Modifying your Twenty Eleven child theme for Page Navigation

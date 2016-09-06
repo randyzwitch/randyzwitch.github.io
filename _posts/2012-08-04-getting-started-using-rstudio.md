@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - R
@@ -31,7 +31,7 @@ In this first post of three, I&#8217;ll discuss <a title="R Studio main site" hr
 
 <div id="attachment_1266" style="width: 510px" class="wp-caption aligncenter">
   <img class="size-full wp-image-1266" title="r-studio" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/r-studio.png?fit=500%2C313" alt="" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/r-studio.png?w=500 500w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/r-studio.png?resize=150%2C93 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/r-studio.png?resize=300%2C187 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/r-studio.png?resize=479%2C300 479w" sizes="(max-width: 500px) 100vw, 500px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     R Studio is an IDE that dramatically improves the R experience
   </p>
@@ -49,7 +49,7 @@ In this first post of three, I&#8217;ll discuss <a title="R Studio main site" hr
 <!--more-->
 
 
-  
+
 While <a title="R Studio download" href="http://rstudio.org/download/" target="_blank">RStudio</a> doesn&#8217;t provide a GUI that will help you run a regression model or build a graph, it provides a more &#8220;friendly&#8221; environment to work in as compared to the command-line interface of a default installation of R.  I find that by having elements like the currently active data objects and available/active packages with links to the Help files &#8220;exposed&#8221; at all times, [RStudio](http://rstudio.org/download/ "R Studio download") reminds me of where my analysis has been and gives me a quick way to think about &#8220;What Else?&#8221; to pursue if I hit a roadblock.
 
 ## Installation of RStudio

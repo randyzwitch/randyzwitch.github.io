@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Analytics
@@ -32,7 +32,7 @@ Given that this blog is fairly technical and specific in nature, I was intereste
 
 <div id="attachment_1057" style="width: 594px" class="wp-caption aligncenter">
   <img class="size-large wp-image-1057" title="bounce-rate-graph-google-analytics" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/05/bounce-rate-graph-google-analytics-1024x212.png?fit=584%2C120" alt="Google Analytics Bounce Rate chart" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/bounce-rate-graph-google-analytics.png?resize=1024%2C212 1024w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/bounce-rate-graph-google-analytics.png?resize=150%2C31 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/bounce-rate-graph-google-analytics.png?resize=300%2C62 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/bounce-rate-graph-google-analytics.png?resize=500%2C103 500w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/bounce-rate-graph-google-analytics.png?w=1099 1099w" sizes="(max-width: 584px) 100vw, 584px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Starting April 24th, Bounce Rate drops considerably!
   </p>
@@ -48,7 +48,7 @@ Even with the bounce rate drop above, I really don&#8217;t get a good feeling ab
 
 <div id="attachment_1060" style="width: 594px" class="wp-caption aligncenter">
   <img class=" wp-image-1060" title="google-analytics-reader-vs-scanner" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/05/google-analytics-reader-vs-scanner.png?resize=584%2C184" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/05/google-analytics-reader-vs-scanner.png?resize=1024%2C323 1024w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/05/google-analytics-reader-vs-scanner.png?resize=150%2C47 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/05/google-analytics-reader-vs-scanner.png?resize=300%2C94 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/05/google-analytics-reader-vs-scanner.png?resize=500%2C157 500w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/05/google-analytics-reader-vs-scanner.png?w=1118 1118w" sizes="(max-width: 584px) 100vw, 584px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     62% of visits only scan instead of read &#8211; Need to do better here!
   </p>
@@ -62,7 +62,7 @@ Like the bounce rate definition change above, average visit duration and average
 
 <div id="attachment_1062" style="width: 594px" class="wp-caption aligncenter">
   <img class="size-large wp-image-1062" title="avg-visit-duration-google-analytics" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/05/avg-visit-duration-google-analytics-1024x230.png?fit=584%2C131" alt="Avg. Visit Duration Google Analytics" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/avg-visit-duration-google-analytics.png?resize=1024%2C230 1024w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/avg-visit-duration-google-analytics.png?resize=150%2C33 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/avg-visit-duration-google-analytics.png?resize=300%2C67 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/avg-visit-duration-google-analytics.png?resize=500%2C112 500w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/05/avg-visit-duration-google-analytics.png?w=1108 1108w" sizes="(max-width: 584px) 100vw, 584px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Hard to see because of the Y-axis, but Avg. Visit Duration increases significantly as well.
   </p>
@@ -93,7 +93,7 @@ Overall, my impression of the <a title="jQuery Google Analytics content tracking
 But since this is my personal blog, I don&#8217;t need to worry about others mis-interpreting my Google Analytics data, so I&#8217;m going to keep this functionality installed!
 
 
-  
+
 
 
 _Update 7/25/12:  Google Analytics published a similar method to the one described above, using &#8220;setTimeout&#8221; to <a title="Google Analytics Modified Bounce Rate article" href="http://analytics.blogspot.com/2012/07/tracking-adjusted-bounce-rate-in-google.html" target="_blank">modify bounce rate</a> based solely on time-on-page_.

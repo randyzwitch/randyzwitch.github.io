@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -29,9 +29,9 @@ RSiteCatalyst version 1.4.2 is now available on CRAN. This update was primarily 
   3. Exported previous internal function _SubmitJsonQueueReport_ to allow for submitting JSON requests directly to the Adobe Analytics API without all of the R function scaffolding. This approximates the same functionality as the <a title="Adobe Analytics API Explorer" href="https://marketing.adobe.com/developer/get-started/api-explorer" target="_blank">Adobe API Explorer</a>.
 
 For the most part, this isn&#8217;t a release that most people will notice any differences from version 1.4.1. That said, special thanks go out to Jason Morgan (<a title="Jason Morgan GitHub" href="https://github.com/framingeinstein" target="_blank">@framingeinstein</a>) for identifying the two bugs that were fixed AND submitting fixes.
-  
 
-  
+
+
 
 
 ## Feature Requests/Bugs

@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Google Analytics
@@ -23,7 +23,7 @@ tags:
 ---
 <div id="attachment_1432" style="width: 610px" class="wp-caption aligncenter">
   <img class="size-full wp-image-1432" alt="(not provided) terms from Google average 35%-60% of all organic search terms" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?fit=600%2C331" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?w=600 600w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=150%2C82 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=300%2C165 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=500%2C275 500w" sizes="(max-width: 600px) 100vw, 600px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     (not provided) terms from Google average 35%-60% of all Google organic search terms
   </p>
@@ -44,7 +44,7 @@ After you have your API access straightened out, the [GitHub page for the rga pa
 </p>
 
 
-  
+
 
 
 ## Analyzing (not provided) as a Google Analytics organic search term

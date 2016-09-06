@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Technology
 tags:
   - Apple
@@ -24,7 +24,7 @@ tags:
 ---
 <div id="attachment_1177" style="width: 710px" class="wp-caption aligncenter">
   <img class=" wp-image-1177 " title="macbook-pro-broken-hinge-screen" alt="macbook pro broken hinge" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=700%2C259" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?w=700 700w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=150%2C55 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=300%2C111 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=500%2C185 500w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Broken MacBook Pro hinge (due to glue failure)
   </p>
@@ -39,9 +39,9 @@ I used to think that when people talked about the &#8220;legendary Apple custome
 When the screen on my late 2008 15&#8243; MacBook Pro started separating from the hinge, the first thing I did was search Google.  There I found more than enough <a title="Broken MacBook Pro Google search results" href="http://www.google.com/#hl=en&sclient=psy-ab&q=broken+Macbook+pro+hinge&oq=broken+Macbook+pro+hinge&aq=f&aqi=g-K1g-bK1g-bsK1g-bK1&aql=&gs_l=hp.3..0i30j0i8i30j0i8i10i30j0i8i30.1489.8286.0.8403.32.24.2.4.4.0.429.4546.1j13j7j1j1.23.0...1.0.d5zdW3pAo3g&pbx=1&bav=on.2,or.r_gc.r_pw.r_qf.,cf.osb&fp=c1e99b5acbebabce&biw=1600&bih=702" target="_blank">search results</a> to make me believe this was a widespread issue with this vintage of laptop.  And since the laptop was out of warranty, most of the results talked about re-gluing the aluminum screen cover to the hinge.
 
 After trying to re-attach the hinge to the screen using epoxy, I headed over to the Apple store in King of Prussia, PA.  To say this first encounter at the Genius Bar was frustrating is an understatement.
-  
 
-  
+
+
 
 
 ## You should&#8217;ve bought AppleCare
@@ -88,7 +88,7 @@ Whatever the reason, by comping me the $492.41, Apple has &#8220;bought&#8221; t
 
 <div id="attachment_1198" style="width: 571px" class="wp-caption aligncenter">
   <img class="size-full wp-image-1198" title="mac-repair-order" alt="" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/mac-repair-order.png?fit=561%2C400" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/mac-repair-order.png?w=561 561w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/mac-repair-order.png?resize=150%2C106 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/mac-repair-order.png?resize=300%2C213 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/mac-repair-order.png?resize=420%2C300 420w" sizes="(max-width: 561px) 100vw, 561px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     The cost of a broken MacBook Pro hinge? Apparently, $492.41!
   </p>

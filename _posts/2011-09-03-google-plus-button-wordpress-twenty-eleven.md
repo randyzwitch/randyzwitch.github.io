@@ -16,7 +16,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - Child Theme
@@ -41,7 +41,7 @@ The first step to adding the Google Plus button to this theme is to add the Java
 To add the Google Plus button to each post displayed on the first page, we need to modify the _content.php_ file.  Like all of the other modifications we&#8217;ve made to create a [child theme](http://randyzwitch.com/tag/child-theme/ "WordPress Twenty Eleven Child Theme") like creating a [custom header](http://randyzwitch.com/2011/07/custom-header-twenty-eleven-child-theme/ "Twenty Eleven Child Theme:  Custom Header") and [custom footer](http://randyzwitch.com/2011/08/removing-powered-by-wordpress-twenty-eleven/ "Removing “Powered by WordPress” in Twenty Eleven"), copy the content.php file into your child theme folder. To display the Google Plus button underneath the title, we need to place the following code, after the <div class=&#8221;entry-content&#8221;> and before the <?php the_content> tag:
 
 In the Google button code, the piece of code that references &#8220;the_permalink&#8221; is a WordPress function that passes the link of blog post to the Google Plus button.  Without this addition to the button, Google will use the URL of the page you are on…in my case, the 3 buttons on the front page would all reference www.randyzwitch.com, which means a visitor wouldn&#8217;t be able to recommend an individual post.
-  
+
 
 
 ## Adding a Google Plus button to an individual blog post
@@ -49,7 +49,7 @@ In the Google button code, the piece of code that references &#8220;the_permalin
 To add the Google Plus button on an individual article or blog post using the &#8220;Standard&#8221; format in Twenty Eleven, we can do the same basic process as above, except we&#8217;ll modify the _content-single.php_ file (again, copy this file into your child theme folder!).  We&#8217;ll add the code after the <h1> tag and before the &#8220;If&#8221; statement that starts building the content:
 
 
-  
+
 Technically, you don&#8217;t need to specify the &#8220;the_permalink&#8221; reference, since there will only be a single button on an individual blog post, and the Google Plus button will use the URL of the page.  But, it doesn&#8217;t hurt, so for documentation sake I&#8217;ve left it in.
 
 Once you&#8217;ve added the button code on the individual page, you&#8217;re done!  Visitors to your blog can now recommend your content on Google search and on the Google+ network.

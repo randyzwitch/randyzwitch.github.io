@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -39,9 +39,9 @@ Those changes carry forward into version RSiteCatalyst 1.4.7, so there is no rea
 I was surprised it took so long for someone to report this error, but <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/151" target="_blank">#151</a> finally reported a case from a user in Germany where search keywords were being mangled due to the presence of an umlaut. UTF-8 encoding is now the default for both calling the API and processing the results, so this issue will hopefully not arise again.
 
 Additionally, a \`locale\` argument has been added, to set the proper locale for your report suite. This is specified through the \`SCAuth()\` function, with the list of possible <a href="https://marketing.adobe.com/developer/documentation/analytics-reporting-1-4/r-reportdescriptionlocale" target="_blank">locales provided by the Adobe documentation</a>. So if the even after using 1.4.7 with UTF-8 encoding by default, you are still seeing errors, try setting the locale to the country you are in/country setting of the report suite.
-  
 
-  
+
+
 
 
 ## Feature Requests/Bugs

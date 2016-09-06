@@ -6,7 +6,7 @@ gems:
 - jekyll-admin
 twitter:
   username: randyzwitch
-permalink: /:title.html
+permalink: /:title
 name: randyzwitch
 url: http://randyzwitch.com
 paginate: 3

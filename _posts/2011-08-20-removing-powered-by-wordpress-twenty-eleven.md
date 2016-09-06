@@ -15,7 +15,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - Child Theme
@@ -43,7 +43,7 @@ Open up the <del><em>header.php</em></del> _footer.php_ file from your child th
 All we need to do to remove &#8220;Powered by WordPress&#8221; is to comment out this code using HTML comment tag, like the following:
 
 Once you hit save, you&#8217;re all set.  No more &#8220;Powered by WordPress&#8221;, no more text at all. Just a blank footer.
-  
+
 
 
 ## What if I want to put my own links in the footer?
@@ -53,5 +53,5 @@ Of course, just because you don&#8217;t want &#8220;Powered by WordPress&#8221; 
 For example, if I wanted to put &#8220;© Randy Zwitch &#8211; 2011&#8221; in the footer, I would place this text between the opening and closing div tags for &#8220;site generator&#8221;:
 
 
-  
+
 It&#8217;s as easy as that to have a custom footer message!  You can get even more tricky by widgets and ads and tag clouds&#8230;but there&#8217;s something to be said for a clean, sleek design.  So I&#8217;ll stop there 🙂

@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Custom Variables
@@ -39,14 +39,14 @@ To set a Google Analytics custom variable, we need to use the following syntax:
 <pre>_setCustomVar(index, name, value, opt_scope)</pre>
 
 The &#8220;index&#8221; section of the variable indicates which of the five allowable custom variables we want to use to record our information (slot 1-5).  &#8220;Name&#8221; indicates what we want to call our variable.  &#8220;Value&#8221; is going to be the actual value we are looking to save.  And finally, &#8220;opt_scope&#8221; represents whether we want the variable to be page-level, session-level, or visitor-level.
-  
 
-  
+
+
 
 
 ## Recording WordPress category into a custom variable
 
-In order to capture the WordPress category in a Google Analytics custom variable, we&#8217;re going to use a combination of PHP, WordPress <a title="WordPress functions" href="http://codex.wordpress.org/Function_Reference" target="_blank">functions</a>, and (obviously) Google Analytics code.  Here&#8217;s the code snippet we&#8217;re going to use:The &#8220;is\_single&#8221; part of the code is a WordPress function, which evaluates whether or not a given page is a single post.  Since only single post pages have categories, we use this function to set the Google Analytics custom variable only when there is going to be a category value available on the page.  The &#8220;$category&#8221; part of the code is a PHP variable that stores the entire array of WordPress info that goes along with the &#8220;get\_the\_category&#8221; function. Finally, the part of the code that starts &#8220;echo&#8221; is the PHP code needed to build the Google Analytics custom variable string we want to have.  Within this code, you can see the &#8220;\_setCustomVar&#8221; code described in the first part of the tutorial; we&#8217;re setting the &#8220;Index&#8221; value to &#8216;2&#8217;, which means we&#8217;re using Google Analytics Custom Variable 2.  The &#8220;Name&#8221; of the variable will be &#8220;Category&#8221;, the &#8220;Value&#8221; to be set is the WordPress category value (from the &#8220;&#8216;&#8221;. $category[0]->cat\_name. &#8220;&#8216; variable), and the &#8220;opt\_scope&#8221; value is set to &#8220;3&#8221;, which means page-level. 
+In order to capture the WordPress category in a Google Analytics custom variable, we&#8217;re going to use a combination of PHP, WordPress <a title="WordPress functions" href="http://codex.wordpress.org/Function_Reference" target="_blank">functions</a>, and (obviously) Google Analytics code.  Here&#8217;s the code snippet we&#8217;re going to use:The &#8220;is\_single&#8221; part of the code is a WordPress function, which evaluates whether or not a given page is a single post.  Since only single post pages have categories, we use this function to set the Google Analytics custom variable only when there is going to be a category value available on the page.  The &#8220;$category&#8221; part of the code is a PHP variable that stores the entire array of WordPress info that goes along with the &#8220;get\_the\_category&#8221; function. Finally, the part of the code that starts &#8220;echo&#8221; is the PHP code needed to build the Google Analytics custom variable string we want to have.  Within this code, you can see the &#8220;\_setCustomVar&#8221; code described in the first part of the tutorial; we&#8217;re setting the &#8220;Index&#8221; value to &#8216;2&#8217;, which means we&#8217;re using Google Analytics Custom Variable 2.  The &#8220;Name&#8221; of the variable will be &#8220;Category&#8221;, the &#8220;Value&#8221; to be set is the WordPress category value (from the &#8220;&#8216;&#8221;. $category[0]->cat\_name. &#8220;&#8216; variable), and the &#8220;opt\_scope&#8221; value is set to &#8220;3&#8221;, which means page-level.
 
 ## Incorporating custom variable code into Google Analytics tracking code
 
@@ -58,7 +58,7 @@ Here&#8217;s what the report will look like in Google Analytics.  To see the re
 
 <div id="attachment_695" style="width: 652px" class="wp-caption alignleft">
   <img class="size-large wp-image-695 " title="google-analytics-custom-variables" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-analytics-custom-variables-1024x143.png?fit=642%2C89" alt="" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-analytics-custom-variables.png?resize=1024%2C143 1024w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-analytics-custom-variables.png?resize=150%2C20 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-analytics-custom-variables.png?resize=300%2C41 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-analytics-custom-variables.png?resize=500%2C69 500w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-analytics-custom-variables.png?w=1181 1181w" sizes="(max-width: 642px) 100vw, 642px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     WordPress Categories in Google Analytics Custom Variable 2
   </p>

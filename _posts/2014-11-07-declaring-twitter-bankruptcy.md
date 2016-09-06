@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Social Media
 tags:
   - Thought Experiment
@@ -24,13 +24,13 @@ tags:
   <p>
     Is Twitter bankruptcy a thing? Delete all the people you follow and force yourself to re-discover them again?
   </p>
-  
+
   <p>
     — Randy Zwitch (@randyzwitch) <a href="https://twitter.com/randyzwitch/status/530792792713621504">November 7, 2014</a>
   </p>
 </blockquote>
 
-Maybe I don&#8217;t have enough to do today, or a long day of vendor calls has made me re-evaluate what I&#8217;m doing with my life, but I had a thought: 
+Maybe I don&#8217;t have enough to do today, or a long day of vendor calls has made me re-evaluate what I&#8217;m doing with my life, but I had a thought:
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck">
   <p>
@@ -48,14 +48,14 @@ Since 2009, I&#8217;ve gone from banking and a beginner at digital analytics, to
   <p>
     <a href="https://twitter.com/chrisolenik">@chrisolenik</a> Would I follow the same people again if I started fresh. How did I accumulate the list that I did?
   </p>
-  
+
   <p>
     — Randy Zwitch (@randyzwitch) <a href="https://twitter.com/randyzwitch/status/530794962271883264">November 7, 2014</a>
   </p>
 </blockquote>
 
 When we graduate from high school, then college, get married, the natural progression is that people come into your life and some fall out. But Twitter has a sort of hoarder quality to it. Some people cull their follower list, because they don&#8217;t like what the person tweets about or they get in stupid Twitter feuds, but for the most part the list just builds and builds. Others stop using Twitter and you never hear from them again, but you still follow them (their silence?). But it occurs to me, this seems at least tangentially like the <a title="Abilene Paradox explained" href="http://en.wikipedia.org/wiki/Abilene_paradox" target="_blank">Abilene Paradox</a>: at some point, you arrive at a place and you don&#8217;t know how you got there. What have I done over the past five years that has lead me to this place where I&#8217;m reading about what I do on Twitter?
-  
+
 
 
 So I&#8217;m going to conduct an experiment. I&#8217;m unfollowing all of you without prejudice. Just as if I had a hard drive crash. And I&#8217;m going to re-follow all the people I can remember, then re-discover what I&#8217;m really interested in getting from Twitter as a platform by re-following friends of friends, people saying interesting things on hashtags, etc. Hope none of you are hurt by my unfollows, but then again, if you are then maybe that says something about what kind of relationship we currently have.

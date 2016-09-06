@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -30,25 +30,25 @@ Last week, <a title="RSiteCatalyst Version 1.4 Release Notes" href="http://randy
 ## Obtaining Pathing Data With QueuePathing
 
 Although the _QueuePathing()_ function is new to RSiteCatalyst, its syntax should feel familar (even with all of the breaking changes we made!). In the case of creating our network graphs, we want to download all pairwise combinations of pages, which is easy to do using the **::anything::** operator:Because we are using a pathing pattern of (&#8220;::anything::&#8221;, &#8220;::anything::&#8221;), the data frame that is returned from this function will have three columns: _step.1_, _step.2_ and _count_, which is the number of occurrences of the path.
-  
+
 
 
 ## Plotting Graph Using d3SimpleNetwork
 
-Before jumping into the plotting, we need to do some quick data cleaning. Lines 1-5 below are optional; I don&#8217;t set the Adobe Analytics s.pageName on each of my blog pages (a worst practice if there ever was one!), so I use the _sub()_ function in Base R to strip the domain name from the beginning of the page. The other data frame modification is to remove the &#8216;Entered Site&#8217; and &#8216;Exited Site&#8217; from the pagename pairs. Although this is important information generally, these behaviors aren&#8217;t needed to show the pairwise relationship between pages.Running the above code results in the following graph: Hmmm&#8230;looks like a blob of spaghetti, a common occurrence when creating graphs. We can do better. 
+Before jumping into the plotting, we need to do some quick data cleaning. Lines 1-5 below are optional; I don&#8217;t set the Adobe Analytics s.pageName on each of my blog pages (a worst practice if there ever was one!), so I use the _sub()_ function in Base R to strip the domain name from the beginning of the page. The other data frame modification is to remove the &#8216;Entered Site&#8217; and &#8216;Exited Site&#8217; from the pagename pairs. Although this is important information generally, these behaviors aren&#8217;t needed to show the pairwise relationship between pages.Running the above code results in the following graph: Hmmm&#8230;looks like a blob of spaghetti, a common occurrence when creating graphs. We can do better.
 
 ## Pruning Edges From The Graph
 
-There are many <a title="Pruning Edges from Network" href="http://link.springer.com/chapter/10.1007%2F978-3-642-31830-6_13" target="_blank">complex algorithms for determining how to prune edges/nodes from a network</a>. For the sake of simplicity, I&#8217;m going to use a very simple algorithm: each path has to occur more than 5 times for it to be included in the network. This will prune roughly 80% of the pairwise page combinations while keeping ~75% of the occurrences. This is simple to do using the _subset()_ function in R:The result of pruning the number of edges is a much less cluttered graph: 
-  
+There are many <a title="Pruning Edges from Network" href="http://link.springer.com/chapter/10.1007%2F978-3-642-31830-6_13" target="_blank">complex algorithms for determining how to prune edges/nodes from a network</a>. For the sake of simplicity, I&#8217;m going to use a very simple algorithm: each path has to occur more than 5 times for it to be included in the network. This will prune roughly 80% of the pairwise page combinations while keeping ~75% of the occurrences. This is simple to do using the _subset()_ function in R:The result of pruning the number of edges is a much less cluttered graph:
+
 Even with fewer edges in the graph, we still lose some of the information about the pages, since we don&#8217;t know what topics/groups the pages represent. We can fix that using a slightly more complex version of the d3Network graph code.
 
 ## Force-directed graphs
 
 The graphs above outline the structure of randyzwitch.com, but they can be improved by adding color-coding to the nodes to represent the topic of the post, as well as making the edges thicker/thinner based on how frequently the path occurs. This can be done using the d3ForceNetwork() function as so:
-  
+
 Running the code results in the following force-directed graph:
-  
+
 
 
 ## Interpretation

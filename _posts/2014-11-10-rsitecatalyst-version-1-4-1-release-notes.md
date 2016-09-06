@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -42,9 +42,9 @@ This version of RSiteCatalyst has roughly 20 new GET methods, mostly providing a
   * GetLogins: Get all logins for a given Company
 
 If you were the type of person who enjoyed this blog post showing how to [auto-generate Adobe Analytics documentation](http://randyzwitch.com/adobe-analytics-implementation-documentation/ "Adobe Analytics Report Suite documentation R"), I encourage you to take a look at these newly incorporated functions and use them to improve your documentation even further.
-  
 
-  
+
+
 
 
 ## Feature Requests/Bugs

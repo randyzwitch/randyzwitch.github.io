@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -37,7 +37,7 @@ For this example, I&#8217;m going to be comparing page views year-over-year.  H
 
 <div id="attachment_967" style="width: 849px" class="wp-caption aligncenter">
   <img class="size-full wp-image-967" title="omniture-page-views-report" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-page-views-report.png?fit=839%2C287" alt="Omniture Page Views Report - 2010" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-page-views-report.png?w=839 839w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-page-views-report.png?resize=150%2C51 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-page-views-report.png?resize=300%2C102 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-page-views-report.png?resize=500%2C171 500w" sizes="(max-width: 839px) 100vw, 839px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Omniture Page Views Report &#8211; 2011
   </p>
@@ -49,7 +49,7 @@ Using this report to set a year-over-year target, we can see the early months ar
 
 <div id="attachment_971" style="width: 354px" class="wp-caption alignright">
   <img class=" wp-image-971 " title="Screen Shot 2012-02-22 at 7.49.46 AM" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Screen-Shot-2012-02-22-at-7.49.46-AM.png?resize=344%2C285" alt="Target Report Setup" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Screen-Shot-2012-02-22-at-7.49.46-AM.png?w=573 573w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Screen-Shot-2012-02-22-at-7.49.46-AM.png?resize=150%2C124 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Screen-Shot-2012-02-22-at-7.49.46-AM.png?resize=300%2C248 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Screen-Shot-2012-02-22-at-7.49.46-AM.png?resize=361%2C300 361w" sizes="(max-width: 344px) 100vw, 344px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Monthly Target Setup within Omniture Interface
   </p>
@@ -63,7 +63,7 @@ Showing the results of our newly created Target report is as easy as going to &#
 
 <div id="attachment_977" style="width: 849px" class="wp-caption aligncenter">
   <img class="size-full wp-image-977" title="Omniture-target-report-default" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Omniture-target-report-default.png?fit=839%2C287" alt="Omniture Target Report" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Omniture-target-report-default.png?w=839 839w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Omniture-target-report-default.png?resize=150%2C51 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Omniture-target-report-default.png?resize=300%2C102 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/Omniture-target-report-default.png?resize=500%2C171 500w" sizes="(max-width: 839px) 100vw, 839px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Default view of Omniture SiteCatalyst Target report
   </p>
@@ -75,16 +75,16 @@ If we want to show the year-over-year delta, however, we can choose the &#8220;V
 
 <div id="attachment_978" style="width: 849px" class="wp-caption aligncenter">
   <img class="size-full wp-image-978" title="omniture-target-variance" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-target-variance.png?fit=839%2C287" alt="Omniture Target Variance Report" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-target-variance.png?w=839 839w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-target-variance.png?resize=150%2C51 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-target-variance.png?resize=300%2C102 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/02/omniture-target-variance.png?resize=500%2C171 500w" sizes="(max-width: 839px) 100vw, 839px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Omniture SiteCatalyst Target Report &#8211; &#8220;Variance&#8221; option
   </p>
 </div>
 
 By placing this report in a dashboard, we can quickly evaluate whether Page Views have grown by month year-over-year.  It&#8217;s disappointing that the only graph option Adobe provides is the raw metric higher/lower than the target instead of a percentage difference view, but the percentage difference is calculated as part of the data table view that goes along with this report.
-  
 
-  
+
+
 
 
 ## Conclusion

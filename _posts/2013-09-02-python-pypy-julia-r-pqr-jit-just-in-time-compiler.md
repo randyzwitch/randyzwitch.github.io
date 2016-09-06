@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Julia
@@ -36,7 +36,7 @@ The problem I&#8217;m using for the benchmark is calculating the smallest number
 All code versions follow this same pattern: the outside loop will run from 1 up to n!, since by definition the last value in the loop will be divisible by all of the numbers in the factorial. The inner loops go through and do a modulo calculation, checking to see if there is a remainder after division. If there is a remainder, break out of the loop and move to the next number. Once the state occurs where there is no remainder on the modulo calculation and the inner loop value of j equals the last number in the factorial (i.e. it is divisible by all of the factorial numbers), we have found the minimum number.
 
 
-  
+
 
 
 ## Benchmarking &#8211; Overall

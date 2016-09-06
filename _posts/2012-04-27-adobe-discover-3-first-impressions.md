@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Discover
@@ -31,7 +31,7 @@ But as with every product overhaul, there is the potential to change things that
 
 <div id="attachment_1025" style="width: 357px" class="wp-caption alignright">
   <img class="size-full wp-image-1025" title="adobe-discover-3-screenshot" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-3-screenshot.png?fit=347%2C219" alt="Adobe Discover 3 interface" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-3-screenshot.png?w=347 347w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-3-screenshot.png?resize=150%2C94 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-3-screenshot.png?resize=300%2C189 300w" sizes="(max-width: 347px) 100vw, 347px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     &#8220;Ooh, tough looking. Just like hardcore web analysts!&#8221;
   </p>
@@ -46,9 +46,9 @@ Maybe I&#8217;ll grow to like it, but right now, it seems really dark.  The lig
 Now we&#8217;re getting somewhere.  The slider interface in Discover 2 never made sense to me.  You pick your time period up front, open a report, and then to modify the time period within an individual report you needed to move a bunch of jerky sliders around.
 
 In D3, we now have the same style calendar interface as SiteCatalyst.  Makes sense from a consistency standpoint within the Adobe Digital Marketing Suite and a general UX standpoint.  Pointing at two dates on the calendar is way easier and faster than moving endpoints of a slider!
-  
 
-  
+
+
 
 
 ## Heterogeneous Pathing
@@ -61,7 +61,7 @@ You can also switch from &#8220;Visit-level&#8221; to &#8220;Visitor-level&#8221
 
 <div id="attachment_1030" style="width: 337px" class="wp-caption alignleft">
   <img class="size-full wp-image-1030" title="adobe-discover-3-table-builder" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-3-table-builder.png?fit=327%2C225" alt="Adobe Discover Table Builder" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-3-table-builder.png?w=327 327w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-3-table-builder.png?resize=150%2C103 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-3-table-builder.png?resize=300%2C206 300w" sizes="(max-width: 327px) 100vw, 327px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Nice drag-and-drop options, very PivotTable like
   </p>
@@ -77,7 +77,7 @@ There are probably 20 other things I haven&#8217;t noticed yet in the new Discov
 
 <div id="attachment_1034" style="width: 408px" class="wp-caption alignleft">
   <img class="size-full wp-image-1034 " title="omniture-discover-1.5" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/omniture-discover-1.5.png?fit=398%2C266" alt="Omniture Discover 1.5" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/omniture-discover-1.5.png?w=398 398w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/omniture-discover-1.5.png?resize=150%2C100 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/omniture-discover-1.5.png?resize=300%2C200 300w" sizes="(max-width: 398px) 100vw, 398px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     You should prefer green, not carbon.
   </p>

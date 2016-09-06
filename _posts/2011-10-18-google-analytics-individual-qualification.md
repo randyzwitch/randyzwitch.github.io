@@ -14,14 +14,14 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Google Analytics
 ---
 <div id="attachment_856" style="width: 310px" class="wp-caption alignright">
   <img class="size-full wp-image-856" title="google-iq-certificate" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?fit=300%2C231" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?w=300 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?resize=150%2C115 150w" sizes="(max-width: 300px) 100vw, 300px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     I'm going to print this out and put it on my fridge!
   </p>

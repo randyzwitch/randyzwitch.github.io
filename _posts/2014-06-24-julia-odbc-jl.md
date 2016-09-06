@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Data Visualization
@@ -32,7 +32,7 @@ The example problem I am going to solve is calculating and visualizing the numbe
 
 ## Step 1: Getting Data From Hadoop
 
-In a prior set of <a title="Getting Started Using Hadoop, Part 3: Loading Data" href="http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/" target="_blank">blog posts</a>, I talked about loading the <a title="Airline dataset" href="http://stat-computing.org/dataexpo/2009/" target="_blank">airline dataset</a> into Hadoop, then <a title="Getting Started With Hadoop, Final: Analysis Using Hive & Pig" href="http://randyzwitch.com/getting-started-hadoop-hive-pig/" target="_blank">analyzing the dataset using Hive or Pig</a>. Using ODBC.jl, we can use Hive via Julia to submit our queries. The hardest part of setting up this process is making sure that you have the appropriate Hive drivers for your Hadoop cluster and credentials (which isn&#8217;t covered here). Once you have your DSN set up, running Hive queries is as easy as the following:In this code, I&#8217;ve written my query as a Julia string, to keep my code easily modifiable. Then, I pass the Julia string object to the query() function, along with my ODBC connection object. This query runs on Hadoop through Hive, then streams the result directly to my local hard drive, making this a very RAM efficient (though I/O inefficient!) operation. 
+In a prior set of <a title="Getting Started Using Hadoop, Part 3: Loading Data" href="http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/" target="_blank">blog posts</a>, I talked about loading the <a title="Airline dataset" href="http://stat-computing.org/dataexpo/2009/" target="_blank">airline dataset</a> into Hadoop, then <a title="Getting Started With Hadoop, Final: Analysis Using Hive & Pig" href="http://randyzwitch.com/getting-started-hadoop-hive-pig/" target="_blank">analyzing the dataset using Hive or Pig</a>. Using ODBC.jl, we can use Hive via Julia to submit our queries. The hardest part of setting up this process is making sure that you have the appropriate Hive drivers for your Hadoop cluster and credentials (which isn&#8217;t covered here). Once you have your DSN set up, running Hive queries is as easy as the following:In this code, I&#8217;ve written my query as a Julia string, to keep my code easily modifiable. Then, I pass the Julia string object to the query() function, along with my ODBC connection object. This query runs on Hadoop through Hive, then streams the result directly to my local hard drive, making this a very RAM efficient (though I/O inefficient!) operation.
 
 ## Step 2: Shelling Out To Load Data To Aster
 
@@ -41,12 +41,12 @@ Once I created the file with my Hadoop results in it, I now have a decision poin
 ## Step 3: Using Aster For Calculations
 
 With my data now loaded in Aster, I can normalize the timestamps to UTC, then &#8216;burst&#8217; the data into regular time intervals. Again, all of this can be done via ODBC from within Julia:Since it might not be clear what I&#8217;m doing here, the &#8216;burst()&#8217; function in Aster takes a row of data with a start and end timestamp, and potentially returns multiple rows which normalize the time between the timestamps. If you&#8217;re familiar with pandas in Python, it&#8217;s a similar functionality to &#8216;resample&#8217; on a series of timestamps.
-  
+
 
 
 ## Step 4: Download Smaller Data Into Julia, Visualize
 
-Now that the data has been processed from Hadoop to Aster through a series of queries, we now have a much smaller dataset that can be loaded into RAM and processed by Julia:The Gadfly code above produces the following plot (using a d3.js backend for interactivity): 
+Now that the data has been processed from Hadoop to Aster through a series of queries, we now have a much smaller dataset that can be loaded into RAM and processed by Julia:The Gadfly code above produces the following plot (using a d3.js backend for interactivity):
 
 <div id="my_chart">
 </div>

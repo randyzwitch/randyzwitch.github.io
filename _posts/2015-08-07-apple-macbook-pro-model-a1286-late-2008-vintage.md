@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Technology
 tags:
   - Apple
@@ -32,7 +32,7 @@ Unfortunately, it seems near impossible (if not completely impossible) to get a
 _Of course_ it is. After getting home, I was able to find this <a href="https://support.apple.com/en-us/HT201624" target="_blank">service bulletin</a> from Apple, which outlines which models are obsolete. Apparently, it&#8217;s a hard and fast rule that once five years from the end of manufacturing arrives, a model is declared vintage (unless local laws require longer service). So even though the only &#8220;problem&#8221; with my MacBook Pro is that I was only getting one hour of battery life per charge (or less if I&#8217;m compiling code), the computer is destined for a new life somewhere else.
 
 
-  
+
 
 
 ### &#8220;Vintage&#8221; For Me, Powerful For Thee

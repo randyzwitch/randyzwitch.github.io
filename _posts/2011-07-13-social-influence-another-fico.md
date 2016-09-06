@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Social Media
 tags:
   - Klout
@@ -23,7 +23,7 @@ tags:
 ---
 <div id="attachment_139" style="width: 205px" class="wp-caption alignright">
   <img class="size-full wp-image-139   " title="zwitch-klout-july-2011" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/07/zwitch-klout-july-2011.png?fit=195%2C179" alt="" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Klout thinks I'm a 'Networker'
   </p>
@@ -40,13 +40,13 @@ What was once just use to determine credit-worthiness, FICO has morphed into a w
 ## Social influence score:  &#8220;The probability of&#8230;&#8221;, what exactly?
 
 The problem with trying to assign a value to social media interactions is that it&#8217;s completely business-specific.  Unlike FICO, which at least has a strict definition (ignored as it may be), social &#8216;influence&#8217; can mean any number of things, depending on whether the person uses social media for work or pleasure (and in many cases, both).  Even better, the number can be gamed depending on which accounts you allow to get scored as part of your &#8216;influence&#8217; (although, adding accounts only leads to increases in your score&#8230;for now).
-  
+
 <img class="size-full wp-image-143 alignleft" title="twitalyzer-zwitch-july2011" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/twitalyzer-zwitch-july2011.png?fit=139%2C77" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/twitalyzer-zwitch-july2011.png?w=310 310w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/07/twitalyzer-zwitch-july2011.png?resize=300%2C166 300w" sizes="(max-width: 139px) 100vw, 139px" data-recalc-dims="1" />
 
 Despite these different social influence score shortcomings, it is easy to see why companies like Audi, Subway, TNT Network, and others are willing to take a gamble that social influence (in this case, Klout score) has a correlation to _something_; as multi-million/billion dollar companies, the only way to get top-line growth is to experiment with new channels.  As it stands now, I&#8217;m having a hard time believing that the Klout &#8216;Perks&#8217; is an effective way to market (that&#8217;s a whole &#8216;nother blog post!), but again, I can&#8217;t fault companies for trying.
-  
 
-  
+
+
 
 
 ## Sanity still prevailing&#8230;

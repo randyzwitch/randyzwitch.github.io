@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Data Visualization
@@ -26,14 +26,14 @@ The other day I was having a heck of a time trying to figure out how to make a s
   <p>
     <a href="https://twitter.com/randyzwitch">@randyzwitch</a> I don&#8217;t really like stacked bar charts, I&#8217;d suggest maybe using pointplot / factorplot with kind=point
   </p>
-  
+
   <p>
     — Michael Waskom (@michaelwaskom) <a href="https://twitter.com/michaelwaskom/status/507608729840152578">September 4, 2014</a>
   </p>
 </blockquote>
 
 So there you go. I don&#8217;t want to put words in Michael&#8217;s mouth, but if he&#8217;s not a fan, then it sounded like it was up to me to find my own solution if I wanted a stacked bar chart. I hacked around on the <a title="pandas visualization" href="http://pandas.pydata.org/pandas-docs/stable/visualization.html" target="_blank">pandas plotting functionality</a> a while, went to the <a title="matplotlib stacked bar chart" href="http://matplotlib.org/1.3.1/examples/pylab_examples/bar_stacked.html" target="_blank">matplotlib documentation/example for a stacked bar chart</a>, tried Seaborn some more and then it hit me&#8230;I&#8217;ve gotten so used to these amazing open-source packages that my brain has atrophied! Creating a stacked bar chart is SIMPLE, even in Seaborn (and even if Michael doesn&#8217;t like them 🙂 )
-  
+
 
 
 ## Stacked Bar Chart = Sum of Two Series

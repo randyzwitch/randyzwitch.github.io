@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -35,7 +35,7 @@ The code below outlines the commands needed to generate an Excel file (<a title=
 Additionally, within each tab metadata is provided that contains the various settings for variables, so you&#8217;ll be able to document the expiration settings for eVars, participation, list variables, segment types and so on. The only &#8220;gotchas&#8221; to keep in mind when using the script above is that the user running this will only receive data for report suites they have access to (which is determined by Admin panel setting within Adobe Analytics) and that you need to have the <a title="WriteXLS" href="http://cran.r-project.org/web/packages/WriteXLS/index.html" target="_blank">WriteXLS</a> package installed to write to Excel. The WriteXLS package uses Perl as the underlying code, so you&#8217;ll need to validate that the package is installed correctly, which is done using the _testPerl()_ function in the package.
 
 
-  
+
 
 
 ## This is pretty bare-bones, no?

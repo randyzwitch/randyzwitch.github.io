@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Big Data
@@ -46,7 +46,7 @@ In Hive, you can get great performance gains if you A) partition your table by c
 Unfortunately, when doing an OUTER JOIN, Hive will sometimes ignore the fact that your WHERE clause is on a partition and do a full table scan anyway. In order to get Hive to <a title="Hive Predicate Pushdown Rules" href="https://cwiki.apache.org/confluence/display/Hive/OuterJoinBehavior#OuterJoinBehavior-PredicatePushdownRules" target="_blank">push your predicate down</a> and avoid a full table scan, put your predicate on the JOIN instead of the WHERE clause:If you don&#8217;t want to think about the different rules, you can generally put your limiting clauses inside your JOIN clause instead of on your WHERE clause. It _should_ just be a matter of preference (until your query performance indicates it isn&#8217;t!)
 
 
-  
+
 
 
 ## 4. Calculate And Append Percentiles Using CROSS JOIN

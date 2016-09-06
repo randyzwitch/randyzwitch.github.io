@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Technology
 tags:
   - Apple
@@ -40,7 +40,7 @@ But it&#8217;s not just the processor here that&#8217;s a huge improvement&#8230
 I think it&#8217;s safe to say that even without a case re-design, the iPhone 4S is in a different world hardware-wise than my current 3GS.
 
 
-  
+
 
 
 ## iPhone 4S Activation Issues

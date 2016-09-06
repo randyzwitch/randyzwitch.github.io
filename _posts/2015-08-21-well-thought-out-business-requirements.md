@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Miscellany
 tags:
   - Analytics
@@ -29,7 +29,7 @@ tags:
   <p dir="ltr" lang="en">
     <a href="https://twitter.com/randyzwitch">@randyzwitch</a> how to get (reasonably) well thought-through requirements from business people?
   </p>
-  
+
   <p>
     — Art Webb (@arthurlwebb) <a href="https://twitter.com/arthurlwebb/status/634710548685418496">August 21, 2015</a>
   </p>
@@ -60,7 +60,7 @@ Note that in all three of the refinement questions above, you are taking a gener
 The second thing to notice in the mock interaction above is the statement &#8220;_using SAS_&#8220;. I didn&#8217;t write that to pick on SAS, but rather, this exact statement was said to me really early in my career. I had a boss who would try and guess which tool was appropriate for the question he was asking. I presume that he was trying to gauge how hard he thought the problem was, or try to signal to me how hard he thought the problem was. In the end, a plain SQL query with the results copied into an Excel table was all that was necessary.
 
 As the analyst, confirm whether _the tool_ is actually part of the _deliverable_. Meaning, if you need to deliver a Tableau workbook, ok, specifying &#8220;use Tableau&#8221; is an important part of the business question. But if the requirement is &#8220;production-quality visualizations&#8221;, Tableau may or may not be the right tool or might just be one part of a larger workflow.
-  
+
 
 
 ### 3. Every Question Is Interesting To Someone. Solve The Valuable Ones.

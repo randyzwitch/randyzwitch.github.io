@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -30,9 +30,9 @@ tags:
 As an [author of several open-source software projects](https://github.com/randyzwitch), I&#8217;ve taken for granted that people using the software share the same community values as I do. Open-source authors provide their code &#8220;[free](http://www.howtogeek.com/howto/31717/what-do-the-phrases-free-speech-vs.-free-beer-really-mean/)&#8221; to the community so that others may benefit without having to re-invent the wheel. The only _expectation_ (but not an actual _requirement_ per se), is attribution to the package author(s) as a thank you for the time and effort they put into writing and maintaining a quality piece of software.
 
 However, when others take direct credit for writing a package they did not, it crosses into a different realm. Adobe, you DID NOT write RSiteCatalyst, nor have you made any [meaningful contributions](https://github.com/randyzwitch/RSiteCatalyst/graphs/contributors). To take credit for RSiteCatalyst, either implicitly or explicitly, is a slight to the work of those who have contributed.
-  
 
-  
+
+
 
 
 ## Adobe Summit 2014: Attribution!

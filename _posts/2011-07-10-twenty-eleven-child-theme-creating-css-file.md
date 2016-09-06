@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - Child Theme
@@ -36,9 +36,9 @@ So with a new, blank text document open, save this file with the name &#8216;sty
 
 In the newly created style.css file, add the following code (including the /\*  and \*/ characters):
 
-<pre>/* Theme Name: randyzwitch.com 
-Description: Child theme for the twentyeleven theme 
-Author: Randy Zwitch 
+<pre>/* Theme Name: randyzwitch.com
+Description: Child theme for the twentyeleven theme
+Author: Randy Zwitch
 Template: twentyeleven */</pre>
 
 For your theme, you can choose to put whatever you want in the &#8220;Theme Name&#8221;, &#8220;Description&#8221; and &#8220;Author&#8221; files.  The text you list here is what will be visible in the Appearance > Themes menu in the WordPress admin panel.
@@ -46,12 +46,12 @@ For your theme, you can choose to put whatever you want in the &#8220;Theme Name
 If you are creating your child theme based on Twenty Eleven, then you are done, as no additional changes need to be made.  Otherwise, place the **directory** name (with no leading or trailing slashes) of the theme are using on the &#8220;Template&#8221; line.
 
 
-  
 
-  
+
+
 **Step 3:  Include &#8220;CSS import&#8221; of Twenty Eleven CSS file
-  
-** 
+
+**
 
 The final step in creating the CSS file for our new child theme is to import the CSS properties from the original Twenty Eleven theme.  Note that above, I discussed that we _could_ just copy the entire CSS file into our new file, but then we wouldn&#8217;t be able to see our changes as a stand-alone.  What we can do instead is add the following code to our new file, directly under the header we created in Step 2:
 
@@ -64,9 +64,9 @@ And that&#8217;s it!  Save your newly created CSS file, and be sure that it is 
 ## Final comments
 
 If you&#8217;ve done this correctly, the contents of your new CSS file should have the following format (with your information, obviously):
-  
 
-  
+
+
 Technically, this is all you need to have a fully-functional &#8220;child theme&#8221; in WordPress.  To make sure that everything is working correctly, go to the WordPress admin panel and select your new theme under Appearance > Themes and hit &#8216;Activate&#8217; your new theme!
 
 &nbsp;

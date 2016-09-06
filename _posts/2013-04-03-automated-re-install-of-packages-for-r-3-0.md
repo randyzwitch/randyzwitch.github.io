@@ -16,7 +16,7 @@ tweetcount:
   - 0
 livefyre_version:
   - 3
-categories:
+category:
   - General Programming
 tags:
   - R

@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -23,7 +23,7 @@ tags:
 ---
 <div id="attachment_1233" style="width: 272px" class="wp-caption alignright">
   <img class="size-medium wp-image-1233" title="data-squirrel" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel-262x300.png?fit=262%2C300" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=262%2C300 262w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=131%2C150 131w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?w=362 362w" sizes="(max-width: 262px) 100vw, 262px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Just because data CAN be captured doesn&#8217;t mean it SHOULD be!
   </p>
@@ -69,9 +69,9 @@ The &#8220;Connection Type&#8221; report, along with &#8220;Monitor Color Depth&
 &#8220;Monitor resolution&#8221; is irrelevant in the face of also having &#8220;Browser Width&#8221; & &#8220;Browser Height&#8221; reports (the true size of the web page &#8220;real estate&#8221; on screen).
 
 Finally, JavaScript version?  The JavaScript report with &#8220;Enabled/Disabled&#8221; is likely more than enough information.  Or, you can just include jQuery in your website and know with 100% certainty what version is being used.
-  
 
-  
+
+
 
 
 ## Visitor Profile reports

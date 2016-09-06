@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -35,7 +35,7 @@ This is about the least helpful message that could&#8217;ve been returned, but i
 So hopefully, if you&#8217;ve run into this error before (which I have to imagine was quite frustrating), you shouldn&#8217;t see this again with v1.4.4 of RSiteCatalyst. Additionally, tests will be added to the test suite to attempt to trigger this warning, so that this horrible monster of a bug doesn&#8217;t appear again.
 
 
-  
+
 
 
 ### Authentication Messaging

@@ -15,7 +15,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -24,7 +24,7 @@ tags:
   - RSiteCatalyst
 ---
 One of the key tenets to doing impactful digital analysis is understanding what your visitors are trying to accomplish. One of the easiest methods to do this is by analyzing the words your visitors use to arrive on site (search keywords) and what words they are using while on the site (on-site search). Although Google has made it much more difficult to analyze search keywords over the past several years (due to their passing of <a title="(not provided): Using R and the Google Analytics API" href="http://randyzwitch.com/r-google-analytics-api/" target="_blank">&#8220;(not provided)&#8221;</a> instead of the actual keywords), we can create customer intent segments based on the keywords that are still being passed using unsupervised clustering methods such as k-means clustering.
-  
+
 <!--more-->
 
 ## Concept: K-Means Clustering/Unsupervised Learning
@@ -34,12 +34,12 @@ One of the key tenets to doing impactful digital analysis is understanding what 
 Without getting too technical, k-means clustering is a method of partitioning data into &#8216;k&#8217; subsets, where each data element is assigned to the closest cluster based on the distance of the data element from the center of the cluster. In order to use k-means clustering with text data, we need to do some text-to-numeric transformation of our text data. Luckily, R provides several packages to simplify the process.
 
 
-  
+
 
 
 ## Converting Text to Numeric Data: Document-Term Matrix
 
-Since I use Adobe Analytics on this blog, I&#8217;m going to use the <a title="RSiteCatalyst" href="http://randyzwitch.com/rsitecatalyst/" target="_blank">RSiteCatalyst package</a> to get my natural search keywords into a dataframe. Once the keywords are in a dataframe, we can use the <a title="RTextTools" href="http://www.rtexttools.com/" target="_blank">RTextTools</a> package to create a document-term matrix, where each row is our search term and each column is a 1/0 representation of whether a single word is contained within natural search term. Within the _create_matrix_ function, I&#8217;m using four keyword arguments to process the data: 1) _stemWords_ reduces a word down to its root, which is a standardization method to avoid having multiple versions of words referring to the same concept (e.g. argue, arguing, argued reduces to  &#8216;argu&#8217;) 2) _removeStopwords_ eliminates common English words such as &#8220;they&#8221;, &#8220;he&#8221; , &#8220;always&#8221; 3) _minWordLength_ sets the minimum number of characters that constitutes a &#8216;word&#8217;, which I set to 1 because of the high likelihood of &#8216;r&#8217; being a keyword and 4) _removePunctuation_ removes periods, commas, etc. 
+Since I use Adobe Analytics on this blog, I&#8217;m going to use the <a title="RSiteCatalyst" href="http://randyzwitch.com/rsitecatalyst/" target="_blank">RSiteCatalyst package</a> to get my natural search keywords into a dataframe. Once the keywords are in a dataframe, we can use the <a title="RTextTools" href="http://www.rtexttools.com/" target="_blank">RTextTools</a> package to create a document-term matrix, where each row is our search term and each column is a 1/0 representation of whether a single word is contained within natural search term. Within the _create_matrix_ function, I&#8217;m using four keyword arguments to process the data: 1) _stemWords_ reduces a word down to its root, which is a standardization method to avoid having multiple versions of words referring to the same concept (e.g. argue, arguing, argued reduces to  &#8216;argu&#8217;) 2) _removeStopwords_ eliminates common English words such as &#8220;they&#8221;, &#8220;he&#8221; , &#8220;always&#8221; 3) _minWordLength_ sets the minimum number of characters that constitutes a &#8216;word&#8217;, which I set to 1 because of the high likelihood of &#8216;r&#8217; being a keyword and 4) _removePunctuation_ removes periods, commas, etc.
 
 ## Popular Words
 

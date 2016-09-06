@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -37,7 +37,7 @@ Version 1.3 of the RSiteCatalyst package to access the Adobe Analytics API is no
 RSiteCatalyst now supports the search functionality of the API, similar in nature to using the Advanced Filter/Search feature within Reports & Analytics. Here are some examples for the QueueRanked function:QueueTrended function calls work in a similar manner, returning elements broken down by time rather than a single record per element name.
 
 
-  
+
 
 
 ### Realtime Reporting API

@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - Google Adsense
@@ -39,7 +39,7 @@ When looking at the Google AdSense reporting, it&#8217;s clear that &#8220;Cost 
 
 <div id="attachment_1136" style="width: 868px" class="wp-caption aligncenter">
   <img class="size-full wp-image-1136" title="google-adsense-performance" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-performance.png?fit=858%2C255" alt="Google Adsense financial performance" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-performance.png?w=858 858w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-performance.png?resize=150%2C44 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-performance.png?resize=300%2C89 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-performance.png?resize=500%2C148 500w" sizes="(max-width: 858px) 100vw, 858px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Some weeks I make a few bucks, many I make nothing!
   </p>
@@ -48,7 +48,7 @@ When looking at the Google AdSense reporting, it&#8217;s clear that &#8220;Cost 
 It&#8217;s easy to see that even with 3,000-6,000 page views per week across my two blogs, I&#8217;m not making a ton of money.  If my audience feels particularly &#8220;clicky&#8221; on the contextual ads Google AdSense serves, I make between $2-$5 per week.  GoDaddy Deluxe Hosting costs something like $6 per month for unlimited websites on a shared server, so clearly I&#8217;m not breaking the bank here!  If I&#8217;m lucky, I&#8217;m clearing a few dollars per month in profit (excluding the time I actually maintain the two blogs through writing, site development, etc.)
 
 
-  
+
 
 
 ## So, who IS making money through Google AdSense advertising?

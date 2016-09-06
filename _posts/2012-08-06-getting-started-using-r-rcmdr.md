@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - rattle
@@ -28,7 +28,7 @@ In my first post in this series, I discussed _<a title="Getting Started Using R,
 
 <div id="attachment_1288" style="width: 510px" class="wp-caption aligncenter">
   <img class="size-full wp-image-1288" title="rcmdr" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr1.png?fit=500%2C253" alt="Rcmdr" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr1.png?w=500 500w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr1.png?resize=150%2C75 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr1.png?resize=300%2C151 300w" sizes="(max-width: 500px) 100vw, 500px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Example Rcmdr window with the &#8220;Statistics&#8221; menu expanded
   </p>
@@ -48,7 +48,7 @@ For example, suppose I wanted to make a boxplot of my data, income by job type .
 
 <div id="attachment_1295" style="width: 539px" class="wp-caption aligncenter">
   <img class="size-full wp-image-1295" title="rcmdr-boxplot-dialog-box" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot-dialog-box.png?fit=529%2C203" alt="Rcmdr dialog box" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot-dialog-box.png?w=529 529w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot-dialog-box.png?resize=150%2C57 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot-dialog-box.png?resize=300%2C115 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot-dialog-box.png?resize=500%2C191 500w" sizes="(max-width: 529px) 100vw, 529px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Rcmdr options for creating a Boxplot
   </p>
@@ -56,7 +56,7 @@ For example, suppose I wanted to make a boxplot of my data, income by job type .
 
 <div id="attachment_1297" style="width: 360px" class="wp-caption alignright">
   <img class="size-full wp-image-1297 " title="rcmdr-boxplot" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot.png?fit=350%2C286" alt="Rcmdr boxplot" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot.png?w=350 350w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot.png?resize=150%2C122 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/08/rcmdr-boxplot.png?resize=300%2C245 300w" sizes="(max-width: 350px) 100vw, 350px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Boxplot output created by Rcmdr
   </p>

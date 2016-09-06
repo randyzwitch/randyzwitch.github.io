@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - WordPress Tutorials
 tags:
   - Child Theme
@@ -32,14 +32,14 @@ The first step in creating our &#8216;Back to Top&#8217; link is to modify the _
 Find the line of code in your _header.php_ file that says &#8216;<div id=page class=&#8221;hfeed site&#8221;>&#8217;.  Here we&#8217;ll add our extra line of code with the <a> tag (line 5 of the pastebin):
 
 Normally when using an <a> tag, we would also use an &#8220;href&#8221; in order to create a link.  However, in this case we&#8217;re just defining an empty element in the page that we can refer to later using our &#8216;Back to Top&#8217; link.
-  
 
-  
+
+
 
 
 ## Step 2: Modifying the Scrappy footer.php file
 
-With our anchor in place, we can now add our link.  For this tutorial, we&#8217;re going to place the link right above the widget area in the Scrappy footer. 
+With our anchor in place, we can now add our link.  For this tutorial, we&#8217;re going to place the link right above the widget area in the Scrappy footer.
 
 Opening up our _footer.php_ file, we need to look for the code &#8220;<div class = &#8220;footer-sidebars&#8221;>&#8217;.  Underneath this line, we&#8217;ll add another <a> tag, but this time, we&#8217;ll add an &#8220;href&#8221; tag in order to have a link to send the page back to the top (line 6 of the pastebin):
 
@@ -53,7 +53,7 @@ Once you are done with these two changes, the bottom of your Scrappy WordPress t
 
 <div id="attachment_1404" style="width: 554px" class="wp-caption aligncenter">
   <img class=" wp-image-1404 " title="scrappy-wordpress-theme-back-to-top" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/11/scrappy-wordpress-theme-back-to-top.png?resize=544%2C70" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/11/scrappy-wordpress-theme-back-to-top.png?w=907 907w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/11/scrappy-wordpress-theme-back-to-top.png?resize=150%2C19 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/11/scrappy-wordpress-theme-back-to-top.png?resize=300%2C38 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/11/scrappy-wordpress-theme-back-to-top.png?resize=500%2C63 500w" sizes="(max-width: 544px) 100vw, 544px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     &#8216;Back to Top&#8217; link added to the bottom of the Scrappy WordPress theme
   </p>

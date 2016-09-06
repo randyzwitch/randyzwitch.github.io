@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Julia
@@ -50,7 +50,7 @@ To write an array out to a file, you can use the _writedlm_ function (defaults t
 As I covered in my prior blog post about Julia, you can also <a title="Julia for Beginners" href="http://randyzwitch.com/julia-language-beginners/" target="_blank">read in delimited files into Julia using the DataFrames package</a>, which returns a DataFrame instead of an array. Besides just being able to read in delimited files, the DataFrames package also supports reading in gzippped files on the fly:From what I understand, in the future you will be able to read files directly from Amazon S3 into a DataFrame (this is already supported in the <a title="Julia Amazon S3" href="https://github.com/amitmurthy/AWS.jl" target="_blank">AWS package</a>), but for now, the DataFrames package works only on local files. Writing a DataFrame to file can be done with the _writetable_ function: `writetable(<code>filename::String`, `df::DataFrame`)</code> By default, the <a title="Julia DataFrames" href="http://juliastats.github.io/DataFrames.jl/io.html" target="_blank">writetable function</a> will use the delimiter specified by the filename extension and default to printing the column names as a header.
 
 
-  
+
 
 
 ### Accessing Databases using ODBC
@@ -92,7 +92,7 @@ To write an array out to a file, you can use the _writedlm_ function (defaults t
 As I covered in my prior blog post about Julia, you can also <a title="Julia for Beginners" href="http://randyzwitch.com/julia-language-beginners/" target="_blank">read in delimited files into Julia using the DataFrames package</a>, which returns a DataFrame instead of an array. Besides just being able to read in delimited files, the DataFrames package also supports reading in gzippped files on the fly:From what I understand, in the future you will be able to read files directly from Amazon S3 into a DataFrame (this is already supported in the <a title="Julia Amazon S3" href="https://github.com/amitmurthy/AWS.jl" target="_blank">AWS package</a>), but for now, the DataFrames package works only on local files. Writing a DataFrame to file can be done with the _writetable_ function: `writetable(<code>filename::String`, `df::DataFrame`)</code> By default, the <a title="Julia DataFrames" href="http://juliastats.github.io/DataFrames.jl/io.html" target="_blank">writetable function</a> will use the delimiter specified by the filename extension and default to printing the column names as a header.
 
 
-  
+
 
 
 ### Accessing Databases using ODBC
@@ -105,7 +105,7 @@ The <a title="Julia ODBC package" href="https://github.com/karbarcca/ODBC.jl" ta
 
 Of course, if you don&#8217;t want to store your password in your DSN (especially in the case where there are multiple users for a computer), you can pass the &#8220;usr&#8221; and &#8220;pwd&#8221; arguments to the ODBC.connect function:
 
-`` 
+``
 
 #### Using a connection string
 

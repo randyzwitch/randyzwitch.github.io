@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Data Visualization
@@ -46,9 +46,9 @@ Very simple, fewer lines&#8230;and technically wrong, throwing a 6 unhelpful err
 According to the error message, I&#8217;m supposed to use colMeans instead&#8230;but once you get to how, you&#8217;re on your own, the Help documentation is garbage.  Some combination of &#8220;by&#8221; and &#8220;colMeans&#8221; might work, but I don&#8217;t have an example to follow.
 
 Google sent me to the <a title="Quick-R website" href="http://www.statmethods.net/" target="_blank">Quick-R</a> website, and I found a &#8220;<a title="Descriptive Statistics in R" href="http://www.statmethods.net/stats/descriptives.html" target="_blank">descriptive statistics</a>&#8221; article with by group processing&#8230;with the recommendation of using the &#8220;psych&#8221; package or the &#8220;doBy&#8221; package.  But <a title="Comprehensive R Archive Network" href="http://cran.cs.wwu.edu/" target="_blank">CRAN</a> won&#8217;t let me download all of the dependencies, so again, stuck trying to do the simplest thing in statistics.
-  
 
-  
+
+
 
 
 ## Let&#8217;s be fast and run everything in RAM!

@@ -16,7 +16,7 @@ tweetcount:
   - 0
 livefyre_version:
   - 3
-categories:
+category:
   - Data Science
 tags:
   - Amazon EC2
@@ -51,7 +51,7 @@ The solution might seem to add more processors and RAM to a desktop, but what ha
 The reason why there is so much discussion around Hadoop as a data platform is that it solves the problems stated above: excessive time to process vast amounts of data and excessive cost of data storage. By using &#8220;commodity hardware&#8221; along with some fancy engineering, Hadoop provides an extremely cost-effective and flexible way to handle your enterprise data.
 
 
-  
+
 
 
 ### If Hadoop is so Great, Why Doesn&#8217;t Everyone Use It?

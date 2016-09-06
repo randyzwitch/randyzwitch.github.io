@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -24,15 +24,15 @@ tags:
   - SQL
 ---
 In a previous post, I outlined how to load [daily Adobe Analytics Clickstream data feeds](http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/) into a PostgreSQL database. While this isn&#8217;t a long-term scalable solution for large e-commerce companies doing millions of page views per day, for exploratory analysis a relational database structure can work well until a more robust solution is put into place (such as Hadoop/Spark).
-  
 
-  
+
+
 
 
 ## Data Validation <groan>
 
 Before digging too deeply into the data, we should validate that data from the data feed in our database ([custom database view code](https://gist.github.com/randyzwitch/7a9c48e7132e6ed9dfb0d02ec906961c)) matches what we observe from other sources (mainly, the Adobe Analytics interface and/or [RSiteCatalyst](http://randyzwitch.com/tag/rsitecatalyst/)). Given the Adobe Analytics data feed represents an export of the underlying data, and Adobe provides the formulas in the [data feed documentation](https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_calculate.html), _in theory_ you should be able to replicate the numbers exactly:
-   
+
 The code snippet above shows the validation, and sure enough, the &#8220;two different sources&#8221; show the same exact values (i.e. differences are 0), so everything has been loaded properly into the PostgreSQL database.
 
 ## Finding Anomalies For Creating Bot Rules

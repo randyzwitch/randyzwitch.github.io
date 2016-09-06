@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Amazon EC2
@@ -31,7 +31,7 @@ In the previous three tutorials (<a title="Hadoop for beginners" href="http://ra
 ## Creating Tables Using Hive
 
 Like SQL for &#8216;regular&#8217; relational databases, Hive is the tool we can use within Hadoop to create tables from data loaded into HDFS. Because Hadoop was built with large, messy data in mind, there are some amazingly convenient features for creating and loading data, such as being able to load all files in a directory (assuming they have the same format).  Here&#8217;s the Hive statement we can use to load the <a title="airline dataset" href="http://stat-computing.org/dataexpo/2009/the-data.html" target="_blank">airline dataset</a>:The above statement starts by outlining the structure of the table, which is mostly integers with a few string columns. The next four lines of code specifies what type of data we have, which are delimited files where the fields are terminated (separated) by commas and where the delimiter is escaped using a backslash. Finally, we type the location of our files, which is the location of the directory where we uploaded the .zip file in <a title="Part 3" href="http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/" target="_blank">part 3 of this tutorial</a>. Note that we specify an &#8220;external table&#8221;, which means that if we drop the &#8216;airline&#8217; table, we will still retain our raw data. Had we not specified the &#8220;external&#8221; keyword, Hive would&#8217;ve moved our raw data files into Hive, and had we decided to drop the &#8216;airline&#8217; table, all our data would be deleted. Specifying &#8220;external&#8221; also lets us built multiple tables on the same underlying dataset if we so choose.
-  
+
 
 
 ## Creating a View Using Hive

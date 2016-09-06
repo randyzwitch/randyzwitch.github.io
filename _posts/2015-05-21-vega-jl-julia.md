@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Chartjunk
@@ -41,7 +41,7 @@ tags:
   Mmmmm, chartjunk!
 </p>
 
-## 
+##
 
 ### Rebooting Vega.jl
 
@@ -62,7 +62,7 @@ Yup. I&#8217;m a troll like that. Besides, being loudly against pie charts is bl
 Adding these two charts (besides trolling) was a proof-of-concept that I understood the codebase sufficiently in order to extend the package. Now that the syntax is working for Julia v0.4, I understand how the package works (important!), and have improved the workflow by supporting Jupyter Notebook, I plan to create all of the visualizations featured in the <a href="http://trifacta.github.io/vega/editor/" target="_blank">Trifacta Vega Editor</a> and other standard visualizations such as boxplots. If the community has requests for the order of implementation, I&#8217;ll try and accommodate them. Just add a feature request on <a href="https://github.com/johnmyleswhite/Vega.jl/issues" target="_blank">Vega.jl GitHub issues</a>.
 
 
-  
+
 
 
 ### Why Not Gadfly? You&#8217;re Not Starting A Language War, Are You?

@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -25,7 +25,7 @@ tags:
 
 <div id="attachment_1105" style="width: 119px" class="wp-caption alignright">
   <img class="size-medium wp-image-1105" title="stock-menu" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/stock-menu-109x300.png?fit=109%2C300" alt="Omniture stock menu interface" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/stock-menu.png?resize=109%2C300 109w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/stock-menu.png?resize=54%2C150 54w" sizes="(max-width: 109px) 100vw, 109px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Default Omniture report menu
   </p>
@@ -64,9 +64,9 @@ Wouldn&#8217;t it be better for our users to organize reports by business functi
   * **Traffic** (Total Visits, Geosegmentation)
 
 The list above isn&#8217;t meant to be exhaustive, or necessarily how you should organize your SiteCatalyst menus.  But for me, organizing the reports by the business function keeps my business thinking flowing, rather than trying to remember how Omniture was implemented by variable type.
-  
 
-  
+
+
 
 
 ## 3)  Place custom reports and calculated metrics next to the standard SiteCatalyst reports
@@ -92,5 +92,5 @@ This is very much true.  The larger the company, and the more complex and varie
 For me, one of the first things I look for when working with a company looking to get their digital analytics program off the ground is whether they&#8217;ve customized their Omniture menu structure.  As a free customization, it&#8217;s something that companies should at least _consider_.  Organizing reports by business function requires a business to think about the questions they want to regularly answer, will keep novice users from focusing on implementation concepts, and overall is just better because it&#8217;s how I think 🙂
 
 _This blog post is a continuation of a <a title="Original Tweet about SiteCatalyst Menu Customization" href="https://twitter.com/randyzwitch/status/210042295859417090" target="_blank">Twitter conversation</a> with Shawn C. Reed (<a title="Shawn C. Reed Twitter account" href="https://twitter.com/#!/shawncreed" target="_blank">@shawncreed</a>), Jason Egan (<a title="Jason Egan Twitter" href="https://twitter.com/#!/jasonegan" target="_blank">@jasonegan</a>), Tim Patten (<a title="Tim Patten Twitter" href="https://twitter.com/#!/timpatten" target="_blank">@timpatten</a>) and others.  Shawn&#8217;s counter-argument can be found <a title="Why Shawn C. Reed prefers not to customize SiteCatalyst" href="http://shawncreed.com/blog/sitecatalyst-menu-customization.htm" target="_blank">here</a>.  Jason wrote about <a title="Jason Egan blog post" href="http://www.jasonegan.net/2009/09/26/omniture-sitecatalyst-menu-customization-and-custom-reports/" target="_blank">Omniture menu customization</a> a few years back.  And finally, if you want to read more pros-and-cons about SiteCatalyst menu customization, see the Adobe blog posts <a title="Adobe post 1" href="http://blogs.adobe.com/digitalmarketing/analytics/taking-sitecatalyst-menus-to-the-masses-part-i/" target="_blank">here</a> and <a title="Adobe post 2" href="http://blogs.adobe.com/digitalmarketing/analytics/taking-sitecatalyst-menus-to-the-masses-part-ii/" target="_blank">here</a>.
-  
+
 _

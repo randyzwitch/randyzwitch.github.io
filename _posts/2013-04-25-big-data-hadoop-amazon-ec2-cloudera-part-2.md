@@ -16,7 +16,7 @@ tweetcount:
   - 0
 livefyre_version:
   - 3
-categories:
+category:
   - Data Science
 tags:
   - Amazon EC2
@@ -43,7 +43,7 @@ Note that going through this tutorial will cost $2.40/hr at current prices ($0.2
 Since the SlideShare presentation is potentially not so friendly on the eyes, I&#8217;ve also created a <a title="Cloudera Amazon EC2 instructions" href="http://randyzwitch.com/wp-content/uploads/2013/04/cloudera-amazon-ec2.pdf" target="_blank">PDF download</a> that&#8217;s full resolution.
 
 
-  
+
 
 
 ## Next Steps

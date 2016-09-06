@@ -16,7 +16,7 @@ tweetcount:
   - 0
 livefyre_version:
   - 3
-categories:
+category:
   - Data Science
 tags:
   - Amazon EC2
@@ -31,7 +31,7 @@ tags:
   <p>
     @<a href="https://twitter.com/randyzwitch">randyzwitch</a> @<a href="https://twitter.com/benjamingaines">benjamingaines</a> @<a href="https://twitter.com/usujason">usujason</a> I am envisioning the data science equivalent of an autonomous vehicle pileup.
   </p>
-  
+
   <p>
     — Todd Belcher (@toddmetrics) <a href="https://twitter.com/toddmetrics/status/335030724375756800">May 16, 2013</a>
   </p>
@@ -50,7 +50,7 @@ The first article that really bothered me is titled &#8220;<a title="Do Predicti
 Extending that idea a little further, how far away from the math should a business be comfortable with an employee pushing the button on a machine learning algorithm? Should the CEO be building predictive models? The Intern? A Call Center Rep? For me, I think the answer falls back on the allegory of the <a title="Snopes" href="http://www.snopes.com/business/genius/where.asp" target="_blank">highly-specialized tradesperson</a>:
 
 > Driver: &#8220;How can you charge $100 for five minutes work? All you did was put a bolt on and turned the wrench a few times!
-> 
+>
 > Mechanic: &#8220;I didn&#8217;t charge you for the parts, I charged you for knowing where to put the wrench&#8230;&#8221;
 
 The value a data scientist brings to a business is not that he can push the buttons in a GUI like <a title="rattle R" href="http://rattle.togaware.com/" target="_blank">rattle for R</a>, <a title="Weka" href="http://www.cs.waikato.ac.nz/ml/weka/" target="_blank">Weka</a>, <a title="KnowledgeSeeker" href="http://www.angoss.com/predictive-analytics-software/products/data-analysis-software" target="_blank">KnowledgeSeeker</a>, or <a title="SAS Enterprise Miner" href="http://www.sas.com/technologies/analytics/datamining/miner/" target="_blank">SAS Enterprise Miner</a>. What your data scientist brings to the table is knowing the underlying assumptions that go into a model, how the algorithm works, which algorithm is appropriate for the business problem being solved and _when to know the model/algorithm has failed_.
@@ -58,7 +58,7 @@ The value a data scientist brings to a business is not that he can push the butt
 Of all of the things listed, the experience of knowing when the model can/has failed is what you&#8217;re paying the money for. That knowledge doesn&#8217;t come from just pushing the GUI buttons a bunch of times. And if you&#8217;re making million-dollar decisions based on an algorithm, it&#8217;s worth paying the salary for the person who really understands the model.
 
 
-  
+
 
 
 ### Hire a mathematician, get a programmer free
@@ -87,7 +87,7 @@ So if these aren&#8217;t the type of problems you&#8217;re working on, then mayb
   <p>
     If you don&#8217;t &#8216;get&#8217; something, own it. Don&#8217;t dump your dumb garbage into the world.
   </p>
-  
+
   <p>
     — marc maron (@marcmaron) <a href="https://twitter.com/marcmaron/status/335167001427320832">May 16, 2013</a>
   </p>

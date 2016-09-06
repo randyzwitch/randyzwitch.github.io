@@ -1,9 +1,8 @@
 ---
-id: 472
-title: About Randy Zwitch
+title: About
 date: 2011-08-25T15:18:57+00:00
 author: Randy Zwitch
-layout: page
+layout: post
 guid: http://randyzwitch.com/?page_id=472
 sharing_disabled:
   - 1

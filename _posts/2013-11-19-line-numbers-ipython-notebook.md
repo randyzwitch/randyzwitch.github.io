@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Julia
@@ -27,9 +27,9 @@ Lately, I&#8217;ve been using Jupyter Notebooks for all of my Python and Julia 
 The easiest way to add line numbers to a Jupyter Notebook is to use the keyboard shortcut, which is **Ctrl-m** to enter Command Mode, then type** L**. Just highlight the cell you are interested in adding line numbers to, then hit the keyboard shortcut to toggle the line numbers.
 
 [<img class="aligncenter size-full wp-image-2322" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?fit=1370%2C358" alt="ipython-notebook-line-numbers" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?w=1370 1370w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?resize=150%2C39 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?resize=300%2C78 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?resize=1024%2C267 1024w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png)
-  
 
-  
+
+
 
 
 ## Add Line Numbers to All Cells at Startup
@@ -40,7 +40,7 @@ The easiest way to add line numbers to a Jupyter Notebook is to use the keyboa
   <p style="text-align: center;">
     <del><a href="https://twitter.com/randyzwitch">@randyzwitch</a> add `IPython.Cell.options_default.cm_config.lineNumbers = true;` to your custom.js</del>
   </p>
-  
+
   <p style="text-align: center;">
     <del>— IPython Dev (@IPythonDev) <a href="https://twitter.com/IPythonDev/statuses/394906726828236800">October 28, 2013</a></del>
   </p>
@@ -58,6 +58,6 @@ The easiest way to add line numbers to a Jupyter Notebook is to use the keyboa
 
 <del>Once you place the line of JavaScript in your file, you&#8217;ll need to restart IPython/IJulia completely for the change to take effect. After that, you&#8217;ll have line numbers in each cell, each Notebook!</del>
 
-_Edit 11/4/2015: Thanks to reader Nat Dunn, I&#8217;ve been made aware that the above method no longer works, which isn&#8217;t a surprise given the amount of changes between IPython Notebook to the entire Jupyter project in the past 2 years._ 
+_Edit 11/4/2015: Thanks to reader Nat Dunn, I&#8217;ve been made aware that the above method no longer works, which isn&#8217;t a surprise given the amount of changes between IPython Notebook to the entire Jupyter project in the past 2 years._
 
 _For the (currently) correct method of <a href="https://www.webucator.com/blog/2015/11/show-line-numbers-by-default-in-ipython-notebook/" target="_blank">adding line numbers to Jupyter Notebook by default</a>, please see <a href="https://www.webucator.com/blog/2015/11/show-line-numbers-by-default-in-ipython-notebook/" target="_blank">Nat&#8217;s post</a> with the correct instructions on modifying the custom.js file._

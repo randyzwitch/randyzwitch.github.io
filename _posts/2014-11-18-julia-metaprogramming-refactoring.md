@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Code Refactoring
@@ -28,12 +28,12 @@ One of the things that&#8217;s obvious from my earlier Julia code is that I didn
 ## CTRL-A, CTRL-C, CTRL-P. Repeat.
 
 Admittedly, when I started on the Twitter package, I fully meant to go back and clean up the codebase, but moved onto something more fun instead. The Twitter package started out as a means of learning how to use the <a title="Requests.jl" href="https://github.com/JuliaWeb/Requests.jl" target="_blank">Requests.jl</a> library to make API calls, figured out the OAuth syntax I needed (which itself should be factored out of Twitter.jl), then copied-and-pasted the same basic function structure over and over. While fast, what I was left with was this (currently, the help.jl file in the Twitter package):It&#8217;s pretty clear that this is the same exact code pattern, right down to the spacing! The way to interpret this code is that for these five Twitter API methods, there are no required inputs. Optionally, there is the &#8216;options&#8217; keyword that allows for specifying a Dict() of options. For these five functions, there are no options you can pass to the Twitter API, so even this keyword is redundant. These are simple functions so I don&#8217;t gain a lot by way of maintainability by using metaprogramming, but at the same time, one of the core tenets of programming is &#8216;Dont Repeat Yourself&#8217;, so let&#8217;s clean this up.
-  
+
 
 
 ## For :symbol in symbolslist&#8230;
 
-In order to clean this up, we need to take out the unique parts of the function, then pass them as arguments to the @eval macro as follows:What&#8217;s happening in this code is that I define two tuples: one of function names (as symbols, denoted by &#8216;:&#8217; ) and one of the API endpoints. We can then iterate over the two tuples, substituting the function names and endpoints into the code. When the package is loaded, this code evaluates, defining the five functions for use in the Twitter package. 
+In order to clean this up, we need to take out the unique parts of the function, then pass them as arguments to the @eval macro as follows:What&#8217;s happening in this code is that I define two tuples: one of function names (as symbols, denoted by &#8216;:&#8217; ) and one of the API endpoints. We can then iterate over the two tuples, substituting the function names and endpoints into the code. When the package is loaded, this code evaluates, defining the five functions for use in the Twitter package.
 
 ## Wha?
 

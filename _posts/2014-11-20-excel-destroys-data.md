@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Miscellany
 tags:
   - Data Visualization
@@ -23,18 +23,18 @@ tags:
 ---
 <div id="attachment_3201" style="width: 621px" class="wp-caption aligncenter">
   <a href="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png"><img class="size-full wp-image-3201" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?fit=611%2C369" alt="All you pie-chart haters are wishing I used one here." srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?w=611 611w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=150%2C90 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=300%2C181 300w" sizes="(max-width: 611px) 100vw, 611px" data-recalc-dims="1" /></a>
-  
+
   <p class="wp-caption-text">
     All you pie-chart haters are wishing I used one here.
   </p>
 </div>
 
-## 
+##
 
 I often use Twitter as a place to vent about the horribleness of Excel, from the product itself to analyses its UI and workflow influences. Admittedly, some of this is snobbish preference: if everyone used my preferred tools, then the world would be a better place! But let me back off my snobbishness a bit and just say this: please feel free to use any tool you want, up to and including pencil-and-paper&#8230;JUST.STOP.USING.EXCEL.
-  
 
-  
+
+
 
 
 Excel arbitrarily destroys data for fun, as evidenced by the example below.

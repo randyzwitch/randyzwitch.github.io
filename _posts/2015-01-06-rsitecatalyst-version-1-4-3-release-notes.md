@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -45,9 +45,9 @@ I only have one feed set up for testing, but if there were more feeds delivered 
 RSiteCatalyst v1.4.2 attempted to fix an issue where QueueRanked would error if two SAINT classifications were used. Unfortunately, by fixing that issue, QueueRanked ONLY worked with SAINT Classifications. This was only out in the wild for a month, so hopefully it didn&#8217;t really affect anyone.
 
 Additionally, the segment.id and segment.name weren&#8217;t printing out to the data frame in the Queue* functions. This has also been fixed.
-  
 
-  
+
+
 
 
 ## Test Suite Using Travis CI

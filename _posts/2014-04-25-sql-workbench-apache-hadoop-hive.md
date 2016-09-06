@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Hadoop
@@ -35,7 +35,7 @@ The hardest part of using Hive via JDBC is getting all of the required jars. At 
 
 <div id="attachment_2627" style="width: 510px" class="wp-caption aligncenter">
   <a href="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/mapr-hive-jars.png"><img class="wp-image-2627 size-full" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/mapr-hive-jars.png?fit=500%2C354" alt="mapr-hive-jars" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/mapr-hive-jars.png?w=500 500w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/mapr-hive-jars.png?resize=150%2C106 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/mapr-hive-jars.png?resize=300%2C212 300w" sizes="(max-width: 500px) 100vw, 500px" data-recalc-dims="1" /></a>
-  
+
   <p class="wp-caption-text">
     Download all the .jar files in one shot, just in case you need them in the future
   </p>
@@ -69,7 +69,7 @@ Setting up the JDBC driver is simply a matter of providing SQL Workbench with th
 For the Classname box, if you are using a relatively new version of Hive, you&#8217;ll be using Hive2 server. In that case, the Classname for the Hive driver is org.apache.hive.jdbc.HiveDriver (this should pop up on-screen, you just need to select the value). You are not required to put any value for the Sample URL. Hit OK and the driver window will close.
 
 
-  
+
 
 
 ### Connection Window

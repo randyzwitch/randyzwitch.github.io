@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Data Science
 tags:
   - Julia
@@ -42,8 +42,8 @@ Package management is also done via GitHub. To add <a title="Julia packages" hre
 #### Text file import
 
 Although the <a title="Julia documentation" href="http://docs.julialang.org/en/latest/manual/introduction/" target="_blank">Julia documentation</a> makes numerous references to MATLAB in terms of code similarity, Julia feels very familiar to me as an R and Python user. Take reading a .csv file into a dataframe and finding the dimensions of the resulting object:
-  
-In each language, the basic syntax is to call a &#8216;read&#8217; function, specify the .csv filename, then the defaults of the function read in a basic file. I also could&#8217;ve specified other keyword arguments, but for purposes of this example I kept it simple. 
+
+In each language, the basic syntax is to call a &#8216;read&#8217; function, specify the .csv filename, then the defaults of the function read in a basic file. I also could&#8217;ve specified other keyword arguments, but for purposes of this example I kept it simple.
 
 #### Looping
 
@@ -58,7 +58,7 @@ While not required to achieve high performance, Julia also provides the <a title
 In each case, the syntax is _just about_ the same to apply a function across a list/array of numbers.
 
 
-  
+
 
 
 ### A small, but intense community

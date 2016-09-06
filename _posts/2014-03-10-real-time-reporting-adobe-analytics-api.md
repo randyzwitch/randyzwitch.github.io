@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - Adobe Analytics
@@ -25,7 +25,7 @@ Starting with <a title="RSiteCatalyst Version 1.3 Release Notes" href="http://ra
 
 ## GetRealTimeConfiguration
 
-Before using the real-time reporting capabilities of Adobe Analytics, you first need to indicate which metrics and elements you are interested in seeing in real-time. To see which reports are already set up for real-time access on a given report suite, you can use the _GetRealTimeConfiguration()_ function:It&#8217;s likely the case that the first time you set this up, you&#8217;ll already see a real-time report for &#8216;Instances-Page-Site Section-Referring Domain&#8217;. You can leave this report in place, or switch the parameters using _SaveRealTimeConfiguration()._ 
+Before using the real-time reporting capabilities of Adobe Analytics, you first need to indicate which metrics and elements you are interested in seeing in real-time. To see which reports are already set up for real-time access on a given report suite, you can use the _GetRealTimeConfiguration()_ function:It&#8217;s likely the case that the first time you set this up, you&#8217;ll already see a real-time report for &#8216;Instances-Page-Site Section-Referring Domain&#8217;. You can leave this report in place, or switch the parameters using _SaveRealTimeConfiguration()._
 
 ## SaveRealTimeConfiguration
 
@@ -34,7 +34,7 @@ If you want to add/modify which real-time reports are available in a report suit
 Up to three real-time reports are available to be stored at any given time. Note that you can mix-and-match what reports you want to modify, you don&#8217;t have to submit all three reports at a given time. Finally, keep in mind that it can take up to 15 minutes for the API to incorporate your real-time report changes, so if you don&#8217;t get your data right away don&#8217;t keep re-submitting the function call!
 
 
-  
+
 
 
 ## GetRealTimeReport
@@ -43,7 +43,7 @@ Once you have your real-time reports set up in the API, you can use the GetRealT
 
 ### Minimum Example &#8211; Overtime Report
 
-The simplest function call for a real-time report is to create an &#8220;Overtime&#8221; report (monitoring a metric over a specific time period):The result of this call will be a DataFrame having 15 rows of one minute granularity for your metric. This is a great way to monitor real-time orders & revenue during a flash sale, see how users are accessing a landing page for an email marketing campaign or any other metric where you want up-to-the-minute status updates. 
+The simplest function call for a real-time report is to create an &#8220;Overtime&#8221; report (monitoring a metric over a specific time period):The result of this call will be a DataFrame having 15 rows of one minute granularity for your metric. This is a great way to monitor real-time orders & revenue during a flash sale, see how users are accessing a landing page for an email marketing campaign or any other metric where you want up-to-the-minute status updates.
 
 ### Granularity, Offset, Periods
 

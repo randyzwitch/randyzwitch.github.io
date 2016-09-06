@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
   - WordPress Tutorials
 tags:
@@ -40,11 +40,11 @@ To find the proper code, sign in to Google Analytics and look for the following 
 With account number in hand, we&#8217;re ready to install the tracking code in our WordPress header file, right before the _wp_head();_ line (and definitely before the closing tag.)  Note:  if you are using the Twenty Eleven theme, there are some comments about how removing the wp_head line will break WordPress plugins&#8230;this is the correct location.
 
 
-  
-Once you hit save to your header.php file, you&#8217;re done.  If all is well, you&#8217;ll see the basic Google Analytics data starting to populate in your account in about 24 hours!
-  
 
-  
+Once you hit save to your header.php file, you&#8217;re done.  If all is well, you&#8217;ll see the basic Google Analytics data starting to populate in your account in about 24 hours!
+
+
+
 
 
 ## Of course, you can always use the Google Analytics for WordPress plugin&#8230;

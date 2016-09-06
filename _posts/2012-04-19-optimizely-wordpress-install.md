@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - Digital Analytics
 tags:
   - A/B testing
@@ -26,9 +26,9 @@ tags:
 If you&#8217;ve spent any time working in digital marketing or analytics, you&#8217;re already familiar with the power of A/B testing.  A/B testing (and it&#8217;s more complicated brother <a href="http://www.smashingmagazine.com/2011/04/04/multivariate-testing-101-a-scientific-method-of-optimizing-design/" target="_blank">multivariate testing</a>) allows site owners to find out optimal combinations of site design and content for their visitors _without having to directly ask/inconvenience the user_.  All it takes to improve a website is forming a hypothesis of something that could work better, creating multiple versions of a page (or other content), setting up the experiment&#8230;and the money flows in faster than you can count it.  At least, that&#8217;s the hope!
 
 At the enterprise level, there are plenty of testing tools such as <a href="http://www.omniture.com/en/products/conversion/test-and-target" target="_blank">Omniture Test & Target</a>, <a href="http://www.sitespect.com/" target="_blank">SiteSpect</a>, <a href="http://webtrends.com/products/optimize/" target="_blank">WebTrends Optimize</a>, and <a href="http://www.monetate.com" target="_blank">Monetate</a>, but these tools are cost-prohibitive to all but the largest websites.  Google provides <a href="www.google.com/websiteoptimizer" target="_blank">Google Website Optimizer</a> (for free!), but that has often been viewed as difficult to manage, especially for dynamically created websites.  That&#8217;s where <a href="http://www.optimizely.com" target="_blank">Optimizely</a> comes in.
-  
 
-  
+
+
 
 
 Optimizely&#8217;s tagline is &#8220;A/B testing software you&#8217;ll actually use&#8221;, a reference to complication (and I think indirectly, the expense) of other testing tools in the marketplace.  Optimizely claims is that you can start testing after adding a single line of JavaScript code&#8230;and here&#8217;s how you do it.
@@ -43,7 +43,7 @@ After doing so, when you click on the &#8220;Implementation&#8221; button, a pop
 
 <div id="attachment_996" style="width: 810px" class="wp-caption aligncenter">
   <img class="size-full wp-image-996" title="optimizely-implementation" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?fit=800%2C301" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?w=800 800w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?resize=150%2C56 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?resize=300%2C112 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?resize=500%2C188 500w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" />
-  
+
   <p class="wp-caption-text">
     Clicking on the &#8220;Implementation&#8221; link gives you your JavaScript code
   </p>

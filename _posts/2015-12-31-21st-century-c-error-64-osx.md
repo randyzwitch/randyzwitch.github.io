@@ -14,7 +14,7 @@ twittercomments:
   - 'a:0:{}'
 tweetcount:
   - 0
-categories:
+category:
   - General Programming
 tags:
   - C
@@ -29,7 +29,7 @@ Rather than re-do the same material, I decided to get <a href="http://shop.oreil
 ## Error 64!
 
 When the discussion of using [Makefiles](https://www.gnu.org/software/make/) begins on page 15, there is a discussion of the &#8220;smallest practicable makefile&#8221;, which is just six lines long:
-   
+
 Unfortunately, this doesn&#8217;t _quite_ work on OSX. Page 11 in the book sort-of references that a fix is needed, but the directions aren&#8217;t so clear&#8230;
 
 ## Error 64, solution 1: Book Fix, updated
@@ -44,9 +44,9 @@ To use the book fix, you are supposed to:
 Once you add this work-around to your PATH, then open a fresh Terminal window (or run &#8216;source .bash_profile&#8217; to refresh the Bash settings), you should be able to use Make to compile your C code.
 
 But to be honest, this seems like a really weird &#8220;fix&#8221; to me, as it overrides the C compiler settings for any program run via Terminal. I prefer one of two alternate solutions.
-  
 
-  
+
+
 
 
 ## Error 64, solution 2: Makefile Change
@@ -57,7 +57,7 @@ As I was researching this, a helpful Twitter user noted:
   <p>
     <a href="https://twitter.com/randyzwitch">@randyzwitch</a> Remove space between CFLAGS and =, and replace c99 with cc. See man c99, -W is not -Wwarnings.
   </p>
-  
+
   <p>
     — Eugene Teo (@datajottings) <a href="https://twitter.com/datajottings/status/682214537341190145">December 30, 2015</a>
   </p>
