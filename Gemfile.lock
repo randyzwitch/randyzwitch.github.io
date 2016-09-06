@@ -160,6 +160,7 @@ DEPENDENCIES
   github-pages
   jekyll-admin
   jekyll-coffeescript
+  jekyll-gist
   jekyll-paginate
   jekyll-seo-tag
 

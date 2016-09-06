@@ -17,7 +17,7 @@ tweetcount:
 livefyre_version:
   - 3
 ---
-<img class="alignright  wp-image-1090" title="randy_zwitch" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/08/randy_head_tight-1.png?resize=350%2C350" alt="randy zwitch" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/08/randy_head_tight-1.png?w=500 500w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/08/randy_head_tight-1.png?resize=150%2C150 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/08/randy_head_tight-1.png?resize=300%2C300 300w" sizes="(max-width: 350px) 100vw, 350px" data-recalc-dims="1" />I am an economist turned energy forecaster, banker, digital analytics consultant, open source developer and data scientist/engineer. I'm predominantly a user of open-source technologies (R, Python, Julia, MySQL, Postgres, Hadoop) and a heavy Amazon Web Services user (Redshift, DynamoDB, EC2, S3).
+<img class="alignright  wp-image-1090" title="randy_zwitch" /wp-content/uploads/2011/08/randy_head_tight-1.png?resize=350%2C350" alt="randy zwitch" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/08/randy_head_tight-1.png?w=500 500w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/08/randy_head_tight-1.png?resize=150%2C150 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/08/randy_head_tight-1.png?resize=300%2C300 300w" sizes="(max-width: 350px) 100vw, 350px" data-recalc-dims="1" />I am an economist turned energy forecaster, banker, digital analytics consultant, open source developer and data scientist/engineer. I'm predominantly a user of open-source technologies (R, Python, Julia, MySQL, Postgres, Hadoop) and a heavy Amazon Web Services user (Redshift, DynamoDB, EC2, S3).
 
 ## Consulting
 

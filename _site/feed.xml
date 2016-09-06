@@ -40,7 +40,8 @@
       <item>
         <title>Adobe: Give Credit. You DID NOT Write RSiteCatalyst.</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;EDIT 5/10/2016 1:30pm: Several folks from Adobe Analytics/Adobe Marketing Cloud have contacted me, and everything is resolved. I can’t untweet other people’s retweets/shares or delete comments on LinkedIn, but if everyone could stop sharing any more that would be great. 🙂&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;EDIT 5/10/2016 1:30pm: Several folks from Adobe Analytics/Adobe Marketing Cloud have contacted me, and everything is resolved. I can’t untweet other people’s retweets/shares or delete comments on LinkedIn, but if everyone could stop sharing any more that would be great. 🙂&lt;/strong&gt;
+* * *&lt;/p&gt;
 
 </description>
         
@@ -55,9 +56,10 @@
       <item>
         <title>Travis CI: &quot;You Have Too Many Tests LOLZ!&quot;</title>
         
-          <description>&lt;blockquote&gt;
-  &lt;pre&gt;&lt;span id=&quot;1-2082&quot;&gt;No output has been received in the last 10m0s, this potentially indicates a
-stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
+          <description>&lt;p&gt;As part of getting &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/&quot;&gt;RSiteCatalyst 1.4.8 ready for CRAN&lt;/a&gt;, I’ve managed to accumulate hundreds of &lt;a href=&quot;https://github.com/hadley/testthat&quot;&gt;testthat&lt;/a&gt; tests across 63 test files. Each of these tests runs on &lt;a href=&quot;http://randyzwitch.com/authentication-travis-ci/&quot;&gt;Travis CI against an authenticated API&lt;/a&gt;, and the API frequently queues long-running reports. Long-story-short, my builds started failing, creating the error log message quoted below:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
@@ -73,7 +75,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
       <item>
         <title>RSiteCatalyst Version 1.4.8 Release Notes</title>
         
-          <description>&lt;p&gt;For being in RSiteCatalyst retirement, I’m ending up working on more functionality lately ¯_(ツ)_/¯. Here are the changes for RSiteCatalyst 1.4.8, which should be &lt;a href=&quot;https://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;available on CRAN&lt;/a&gt; shortly:&lt;/p&gt;
+          <description>&lt;p&gt;For being in RSiteCatalyst retirement, I’m ending up working on more functionality lately ¯_(ツ)_/¯. Here are the changes for RSiteCatalyst 1.4.8, which should be &lt;a href=&quot;https://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot;&gt;available on CRAN&lt;/a&gt; shortly:&lt;/p&gt;
 
 </description>
         
@@ -138,7 +140,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>A Million Text Files And A Single Laptop</title>
         
           <description>&lt;div id=&quot;attachment_3770&quot; style=&quot;width: 410px&quot; class=&quot;wp-caption alignright&quot;&gt;
-  &lt;img class=&quot;wp-image-3770 size-full&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?fit=400%2C227&quot; alt=&quot;GNU Parallel Cat Unix&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?w=400 400w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?resize=150%2C85 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?resize=300%2C170 300w&quot; sizes=&quot;(max-width: 400px) 100vw, 400px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;wp-image-3770 size-full&quot; /wp-content/uploads/2016/01/million-files-size.png?fit=400%2C227&quot; alt=&quot;GNU Parallel Cat Unix&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?w=400 400w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?resize=150%2C85 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2016/01/million-files-size.png?resize=300%2C170 300w&quot; sizes=&quot;(max-width: 400px) 100vw, 400px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -280,7 +282,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
       <item>
         <title>Vega.jl Rebooted - Now with 100% More Pie and Donut Charts!</title>
         
-          <description>&lt;p&gt;&lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png&quot;&gt;&lt;img class=&quot; size-medium wp-image-3466 alignleft&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie-300x251.png?fit=300%2C251&quot; alt=&quot;pie&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=300%2C251 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=150%2C125 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?w=610 610w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/donut-e1432224478621.png&quot;&gt;&lt;img class=&quot; size-full wp-image-3467 alignright&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/donut-e1432224478621.png?fit=294%2C251&quot; alt=&quot;donut&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png&quot;&gt;&amp;lt;img class=” size-medium wp-image-3466 alignleft” /wp-content/uploads/2015/05/pie-300x251.png?fit=300%2C251” alt=”pie” srcset=”http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=300%2C251 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=150%2C125 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?w=610 610w” sizes=”(max-width: 300px) 100vw, 300px” data-recalc-dims=”1” /&amp;gt;&lt;/a&gt;&lt;a href=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/donut-e1432224478621.png&quot;&gt;&amp;lt;img class=” size-full wp-image-3467 alignright” /wp-content/uploads/2015/05/donut-e1432224478621.png?fit=294%2C251” alt=”donut” data-recalc-dims=”1” /&amp;gt;&lt;/a&gt;&lt;/p&gt;
 
 </description>
         
@@ -401,7 +403,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Destroy Your Data Using Excel With This One Weird Trick!</title>
         
           <description>&lt;div id=&quot;attachment_3201&quot; style=&quot;width: 621px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png&quot;&gt;&lt;img class=&quot;size-full wp-image-3201&quot; src=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?fit=611%2C369&quot; alt=&quot;All you pie-chart haters are wishing I used one here.&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?w=611 611w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=150%2C90 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=300%2C181 300w&quot; sizes=&quot;(max-width: 611px) 100vw, 611px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png&quot;&gt;&amp;lt;img class=&quot;size-full wp-image-3201&quot; /wp-content/uploads/2014/11/pie-charts-are-better.png?fit=611%2C369&quot; alt=&quot;All you pie-chart haters are wishing I used one here.&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?w=611 611w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=150%2C90 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=300%2C181 300w&quot; sizes=&quot;(max-width: 611px) 100vw, 611px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;&lt;/a&gt;
 
 &lt;/div&gt;
 </description>
@@ -827,7 +829,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Anomaly Detection Using The Adobe Analytics API</title>
         
           <description>&lt;p style=&quot;text-align: center;&quot;&gt;
-  &lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics.jpg&quot;&gt;&lt;img class=&quot;size-full wp-image-2019 aligncenter&quot; alt=&quot;anomaly-detection-adobe-analytics&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics-e1376429163809.jpg?fit=550%2C188&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics.jpg&quot;&gt;&amp;lt;img class=&quot;size-full wp-image-2019 aligncenter&quot; alt=&quot;anomaly-detection-adobe-analytics&quot; /wp-content/uploads/2013/08/anomaly-detection-adobe-analytics-e1376429163809.jpg?fit=550%2C188&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;&lt;/a&gt;
 &lt;/p&gt;
 
 </description>
@@ -998,7 +1000,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>(not provided): Using R and the Google Analytics API</title>
         
           <description>&lt;div id=&quot;attachment_1432&quot; style=&quot;width: 610px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &lt;img class=&quot;size-full wp-image-1432&quot; alt=&quot;(not provided) terms from Google average 35%-60% of all organic search terms&quot; src=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?fit=600%2C331&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?w=600 600w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=150%2C82 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=300%2C165 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=500%2C275 500w&quot; sizes=&quot;(max-width: 600px) 100vw, 600px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-full wp-image-1432&quot; alt=&quot;(not provided) terms from Google average 35%-60% of all organic search terms&quot; /wp-content/uploads/2013/01/google-not-provided.png?fit=600%2C331&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?w=600 600w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=150%2C82 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=300%2C165 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=500%2C275 500w&quot; sizes=&quot;(max-width: 600px) 100vw, 600px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1120,7 +1122,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>My Top 20 Least Useful Omniture Reports</title>
         
           <description>&lt;div id=&quot;attachment_1233&quot; style=&quot;width: 272px&quot; class=&quot;wp-caption alignright&quot;&gt;
-  &lt;img class=&quot;size-medium wp-image-1233&quot; title=&quot;data-squirrel&quot; src=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel-262x300.png?fit=262%2C300&quot; alt=&quot;&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=262%2C300 262w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=131%2C150 131w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?w=362 362w&quot; sizes=&quot;(max-width: 262px) 100vw, 262px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-medium wp-image-1233&quot; title=&quot;data-squirrel&quot; /wp-content/uploads/2012/07/data-squirrel-262x300.png?fit=262%2C300&quot; alt=&quot;&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=262%2C300 262w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=131%2C150 131w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?w=362 362w&quot; sizes=&quot;(max-width: 262px) 100vw, 262px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1137,7 +1139,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Apple Has Earned a Customer for Life</title>
         
           <description>&lt;div id=&quot;attachment_1177&quot; style=&quot;width: 710px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &lt;img class=&quot; wp-image-1177 &quot; title=&quot;macbook-pro-broken-hinge-screen&quot; alt=&quot;macbook pro broken hinge&quot; src=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=700%2C259&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?w=700 700w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=150%2C55 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=300%2C111 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=500%2C185 500w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot; wp-image-1177 &quot; title=&quot;macbook-pro-broken-hinge-screen&quot; alt=&quot;macbook pro broken hinge&quot; /wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=700%2C259&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?w=700 700w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=150%2C55 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=300%2C111 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=500%2C185 500w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1154,7 +1156,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Where's The Relevance, Twitter?</title>
         
           <description>&lt;div id=&quot;attachment_1153&quot; style=&quot;width: 652px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &lt;img class=&quot;size-full wp-image-1153&quot; title=&quot;twitter-promoted-tweets-spam&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?fit=642%2C481&quot; alt=&quot;twitter promoted tweets no better than spam&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?w=642 642w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=150%2C112 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=300%2C224 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=400%2C300 400w&quot; sizes=&quot;(max-width: 642px) 100vw, 642px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-full wp-image-1153&quot; title=&quot;twitter-promoted-tweets-spam&quot; /wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?fit=642%2C481&quot; alt=&quot;twitter promoted tweets no better than spam&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?w=642 642w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=150%2C112 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=300%2C224 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=400%2C300 400w&quot; sizes=&quot;(max-width: 642px) 100vw, 642px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1170,7 +1172,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
       <item>
         <title>Get Rich With Google AdSense And WordPress!</title>
         
-          <description>&lt;p&gt;&lt;img class=&quot;alignright size-medium wp-image-1139&quot; title=&quot;google-adsense-wordpress&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress-300x240.png?fit=300%2C240&quot; alt=&quot;Google Adsense graphic&quot; srcset=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=300%2C240 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=150%2C120 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=374%2C300 374w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?w=438 438w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;There are as many reasons to blog as there are people on Earth.  Whether it’s to use a blog as a personal diary, a means to share something you are passionate about (like &lt;a title=&quot;Food blog&quot; href=&quot;http://zwitchen.com/&quot; target=&quot;_blank&quot;&gt;cooking&lt;/a&gt;, as my wife does), a “voice” for your professional career or something else, eventually the question comes up:  should I try and earn advertising income from Google AdSense from my readership?&lt;/p&gt;
+          <description>&lt;p&gt;&amp;lt;img class=”alignright size-medium wp-image-1139” title=”google-adsense-wordpress” /wp-content/uploads/2012/06/google-adsense-wordpress-300x240.png?fit=300%2C240” alt=”Google Adsense graphic” srcset=”http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=300%2C240 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=150%2C120 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=374%2C300 374w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?w=438 438w” sizes=”(max-width: 300px) 100vw, 300px” data-recalc-dims=”1” /&amp;gt;There are as many reasons to blog as there are people on Earth.  Whether it’s to use a blog as a personal diary, a means to share something you are passionate about (like &lt;a title=&quot;Food blog&quot; href=&quot;http://zwitchen.com/&quot; target=&quot;_blank&quot;&gt;cooking&lt;/a&gt;, as my wife does), a “voice” for your professional career or something else, eventually the question comes up:  should I try and earn advertising income from Google AdSense from my readership?&lt;/p&gt;
 
 </description>
         
@@ -1217,7 +1219,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
       <item>
         <title>Adobe Discover 3:  First Impressions</title>
         
-          <description>&lt;p&gt;&lt;img class=&quot;alignright size-full wp-image-1020&quot; title=&quot;adobe-discover-logo&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-logo.png?fit=184%2C43&quot; alt=&quot;Adobe Discover&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-logo.png?w=184 184w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-logo.png?resize=150%2C35 150w&quot; sizes=&quot;(max-width: 184px) 100vw, 184px&quot; data-recalc-dims=&quot;1&quot; /&gt;With yesterday’s code release, &lt;del&gt;Omniture&lt;/del&gt; Adobe released version 3 of their “Discover” tool, THE way to perform web analysis within the Adobe Digital Marketing Suite.  While SiteCatalyst has its place for basic reporting, to really dig deep into your data for actionable insights there’s no substitute to using Discover.&lt;/p&gt;
+          <description>&lt;p&gt;&amp;lt;img class=”alignright size-full wp-image-1020” title=”adobe-discover-logo” /wp-content/uploads/2012/04/adobe-discover-logo.png?fit=184%2C43” alt=”Adobe Discover” srcset=”http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-logo.png?w=184 184w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/adobe-discover-logo.png?resize=150%2C35 150w” sizes=”(max-width: 184px) 100vw, 184px” data-recalc-dims=”1” /&amp;gt;With yesterday’s code release, &lt;del&gt;Omniture&lt;/del&gt; Adobe released version 3 of their “Discover” tool, THE way to perform web analysis within the Adobe Digital Marketing Suite.  While SiteCatalyst has its place for basic reporting, to really dig deep into your data for actionable insights there’s no substitute to using Discover.&lt;/p&gt;
 
 </description>
         
@@ -1278,7 +1280,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Claim Your Newest Klout Perk:  An SEC Investigation!</title>
         
           <description>&lt;div id=&quot;attachment_923&quot; style=&quot;width: 682px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &lt;img class=&quot;size-full wp-image-923&quot; title=&quot;klout-perk-wahooly&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?fit=672%2C239&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?w=672 672w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=150%2C53 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=300%2C106 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=500%2C177 500w&quot; sizes=&quot;(max-width: 672px) 100vw, 672px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-full wp-image-923&quot; title=&quot;klout-perk-wahooly&quot; /wp-content/uploads/2011/12/klout-perk-wahooly.png?fit=672%2C239&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?w=672 672w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=150%2C53 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=300%2C106 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=500%2C177 500w&quot; sizes=&quot;(max-width: 672px) 100vw, 672px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1295,7 +1297,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>100 Miles For charity:water - 12/1 Update</title>
         
           <description>&lt;div id=&quot;attachment_910&quot; style=&quot;width: 551px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &lt;img class=&quot;size-full wp-image-910&quot; title=&quot;100milesfor-charitywater&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?fit=541%2C365&quot; alt=&quot;charity:water campaign progress&quot; srcset=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?w=541 541w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=150%2C101 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=300%2C202 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=444%2C300 444w&quot; sizes=&quot;(max-width: 541px) 100vw, 541px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-full wp-image-910&quot; title=&quot;100milesfor-charitywater&quot; /wp-content/uploads/2011/12/100milesfor-charitywater.png?fit=541%2C365&quot; alt=&quot;charity:water campaign progress&quot; srcset=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?w=541 541w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=150%2C101 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=300%2C202 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=444%2C300 444w&quot; sizes=&quot;(max-width: 541px) 100vw, 541px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1342,7 +1344,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Google Analytics Individual Qualification (IQ) - Passed!</title>
         
           <description>&lt;div id=&quot;attachment_856&quot; style=&quot;width: 310px&quot; class=&quot;wp-caption alignright&quot;&gt;
-  &lt;img class=&quot;size-full wp-image-856&quot; title=&quot;google-iq-certificate&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?fit=300%2C231&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?w=300 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?resize=150%2C115 150w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-full wp-image-856&quot; title=&quot;google-iq-certificate&quot; /wp-content/uploads/2011/10/google-iq-certificate.png?fit=300%2C231&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?w=300 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?resize=150%2C115 150w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1389,7 +1391,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>An Afternoon With Edward Tufte</title>
         
           <description>&lt;div id=&quot;attachment_713&quot; style=&quot;width: 310px&quot; class=&quot;wp-caption alignright&quot;&gt;
-  &lt;img class=&quot;size-medium wp-image-713 &quot; title=&quot;tufte-data-visualization&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization-300x225.jpg?fit=300%2C225&quot; alt=&quot;Tufte Seminar Philly&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=300%2C225 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=150%2C112 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=400%2C300 400w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?w=640 640w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-medium wp-image-713 &quot; title=&quot;tufte-data-visualization&quot; /wp-content/uploads/2011/10/tufte-data-visualization-300x225.jpg?fit=300%2C225&quot; alt=&quot;Tufte Seminar Philly&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=300%2C225 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=150%2C112 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=400%2C300 400w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?w=640 640w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1436,7 +1438,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Xchange 2011: Think Tank and Harbor Cruise</title>
         
           <description>&lt;div id=&quot;attachment_558&quot; style=&quot;width: 637px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &lt;img class=&quot;size-full wp-image-558&quot; title=&quot;sunset-san-diego-harbor&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?fit=627%2C338&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?w=627 627w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=300%2C161 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=500%2C269 500w&quot; sizes=&quot;(max-width: 627px) 100vw, 627px&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-full wp-image-558&quot; title=&quot;sunset-san-diego-harbor&quot; /wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?fit=627%2C338&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?w=627 627w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=300%2C161 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=500%2C269 500w&quot; sizes=&quot;(max-width: 627px) 100vw, 627px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
@@ -1573,7 +1575,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Have Social 'Influence' Scores Become Another FICO?</title>
         
           <description>&lt;div id=&quot;attachment_139&quot; style=&quot;width: 205px&quot; class=&quot;wp-caption alignright&quot;&gt;
-  &lt;img class=&quot;size-full wp-image-139   &quot; title=&quot;zwitch-klout-july-2011&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/07/zwitch-klout-july-2011.png?fit=195%2C179&quot; alt=&quot;&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &amp;lt;img class=&quot;size-full wp-image-139   &quot; title=&quot;zwitch-klout-july-2011&quot; /wp-content/uploads/2011/07/zwitch-klout-july-2011.png?fit=195%2C179&quot; alt=&quot;&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>

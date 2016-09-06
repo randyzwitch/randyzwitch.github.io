@@ -11,31 +11,37 @@ tags:
   - R
   - RSiteCatalyst
 ---
-For being in RSiteCatalyst retirement, I'm ending up working on more functionality lately ¯\_(ツ)_/¯. Here are the changes for RSiteCatalyst 1.4.8, which should be <a href="https://cran.r-project.org/web/packages/RSiteCatalyst/index.html" target="_blank">available on CRAN</a> shortly:
+For being in RSiteCatalyst retirement, I'm ending up working on more functionality lately ¯\_(ツ)_/¯. Here are the changes for RSiteCatalyst 1.4.8, which should be [available on CRAN](https://cran.r-project.org/web/packages/RSiteCatalyst/index.html) shortly:
 
 ## Segment Stacking
 
-RSiteCatalyst now has the ability to take multiple values in the _segment.id _keyword for the Queue* functions. This functionality was graciously provided by <a href="https://twitter.com/FootballActuary" target="_blank">Adam Gitzes</a>, closing an <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/129" target="_blank">issue that was nearly a year old</a>. At times it felt like I was hazing him with change requests, but for Adam's first open-source contribution, this is a huge addition in functionality.
+RSiteCatalyst now has the ability to take multiple values in the `segment.id` keyword for the `Queue*` functions. This functionality was graciously provided by [Adam Gitzes](https://twitter.com/FootballActuary), closing an [issue](https://github.com/randyzwitch/RSiteCatalyst/issues/129) that was nearly a year old. At times it felt like I was hazing him with change requests, but for Adam's first open-source contribution, this is a huge addition in functionality.
 
 So now you are able to pass multiple segments into a function call and get an 'AND' behavior like so:
 
+{% highlight R linenos %}
+stacked_seg <- QueueRanked("zwitchdev",
+                          "2016-03-08",
+                          "2016-03-09",
+                          "pageviews",
+                          "page",
+                          segment.id = c("5433e4e6e4b02df70be4ac63", "54adfe3de4b02df70be5ea08")
+                          )
+{% endhighlight %}
+
 The result (Visits from Social AND Visits from Apple Browsers):
 
-<img class="aligncenter size-large wp-image-3883" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking-1024x58.png?fit=1024%2C58" alt="rsitecatalyst-segment-stacking" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=1024%2C58 1024w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=150%2C8 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=300%2C17 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?resize=768%2C43 768w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking.png?w=2000 2000w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />
+![rsitecatalyst-segment-stacking](/wp-content/uploads/2016/04/rsitecatalyst-segment-stacking-1024x58.png)
 
+## QueueSummary: Now with `date.to` and `date.from` keywords
 
+In response to [GitHub issue #158](https://github.com/randyzwitch/RSiteCatalyst/issues/158), `date.to` and `date.from` parameters were added; this was a minor, but long-term oversight (it's always been possible to do this in the Adobe Analytics API). So now rather than just specifying the `date` keyword and getting a full-year summary or a full-month, you can specify any arbitrary start/end dates.
 
+## Trivial Fixes: Silenced `httr` message, clarified documentation
 
+Starting with the newest version of httr, you get a message for any API call where the encoding wasn't set. So for long running `Queue*` requests, you may have received dozens of warnings to stdout about `"No encoding supplied: defaulting to UTF-8."` This has been remedied, and the warning should no longer occur.
 
-## QueueSummary: Now with date.to and date.from keywords
-
-In response to <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/158" target="_blank">GitHub issue #158</a>, _date.to_ and _date.from_ parameters were added; this was a minor, but long-term oversight (it's always been possible to do this in the Adobe Analytics API). So now rather than just specifying the _date_ keyword and getting a full-year summary or a full-month, you can specify any arbitrary start/end dates.
-
-## Trivial Fixes: Silenced httr message, clarified documentation
-
-Starting with the newest version of httr, you get a message for any API call where the encoding wasn't set. So for long running Queue* requests, you may have received dozens of warnings to stdout about "<span class="pl-smi">No</span> <span class="pl-smi">encoding</span> <span class="pl-smi">supplied</span><span class="pl-k">:</span> <span class="pl-smi">defaulting</span> <span class="pl-smi">to</span> <span class="pl-smi">UTF</span><span class="pl-k">-</span><span class="pl-c1">8</span>." This has been remedied, and the warning should no longer occur.
-
-Also, the <a href="https://github.com/randyzwitch/RSiteCatalyst/blob/master/man/QueueRanked.Rd#L86-#L93" target="_blank">documentation for the Queue* functions was clarified</a> to show an example of using SAINT classifications as the report breakdown; hopefully this didn't cause too much confusion to anyone else.
+Also, the [documentation for the `Queue*` functions](https://github.com/randyzwitch/RSiteCatalyst/blob/master/man/QueueRanked.Rd#L86-#L93) was clarified to show an example of using SAINT classifications as the report breakdown; hopefully this didn't cause too much confusion to anyone else.
 
 ## Volunteers Wanted!
 
