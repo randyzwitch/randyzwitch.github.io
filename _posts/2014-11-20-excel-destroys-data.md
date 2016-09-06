@@ -4,27 +4,22 @@ date: 2014-11-20T10:07:55+00:00
 author: Randy Zwitch
 layout: post
 permalink: /excel-destroys-data/
-category: Miscellany
+category: Analytics
 tags:
   - Data Visualization
   - Excel
   - Statistics
 ---
-<div id="attachment_3201" style="width: 621px" class="wp-caption aligncenter">
-  <a href="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png"><img class="size-full wp-image-3201" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?fit=611%2C369" alt="All you pie-chart haters are wishing I used one here." srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?w=611 611w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=150%2C90 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=300%2C181 300w" sizes="(max-width: 611px) 100vw, 611px" data-recalc-dims="1" /></a>
 
+![All you pie-chart haters are wishing I used one here](/wp-content/uploads/2014/11/pie-charts-are-better.png)
+
+<div>
   <p class="wp-caption-text">
     All you pie-chart haters are wishing I used one here.
   </p>
 </div>
 
-##
-
 I often use Twitter as a place to vent about the horribleness of Excel, from the product itself to analyses its UI and workflow influences. Admittedly, some of this is snobbish preference: if everyone used my preferred tools, then the world would be a better place! But let me back off my snobbishness a bit and just say this: please feel free to use any tool you want, up to and including pencil-and-paper...JUST.STOP.USING.EXCEL.
-
-
-
-
 
 Excel arbitrarily destroys data for fun, as evidenced by the example below.
 
@@ -34,19 +29,17 @@ CSV files have many flaws, but at least they are just plain text. It doesn't tak
 
 Suppose you have a CSV file with timestamps in ISO8601 format. Depending on which text editor you use, it might look something like this:
 
-[<img class="aligncenter size-full wp-image-3209" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/timestamp.png?fit=403%2C144" alt="timestamp" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/timestamp.png?w=403 403w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/timestamp.png?resize=150%2C53 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/timestamp.png?resize=300%2C107 300w" sizes="(max-width: 403px) 100vw, 403px" data-recalc-dims="1" />](http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/11/timestamp.png)
+![timestamp](/wp-content/uploads/2014/11/timestamp.png)
 
 Now, let's open our file in Excel:
 
-[<img class="aligncenter size-full wp-image-3211" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-dates.png?fit=972%2C543" alt="excel-dates" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-dates.png?w=972 972w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-dates.png?resize=150%2C83 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-dates.png?resize=300%2C167 300w" sizes="(max-width: 972px) 100vw, 972px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-dates.png)
+![excel-dates](/wp-content/uploads/2014/11/excel-dates.png)
 
-The first thing you might notice is that not only does Excel change the date formatting in the file to be more "'Murican", they don't even have the courtesy to use one of their existing date or time formats! And rather than keep the date the way it was, or standardize the dates to the way the rest of the world writes them, or even keep fixed-width columns, Excel feels like it should also hide the seconds! Makes sense...seconds are for other people to see, if/when they highlight an individual cell.
+The first thing you might notice is that not only does Excel change the date formatting in the file to be more "'Murica!", they don't even have the courtesy to use one of their existing date or time formats! And rather than keep the date the way it was, or standardize the dates to the way the rest of the world writes them, or even keep fixed-width columns, Excel feels like it should also hide the seconds! Makes sense...seconds are for other people to see, if/when they highlight an individual cell.
 
 So, you've opened this file, but can't remember if you made any changes outside of applying auto-width to the columns. The data still _looks_ right, so you hit 'Save' when prompted by Excel. But you remember that your favorite programmer asked for a CSV file, and it's already a CSV file, so you hit save, ignore the 'features' Excel brags about and email it back to your co-worker. Here's what they receive:
 
-[<img class="aligncenter size-full wp-image-3215" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-fidelity-loss.png?fit=353%2C143" alt="excel-fidelity-loss" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-fidelity-loss.png?w=353 353w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-fidelity-loss.png?resize=150%2C60 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-fidelity-loss.png?resize=300%2C121 300w" sizes="(max-width: 353px) 100vw, 353px" data-recalc-dims="1" />](http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/excel-fidelity-loss.png)
-
-&nbsp;
+![excel-fidelity-loss](/wp-content/uploads/2014/11/excel-fidelity-loss.png)
 
 Reading this back in our plain-text editor, we can now see we have a loss of fidelity of between 37 and 47 seconds on each cell of data. Whereas Excel keeps track of your timestamps while you're in a SPREADSHEET, if you save as plain text, Excel assumes you want to keep the format it automatically applied to your data (automatically! silently!), and thus, destroys your file. In what world would you not care about seconds in your timestamps?
 
@@ -54,7 +47,7 @@ Remember, this mis-feature occurs even if the only thing you do is open a plain
 
 ## Excel: Only The Proper Tool If You Don't Care
 
-If you don't care about using the proper tool for analytics, don't want to learn something new, don't want numerical accuracy, hate visually interesting graphics, don't need reproducibility...use Excel. For everything else, there's everything else. Don't be a VLOOKUP guru, use SQL. Don't store your data in Excel just because it allows for a million rows, use a database. If you need point-and-click graphics, at least spring for Tableau so the defaults look nicer.
+If you don't care about using the proper tool for analytics, don't want to learn something new, don't want numerical accuracy, hate visually interesting graphics, don't need reproducibility...use Excel. For everything else, there's everything else. Don't be a `VLOOKUP` guru, use SQL. Don't store your data in Excel just because it allows for a million rows, use a database. If you need point-and-click graphics, at least spring for Tableau so the defaults look nicer.
 
 Or, learn to code using open-source languages for a total licensing cost of $0. Every analyst would get value from knowing one open-source analytics language, even topically, so that you can write simple calculation scripts and document your thought process. A side benefit is that by coding, you can also use version control like Git or SVN. Then, you can have different versions of thought, and the next analyst down the line can see how your analysis has evolved.
 

@@ -370,7 +370,7 @@
       <item>
         <title>Introducing Twitter.jl</title>
         
-          <description>&lt;p&gt;This is possibly the latest “announcement” of a package ever, given that &lt;a title=&quot;Twitter API Julia client&quot; href=&quot;https://github.com/randyzwitch/Twitter.jl&quot; target=&quot;_blank&quot;&gt;Twitter.jl&lt;/a&gt; has actually existed on &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl&quot; title=&quot;Julia METADATA&quot;&gt;METADATA&lt;/a&gt; for nearly a year now, but that’s how things go sometimes. Here’s how to get started with Twitter.jl and some of the highlights.&lt;/p&gt;
+          <description>&lt;p&gt;This is possibly the latest “announcement” of a package ever, given that &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl&quot;&gt;Twitter.jl&lt;/a&gt; has existed on &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl&quot; title=&quot;Julia METADATA&quot;&gt;METADATA&lt;/a&gt; for nearly a year now, but that’s how things go sometimes. Here’s how to get started with Twitter.jl.&lt;/p&gt;
 
 </description>
         
@@ -400,10 +400,8 @@
       <item>
         <title>Destroy Your Data Using Excel With This One Weird Trick!</title>
         
-          <description>&lt;div id=&quot;attachment_3201&quot; style=&quot;width: 621px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png&quot;&gt;&amp;lt;img class=&quot;size-full wp-image-3201&quot; /wp-content/uploads/2014/11/pie-charts-are-better.png?fit=611%2C369&quot; alt=&quot;All you pie-chart haters are wishing I used one here.&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?w=611 611w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=150%2C90 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/11/pie-charts-are-better.png?resize=300%2C181 300w&quot; sizes=&quot;(max-width: 611px) 100vw, 611px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;&lt;/a&gt;
+          <description>&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2014/11/pie-charts-are-better.png&quot; alt=&quot;All you pie-chart haters are wishing I used one here&quot; /&gt;&lt;/p&gt;
 
-&lt;/div&gt;
 </description>
         
         <pubDate>Thu, 20 Nov 2014 05:07:55 -0500</pubDate>
@@ -417,7 +415,7 @@
       <item>
         <title>Code Refactoring Using Metaprogramming</title>
         
-          <description>&lt;p&gt;It’s been nearly a year since I wrote &lt;a title=&quot;Twitter Julia API&quot; href=&quot;https://github.com/randyzwitch/Twitter.jl/&quot; target=&quot;_blank&quot;&gt;Twitter.jl&lt;/a&gt;, back when I seemingly had MUCH more free time. In these past 10 months, I’ve used Julia quite a bit to develop other packages, and I try to use it at work when I know I’m not going to be collaborating with others (since my colleagues don’t know Julia, not because it’s bad for collaboration!).&lt;/p&gt;
+          <description>&lt;p&gt;It’s been nearly a year since I wrote &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl/&quot;&gt;Twitter.jl&lt;/a&gt;, back when I seemingly had MUCH more free time. In these past 10 months, I’ve used Julia quite a bit to develop other packages, and I try to use it at work when I know I’m not going to be collaborating with others (since my colleagues don’t know Julia, not because it’s bad for collaboration!).&lt;/p&gt;
 
 </description>
         
