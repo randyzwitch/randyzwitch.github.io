@@ -3,18 +3,8 @@ title: 'Building JSON in R: Three Methods'
 date: 2014-05-13T13:27:39+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1655
 permalink: /r-json-jsonlite-sprintf-paste/
-tweetbackscheck:
-  - 1472923289
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1655";s:7:"tinyurl";s:26:"http://tinyurl.com/mxjh7hg";s:4:"isgd";s:19:"http://is.gd/AogGiJ";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - JSON

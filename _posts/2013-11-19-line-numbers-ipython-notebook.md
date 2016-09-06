@@ -3,18 +3,8 @@ title: Adding Line Numbers in IPython/Jupyter Notebooks
 date: 2013-11-19T08:48:18+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2319
 permalink: /line-numbers-ipython-notebook/
-tweetbackscheck:
-  - 1472926995
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2319";s:7:"tinyurl";s:26:"http://tinyurl.com/kag8hxt";s:4:"isgd";s:19:"http://is.gd/Bbul7g";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Julia
   - Python

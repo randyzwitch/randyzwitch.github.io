@@ -3,18 +3,8 @@ title: 'Sessionizing Log Data Using dplyr [Follow-up]'
 date: 2015-01-13T16:24:52+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3371
 permalink: /sessionizing-log-data-dplyr-r-window-functions/
-tweetbackscheck:
-  - 1472927753
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3371";s:7:"tinyurl";s:26:"http://tinyurl.com/qcbn6qu";s:4:"isgd";s:19:"http://is.gd/wj40eS";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Postgres
   - R

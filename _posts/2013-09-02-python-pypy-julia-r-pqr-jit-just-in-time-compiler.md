@@ -3,18 +3,8 @@ title: 'Fun With Just-In-Time Compiling: Julia, Python, R and pqR'
 date: 2013-09-02T19:57:45+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2113
 permalink: /python-pypy-julia-r-pqr-jit-just-in-time-compiler/
-tweetbackscheck:
-  - 1472941039
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2113";s:7:"tinyurl";s:26:"http://tinyurl.com/q4kercy";s:4:"isgd";s:19:"http://is.gd/U9RR23";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Julia
   - pqR

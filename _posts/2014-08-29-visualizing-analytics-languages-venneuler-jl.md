@@ -3,18 +3,8 @@ title: Visualizing Analytics Languages With VennEuler.jl
 date: 2014-08-29T15:16:24+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2953
 permalink: /visualizing-analytics-languages-venneuler-jl/
-tweetbackscheck:
-  - 1472963721
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2953";s:7:"tinyurl";s:26:"http://tinyurl.com/myg7to7";s:4:"isgd";s:19:"http://is.gd/rWe6uN";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Data Visualization
   - Julia

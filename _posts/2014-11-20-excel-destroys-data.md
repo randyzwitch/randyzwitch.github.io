@@ -3,18 +3,8 @@ title: Destroy Your Data Using Excel With This One Weird Trick!
 date: 2014-11-20T10:07:55+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3200
 permalink: /excel-destroys-data/
-tweetbackscheck:
-  - 1472942034
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3200";s:7:"tinyurl";s:26:"http://tinyurl.com/owunb8q";s:4:"isgd";s:19:"http://is.gd/p3mKbv";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Miscellany
+category: Miscellany
 tags:
   - Data Visualization
   - Excel

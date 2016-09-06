@@ -3,18 +3,8 @@ title: Evaluating BreakoutDetection
 date: 2014-11-06T21:24:00+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3086
 permalink: /twitter-breakoutdetection-r-package-evaluation/
-tweetbackscheck:
-  - 1472957003
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3086";s:7:"tinyurl";s:26:"http://tinyurl.com/m9swzkp";s:4:"isgd";s:19:"http://is.gd/Qbqcmj";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Adobe Analytics
   - Data Visualization

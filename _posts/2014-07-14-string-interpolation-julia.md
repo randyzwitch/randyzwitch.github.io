@@ -3,18 +3,8 @@ title: String Interpolation for Fun and Profit
 date: 2014-07-14T12:01:10+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2857
 permalink: /string-interpolation-julia/
-tweetbackscheck:
-  - 1472933084
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2857";s:7:"tinyurl";s:26:"http://tinyurl.com/m5g7uus";s:4:"isgd";s:19:"http://is.gd/lUnsDT";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Julia
 ---

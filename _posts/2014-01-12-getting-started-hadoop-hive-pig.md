@@ -3,18 +3,8 @@ title: 'Getting Started With Hadoop, Final: Analysis Using Hive &#038; Pig'
 date: 2014-01-12T20:25:32+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2295
 permalink: /getting-started-hadoop-hive-pig/
-tweetbackscheck:
-  - 1472948317
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2295";s:7:"tinyurl";s:26:"http://tinyurl.com/mtlyuys";s:4:"isgd";s:19:"http://is.gd/lc7lTg";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Hadoop
   - Hive

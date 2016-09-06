@@ -3,18 +3,8 @@ title: 'iPhone 4S: A Worthy Upgrade Clouded By Activation Issues'
 date: 2011-10-14T15:07:29+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=819
 permalink: /iphone-4s-activation-issues/
-tweetbackscheck:
-  - 1472962289
-shorturls:
-  - 'a:3:{s:9:"permalink";s:51:"http://randyzwitch.com/iphone-4s-activation-issues/";s:7:"tinyurl";s:26:"http://tinyurl.com/7yq5pr7";s:4:"isgd";s:19:"http://is.gd/oLBANV";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Technology
+category: Technology
 tags:
   - Apple
   - iPhone

@@ -3,18 +3,8 @@ title: 'JuliaCon 2015: Everyday Analytics and Visualization (video)'
 date: 2015-08-14T10:29:41+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3648
 permalink: /juliacon-2015-everyday-analytics-and-visualization-video/
-tweetbackscheck:
-  - 1472931504
-shorturls:
-  - 'a:3:{s:9:"permalink";s:80:"http://randyzwitch.com/juliacon-2015-everyday-analytics-and-visualization-video/";s:7:"tinyurl";s:26:"http://tinyurl.com/pezgxlj";s:4:"isgd";s:19:"http://is.gd/nOq5iV";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Analytics
   - Data Visualization

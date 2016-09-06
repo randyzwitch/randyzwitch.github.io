@@ -3,18 +3,8 @@ title: 'Apple MacBook Pro Model A1286 Declared Vintage - The End Of An Era'
 date: 2015-08-07T20:07:12+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3429
 permalink: /apple-macbook-pro-model-a1286-late-2008-vintage/
-tweetbackscheck:
-  - 1472923518
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3429";s:7:"tinyurl";s:26:"http://tinyurl.com/pm75vxn";s:4:"isgd";s:19:"http://is.gd/KWbLnG";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Technology
+category: Technology
 tags:
   - Apple
   - Customer Service

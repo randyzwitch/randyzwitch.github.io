@@ -3,18 +3,8 @@ title: Visualizing Website Structure With Network Graphs
 date: 2014-09-08T06:40:38+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2978
 permalink: /rsitecatalyst-d3-network-graphs/
-tweetbackscheck:
-  - 1472972143
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2978";s:7:"tinyurl";s:26:"http://tinyurl.com/kgmkmbr";s:4:"isgd";s:19:"http://is.gd/gxyj85";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Data Visualization

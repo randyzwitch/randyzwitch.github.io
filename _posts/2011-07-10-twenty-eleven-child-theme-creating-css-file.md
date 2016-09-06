@@ -3,18 +3,8 @@ title: 'Twenty Eleven Child Theme: Creating CSS File'
 date: 2011-07-10T12:37:42+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=65
 permalink: /twenty-eleven-child-theme-creating-css-file/
-tweetbackscheck:
-  - 1472779383
-shorturls:
-  - 'a:3:{s:9:"permalink";s:67:"http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/";s:7:"tinyurl";s:26:"http://tinyurl.com/7t2kwfp";s:4:"isgd";s:19:"http://is.gd/Q9RoWt";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - CSS

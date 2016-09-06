@@ -3,18 +3,8 @@ title: 'Video:  R, RStudio, Rcmdr &#038; rattle'
 date: 2012-09-07T12:07:45+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1315
 permalink: /video-r-rstudio-rcmdr-rattle/
-tweetbackscheck:
-  - 1472935213
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1315";s:7:"tinyurl";s:26:"http://tinyurl.com/95lsqbl";s:4:"isgd";s:19:"http://is.gd/34JPjq";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - R
   - rattle

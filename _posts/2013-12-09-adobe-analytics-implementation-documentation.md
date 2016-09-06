@@ -3,18 +3,8 @@ title: Adobe Analytics Implementation Documentation in 60 Seconds
 date: 2013-12-09T09:46:30+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2389
 permalink: /adobe-analytics-implementation-documentation/
-tweetbackscheck:
-  - 1472928278
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2389";s:7:"tinyurl";s:26:"http://tinyurl.com/n4wxt7l";s:4:"isgd";s:19:"http://is.gd/M4p8qy";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Omniture

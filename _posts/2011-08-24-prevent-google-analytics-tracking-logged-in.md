@@ -3,20 +3,8 @@ title: Prevent Google Analytics From Tracking Logged-in Users
 date: 2011-08-24T08:22:15+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=447
 permalink: /prevent-google-analytics-tracking-logged-in/
-sharing_disabled:
-  - 1
-tweetbackscheck:
-  - 1472941368
-shorturls:
-  - 'a:3:{s:9:"permalink";s:67:"http://randyzwitch.com/prevent-google-analytics-tracking-logged-in/";s:7:"tinyurl";s:26:"http://tinyurl.com/83kosxf";s:4:"isgd";s:19:"http://is.gd/Yhkij5";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Google Analytics
   - JavaScript

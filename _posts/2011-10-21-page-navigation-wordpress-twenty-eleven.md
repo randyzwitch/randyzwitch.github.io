@@ -3,18 +3,8 @@ title: Page Navigation For WordPress Twenty Eleven
 date: 2011-10-21T11:18:47+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=875
 permalink: /page-navigation-wordpress-twenty-eleven/
-tweetbackscheck:
-  - 1472963217
-shorturls:
-  - 'a:3:{s:9:"permalink";s:63:"http://randyzwitch.com/page-navigation-wordpress-twenty-eleven/";s:7:"tinyurl";s:26:"http://tinyurl.com/7hdm9ge";s:4:"isgd";s:19:"http://is.gd/fYe3bV";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - CSS

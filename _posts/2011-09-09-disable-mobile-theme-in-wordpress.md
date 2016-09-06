@@ -3,20 +3,8 @@ title: How to Disable Mobile Theme in WordPress
 date: 2011-09-09T11:53:04+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=517
 permalink: /disable-mobile-theme-in-wordpress/
-sharing_disabled:
-  - 1
-tweetbackscheck:
-  - 1472923288
-shorturls:
-  - 'a:3:{s:9:"permalink";s:57:"http://randyzwitch.com/disable-mobile-theme-in-wordpress/";s:7:"tinyurl";s:26:"http://tinyurl.com/7xxltct";s:4:"isgd";s:19:"http://is.gd/dDwx5K";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - CSS
   - HTML

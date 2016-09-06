@@ -3,18 +3,8 @@ title: Using SQL Workbench with Apache Hive
 date: 2014-04-25T14:05:57+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2622
 permalink: /sql-workbench-apache-hadoop-hive/
-tweetbackscheck:
-  - 1472931826
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2622";s:7:"tinyurl";s:26:"http://tinyurl.com/m2o3pxm";s:4:"isgd";s:19:"http://is.gd/0ScyJp";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Hadoop
   - Hive

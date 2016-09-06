@@ -3,18 +3,8 @@ title: 100 Miles For charity:water
 date: 2011-10-27T14:09:09+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=897
 permalink: /charitywater-campaign/
-tweetbackscheck:
-  - 1472801180
-shorturls:
-  - 'a:3:{s:9:"permalink";s:45:"http://randyzwitch.com/charitywater-campaign/";s:7:"tinyurl";s:26:"http://tinyurl.com/8xqr9k8";s:4:"isgd";s:19:"http://is.gd/CprHVt";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Miscellany
+category: Miscellany
 tags:
   - Analysis Exchange
   - Charity

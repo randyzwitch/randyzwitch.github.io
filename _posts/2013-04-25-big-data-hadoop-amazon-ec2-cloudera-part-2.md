@@ -3,20 +3,8 @@ title: 'Getting Started Using Hadoop, Part 2: Building a Cluster'
 date: 2013-04-25T17:33:48+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1742
 permalink: /big-data-hadoop-amazon-ec2-cloudera-part-2/
-tweetbackscheck:
-  - 1472978833
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1742";s:7:"tinyurl";s:26:"http://tinyurl.com/aljpbeb";s:4:"isgd";s:19:"http://is.gd/Fo4kug";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-livefyre_version:
-  - 3
-category:
-  - Data Science
+category: Data Science
 tags:
   - Amazon EC2
   - Cloudera

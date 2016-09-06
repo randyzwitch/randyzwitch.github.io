@@ -3,18 +3,8 @@ title: Sessionizing Log Data Using SQL
 date: 2015-01-08T11:57:56+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3346
 permalink: /sessionizing-log-data-sql/
-tweetbackscheck:
-  - 1472614968
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3346";s:7:"tinyurl";s:26:"http://tinyurl.com/o3hwnob";s:4:"isgd";s:19:"http://is.gd/3oNBHO";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Hadoop
   - Hive

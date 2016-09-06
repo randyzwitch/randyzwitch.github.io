@@ -3,18 +3,8 @@ title: A Million Text Files And A Single Laptop
 date: 2016-01-28T09:53:42+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3763
 permalink: /gnu-parallel-medium-data/
-tweetbackscheck:
-  - 1472934765
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3763";s:7:"tinyurl";s:26:"http://tinyurl.com/htak7zw";s:4:"isgd";s:19:"http://is.gd/RCjxqP";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - General Programming
+category: Programming
 tags:
   - Bash
   - Julia

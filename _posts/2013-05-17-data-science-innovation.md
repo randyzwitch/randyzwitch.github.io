@@ -3,20 +3,8 @@ title: Innovation Will Never Be At The Push Of A Button
 date: 2013-05-17T10:28:47+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1774
 permalink: /data-science-innovation/
-tweetbackscheck:
-  - 1472689774
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1774";s:7:"tinyurl";s:26:"http://tinyurl.com/a74kncj";s:4:"isgd";s:19:"http://is.gd/obLLNp";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-livefyre_version:
-  - 3
-category:
-  - Data Science
+category: Data Science
 tags:
   - Amazon EC2
   - Data Visualization

@@ -3,18 +3,8 @@ title: 'Claim Your Newest Klout Perk:  An SEC Investigation!'
 date: 2011-12-16T10:41:26+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=922
 permalink: /klout-perk-wahooly/
-tweetbackscheck:
-  - 1472930141
-shorturls:
-  - 'a:3:{s:9:"permalink";s:42:"http://randyzwitch.com/klout-perk-wahooly/";s:7:"tinyurl";s:26:"http://tinyurl.com/7dzlosj";s:4:"isgd";s:19:"http://is.gd/FwQrRr";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Social Media
+category: Social
 tags:
   - Klout
   - Social Media

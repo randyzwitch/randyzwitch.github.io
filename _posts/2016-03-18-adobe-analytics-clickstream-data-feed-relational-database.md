@@ -3,18 +3,8 @@ title: 'Adobe Analytics Clickstream Data Feed: Loading To Relational Database'
 date: 2016-03-18T14:42:23+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3855
 permalink: /adobe-analytics-clickstream-data-feed-relational-database/
-tweetbackscheck:
-  - 1472921883
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3855";s:7:"tinyurl";s:26:"http://tinyurl.com/zs8ak4l";s:4:"isgd";s:19:"http://is.gd/v34Cm6";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Omniture

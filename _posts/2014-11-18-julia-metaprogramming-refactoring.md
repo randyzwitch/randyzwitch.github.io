@@ -5,16 +5,7 @@ author: Randy Zwitch
 layout: post
 guid: http://randyzwitch.com/?p=3184
 permalink: /julia-metaprogramming-refactoring/
-tweetbackscheck:
-  - 1472899021
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3184";s:7:"tinyurl";s:26:"http://tinyurl.com/m3qbq4u";s:4:"isgd";s:19:"http://is.gd/0Gpa5C";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Code Refactoring
   - Julia

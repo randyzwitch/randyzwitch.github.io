@@ -3,18 +3,8 @@ title: 'Video: Overlay Histogram in R (Normal, Density, Another Series)'
 date: 2012-11-09T13:40:01+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1373
 permalink: /overlay-histogram-in-r/
-tweetbackscheck:
-  - 1472987177
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1373";s:7:"tinyurl";s:26:"http://tinyurl.com/aoyg9kt";s:4:"isgd";s:19:"http://is.gd/xCgl3d";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Data Visualization
   - R

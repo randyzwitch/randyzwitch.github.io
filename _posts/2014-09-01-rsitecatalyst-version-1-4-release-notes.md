@@ -3,18 +3,8 @@ title: RSiteCatalyst Version 1.4 Release Notes
 date: 2014-09-01T20:30:14+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2968
 permalink: /rsitecatalyst-version-1-4-release-notes/
-tweetbackscheck:
-  - 1472798743
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2968";s:7:"tinyurl";s:26:"http://tinyurl.com/muxm9ad";s:4:"isgd";s:19:"http://is.gd/d7Ocso";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - R

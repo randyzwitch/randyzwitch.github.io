@@ -3,19 +3,8 @@ title: 'Google Analytics for WordPress: Two Methods'
 date: 2011-08-16T08:19:40+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=302
 permalink: /google-analytics-for-wordpress/
-tweetbackscheck:
-  - 1472698912
-shorturls:
-  - 'a:3:{s:9:"permalink";s:54:"http://randyzwitch.com/google-analytics-for-wordpress/";s:7:"tinyurl";s:26:"http://tinyurl.com/7xp2k48";s:4:"isgd";s:19:"http://is.gd/u6QRAx";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
-  - WordPress Tutorials
+category: Analytics
 tags:
   - Google Analytics
   - JavaScript

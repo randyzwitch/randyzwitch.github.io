@@ -3,18 +3,8 @@ title: '100 Miles For charity:water - 12/1 Update'
 date: 2011-12-01T08:26:24+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=909
 permalink: /100-miles-for-charitywater-update-1/
-tweetbackscheck:
-  - 1472198941
-shorturls:
-  - 'a:3:{s:9:"permalink";s:59:"http://randyzwitch.com/100-miles-for-charitywater-update-1/";s:7:"tinyurl";s:26:"http://tinyurl.com/6pxhd23";s:4:"isgd";s:19:"http://is.gd/QihQD6";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Miscellany
+category: Miscellany
 tags:
   - charity:water
 ---

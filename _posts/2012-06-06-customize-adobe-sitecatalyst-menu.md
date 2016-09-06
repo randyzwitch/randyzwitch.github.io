@@ -3,18 +3,8 @@ title: For Maximum User Understanding, Customize the SiteCatalyst Menu
 date: 2012-06-06T17:31:39+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1094
 permalink: /customize-adobe-sitecatalyst-menu/
-tweetbackscheck:
-  - 1472939538
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1094";s:7:"tinyurl";s:26:"http://tinyurl.com/7toap4b";s:4:"isgd";s:19:"http://is.gd/OdvYjw";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Analytics

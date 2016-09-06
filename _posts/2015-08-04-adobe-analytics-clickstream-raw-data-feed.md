@@ -3,18 +3,8 @@ title: 'Getting Started: Adobe Analytics Clickstream Data Feed'
 date: 2015-08-04T09:00:35+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3518
 permalink: /adobe-analytics-clickstream-raw-data-feed/
-tweetbackscheck:
-  - 1472977494
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3518";s:7:"tinyurl";s:26:"http://tinyurl.com/pt787yk";s:4:"isgd";s:19:"http://is.gd/qlfns2";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Big Data

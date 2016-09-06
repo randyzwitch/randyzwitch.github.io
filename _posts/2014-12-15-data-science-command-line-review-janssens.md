@@ -3,18 +3,8 @@ title: 'Review: Data Science at the Command Line'
 date: 2014-12-15T10:22:46+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3298
 permalink: /data-science-command-line-review-janssens/
-tweetbackscheck:
-  - 1472944378
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3298";s:7:"tinyurl";s:26:"http://tinyurl.com/mn8fqeq";s:4:"isgd";s:19:"http://is.gd/UNGm3i";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Command Line
   - Data Science

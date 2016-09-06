@@ -3,18 +3,8 @@ title: 'Adding a "Back to Top" Link on WordPress'
 date: 2012-11-21T17:44:30+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1392
 permalink: /back-to-top-wordpress-scrappy/
-tweetbackscheck:
-  - 1472851125
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1392";s:7:"tinyurl";s:26:"http://tinyurl.com/be5ekgd";s:4:"isgd";s:19:"http://is.gd/JrtUp8";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - Footer

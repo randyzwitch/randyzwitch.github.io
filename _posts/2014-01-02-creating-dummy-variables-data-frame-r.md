@@ -3,18 +3,8 @@ title: Quickly Create Dummy Variables in a Data Frame
 date: 2014-01-02T13:58:51+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2432
 permalink: /creating-dummy-variables-data-frame-r/
-tweetbackscheck:
-  - 1472959886
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2432";s:7:"tinyurl";s:26:"http://tinyurl.com/mtwplul";s:4:"isgd";s:19:"http://is.gd/tW0fbl";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Machine Learning
   - R

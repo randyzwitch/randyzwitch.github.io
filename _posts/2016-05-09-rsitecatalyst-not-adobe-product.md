@@ -3,18 +3,8 @@ title: 'Adobe: Give Credit. You DID NOT Write RSiteCatalyst.'
 date: 2016-05-09T12:31:51+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3917
 permalink: /rsitecatalyst-not-adobe-product/
-tweetbackscheck:
-  - 1472925110
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3917";s:7:"tinyurl";s:26:"http://tinyurl.com/hlhqlh6";s:4:"isgd";s:19:"http://is.gd/a6abIk";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Omniture

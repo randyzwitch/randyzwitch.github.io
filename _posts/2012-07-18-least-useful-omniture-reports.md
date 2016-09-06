@@ -3,18 +3,8 @@ title: My Top 20 Least Useful Omniture Reports
 date: 2012-07-18T00:14:04+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1215
 permalink: /least-useful-omniture-reports/
-tweetbackscheck:
-  - 1472922492
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1215";s:7:"tinyurl";s:26:"http://tinyurl.com/7l2m3uc";s:4:"isgd";s:19:"http://is.gd/ELlZ3p";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Omniture

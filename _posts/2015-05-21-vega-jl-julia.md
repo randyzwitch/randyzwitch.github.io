@@ -3,18 +3,8 @@ title: 'Vega.jl Rebooted - Now with 100% More Pie and Donut Charts!'
 date: 2015-05-21T12:56:07+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3465
 permalink: /vega-jl-julia/
-tweetbackscheck:
-  - 1472934567
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3465";s:7:"tinyurl";s:26:"http://tinyurl.com/l9pcqd4";s:4:"isgd";s:19:"http://is.gd/yHoCJO";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Chartjunk
   - d3.js

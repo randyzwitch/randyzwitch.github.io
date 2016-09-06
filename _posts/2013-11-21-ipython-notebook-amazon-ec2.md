@@ -3,18 +3,8 @@ title: Using Amazon EC2 with IPython Notebook
 date: 2013-11-21T20:13:11+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2337
 permalink: /ipython-notebook-amazon-ec2/
-tweetbackscheck:
-  - 1472985351
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2337";s:7:"tinyurl";s:26:"http://tinyurl.com/kahpo3y";s:4:"isgd";s:19:"http://is.gd/HNPmL1";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Amazon EC2
   - Python

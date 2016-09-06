@@ -3,18 +3,8 @@ title: 'Getting Started Using Hadoop, Part 4: Creating Tables With Hive'
 date: 2013-08-22T18:03:19+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2075
 permalink: /hadoop-creating-tables-hive/
-tweetbackscheck:
-  - 1472948944
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2075";s:7:"tinyurl";s:26:"http://tinyurl.com/lvflol3";s:4:"isgd";s:19:"http://is.gd/teOVPG";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Amazon EC2
   - Cloudera

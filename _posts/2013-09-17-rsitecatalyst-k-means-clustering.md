@@ -3,19 +3,8 @@ title: Clustering Search Keywords Using K-Means Clustering
 date: 2013-09-17T14:41:01+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2184
 permalink: /rsitecatalyst-k-means-clustering/
-tweetbackscheck:
-  - 1472960929
-  - 1472960929
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2184";s:7:"tinyurl";s:26:"http://tinyurl.com/kvfwjdm";s:4:"isgd";s:19:"http://is.gd/bIcLC2";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Omniture

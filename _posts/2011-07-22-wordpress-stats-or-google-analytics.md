@@ -3,18 +3,8 @@ title: WordPress Stats or Google Analytics? Yes!
 date: 2011-07-22T13:57:14+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=119
 permalink: /wordpress-stats-or-google-analytics/
-tweetbackscheck:
-  - 1472935426
-shorturls:
-  - 'a:3:{s:9:"permalink";s:59:"http://randyzwitch.com/wordpress-stats-or-google-analytics/";s:7:"tinyurl";s:26:"http://tinyurl.com/6u62uuq";s:4:"isgd";s:19:"http://is.gd/wizsCc";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Google Analytics
   - WordPress Stats

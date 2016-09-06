@@ -3,18 +3,8 @@ title: 'Twenty Eleven Child Theme: Custom Header'
 date: 2011-07-20T13:16:53+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=212
 permalink: /custom-header-twenty-eleven-child-theme/
-tweetbackscheck:
-  - 1473001280
-shorturls:
-  - 'a:3:{s:9:"permalink";s:63:"http://randyzwitch.com/custom-header-twenty-eleven-child-theme/";s:7:"tinyurl";s:26:"http://tinyurl.com/7kqu636";s:4:"isgd";s:19:"http://is.gd/NiZlE1";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - CSS

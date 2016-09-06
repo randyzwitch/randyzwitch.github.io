@@ -3,20 +3,8 @@ title: 'Getting Started Using Hadoop, Part 1: Intro'
 date: 2013-04-18T12:47:15+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1703
 permalink: /big-data-hadoop-amazon-ec2-cloudera-part-1/
-tweetbackscheck:
-  - 1472943735
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1703";s:7:"tinyurl";s:26:"http://tinyurl.com/ck556t2";s:4:"isgd";s:19:"http://is.gd/E6gxZc";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-livefyre_version:
-  - 3
-category:
-  - Data Science
+category: Data Science
 tags:
   - Amazon EC2
   - Cloudera

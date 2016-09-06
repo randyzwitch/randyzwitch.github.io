@@ -15,6 +15,7 @@
       to the bottom of the topbar */ }
     </style>
     <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/syntax.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
@@ -26,6 +27,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+    <!-- add Vega support -->
+    <script src="https://vega.github.io/vega-editor/vendor/d3.min.js"></script>
+    <script src="https://vega.github.io/vega-editor/vendor/d3.geo.projection.min.js"></script>
+    <script src="https://vega.github.io/vega-editor/vendor/topojson.js"></script>
+    <script src="https://vega.github.io/vega-editor/vendor/d3.layout.cloud.js"></script>
+    <script src="https://vega.github.io/vega/vega.min.js"></script>
   </head>
 
 	<body class="default-page">
@@ -67,7 +74,7 @@
 </h1>
   <div id="meta-content">
       <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">July 21, 2016</a> &times; Digital Analytics
+          Randy Zwitch &times; <a href="/">July 21, 2016</a> &times; Analytics
       </div>
   </div>
   <div class="content">
@@ -79,13 +86,117 @@
 
 <p>Prior to version 1.4.9 of RSiteCatalyst, API calls could only be made in a serial fashion:</p>
 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></td><td class="code"><pre><span class="n">library</span><span class="p">(</span><span class="n">RSiteCatalyst</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+
+</span><span class="n">SCAuth</span><span class="p">(</span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"USER"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">),</span><span class="w"> </span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"SECRET"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">))</span><span class="w">
+
+</span><span class="n">combined_orders</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">()</span><span class="w">
+</span><span class="k">for</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="n">as.Date</span><span class="p">(</span><span class="s2">"2016-06-01"</span><span class="p">),</span><span class="w"> </span><span class="n">as.Date</span><span class="p">(</span><span class="s2">"2016-06-30"</span><span class="p">),</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"day"</span><span class="p">)){</span><span class="w">
+
+  </span><span class="n">d_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">as.Date</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"1970-01-01"</span><span class="p">))</span><span class="w">
+  </span><span class="n">print</span><span class="p">(</span><span class="n">d_</span><span class="p">)</span><span class="w">
+
+  </span><span class="n">order_details</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">QueueRanked</span><span class="p">(</span><span class="w">
+    </span><span class="n">reportsuite.id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"reportsuite"</span><span class="p">,</span><span class="w">
+    </span><span class="n">date.from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_</span><span class="p">,</span><span class="w">
+    </span><span class="n">date.to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_</span><span class="p">,</span><span class="w">
+    </span><span class="n">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'evar13'</span><span class="p">,</span><span class="w"> </span><span class="s1">'product'</span><span class="p">),</span><span class="w">
+    </span><span class="n">metrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'revenue'</span><span class="p">,</span><span class="w"> </span><span class="s1">'units'</span><span class="p">,</span><span class="w"> </span><span class="s1">'orders'</span><span class="p">),</span><span class="w">
+    </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">50000</span><span class="p">,</span><span class="w"> </span><span class="m">10000</span><span class="p">),</span><span class="w">
+    </span><span class="n">interval.seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">60</span><span class="w">
+  </span><span class="p">)</span><span class="w">
+
+  </span><span class="n">order_details</span><span class="o">$</span><span class="n">order_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">d_</span><span class="w">
+  </span><span class="n">combined_orders</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rbind.fill</span><span class="p">(</span><span class="n">combined_orders</span><span class="p">,</span><span class="w"> </span><span class="n">order_details</span><span class="p">)</span><span class="w">
+  </span><span class="n">rm</span><span class="p">(</span><span class="n">order_details</span><span class="p">)</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <p>The underlying assumption from a package development standpoint was that the user would be working in an interactive fashion; submit a report request, wait to get the answer back. There’s nothing inherently wrong with this code from an R standpoint that made this a slow process, you just had to wait until one report was calculated by the Adobe Analytics API until the next one was submitted.</p>
 
 <h2 id="batch-method">Batch Method</h2>
 
 <p>Of course, most APIs can process multiple calls simultaneously, and the Adobe Analytics API is no exception. Thanks to user <a href="https://github.com/shashispace">shashispace</a>, it’s now possible to submit all of your report calls at once, then retrieve the results:</p>
 
-<p>This code is nearly identical to the serial snippet above, except for 1) the addition of the <em><span class="pl-v">enqueueOnly</span> <span class="pl-k">=</span></em> <span class="pl-c1"><em>TRUE</em> keyword argument and 2) lowering the <em>interval.seconds</em> keyword argument to 1 second instead of 60. When you use the enqueueOnly keyword, instead of returning the report results back, a Queue* function will return the report.id; by accumulating these report.id values in a list, we can next retrieve the reports and bind them together using dplyr.</span></p>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></td><td class="code"><pre><span class="n">queued</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span><span class="w">
+</span><span class="k">for</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="n">as.Date</span><span class="p">(</span><span class="s2">"2016-06-01"</span><span class="p">),</span><span class="w"> </span><span class="n">as.Date</span><span class="p">(</span><span class="s2">"2016-06-30"</span><span class="p">),</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"day"</span><span class="p">)){</span><span class="w">
+  </span><span class="n">d_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">as.Date</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"1970-01-01"</span><span class="p">))</span><span class="w">
+
+  </span><span class="n">print</span><span class="p">(</span><span class="n">d_</span><span class="p">)</span><span class="w">
+
+  </span><span class="n">reportid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">QueueRanked</span><span class="p">(</span><span class="w">
+    </span><span class="n">reportsuite.id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"reportsuite"</span><span class="p">,</span><span class="w">
+    </span><span class="n">date.from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_</span><span class="p">,</span><span class="w">
+    </span><span class="n">date.to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_</span><span class="p">,</span><span class="w">
+    </span><span class="n">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'evar13'</span><span class="p">,</span><span class="w"> </span><span class="s1">'product'</span><span class="p">),</span><span class="w">
+    </span><span class="n">metrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'revenue'</span><span class="p">,</span><span class="w"> </span><span class="s1">'units'</span><span class="p">,</span><span class="w"> </span><span class="s1">'orders'</span><span class="p">),</span><span class="w">
+    </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">50000</span><span class="p">,</span><span class="w"> </span><span class="m">10000</span><span class="p">),</span><span class="w">
+    </span><span class="n">interval.seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w">
+    </span><span class="n">enqueueOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="w">
+  </span><span class="p">)</span><span class="w">
+
+  </span><span class="n">queued</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cbind</span><span class="p">(</span><span class="n">queued</span><span class="p">,</span><span class="w"> </span><span class="n">reportid</span><span class="p">)</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">queued_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">()</span><span class="w">
+</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">queued</span><span class="p">){</span><span class="w">
+  </span><span class="n">queued_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">bind_rows</span><span class="p">(</span><span class="n">queued_df</span><span class="p">,</span><span class="w"> </span><span class="n">GetReport</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This code is nearly identical to the serial snippet above, except for 1) the addition of the <code class="highlighter-rouge">enqueueOnly = TRUE</code> keyword argument and 2) lowering the <code class="highlighter-rouge">interval.seconds</code> keyword argument to <code class="highlighter-rouge">1</code> second instead of <code class="highlighter-rouge">60</code>. When you use the enqueueOnly keyword, instead of returning the report results back, a <code class="highlighter-rouge">Queue*</code> function will return the <code class="highlighter-rouge">report.id</code>; by accumulating these <code class="highlighter-rouge">report.id</code> values in a list, we can next retrieve the reports and bind them together using dplyr.</p>
 
 <h2 id="performance-gain-4x-speed-up">Performance gain: 4x speed-up</h2>
 
@@ -109,7 +220,7 @@
 </h1>
   <div id="meta-content">
       <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">May 24, 2016</a> &times; Digital Analytics
+          Randy Zwitch &times; <a href="/">May 24, 2016</a> &times; Analytics
       </div>
   </div>
   <div class="content">
@@ -118,6 +229,105 @@
 <h2 id="data-validation-groan">Data Validation <groan></groan></h2>
 
 <p>Before digging too deeply into the data, we should validate that data from the data feed in our database (<a href="https://gist.github.com/randyzwitch/7a9c48e7132e6ed9dfb0d02ec906961c">custom database view code</a>) matches what we observe from other sources (mainly, the Adobe Analytics interface and/or <a href="http://randyzwitch.com/tag/rsitecatalyst/">RSiteCatalyst</a>). Given the Adobe Analytics data feed represents an export of the underlying data, and Adobe provides the formulas in the <a href="https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_calculate.html">data feed documentation</a>, <em>in theory</em> you should be able to replicate the numbers exactly:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></td><td class="code"><pre><span class="c1"># "Source 1": Pull data from the API using RSiteCatalyst
+</span><span class="n">library</span><span class="p">(</span><span class="s2">"RSiteCatalyst"</span><span class="p">)</span><span class="w">
+</span><span class="n">SCAuth</span><span class="p">(</span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"USER"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">),</span><span class="w"> </span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"SECRET"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">))</span><span class="w">
+</span><span class="n">overtime</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">QueueOvertime</span><span class="p">(</span><span class="s2">"zwitchdev"</span><span class="p">,</span><span class="w">
+                           </span><span class="n">date.from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"2016-04-01"</span><span class="p">,</span><span class="w">
+                           </span><span class="n">date.to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"2016-05-17"</span><span class="p">,</span><span class="w">
+                           </span><span class="n">metrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"pageviews"</span><span class="p">,</span><span class="w"> </span><span class="s2">"visits"</span><span class="p">,</span><span class="w"> </span><span class="s2">"visitors"</span><span class="p">),</span><span class="w">
+                           </span><span class="n">date.granularity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"day"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># "Source 2": Pull data from Postgres database
+</span><span class="n">library</span><span class="p">(</span><span class="n">RPostgreSQL</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Connect to database
+</span><span class="n">conn</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dbConnect</span><span class="p">(</span><span class="n">dbDriver</span><span class="p">(</span><span class="s2">"PostgreSQL"</span><span class="p">),</span><span class="w">
+                 </span><span class="n">user</span><span class="o">=</span><span class="s2">"postgres"</span><span class="p">,</span><span class="w">
+                 </span><span class="n">password</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                 </span><span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span><span class="w">
+                 </span><span class="n">port</span><span class="o">=</span><span class="m">5432</span><span class="p">,</span><span class="w">
+                 </span><span class="n">dbname</span><span class="o">=</span><span class="s2">"adobe"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">dbdata</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dbGetQuery</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="w">
+                     </span><span class="s2">"select
+                     date(date_time) as date_localtime,
+                     sum(CASE WHEN post_page_event = '0' THEN 1 END) as pageviews,
+                     count(distinct ARRAY_TO_STRING(ARRAY[post_visid_high::text, post_visid_low::text, visit_num::text], '')) as visits,
+                     count(distinct ARRAY_TO_STRING(ARRAY[post_visid_high::text, post_visid_low::text], '')) as visitors
+                     from usefuldata
+                     where date_time between '2016-04-01' and '2016-05-18' and exclude_hit = '0'
+                     group by 1
+                     order by 1;"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Compare data sources
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diff_pv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="p">(</span><span class="n">overtime</span><span class="o">$</span><span class="n">pageviews</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dbdata</span><span class="o">$</span><span class="n">pageviews</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diff_pv</span><span class="w">
+
+</span><span class="m">0</span><span class="w">
+</span><span class="m">47</span><span class="w">
+
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diff_visits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="p">(</span><span class="n">overtime</span><span class="o">$</span><span class="n">visits</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dbdata</span><span class="o">$</span><span class="n">visits</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diff_visits</span><span class="w">
+
+</span><span class="m">0</span><span class="w">
+</span><span class="m">47</span><span class="w">
+
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diff_visitors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="p">(</span><span class="n">overtime</span><span class="o">$</span><span class="n">visitors</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dbdata</span><span class="o">$</span><span class="n">visitors</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diff_visitors</span><span class="w">
+
+</span><span class="m">0</span><span class="w">
+</span><span class="m">47</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>The code snippet above shows the validation, and sure enough, the “two different sources” show the same exact values (i.e. differences are 0), so everything has been loaded properly into the PostgreSQL database.</p>
 
@@ -138,10 +348,5707 @@
 
 <p>These aren’t the only features I could’ve used, but it should be pretty easy to view bot/scraper traffic using these metrics. Here’s the code:</p>
 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></td><td class="code"><pre><span class="c1"># Local outlier factor calculation
+</span><span class="n">library</span><span class="p">(</span><span class="n">RPostgreSQL</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">Rlof</span><span class="p">)</span><span class="w">
+
+</span><span class="n">conn</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dbConnect</span><span class="p">(</span><span class="n">dbDriver</span><span class="p">(</span><span class="s2">"PostgreSQL"</span><span class="p">),</span><span class="w">
+                  </span><span class="n">user</span><span class="o">=</span><span class="s2">"postgres"</span><span class="p">,</span><span class="w">
+                  </span><span class="n">password</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span><span class="w">
+                  </span><span class="n">port</span><span class="o">=</span><span class="m">5432</span><span class="p">,</span><span class="w">
+                  </span><span class="n">dbname</span><span class="o">=</span><span class="s2">"adobe"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">metrics_lof</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dbGetQuery</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"select
+                          ip,
+                          distinct_days_visited,
+                          pageviews,
+                          visits,
+                          distinct_pages_viewed,
+                          pageviews/visits::double precision as pv_per_visit,
+                          pageviews/distinct_pages_viewed::double precision as avg_views_per_page
+                          from
+                          (
+                          select
+                          ip,
+                          sum(CASE WHEN post_page_event = '0' THEN 1 END) as pageviews,
+                          count(distinct ARRAY_TO_STRING(ARRAY[post_visid_high::text, post_visid_low::text, visit_num::text, visit_start_time_gmt::text], '')) as visits,
+                          count(distinct post_pagename) as distinct_pages_viewed,
+                          count(distinct date(date_time)) as distinct_days_visited
+                          from usefuldata
+                          where exclude_hit = '0'
+                          group by 1
+                          ) a
+                          where visits &gt; 1 and pageviews &gt; 1;"</span><span class="p">)</span><span class="w">
+
+
+</span><span class="c1"># The higher the value of k, the more likely lof will be calculated...
+# ...but more generic the clusters
+# NaN/Inf occurs with points on top of one another/div by zero, which is likely...
+# ...with web data when most visitors have 1-2 sessions
+</span><span class="n">df_lof</span><span class="o">&lt;-</span><span class="n">lof</span><span class="p">(</span><span class="n">metrics_lof</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="o">:</span><span class="m">7</span><span class="p">],</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Append results, get top 500 worst scoring IP addresses
+</span><span class="n">results</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cbind</span><span class="p">(</span><span class="n">metrics_lof</span><span class="p">,</span><span class="w"> </span><span class="n">df_lof</span><span class="p">)[</span><span class="n">order</span><span class="p">(</span><span class="o">-</span><span class="n">df_lof</span><span class="p">),]</span><span class="w">
+</span><span class="n">worst500</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">head</span><span class="p">(</span><span class="n">subset</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="nf">is.infinite</span><span class="p">(</span><span class="n">df_lof</span><span class="p">)),</span><span class="w"> </span><span class="m">500</span><span class="p">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <p>A local outlier factor greater than 1 is classified as a potential outlier. Here’s a visual of the lof scores for the top 500 <em>worst</em> scoring IP addresses (<a href="https://gist.github.com/randyzwitch/178d72e01e30943f6af82c48a47c4478" target="_blank">vegalite R graph code</a>):</p>
 
 <div id="vis">
 </div>
+<script type="text/javascript">
+// parse a spec and create a visualization view
+function parse(spec) {
+  vg.parse.spec(spec, function(error, chart) { chart({el:"#vis"}).update(); });
+}
+parse({
+"width": 1,
+"height": 1,
+"padding": "auto",
+"data": [
+{
+  "name": "source",
+  "values": [
+    {
+      "ip": "68.87.42.110",
+      "distinct_days_visited": 250,
+      "pageviews": 1503,
+      "visits": 473,
+      "distinct_pages_viewed": 125,
+      "pv_per_visit": 3.1776,
+      "avg_views_per_page": 12.024,
+      "df_lof": 12.9185,
+      "rank": 1
+    },
+    {
+      "ip": "208.78.140.246",
+      "distinct_days_visited": 224,
+      "pageviews": 789,
+      "visits": 644,
+      "distinct_pages_viewed": 22,
+      "pv_per_visit": 1.2252,
+      "avg_views_per_page": 35.8636,
+      "df_lof": 7.9353,
+      "rank": 2
+    },
+    {
+      "ip": "70.177.223.166",
+      "distinct_days_visited": 108,
+      "pageviews": 507,
+      "visits": 502,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.01,
+      "avg_views_per_page": 253.5,
+      "df_lof": 5.5694,
+      "rank": 3
+    },
+    {
+      "ip": "73.188.158.79",
+      "distinct_days_visited": 74,
+      "pageviews": 386,
+      "visits": 95,
+      "distinct_pages_viewed": 72,
+      "pv_per_visit": 4.0632,
+      "avg_views_per_page": 5.3611,
+      "df_lof": 3.2484,
+      "rank": 4
+    },
+    {
+      "ip": "208.78.140.193",
+      "distinct_days_visited": 98,
+      "pageviews": 282,
+      "visits": 249,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 1.1325,
+      "avg_views_per_page": 31.3333,
+      "df_lof": 2.3731,
+      "rank": 5
+    },
+    {
+      "ip": "37.120.173.156",
+      "distinct_days_visited": 2,
+      "pageviews": 122,
+      "visits": 122,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 122,
+      "df_lof": 2.2782,
+      "rank": 6
+    },
+    {
+      "ip": "208.78.140.192",
+      "distinct_days_visited": 108,
+      "pageviews": 232,
+      "visits": 200,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1.16,
+      "avg_views_per_page": 21.0909,
+      "df_lof": 2.104,
+      "rank": 7
+    },
+    {
+      "ip": "213.81.147.147",
+      "distinct_days_visited": 68,
+      "pageviews": 232,
+      "visits": 168,
+      "distinct_pages_viewed": 28,
+      "pv_per_visit": 1.381,
+      "avg_views_per_page": 8.2857,
+      "df_lof": 2.0516,
+      "rank": 8
+    },
+    {
+      "ip": "219.142.18.122",
+      "distinct_days_visited": 4,
+      "pageviews": 18,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 3.6,
+      "avg_views_per_page": 18,
+      "df_lof": 2.0223,
+      "rank": 9
+    },
+    {
+      "ip": "205.178.102.27",
+      "distinct_days_visited": 67,
+      "pageviews": 91,
+      "visits": 84,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0833,
+      "avg_views_per_page": 91,
+      "df_lof": 1.9767,
+      "rank": 10
+    },
+    {
+      "ip": "70.194.16.39",
+      "distinct_days_visited": 1,
+      "pageviews": 10,
+      "visits": 2,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 5,
+      "avg_views_per_page": 10,
+      "df_lof": 1.9553,
+      "rank": 11
+    },
+    {
+      "ip": "211.25.233.75",
+      "distinct_days_visited": 127,
+      "pageviews": 182,
+      "visits": 169,
+      "distinct_pages_viewed": 12,
+      "pv_per_visit": 1.0769,
+      "avg_views_per_page": 15.1667,
+      "df_lof": 1.9342,
+      "rank": 12
+    },
+    {
+      "ip": "98.157.201.186",
+      "distinct_days_visited": 3,
+      "pageviews": 26,
+      "visits": 16,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.625,
+      "avg_views_per_page": 26,
+      "df_lof": 1.9271,
+      "rank": 13
+    },
+    {
+      "ip": "99.65.176.230",
+      "distinct_days_visited": 51,
+      "pageviews": 82,
+      "visits": 77,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0649,
+      "avg_views_per_page": 82,
+      "df_lof": 1.9041,
+      "rank": 14
+    },
+    {
+      "ip": "183.82.166.98",
+      "distinct_days_visited": 1,
+      "pageviews": 4,
+      "visits": 6,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 0.6667,
+      "avg_views_per_page": 0.8,
+      "df_lof": 1.8918,
+      "rank": 15
+    },
+    {
+      "ip": "85.93.141.156",
+      "distinct_days_visited": 62,
+      "pageviews": 81,
+      "visits": 77,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0519,
+      "avg_views_per_page": 81,
+      "df_lof": 1.8606,
+      "rank": 16
+    },
+    {
+      "ip": "98.214.189.228",
+      "distinct_days_visited": 14,
+      "pageviews": 124,
+      "visits": 23,
+      "distinct_pages_viewed": 72,
+      "pv_per_visit": 5.3913,
+      "avg_views_per_page": 1.7222,
+      "df_lof": 1.814,
+      "rank": 17
+    },
+    {
+      "ip": "89.167.220.4",
+      "distinct_days_visited": 41,
+      "pageviews": 177,
+      "visits": 69,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2.5652,
+      "avg_views_per_page": 88.5,
+      "df_lof": 1.7734,
+      "rank": 18
+    },
+    {
+      "ip": "62.210.189.96",
+      "distinct_days_visited": 72,
+      "pageviews": 143,
+      "visits": 143,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 143,
+      "df_lof": 1.7733,
+      "rank": 19
+    },
+    {
+      "ip": "129.10.115.124",
+      "distinct_days_visited": 118,
+      "pageviews": 119,
+      "visits": 119,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 119,
+      "df_lof": 1.7254,
+      "rank": 20
+    },
+    {
+      "ip": "71.186.246.114",
+      "distinct_days_visited": 9,
+      "pageviews": 139,
+      "visits": 21,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 6.619,
+      "avg_views_per_page": 9.2667,
+      "df_lof": 1.7249,
+      "rank": 21
+    },
+    {
+      "ip": "80.28.249.210",
+      "distinct_days_visited": 46,
+      "pageviews": 55,
+      "visits": 55,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 27.5,
+      "df_lof": 1.7212,
+      "rank": 22
+    },
+    {
+      "ip": "103.24.20.58",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 5,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 0.875,
+      "df_lof": 1.6862,
+      "rank": 23
+    },
+    {
+      "ip": "73.143.123.13",
+      "distinct_days_visited": 106,
+      "pageviews": 179,
+      "visits": 162,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.1049,
+      "avg_views_per_page": 44.75,
+      "df_lof": 1.686,
+      "rank": 24
+    },
+    {
+      "ip": "54.240.196.174",
+      "distinct_days_visited": 95,
+      "pageviews": 138,
+      "visits": 123,
+      "distinct_pages_viewed": 33,
+      "pv_per_visit": 1.122,
+      "avg_views_per_page": 4.1818,
+      "df_lof": 1.683,
+      "rank": 25
+    },
+    {
+      "ip": "106.177.249.205",
+      "distinct_days_visited": 3,
+      "pageviews": 16,
+      "visits": 7,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2.2857,
+      "avg_views_per_page": 16,
+      "df_lof": 1.6673,
+      "rank": 26
+    },
+    {
+      "ip": "54.174.58.229",
+      "distinct_days_visited": 2,
+      "pageviews": 7,
+      "visits": 7,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.6609,
+      "rank": 27
+    },
+    {
+      "ip": "217.111.201.70",
+      "distinct_days_visited": 32,
+      "pageviews": 137,
+      "visits": 44,
+      "distinct_pages_viewed": 69,
+      "pv_per_visit": 3.1136,
+      "avg_views_per_page": 1.9855,
+      "df_lof": 1.6601,
+      "rank": 28
+    },
+    {
+      "ip": "173.247.200.98",
+      "distinct_days_visited": 4,
+      "pageviews": 12,
+      "visits": 12,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 2.4,
+      "df_lof": 1.6598,
+      "rank": 29
+    },
+    {
+      "ip": "86.24.70.247",
+      "distinct_days_visited": 46,
+      "pageviews": 214,
+      "visits": 116,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.8448,
+      "avg_views_per_page": 107,
+      "df_lof": 1.6597,
+      "rank": 30
+    },
+    {
+      "ip": "192.35.222.222",
+      "distinct_days_visited": 4,
+      "pageviews": 12,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 12,
+      "df_lof": 1.6493,
+      "rank": 31
+    },
+    {
+      "ip": "50.200.93.68",
+      "distinct_days_visited": 13,
+      "pageviews": 82,
+      "visits": 70,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.1714,
+      "avg_views_per_page": 10.25,
+      "df_lof": 1.645,
+      "rank": 32
+    },
+    {
+      "ip": "114.46.149.200",
+      "distinct_days_visited": 2,
+      "pageviews": 10,
+      "visits": 2,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 5,
+      "avg_views_per_page": 5,
+      "df_lof": 1.6397,
+      "rank": 33
+    },
+    {
+      "ip": "207.161.11.227",
+      "distinct_days_visited": 18,
+      "pageviews": 58,
+      "visits": 41,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.4146,
+      "avg_views_per_page": 29,
+      "df_lof": 1.6315,
+      "rank": 34
+    },
+    {
+      "ip": "74.104.162.109",
+      "distinct_days_visited": 39,
+      "pageviews": 61,
+      "visits": 53,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.1509,
+      "avg_views_per_page": 15.25,
+      "df_lof": 1.6267,
+      "rank": 35
+    },
+    {
+      "ip": "91.143.121.3",
+      "distinct_days_visited": 26,
+      "pageviews": 45,
+      "visits": 33,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.3636,
+      "avg_views_per_page": 15,
+      "df_lof": 1.6227,
+      "rank": 36
+    },
+    {
+      "ip": "75.139.144.244",
+      "distinct_days_visited": 25,
+      "pageviews": 61,
+      "visits": 53,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.1509,
+      "avg_views_per_page": 61,
+      "df_lof": 1.6223,
+      "rank": 37
+    },
+    {
+      "ip": "172.74.114.92",
+      "distinct_days_visited": 48,
+      "pageviews": 69,
+      "visits": 68,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0147,
+      "avg_views_per_page": 69,
+      "df_lof": 1.6026,
+      "rank": 38
+    },
+    {
+      "ip": "207.161.232.31",
+      "distinct_days_visited": 11,
+      "pageviews": 65,
+      "visits": 23,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 2.8261,
+      "avg_views_per_page": 8.125,
+      "df_lof": 1.6025,
+      "rank": 39
+    },
+    {
+      "ip": "175.123.40.58",
+      "distinct_days_visited": 1,
+      "pageviews": 11,
+      "visits": 3,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 3.6667,
+      "avg_views_per_page": 5.5,
+      "df_lof": 1.5968,
+      "rank": 40
+    },
+    {
+      "ip": "67.169.79.155",
+      "distinct_days_visited": 1,
+      "pageviews": 41,
+      "visits": 2,
+      "distinct_pages_viewed": 36,
+      "pv_per_visit": 20.5,
+      "avg_views_per_page": 1.1389,
+      "df_lof": 1.5942,
+      "rank": 41
+    },
+    {
+      "ip": "67.186.191.127",
+      "distinct_days_visited": 100,
+      "pageviews": 165,
+      "visits": 146,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1.1301,
+      "avg_views_per_page": 27.5,
+      "df_lof": 1.5918,
+      "rank": 42
+    },
+    {
+      "ip": "208.114.165.18",
+      "distinct_days_visited": 2,
+      "pageviews": 43,
+      "visits": 2,
+      "distinct_pages_viewed": 18,
+      "pv_per_visit": 21.5,
+      "avg_views_per_page": 2.3889,
+      "df_lof": 1.5815,
+      "rank": 43
+    },
+    {
+      "ip": "62.6.234.68",
+      "distinct_days_visited": 9,
+      "pageviews": 13,
+      "visits": 9,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 1.4444,
+      "avg_views_per_page": 0.9286,
+      "df_lof": 1.5812,
+      "rank": 44
+    },
+    {
+      "ip": "108.167.22.37",
+      "distinct_days_visited": 15,
+      "pageviews": 138,
+      "visits": 31,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 4.4516,
+      "avg_views_per_page": 9.2,
+      "df_lof": 1.5807,
+      "rank": 45
+    },
+    {
+      "ip": "54.240.196.190",
+      "distinct_days_visited": 80,
+      "pageviews": 149,
+      "visits": 102,
+      "distinct_pages_viewed": 43,
+      "pv_per_visit": 1.4608,
+      "avg_views_per_page": 3.4651,
+      "df_lof": 1.5746,
+      "rank": 46
+    },
+    {
+      "ip": "50.115.68.210",
+      "distinct_days_visited": 5,
+      "pageviews": 7,
+      "visits": 9,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 0.7778,
+      "avg_views_per_page": 2.3333,
+      "df_lof": 1.568,
+      "rank": 47
+    },
+    {
+      "ip": "100.13.91.10",
+      "distinct_days_visited": 1,
+      "pageviews": 11,
+      "visits": 2,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 5.5,
+      "avg_views_per_page": 2.75,
+      "df_lof": 1.5613,
+      "rank": 48
+    },
+    {
+      "ip": "66.35.36.132",
+      "distinct_days_visited": 17,
+      "pageviews": 97,
+      "visits": 38,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 2.5526,
+      "avg_views_per_page": 24.25,
+      "df_lof": 1.5603,
+      "rank": 49
+    },
+    {
+      "ip": "50.183.135.101",
+      "distinct_days_visited": 9,
+      "pageviews": 30,
+      "visits": 10,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 15,
+      "df_lof": 1.5565,
+      "rank": 50
+    },
+    {
+      "ip": "65.103.52.230",
+      "distinct_days_visited": 7,
+      "pageviews": 9,
+      "visits": 11,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 0.8182,
+      "avg_views_per_page": 3,
+      "df_lof": 1.5514,
+      "rank": 51
+    },
+    {
+      "ip": "91.212.21.137",
+      "distinct_days_visited": 6,
+      "pageviews": 27,
+      "visits": 20,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.35,
+      "avg_views_per_page": 27,
+      "df_lof": 1.5465,
+      "rank": 52
+    },
+    {
+      "ip": "121.200.231.231",
+      "distinct_days_visited": 89,
+      "pageviews": 119,
+      "visits": 103,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 1.1553,
+      "avg_views_per_page": 8.5,
+      "df_lof": 1.5388,
+      "rank": 53
+    },
+    {
+      "ip": "62.210.138.75",
+      "distinct_days_visited": 42,
+      "pageviews": 65,
+      "visits": 65,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 65,
+      "df_lof": 1.537,
+      "rank": 54
+    },
+    {
+      "ip": "12.116.52.30",
+      "distinct_days_visited": 12,
+      "pageviews": 49,
+      "visits": 27,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.8148,
+      "avg_views_per_page": 7,
+      "df_lof": 1.5333,
+      "rank": 55
+    },
+    {
+      "ip": "167.164.3.140",
+      "distinct_days_visited": 1,
+      "pageviews": 37,
+      "visits": 2,
+      "distinct_pages_viewed": 34,
+      "pv_per_visit": 18.5,
+      "avg_views_per_page": 1.0882,
+      "df_lof": 1.5333,
+      "rank": 56
+    },
+    {
+      "ip": "74.135.0.152",
+      "distinct_days_visited": 3,
+      "pageviews": 15,
+      "visits": 7,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2.1429,
+      "avg_views_per_page": 15,
+      "df_lof": 1.5311,
+      "rank": 57
+    },
+    {
+      "ip": "218.161.1.130",
+      "distinct_days_visited": 1,
+      "pageviews": 10,
+      "visits": 2,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 5,
+      "avg_views_per_page": 5,
+      "df_lof": 1.5295,
+      "rank": 58
+    },
+    {
+      "ip": "198.240.212.2",
+      "distinct_days_visited": 2,
+      "pageviews": 8,
+      "visits": 7,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.1429,
+      "avg_views_per_page": 1.1429,
+      "df_lof": 1.5287,
+      "rank": 59
+    },
+    {
+      "ip": "158.109.138.165",
+      "distinct_days_visited": 2,
+      "pageviews": 6,
+      "visits": 5,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 0.8571,
+      "df_lof": 1.5264,
+      "rank": 60
+    },
+    {
+      "ip": "71.194.75.93",
+      "distinct_days_visited": 2,
+      "pageviews": 10,
+      "visits": 9,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.1111,
+      "avg_views_per_page": 2.5,
+      "df_lof": 1.5211,
+      "rank": 61
+    },
+    {
+      "ip": "217.118.78.41",
+      "distinct_days_visited": 2,
+      "pageviews": 41,
+      "visits": 3,
+      "distinct_pages_viewed": 40,
+      "pv_per_visit": 13.6667,
+      "avg_views_per_page": 1.025,
+      "df_lof": 1.5168,
+      "rank": 62
+    },
+    {
+      "ip": "193.27.194.3",
+      "distinct_days_visited": 11,
+      "pageviews": 11,
+      "visits": 14,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 0.7857,
+      "avg_views_per_page": 1.8333,
+      "df_lof": 1.5113,
+      "rank": 63
+    },
+    {
+      "ip": "208.78.140.194",
+      "distinct_days_visited": 38,
+      "pageviews": 68,
+      "visits": 62,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0968,
+      "avg_views_per_page": 68,
+      "df_lof": 1.5057,
+      "rank": 64
+    },
+    {
+      "ip": "219.92.39.205",
+      "distinct_days_visited": 4,
+      "pageviews": 10,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2.5,
+      "avg_views_per_page": 10,
+      "df_lof": 1.5052,
+      "rank": 65
+    },
+    {
+      "ip": "69.116.125.187",
+      "distinct_days_visited": 1,
+      "pageviews": 8,
+      "visits": 2,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 4,
+      "avg_views_per_page": 8,
+      "df_lof": 1.4961,
+      "rank": 66
+    },
+    {
+      "ip": "70.109.254.250",
+      "distinct_days_visited": 2,
+      "pageviews": 8,
+      "visits": 2,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 4,
+      "avg_views_per_page": 8,
+      "df_lof": 1.4956,
+      "rank": 67
+    },
+    {
+      "ip": "91.216.114.110",
+      "distinct_days_visited": 9,
+      "pageviews": 9,
+      "visits": 12,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 0.75,
+      "avg_views_per_page": 4.5,
+      "df_lof": 1.4951,
+      "rank": 68
+    },
+    {
+      "ip": "101.100.185.94",
+      "distinct_days_visited": 3,
+      "pageviews": 10,
+      "visits": 2,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 5,
+      "avg_views_per_page": 2.5,
+      "df_lof": 1.4946,
+      "rank": 69
+    },
+    {
+      "ip": "92.151.197.140",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 4.5,
+      "df_lof": 1.491,
+      "rank": 70
+    },
+    {
+      "ip": "173.162.63.42",
+      "distinct_days_visited": 53,
+      "pageviews": 169,
+      "visits": 59,
+      "distinct_pages_viewed": 12,
+      "pv_per_visit": 2.8644,
+      "avg_views_per_page": 14.0833,
+      "df_lof": 1.4907,
+      "rank": 71
+    },
+    {
+      "ip": "213.164.69.193",
+      "distinct_days_visited": 1,
+      "pageviews": 65,
+      "visits": 3,
+      "distinct_pages_viewed": 52,
+      "pv_per_visit": 21.6667,
+      "avg_views_per_page": 1.25,
+      "df_lof": 1.4892,
+      "rank": 72
+    },
+    {
+      "ip": "73.10.40.192",
+      "distinct_days_visited": 2,
+      "pageviews": 11,
+      "visits": 2,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 5.5,
+      "avg_views_per_page": 2.2,
+      "df_lof": 1.4885,
+      "rank": 73
+    },
+    {
+      "ip": "122.106.100.50",
+      "distinct_days_visited": 7,
+      "pageviews": 105,
+      "visits": 12,
+      "distinct_pages_viewed": 47,
+      "pv_per_visit": 8.75,
+      "avg_views_per_page": 2.234,
+      "df_lof": 1.4866,
+      "rank": 74
+    },
+    {
+      "ip": "185.73.38.248",
+      "distinct_days_visited": 5,
+      "pageviews": 20,
+      "visits": 20,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 10,
+      "df_lof": 1.4865,
+      "rank": 75
+    },
+    {
+      "ip": "50.26.83.23",
+      "distinct_days_visited": 2,
+      "pageviews": 9,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 9,
+      "df_lof": 1.4817,
+      "rank": 76
+    },
+    {
+      "ip": "14.140.116.135",
+      "distinct_days_visited": 58,
+      "pageviews": 151,
+      "visits": 82,
+      "distinct_pages_viewed": 58,
+      "pv_per_visit": 1.8415,
+      "avg_views_per_page": 2.6034,
+      "df_lof": 1.4793,
+      "rank": 77
+    },
+    {
+      "ip": "76.28.205.28",
+      "distinct_days_visited": 27,
+      "pageviews": 29,
+      "visits": 29,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 29,
+      "df_lof": 1.4781,
+      "rank": 78
+    },
+    {
+      "ip": "206.208.105.129",
+      "distinct_days_visited": 4,
+      "pageviews": 9,
+      "visits": 10,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 0.9,
+      "avg_views_per_page": 3,
+      "df_lof": 1.4769,
+      "rank": 79
+    },
+    {
+      "ip": "117.218.62.90",
+      "distinct_days_visited": 5,
+      "pageviews": 9,
+      "visits": 10,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 0.9,
+      "avg_views_per_page": 3,
+      "df_lof": 1.4705,
+      "rank": 80
+    },
+    {
+      "ip": "134.160.173.51",
+      "distinct_days_visited": 3,
+      "pageviews": 10,
+      "visits": 3,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 3.3333,
+      "avg_views_per_page": 5,
+      "df_lof": 1.4637,
+      "rank": 81
+    },
+    {
+      "ip": "69.142.99.200",
+      "distinct_days_visited": 2,
+      "pageviews": 47,
+      "visits": 3,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 15.6667,
+      "avg_views_per_page": 3.1333,
+      "df_lof": 1.4626,
+      "rank": 82
+    },
+    {
+      "ip": "198.179.137.223",
+      "distinct_days_visited": 2,
+      "pageviews": 25,
+      "visits": 2,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 12.5,
+      "avg_views_per_page": 3.125,
+      "df_lof": 1.4622,
+      "rank": 83
+    },
+    {
+      "ip": "24.188.235.18",
+      "distinct_days_visited": 26,
+      "pageviews": 30,
+      "visits": 29,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0345,
+      "avg_views_per_page": 30,
+      "df_lof": 1.4603,
+      "rank": 84
+    },
+    {
+      "ip": "152.7.65.19",
+      "distinct_days_visited": 25,
+      "pageviews": 29,
+      "visits": 29,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 29,
+      "df_lof": 1.4603,
+      "rank": 85
+    },
+    {
+      "ip": "80.109.201.217",
+      "distinct_days_visited": 12,
+      "pageviews": 40,
+      "visits": 23,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.7391,
+      "avg_views_per_page": 20,
+      "df_lof": 1.4558,
+      "rank": 86
+    },
+    {
+      "ip": "213.8.84.204",
+      "distinct_days_visited": 79,
+      "pageviews": 87,
+      "visits": 87,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 43.5,
+      "df_lof": 1.4546,
+      "rank": 87
+    },
+    {
+      "ip": "76.174.177.25",
+      "distinct_days_visited": 26,
+      "pageviews": 51,
+      "visits": 50,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.02,
+      "avg_views_per_page": 51,
+      "df_lof": 1.4531,
+      "rank": 88
+    },
+    {
+      "ip": "115.70.234.43",
+      "distinct_days_visited": 4,
+      "pageviews": 12,
+      "visits": 11,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.0909,
+      "avg_views_per_page": 6,
+      "df_lof": 1.4458,
+      "rank": 89
+    },
+    {
+      "ip": "103.7.147.19",
+      "distinct_days_visited": 1,
+      "pageviews": 32,
+      "visits": 2,
+      "distinct_pages_viewed": 32,
+      "pv_per_visit": 16,
+      "avg_views_per_page": 1,
+      "df_lof": 1.4422,
+      "rank": 90
+    },
+    {
+      "ip": "192.150.10.207",
+      "distinct_days_visited": 23,
+      "pageviews": 22,
+      "visits": 24,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 0.9167,
+      "avg_views_per_page": 1.4667,
+      "df_lof": 1.4388,
+      "rank": 91
+    },
+    {
+      "ip": "174.76.158.18",
+      "distinct_days_visited": 29,
+      "pageviews": 31,
+      "visits": 30,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0333,
+      "avg_views_per_page": 31,
+      "df_lof": 1.4371,
+      "rank": 92
+    },
+    {
+      "ip": "192.0.100.18",
+      "distinct_days_visited": 43,
+      "pageviews": 44,
+      "visits": 44,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 44,
+      "df_lof": 1.4332,
+      "rank": 93
+    },
+    {
+      "ip": "216.191.42.186",
+      "distinct_days_visited": 17,
+      "pageviews": 25,
+      "visits": 18,
+      "distinct_pages_viewed": 24,
+      "pv_per_visit": 1.3889,
+      "avg_views_per_page": 1.0417,
+      "df_lof": 1.43,
+      "rank": 94
+    },
+    {
+      "ip": "87.211.79.214",
+      "distinct_days_visited": 1,
+      "pageviews": 32,
+      "visits": 6,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 5.3333,
+      "avg_views_per_page": 5.3333,
+      "df_lof": 1.4299,
+      "rank": 95
+    },
+    {
+      "ip": "204.61.205.150",
+      "distinct_days_visited": 13,
+      "pageviews": 29,
+      "visits": 14,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2.0714,
+      "avg_views_per_page": 14.5,
+      "df_lof": 1.4286,
+      "rank": 96
+    },
+    {
+      "ip": "2.228.162.50",
+      "distinct_days_visited": 36,
+      "pageviews": 139,
+      "visits": 60,
+      "distinct_pages_viewed": 32,
+      "pv_per_visit": 2.3167,
+      "avg_views_per_page": 4.3438,
+      "df_lof": 1.4215,
+      "rank": 97
+    },
+    {
+      "ip": "166.76.0.1",
+      "distinct_days_visited": 44,
+      "pageviews": 126,
+      "visits": 51,
+      "distinct_pages_viewed": 52,
+      "pv_per_visit": 2.4706,
+      "avg_views_per_page": 2.4231,
+      "df_lof": 1.4211,
+      "rank": 98
+    },
+    {
+      "ip": "171.161.160.10",
+      "distinct_days_visited": 81,
+      "pageviews": 134,
+      "visits": 94,
+      "distinct_pages_viewed": 26,
+      "pv_per_visit": 1.4255,
+      "avg_views_per_page": 5.1538,
+      "df_lof": 1.4209,
+      "rank": 99
+    },
+    {
+      "ip": "66.135.48.204",
+      "distinct_days_visited": 43,
+      "pageviews": 43,
+      "visits": 43,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 43,
+      "df_lof": 1.419,
+      "rank": 100
+    },
+    {
+      "ip": "173.35.198.203",
+      "distinct_days_visited": 7,
+      "pageviews": 20,
+      "visits": 7,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 2.8571,
+      "avg_views_per_page": 6.6667,
+      "df_lof": 1.4178,
+      "rank": 101
+    },
+    {
+      "ip": "194.25.90.66",
+      "distinct_days_visited": 3,
+      "pageviews": 8,
+      "visits": 8,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.3333,
+      "df_lof": 1.4164,
+      "rank": 102
+    },
+    {
+      "ip": "195.168.99.242",
+      "distinct_days_visited": 12,
+      "pageviews": 37,
+      "visits": 22,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1.6818,
+      "avg_views_per_page": 7.4,
+      "df_lof": 1.4158,
+      "rank": 103
+    },
+    {
+      "ip": "110.44.121.134",
+      "distinct_days_visited": 21,
+      "pageviews": 75,
+      "visits": 31,
+      "distinct_pages_viewed": 10,
+      "pv_per_visit": 2.4194,
+      "avg_views_per_page": 7.5,
+      "df_lof": 1.4154,
+      "rank": 104
+    },
+    {
+      "ip": "217.155.44.13",
+      "distinct_days_visited": 4,
+      "pageviews": 10,
+      "visits": 10,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 5,
+      "df_lof": 1.4113,
+      "rank": 105
+    },
+    {
+      "ip": "61.219.10.223",
+      "distinct_days_visited": 3,
+      "pageviews": 9,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2.25,
+      "avg_views_per_page": 9,
+      "df_lof": 1.4073,
+      "rank": 106
+    },
+    {
+      "ip": "192.174.37.50",
+      "distinct_days_visited": 67,
+      "pageviews": 116,
+      "visits": 102,
+      "distinct_pages_viewed": 22,
+      "pv_per_visit": 1.1373,
+      "avg_views_per_page": 5.2727,
+      "df_lof": 1.4065,
+      "rank": 107
+    },
+    {
+      "ip": "96.29.58.234",
+      "distinct_days_visited": 2,
+      "pageviews": 12,
+      "visits": 2,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 6,
+      "avg_views_per_page": 3,
+      "df_lof": 1.4046,
+      "rank": 108
+    },
+    {
+      "ip": "208.78.140.230",
+      "distinct_days_visited": 32,
+      "pageviews": 33,
+      "visits": 33,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 33,
+      "df_lof": 1.4037,
+      "rank": 109
+    },
+    {
+      "ip": "38.109.117.155",
+      "distinct_days_visited": 2,
+      "pageviews": 11,
+      "visits": 2,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 5.5,
+      "avg_views_per_page": 2.75,
+      "df_lof": 1.4029,
+      "rank": 110
+    },
+    {
+      "ip": "74.95.198.29",
+      "distinct_days_visited": 17,
+      "pageviews": 17,
+      "visits": 17,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 8.5,
+      "df_lof": 1.4025,
+      "rank": 111
+    },
+    {
+      "ip": "164.132.53.228",
+      "distinct_days_visited": 7,
+      "pageviews": 18,
+      "visits": 18,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 9,
+      "df_lof": 1.3981,
+      "rank": 112
+    },
+    {
+      "ip": "192.99.57.55",
+      "distinct_days_visited": 7,
+      "pageviews": 18,
+      "visits": 18,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 9,
+      "df_lof": 1.3981,
+      "rank": 113
+    },
+    {
+      "ip": "50.240.223.121",
+      "distinct_days_visited": 2,
+      "pageviews": 21,
+      "visits": 11,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1.9091,
+      "avg_views_per_page": 4.2,
+      "df_lof": 1.3972,
+      "rank": 114
+    },
+    {
+      "ip": "200.158.97.49",
+      "distinct_days_visited": 1,
+      "pageviews": 4,
+      "visits": 5,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 0.8,
+      "avg_views_per_page": 0.8,
+      "df_lof": 1.3933,
+      "rank": 115
+    },
+    {
+      "ip": "73.32.133.47",
+      "distinct_days_visited": 18,
+      "pageviews": 27,
+      "visits": 22,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.2273,
+      "avg_views_per_page": 27,
+      "df_lof": 1.3932,
+      "rank": 116
+    },
+    {
+      "ip": "137.132.3.10",
+      "distinct_days_visited": 14,
+      "pageviews": 21,
+      "visits": 16,
+      "distinct_pages_viewed": 18,
+      "pv_per_visit": 1.3125,
+      "avg_views_per_page": 1.1667,
+      "df_lof": 1.3913,
+      "rank": 117
+    },
+    {
+      "ip": "91.183.186.227",
+      "distinct_days_visited": 2,
+      "pageviews": 11,
+      "visits": 8,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.375,
+      "avg_views_per_page": 5.5,
+      "df_lof": 1.3912,
+      "rank": 118
+    },
+    {
+      "ip": "65.213.147.254",
+      "distinct_days_visited": 75,
+      "pageviews": 125,
+      "visits": 97,
+      "distinct_pages_viewed": 19,
+      "pv_per_visit": 1.2887,
+      "avg_views_per_page": 6.5789,
+      "df_lof": 1.3809,
+      "rank": 119
+    },
+    {
+      "ip": "120.126.66.102",
+      "distinct_days_visited": 16,
+      "pageviews": 25,
+      "visits": 25,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 25,
+      "df_lof": 1.3809,
+      "rank": 120
+    },
+    {
+      "ip": "86.126.45.102",
+      "distinct_days_visited": 4,
+      "pageviews": 47,
+      "visits": 12,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 3.9167,
+      "avg_views_per_page": 6.7143,
+      "df_lof": 1.3808,
+      "rank": 121
+    },
+    {
+      "ip": "72.68.185.130",
+      "distinct_days_visited": 11,
+      "pageviews": 24,
+      "visits": 12,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 12,
+      "df_lof": 1.378,
+      "rank": 122
+    },
+    {
+      "ip": "199.116.167.220",
+      "distinct_days_visited": 33,
+      "pageviews": 70,
+      "visits": 51,
+      "distinct_pages_viewed": 17,
+      "pv_per_visit": 1.3725,
+      "avg_views_per_page": 4.1176,
+      "df_lof": 1.3737,
+      "rank": 123
+    },
+    {
+      "ip": "98.14.146.248",
+      "distinct_days_visited": 3,
+      "pageviews": 20,
+      "visits": 5,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 4,
+      "avg_views_per_page": 5,
+      "df_lof": 1.3727,
+      "rank": 124
+    },
+    {
+      "ip": "68.36.3.252",
+      "distinct_days_visited": 8,
+      "pageviews": 49,
+      "visits": 11,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 4.4545,
+      "avg_views_per_page": 8.1667,
+      "df_lof": 1.3646,
+      "rank": 125
+    },
+    {
+      "ip": "201.244.175.5",
+      "distinct_days_visited": 1,
+      "pageviews": 8,
+      "visits": 6,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.3333,
+      "avg_views_per_page": 4,
+      "df_lof": 1.363,
+      "rank": 126
+    },
+    {
+      "ip": "195.96.65.4",
+      "distinct_days_visited": 25,
+      "pageviews": 32,
+      "visits": 30,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0667,
+      "avg_views_per_page": 32,
+      "df_lof": 1.3627,
+      "rank": 127
+    },
+    {
+      "ip": "104.32.7.3",
+      "distinct_days_visited": 1,
+      "pageviews": 15,
+      "visits": 3,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 5,
+      "avg_views_per_page": 5,
+      "df_lof": 1.3627,
+      "rank": 128
+    },
+    {
+      "ip": "213.253.214.210",
+      "distinct_days_visited": 17,
+      "pageviews": 34,
+      "visits": 29,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.1724,
+      "avg_views_per_page": 17,
+      "df_lof": 1.3614,
+      "rank": 129
+    },
+    {
+      "ip": "5.241.10.104",
+      "distinct_days_visited": 3,
+      "pageviews": 4,
+      "visits": 6,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 0.6667,
+      "avg_views_per_page": 2,
+      "df_lof": 1.3609,
+      "rank": 130
+    },
+    {
+      "ip": "75.228.14.166",
+      "distinct_days_visited": 1,
+      "pageviews": 13,
+      "visits": 4,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 3.25,
+      "avg_views_per_page": 0.9286,
+      "df_lof": 1.3602,
+      "rank": 131
+    },
+    {
+      "ip": "98.234.112.145",
+      "distinct_days_visited": 13,
+      "pageviews": 32,
+      "visits": 13,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 2.4615,
+      "avg_views_per_page": 4,
+      "df_lof": 1.3598,
+      "rank": 132
+    },
+    {
+      "ip": "93.57.46.18",
+      "distinct_days_visited": 2,
+      "pageviews": 37,
+      "visits": 2,
+      "distinct_pages_viewed": 30,
+      "pv_per_visit": 18.5,
+      "avg_views_per_page": 1.2333,
+      "df_lof": 1.3587,
+      "rank": 133
+    },
+    {
+      "ip": "162.222.183.197",
+      "distinct_days_visited": 5,
+      "pageviews": 53,
+      "visits": 6,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 8.8333,
+      "avg_views_per_page": 6.625,
+      "df_lof": 1.3581,
+      "rank": 134
+    },
+    {
+      "ip": "24.98.254.92",
+      "distinct_days_visited": 2,
+      "pageviews": 49,
+      "visits": 4,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 12.25,
+      "avg_views_per_page": 3.5,
+      "df_lof": 1.3566,
+      "rank": 135
+    },
+    {
+      "ip": "173.172.141.186",
+      "distinct_days_visited": 5,
+      "pageviews": 10,
+      "visits": 5,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 5,
+      "df_lof": 1.3558,
+      "rank": 136
+    },
+    {
+      "ip": "5.2.197.248",
+      "distinct_days_visited": 5,
+      "pageviews": 10,
+      "visits": 5,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 5,
+      "df_lof": 1.3558,
+      "rank": 137
+    },
+    {
+      "ip": "130.211.113.104",
+      "distinct_days_visited": 3,
+      "pageviews": 30,
+      "visits": 3,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 10,
+      "avg_views_per_page": 3.75,
+      "df_lof": 1.3543,
+      "rank": 138
+    },
+    {
+      "ip": "71.11.236.91",
+      "distinct_days_visited": 1,
+      "pageviews": 8,
+      "visits": 2,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 4,
+      "avg_views_per_page": 4,
+      "df_lof": 1.3525,
+      "rank": 139
+    },
+    {
+      "ip": "4.15.73.226",
+      "distinct_days_visited": 30,
+      "pageviews": 37,
+      "visits": 37,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 12.3333,
+      "df_lof": 1.3505,
+      "rank": 140
+    },
+    {
+      "ip": "189.215.29.0",
+      "distinct_days_visited": 5,
+      "pageviews": 11,
+      "visits": 10,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1.1,
+      "avg_views_per_page": 2.2,
+      "df_lof": 1.3459,
+      "rank": 141
+    },
+    {
+      "ip": "89.105.200.97",
+      "distinct_days_visited": 41,
+      "pageviews": 41,
+      "visits": 41,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 41,
+      "df_lof": 1.3449,
+      "rank": 142
+    },
+    {
+      "ip": "50.199.206.213",
+      "distinct_days_visited": 4,
+      "pageviews": 9,
+      "visits": 7,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.2857,
+      "avg_views_per_page": 1.2857,
+      "df_lof": 1.3443,
+      "rank": 143
+    },
+    {
+      "ip": "189.91.180.130",
+      "distinct_days_visited": 3,
+      "pageviews": 8,
+      "visits": 8,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 4,
+      "df_lof": 1.3435,
+      "rank": 144
+    },
+    {
+      "ip": "115.118.169.88",
+      "distinct_days_visited": 1,
+      "pageviews": 11,
+      "visits": 6,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.8333,
+      "avg_views_per_page": 3.6667,
+      "df_lof": 1.3425,
+      "rank": 145
+    },
+    {
+      "ip": "66.199.35.82",
+      "distinct_days_visited": 27,
+      "pageviews": 66,
+      "visits": 30,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 2.2,
+      "avg_views_per_page": 4.4,
+      "df_lof": 1.3403,
+      "rank": 146
+    },
+    {
+      "ip": "68.231.95.243",
+      "distinct_days_visited": 3,
+      "pageviews": 7,
+      "visits": 6,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 1.1667,
+      "df_lof": 1.3398,
+      "rank": 147
+    },
+    {
+      "ip": "91.103.66.203",
+      "distinct_days_visited": 7,
+      "pageviews": 20,
+      "visits": 12,
+      "distinct_pages_viewed": 18,
+      "pv_per_visit": 1.6667,
+      "avg_views_per_page": 1.1111,
+      "df_lof": 1.3397,
+      "rank": 148
+    },
+    {
+      "ip": "82.125.181.68",
+      "distinct_days_visited": 1,
+      "pageviews": 38,
+      "visits": 2,
+      "distinct_pages_viewed": 27,
+      "pv_per_visit": 19,
+      "avg_views_per_page": 1.4074,
+      "df_lof": 1.3385,
+      "rank": 149
+    },
+    {
+      "ip": "176.58.162.243",
+      "distinct_days_visited": 2,
+      "pageviews": 7,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 7,
+      "df_lof": 1.3369,
+      "rank": 150
+    },
+    {
+      "ip": "99.9.93.79",
+      "distinct_days_visited": 2,
+      "pageviews": 7,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 7,
+      "df_lof": 1.3369,
+      "rank": 151
+    },
+    {
+      "ip": "208.91.239.10",
+      "distinct_days_visited": 2,
+      "pageviews": 21,
+      "visits": 2,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 10.5,
+      "avg_views_per_page": 2.625,
+      "df_lof": 1.3366,
+      "rank": 152
+    },
+    {
+      "ip": "217.92.196.153",
+      "distinct_days_visited": 9,
+      "pageviews": 26,
+      "visits": 14,
+      "distinct_pages_viewed": 24,
+      "pv_per_visit": 1.8571,
+      "avg_views_per_page": 1.0833,
+      "df_lof": 1.3358,
+      "rank": 153
+    },
+    {
+      "ip": "71.205.48.249",
+      "distinct_days_visited": 13,
+      "pageviews": 37,
+      "visits": 15,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 2.4667,
+      "avg_views_per_page": 9.25,
+      "df_lof": 1.3352,
+      "rank": 154
+    },
+    {
+      "ip": "115.248.50.26",
+      "distinct_days_visited": 1,
+      "pageviews": 10,
+      "visits": 2,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 5,
+      "avg_views_per_page": 2.5,
+      "df_lof": 1.3345,
+      "rank": 155
+    },
+    {
+      "ip": "75.85.93.219",
+      "distinct_days_visited": 1,
+      "pageviews": 12,
+      "visits": 3,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 4,
+      "avg_views_per_page": 4,
+      "df_lof": 1.3333,
+      "rank": 156
+    },
+    {
+      "ip": "128.171.73.73",
+      "distinct_days_visited": 4,
+      "pageviews": 11,
+      "visits": 4,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 2.75,
+      "avg_views_per_page": 3.6667,
+      "df_lof": 1.3328,
+      "rank": 157
+    },
+    {
+      "ip": "59.145.122.100",
+      "distinct_days_visited": 6,
+      "pageviews": 12,
+      "visits": 12,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 2.4,
+      "df_lof": 1.3283,
+      "rank": 158
+    },
+    {
+      "ip": "62.210.69.222",
+      "distinct_days_visited": 30,
+      "pageviews": 42,
+      "visits": 42,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 42,
+      "df_lof": 1.3262,
+      "rank": 159
+    },
+    {
+      "ip": "69.204.244.184",
+      "distinct_days_visited": 2,
+      "pageviews": 12,
+      "visits": 2,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 6,
+      "avg_views_per_page": 2.4,
+      "df_lof": 1.3259,
+      "rank": 160
+    },
+    {
+      "ip": "159.33.10.155",
+      "distinct_days_visited": 26,
+      "pageviews": 80,
+      "visits": 28,
+      "distinct_pages_viewed": 10,
+      "pv_per_visit": 2.8571,
+      "avg_views_per_page": 8,
+      "df_lof": 1.3254,
+      "rank": 161
+    },
+    {
+      "ip": "74.196.189.234",
+      "distinct_days_visited": 4,
+      "pageviews": 16,
+      "visits": 13,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.2308,
+      "avg_views_per_page": 4,
+      "df_lof": 1.3252,
+      "rank": 162
+    },
+    {
+      "ip": "54.174.57.136",
+      "distinct_days_visited": 2,
+      "pageviews": 5,
+      "visits": 5,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.3245,
+      "rank": 163
+    },
+    {
+      "ip": "159.121.9.50",
+      "distinct_days_visited": 3,
+      "pageviews": 7,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 3.5,
+      "df_lof": 1.3206,
+      "rank": 164
+    },
+    {
+      "ip": "193.204.159.192",
+      "distinct_days_visited": 9,
+      "pageviews": 22,
+      "visits": 16,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.375,
+      "avg_views_per_page": 7.3333,
+      "df_lof": 1.3188,
+      "rank": 165
+    },
+    {
+      "ip": "177.138.120.237",
+      "distinct_days_visited": 1,
+      "pageviews": 3,
+      "visits": 5,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 0.6,
+      "avg_views_per_page": 1.5,
+      "df_lof": 1.3186,
+      "rank": 166
+    },
+    {
+      "ip": "174.70.34.212",
+      "distinct_days_visited": 1,
+      "pageviews": 23,
+      "visits": 3,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 7.6667,
+      "avg_views_per_page": 3.8333,
+      "df_lof": 1.3178,
+      "rank": 167
+    },
+    {
+      "ip": "212.214.80.130",
+      "distinct_days_visited": 1,
+      "pageviews": 23,
+      "visits": 3,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 7.6667,
+      "avg_views_per_page": 3.8333,
+      "df_lof": 1.3178,
+      "rank": 168
+    },
+    {
+      "ip": "66.129.239.11",
+      "distinct_days_visited": 2,
+      "pageviews": 11,
+      "visits": 6,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.8333,
+      "avg_views_per_page": 5.5,
+      "df_lof": 1.3178,
+      "rank": 169
+    },
+    {
+      "ip": "66.195.46.242",
+      "distinct_days_visited": 5,
+      "pageviews": 11,
+      "visits": 5,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2.2,
+      "avg_views_per_page": 5.5,
+      "df_lof": 1.3165,
+      "rank": 170
+    },
+    {
+      "ip": "72.14.199.122",
+      "distinct_days_visited": 21,
+      "pageviews": 21,
+      "visits": 21,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.4,
+      "df_lof": 1.3158,
+      "rank": 171
+    },
+    {
+      "ip": "84.72.167.49",
+      "distinct_days_visited": 4,
+      "pageviews": 19,
+      "visits": 11,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.7273,
+      "avg_views_per_page": 9.5,
+      "df_lof": 1.3152,
+      "rank": 172
+    },
+    {
+      "ip": "103.16.69.133",
+      "distinct_days_visited": 3,
+      "pageviews": 31,
+      "visits": 6,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 5.1667,
+      "avg_views_per_page": 5.1667,
+      "df_lof": 1.3151,
+      "rank": 173
+    },
+    {
+      "ip": "92.150.39.133",
+      "distinct_days_visited": 3,
+      "pageviews": 10,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.6667,
+      "avg_views_per_page": 10,
+      "df_lof": 1.3138,
+      "rank": 174
+    },
+    {
+      "ip": "153.65.16.10",
+      "distinct_days_visited": 73,
+      "pageviews": 111,
+      "visits": 89,
+      "distinct_pages_viewed": 26,
+      "pv_per_visit": 1.2472,
+      "avg_views_per_page": 4.2692,
+      "df_lof": 1.3126,
+      "rank": 175
+    },
+    {
+      "ip": "94.153.222.138",
+      "distinct_days_visited": 11,
+      "pageviews": 12,
+      "visits": 11,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.0909,
+      "avg_views_per_page": 6,
+      "df_lof": 1.3119,
+      "rank": 176
+    },
+    {
+      "ip": "80.2.135.112",
+      "distinct_days_visited": 2,
+      "pageviews": 26,
+      "visits": 13,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 3.7143,
+      "df_lof": 1.3116,
+      "rank": 177
+    },
+    {
+      "ip": "195.175.88.90",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 3,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 1,
+      "df_lof": 1.31,
+      "rank": 178
+    },
+    {
+      "ip": "66.44.31.251",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 3,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 1,
+      "df_lof": 1.31,
+      "rank": 179
+    },
+    {
+      "ip": "98.184.162.139",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 3,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 1,
+      "df_lof": 1.31,
+      "rank": 180
+    },
+    {
+      "ip": "189.136.77.241",
+      "distinct_days_visited": 19,
+      "pageviews": 30,
+      "visits": 30,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 30,
+      "df_lof": 1.3091,
+      "rank": 181
+    },
+    {
+      "ip": "184.161.58.135",
+      "distinct_days_visited": 1,
+      "pageviews": 15,
+      "visits": 2,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 7.5,
+      "avg_views_per_page": 3,
+      "df_lof": 1.3089,
+      "rank": 182
+    },
+    {
+      "ip": "182.73.63.146",
+      "distinct_days_visited": 4,
+      "pageviews": 20,
+      "visits": 10,
+      "distinct_pages_viewed": 12,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 1.6667,
+      "df_lof": 1.3087,
+      "rank": 183
+    },
+    {
+      "ip": "199.20.44.50",
+      "distinct_days_visited": 6,
+      "pageviews": 10,
+      "visits": 10,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.6667,
+      "df_lof": 1.3082,
+      "rank": 184
+    },
+    {
+      "ip": "72.209.132.60",
+      "distinct_days_visited": 3,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 1.2857,
+      "df_lof": 1.308,
+      "rank": 185
+    },
+    {
+      "ip": "62.210.75.243",
+      "distinct_days_visited": 33,
+      "pageviews": 39,
+      "visits": 39,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 39,
+      "df_lof": 1.308,
+      "rank": 186
+    },
+    {
+      "ip": "207.11.1.163",
+      "distinct_days_visited": 8,
+      "pageviews": 61,
+      "visits": 8,
+      "distinct_pages_viewed": 50,
+      "pv_per_visit": 7.625,
+      "avg_views_per_page": 1.22,
+      "df_lof": 1.3077,
+      "rank": 187
+    },
+    {
+      "ip": "50.189.221.109",
+      "distinct_days_visited": 6,
+      "pageviews": 18,
+      "visits": 10,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.8,
+      "avg_views_per_page": 18,
+      "df_lof": 1.3075,
+      "rank": 188
+    },
+    {
+      "ip": "62.210.138.77",
+      "distinct_days_visited": 26,
+      "pageviews": 38,
+      "visits": 38,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 38,
+      "df_lof": 1.3074,
+      "rank": 189
+    },
+    {
+      "ip": "54.174.54.129",
+      "distinct_days_visited": 1,
+      "pageviews": 5,
+      "visits": 5,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.3068,
+      "rank": 190
+    },
+    {
+      "ip": "54.174.55.143",
+      "distinct_days_visited": 1,
+      "pageviews": 5,
+      "visits": 5,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.3068,
+      "rank": 191
+    },
+    {
+      "ip": "54.174.57.201",
+      "distinct_days_visited": 1,
+      "pageviews": 5,
+      "visits": 5,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.3068,
+      "rank": 192
+    },
+    {
+      "ip": "54.174.58.30",
+      "distinct_days_visited": 1,
+      "pageviews": 5,
+      "visits": 5,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.3068,
+      "rank": 193
+    },
+    {
+      "ip": "50.167.9.33",
+      "distinct_days_visited": 4,
+      "pageviews": 12,
+      "visits": 4,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 4,
+      "df_lof": 1.3042,
+      "rank": 194
+    },
+    {
+      "ip": "198.185.18.207",
+      "distinct_days_visited": 6,
+      "pageviews": 10,
+      "visits": 7,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1.4286,
+      "avg_views_per_page": 0.9091,
+      "df_lof": 1.3039,
+      "rank": 195
+    },
+    {
+      "ip": "157.83.97.242",
+      "distinct_days_visited": 37,
+      "pageviews": 61,
+      "visits": 46,
+      "distinct_pages_viewed": 23,
+      "pv_per_visit": 1.3261,
+      "avg_views_per_page": 2.6522,
+      "df_lof": 1.3029,
+      "rank": 196
+    },
+    {
+      "ip": "76.220.42.64",
+      "distinct_days_visited": 14,
+      "pageviews": 21,
+      "visits": 18,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 7,
+      "df_lof": 1.3026,
+      "rank": 197
+    },
+    {
+      "ip": "99.232.18.211",
+      "distinct_days_visited": 37,
+      "pageviews": 119,
+      "visits": 41,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 2.9024,
+      "avg_views_per_page": 8.5,
+      "df_lof": 1.302,
+      "rank": 198
+    },
+    {
+      "ip": "80.101.37.209",
+      "distinct_days_visited": 9,
+      "pageviews": 97,
+      "visits": 13,
+      "distinct_pages_viewed": 32,
+      "pv_per_visit": 7.4615,
+      "avg_views_per_page": 3.0312,
+      "df_lof": 1.3002,
+      "rank": 199
+    },
+    {
+      "ip": "91.152.239.127",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 3,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 2.3333,
+      "avg_views_per_page": 0.875,
+      "df_lof": 1.2976,
+      "rank": 200
+    },
+    {
+      "ip": "213.14.153.44",
+      "distinct_days_visited": 17,
+      "pageviews": 23,
+      "visits": 20,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.15,
+      "avg_views_per_page": 23,
+      "df_lof": 1.2975,
+      "rank": 201
+    },
+    {
+      "ip": "103.253.25.189",
+      "distinct_days_visited": 9,
+      "pageviews": 24,
+      "visits": 24,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 12,
+      "df_lof": 1.297,
+      "rank": 202
+    },
+    {
+      "ip": "45.32.9.238",
+      "distinct_days_visited": 9,
+      "pageviews": 24,
+      "visits": 24,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 12,
+      "df_lof": 1.297,
+      "rank": 203
+    },
+    {
+      "ip": "58.10.19.108",
+      "distinct_days_visited": 11,
+      "pageviews": 23,
+      "visits": 20,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.15,
+      "avg_views_per_page": 23,
+      "df_lof": 1.2947,
+      "rank": 204
+    },
+    {
+      "ip": "24.216.98.164",
+      "distinct_days_visited": 6,
+      "pageviews": 9,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 9,
+      "df_lof": 1.2943,
+      "rank": 205
+    },
+    {
+      "ip": "82.43.250.34",
+      "distinct_days_visited": 6,
+      "pageviews": 9,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 9,
+      "df_lof": 1.2943,
+      "rank": 206
+    },
+    {
+      "ip": "144.76.62.77",
+      "distinct_days_visited": 11,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 5.5,
+      "df_lof": 1.294,
+      "rank": 207
+    },
+    {
+      "ip": "46.140.86.62",
+      "distinct_days_visited": 11,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 5.5,
+      "df_lof": 1.294,
+      "rank": 208
+    },
+    {
+      "ip": "75.139.134.12",
+      "distinct_days_visited": 13,
+      "pageviews": 31,
+      "visits": 30,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0333,
+      "avg_views_per_page": 31,
+      "df_lof": 1.2935,
+      "rank": 209
+    },
+    {
+      "ip": "104.245.19.13",
+      "distinct_days_visited": 3,
+      "pageviews": 9,
+      "visits": 8,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1.125,
+      "avg_views_per_page": 1.5,
+      "df_lof": 1.2932,
+      "rank": 210
+    },
+    {
+      "ip": "203.255.191.228",
+      "distinct_days_visited": 7,
+      "pageviews": 21,
+      "visits": 15,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 4.2,
+      "df_lof": 1.2928,
+      "rank": 211
+    },
+    {
+      "ip": "216.24.133.55",
+      "distinct_days_visited": 11,
+      "pageviews": 23,
+      "visits": 12,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1.9167,
+      "avg_views_per_page": 4.6,
+      "df_lof": 1.2926,
+      "rank": 212
+    },
+    {
+      "ip": "96.33.139.170",
+      "distinct_days_visited": 3,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 1.125,
+      "df_lof": 1.2922,
+      "rank": 213
+    },
+    {
+      "ip": "52.4.188.30",
+      "distinct_days_visited": 10,
+      "pageviews": 10,
+      "visits": 10,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 10,
+      "df_lof": 1.2913,
+      "rank": 214
+    },
+    {
+      "ip": "54.69.215.94",
+      "distinct_days_visited": 10,
+      "pageviews": 10,
+      "visits": 10,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 10,
+      "df_lof": 1.2913,
+      "rank": 215
+    },
+    {
+      "ip": "199.87.81.12",
+      "distinct_days_visited": 1,
+      "pageviews": 17,
+      "visits": 3,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 5.6667,
+      "avg_views_per_page": 4.25,
+      "df_lof": 1.2897,
+      "rank": 216
+    },
+    {
+      "ip": "108.26.188.6",
+      "distinct_days_visited": 3,
+      "pageviews": 9,
+      "visits": 3,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 4.5,
+      "df_lof": 1.2881,
+      "rank": 217
+    },
+    {
+      "ip": "92.242.58.13",
+      "distinct_days_visited": 9,
+      "pageviews": 16,
+      "visits": 14,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 1.1429,
+      "avg_views_per_page": 1.1429,
+      "df_lof": 1.2881,
+      "rank": 218
+    },
+    {
+      "ip": "71.125.222.185",
+      "distinct_days_visited": 7,
+      "pageviews": 18,
+      "visits": 9,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 9,
+      "df_lof": 1.2879,
+      "rank": 219
+    },
+    {
+      "ip": "96.27.155.19",
+      "distinct_days_visited": 2,
+      "pageviews": 20,
+      "visits": 3,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 6.6667,
+      "avg_views_per_page": 3.3333,
+      "df_lof": 1.2877,
+      "rank": 220
+    },
+    {
+      "ip": "95.93.166.180",
+      "distinct_days_visited": 14,
+      "pageviews": 25,
+      "visits": 21,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.1905,
+      "avg_views_per_page": 6.25,
+      "df_lof": 1.2861,
+      "rank": 221
+    },
+    {
+      "ip": "86.132.105.4",
+      "distinct_days_visited": 14,
+      "pageviews": 23,
+      "visits": 23,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 23,
+      "df_lof": 1.286,
+      "rank": 222
+    },
+    {
+      "ip": "103.16.16.114",
+      "distinct_days_visited": 9,
+      "pageviews": 26,
+      "visits": 20,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.3,
+      "avg_views_per_page": 13,
+      "df_lof": 1.2855,
+      "rank": 223
+    },
+    {
+      "ip": "149.169.221.78",
+      "distinct_days_visited": 2,
+      "pageviews": 9,
+      "visits": 3,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 3,
+      "avg_views_per_page": 4.5,
+      "df_lof": 1.2851,
+      "rank": 224
+    },
+    {
+      "ip": "70.119.79.243",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 3,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 0.8571,
+      "df_lof": 1.2836,
+      "rank": 225
+    },
+    {
+      "ip": "117.207.158.140",
+      "distinct_days_visited": 1,
+      "pageviews": 5,
+      "visits": 5,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.6667,
+      "df_lof": 1.2815,
+      "rank": 226
+    },
+    {
+      "ip": "159.53.174.144",
+      "distinct_days_visited": 6,
+      "pageviews": 22,
+      "visits": 8,
+      "distinct_pages_viewed": 22,
+      "pv_per_visit": 2.75,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2808,
+      "rank": 227
+    },
+    {
+      "ip": "213.79.54.13",
+      "distinct_days_visited": 15,
+      "pageviews": 18,
+      "visits": 15,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 9,
+      "df_lof": 1.2792,
+      "rank": 228
+    },
+    {
+      "ip": "198.241.217.31",
+      "distinct_days_visited": 39,
+      "pageviews": 49,
+      "visits": 48,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.0208,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2791,
+      "rank": 229
+    },
+    {
+      "ip": "46.128.35.209",
+      "distinct_days_visited": 8,
+      "pageviews": 66,
+      "visits": 11,
+      "distinct_pages_viewed": 22,
+      "pv_per_visit": 6,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2786,
+      "rank": 230
+    },
+    {
+      "ip": "198.6.50.15",
+      "distinct_days_visited": 3,
+      "pageviews": 12,
+      "visits": 7,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 1.7143,
+      "avg_views_per_page": 1.3333,
+      "df_lof": 1.2782,
+      "rank": 231
+    },
+    {
+      "ip": "68.99.181.88",
+      "distinct_days_visited": 12,
+      "pageviews": 32,
+      "visits": 17,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.8824,
+      "avg_views_per_page": 4,
+      "df_lof": 1.2778,
+      "rank": 232
+    },
+    {
+      "ip": "74.115.185.110",
+      "distinct_days_visited": 6,
+      "pageviews": 49,
+      "visits": 7,
+      "distinct_pages_viewed": 44,
+      "pv_per_visit": 7,
+      "avg_views_per_page": 1.1136,
+      "df_lof": 1.2772,
+      "rank": 233
+    },
+    {
+      "ip": "184.80.38.155",
+      "distinct_days_visited": 3,
+      "pageviews": 33,
+      "visits": 8,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 4.125,
+      "avg_views_per_page": 6.6,
+      "df_lof": 1.2768,
+      "rank": 234
+    },
+    {
+      "ip": "12.247.54.102",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 7,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 2.3333,
+      "df_lof": 1.2741,
+      "rank": 235
+    },
+    {
+      "ip": "50.155.99.193",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 7,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 2.3333,
+      "df_lof": 1.2741,
+      "rank": 236
+    },
+    {
+      "ip": "74.202.60.2",
+      "distinct_days_visited": 3,
+      "pageviews": 6,
+      "visits": 5,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 0.8571,
+      "df_lof": 1.2724,
+      "rank": 237
+    },
+    {
+      "ip": "83.250.221.19",
+      "distinct_days_visited": 3,
+      "pageviews": 6,
+      "visits": 5,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 0.8571,
+      "df_lof": 1.2724,
+      "rank": 238
+    },
+    {
+      "ip": "199.198.251.107",
+      "distinct_days_visited": 8,
+      "pageviews": 21,
+      "visits": 8,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.625,
+      "avg_views_per_page": 3.5,
+      "df_lof": 1.2714,
+      "rank": 239
+    },
+    {
+      "ip": "82.168.147.253",
+      "distinct_days_visited": 4,
+      "pageviews": 44,
+      "visits": 9,
+      "distinct_pages_viewed": 31,
+      "pv_per_visit": 4.8889,
+      "avg_views_per_page": 1.4194,
+      "df_lof": 1.2704,
+      "rank": 240
+    },
+    {
+      "ip": "86.86.132.218",
+      "distinct_days_visited": 1,
+      "pageviews": 10,
+      "visits": 5,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 1.4286,
+      "df_lof": 1.2701,
+      "rank": 241
+    },
+    {
+      "ip": "195.97.207.194",
+      "distinct_days_visited": 8,
+      "pageviews": 10,
+      "visits": 10,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 0.9091,
+      "df_lof": 1.2697,
+      "rank": 242
+    },
+    {
+      "ip": "62.198.86.97",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 7,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.4,
+      "df_lof": 1.268,
+      "rank": 243
+    },
+    {
+      "ip": "1.164.143.134",
+      "distinct_days_visited": 1,
+      "pageviews": 15,
+      "visits": 6,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.5,
+      "avg_views_per_page": 2.5,
+      "df_lof": 1.2679,
+      "rank": 244
+    },
+    {
+      "ip": "208.79.250.236",
+      "distinct_days_visited": 2,
+      "pageviews": 36,
+      "visits": 2,
+      "distinct_pages_viewed": 27,
+      "pv_per_visit": 18,
+      "avg_views_per_page": 1.3333,
+      "df_lof": 1.2677,
+      "rank": 245
+    },
+    {
+      "ip": "206.45.30.28",
+      "distinct_days_visited": 7,
+      "pageviews": 20,
+      "visits": 13,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.5385,
+      "avg_views_per_page": 10,
+      "df_lof": 1.2664,
+      "rank": 246
+    },
+    {
+      "ip": "80.87.20.106",
+      "distinct_days_visited": 6,
+      "pageviews": 12,
+      "visits": 10,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2663,
+      "rank": 247
+    },
+    {
+      "ip": "195.24.27.254",
+      "distinct_days_visited": 18,
+      "pageviews": 19,
+      "visits": 19,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 19,
+      "df_lof": 1.2662,
+      "rank": 248
+    },
+    {
+      "ip": "83.67.9.49",
+      "distinct_days_visited": 2,
+      "pageviews": 52,
+      "visits": 3,
+      "distinct_pages_viewed": 33,
+      "pv_per_visit": 17.3333,
+      "avg_views_per_page": 1.5758,
+      "df_lof": 1.2657,
+      "rank": 249
+    },
+    {
+      "ip": "83.244.208.34",
+      "distinct_days_visited": 3,
+      "pageviews": 67,
+      "visits": 12,
+      "distinct_pages_viewed": 46,
+      "pv_per_visit": 5.5833,
+      "avg_views_per_page": 1.4565,
+      "df_lof": 1.2651,
+      "rank": 250
+    },
+    {
+      "ip": "164.143.240.34",
+      "distinct_days_visited": 12,
+      "pageviews": 23,
+      "visits": 14,
+      "distinct_pages_viewed": 19,
+      "pv_per_visit": 1.6429,
+      "avg_views_per_page": 1.2105,
+      "df_lof": 1.2647,
+      "rank": 251
+    },
+    {
+      "ip": "74.216.71.192",
+      "distinct_days_visited": 5,
+      "pageviews": 19,
+      "visits": 11,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.7273,
+      "avg_views_per_page": 9.5,
+      "df_lof": 1.2644,
+      "rank": 252
+    },
+    {
+      "ip": "191.182.60.245",
+      "distinct_days_visited": 1,
+      "pageviews": 11,
+      "visits": 2,
+      "distinct_pages_viewed": 12,
+      "pv_per_visit": 5.5,
+      "avg_views_per_page": 0.9167,
+      "df_lof": 1.2634,
+      "rank": 253
+    },
+    {
+      "ip": "205.236.16.123",
+      "distinct_days_visited": 14,
+      "pageviews": 79,
+      "visits": 19,
+      "distinct_pages_viewed": 57,
+      "pv_per_visit": 4.1579,
+      "avg_views_per_page": 1.386,
+      "df_lof": 1.2631,
+      "rank": 254
+    },
+    {
+      "ip": "60.242.161.161",
+      "distinct_days_visited": 19,
+      "pageviews": 22,
+      "visits": 22,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 11,
+      "df_lof": 1.2628,
+      "rank": 255
+    },
+    {
+      "ip": "199.255.47.5",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2626,
+      "rank": 256
+    },
+    {
+      "ip": "71.175.20.231",
+      "distinct_days_visited": 2,
+      "pageviews": 7,
+      "visits": 2,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 3.5,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2621,
+      "rank": 257
+    },
+    {
+      "ip": "157.199.112.25",
+      "distinct_days_visited": 4,
+      "pageviews": 12,
+      "visits": 5,
+      "distinct_pages_viewed": 13,
+      "pv_per_visit": 2.4,
+      "avg_views_per_page": 0.9231,
+      "df_lof": 1.262,
+      "rank": 258
+    },
+    {
+      "ip": "115.241.35.9",
+      "distinct_days_visited": 1,
+      "pageviews": 11,
+      "visits": 4,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 2.75,
+      "avg_views_per_page": 1.5714,
+      "df_lof": 1.2618,
+      "rank": 259
+    },
+    {
+      "ip": "199.47.72.18",
+      "distinct_days_visited": 1,
+      "pageviews": 11,
+      "visits": 4,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 2.75,
+      "avg_views_per_page": 1.5714,
+      "df_lof": 1.2618,
+      "rank": 260
+    },
+    {
+      "ip": "94.197.120.72",
+      "distinct_days_visited": 2,
+      "pageviews": 10,
+      "visits": 3,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 3.3333,
+      "avg_views_per_page": 3.3333,
+      "df_lof": 1.26,
+      "rank": 261
+    },
+    {
+      "ip": "73.163.169.184",
+      "distinct_days_visited": 6,
+      "pageviews": 16,
+      "visits": 12,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1.3333,
+      "avg_views_per_page": 2.6667,
+      "df_lof": 1.2599,
+      "rank": 262
+    },
+    {
+      "ip": "129.120.103.209",
+      "distinct_days_visited": 6,
+      "pageviews": 7,
+      "visits": 8,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 0.875,
+      "avg_views_per_page": 1.75,
+      "df_lof": 1.259,
+      "rank": 263
+    },
+    {
+      "ip": "203.174.155.90",
+      "distinct_days_visited": 16,
+      "pageviews": 23,
+      "visits": 16,
+      "distinct_pages_viewed": 18,
+      "pv_per_visit": 1.4375,
+      "avg_views_per_page": 1.2778,
+      "df_lof": 1.257,
+      "rank": 264
+    },
+    {
+      "ip": "116.75.130.10",
+      "distinct_days_visited": 2,
+      "pageviews": 5,
+      "visits": 5,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.25,
+      "df_lof": 1.2566,
+      "rank": 265
+    },
+    {
+      "ip": "206.169.213.106",
+      "distinct_days_visited": 5,
+      "pageviews": 13,
+      "visits": 12,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.0833,
+      "avg_views_per_page": 4.3333,
+      "df_lof": 1.2561,
+      "rank": 266
+    },
+    {
+      "ip": "88.2.180.233",
+      "distinct_days_visited": 16,
+      "pageviews": 21,
+      "visits": 18,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 10.5,
+      "df_lof": 1.2555,
+      "rank": 267
+    },
+    {
+      "ip": "98.221.120.173",
+      "distinct_days_visited": 3,
+      "pageviews": 64,
+      "visits": 5,
+      "distinct_pages_viewed": 19,
+      "pv_per_visit": 12.8,
+      "avg_views_per_page": 3.3684,
+      "df_lof": 1.2555,
+      "rank": 268
+    },
+    {
+      "ip": "50.174.236.69",
+      "distinct_days_visited": 7,
+      "pageviews": 6,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 0.8571,
+      "avg_views_per_page": 3,
+      "df_lof": 1.255,
+      "rank": 269
+    },
+    {
+      "ip": "68.0.213.2",
+      "distinct_days_visited": 2,
+      "pageviews": 6,
+      "visits": 6,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2547,
+      "rank": 270
+    },
+    {
+      "ip": "99.255.174.80",
+      "distinct_days_visited": 2,
+      "pageviews": 6,
+      "visits": 6,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2547,
+      "rank": 271
+    },
+    {
+      "ip": "24.5.33.152",
+      "distinct_days_visited": 17,
+      "pageviews": 22,
+      "visits": 21,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.0476,
+      "avg_views_per_page": 22,
+      "df_lof": 1.2515,
+      "rank": 272
+    },
+    {
+      "ip": "192.55.55.39",
+      "distinct_days_visited": 11,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2512,
+      "rank": 273
+    },
+    {
+      "ip": "85.48.101.79",
+      "distinct_days_visited": 17,
+      "pageviews": 21,
+      "visits": 21,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 10.5,
+      "df_lof": 1.2509,
+      "rank": 274
+    },
+    {
+      "ip": "131.111.185.17",
+      "distinct_days_visited": 17,
+      "pageviews": 23,
+      "visits": 21,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.0952,
+      "avg_views_per_page": 11.5,
+      "df_lof": 1.2502,
+      "rank": 275
+    },
+    {
+      "ip": "82.229.206.91",
+      "distinct_days_visited": 2,
+      "pageviews": 6,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2486,
+      "rank": 276
+    },
+    {
+      "ip": "198.179.137.235",
+      "distinct_days_visited": 13,
+      "pageviews": 66,
+      "visits": 14,
+      "distinct_pages_viewed": 47,
+      "pv_per_visit": 4.7143,
+      "avg_views_per_page": 1.4043,
+      "df_lof": 1.2484,
+      "rank": 277
+    },
+    {
+      "ip": "86.84.34.208",
+      "distinct_days_visited": 16,
+      "pageviews": 21,
+      "visits": 19,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.1053,
+      "avg_views_per_page": 10.5,
+      "df_lof": 1.2462,
+      "rank": 278
+    },
+    {
+      "ip": "89.2.230.181",
+      "distinct_days_visited": 4,
+      "pageviews": 10,
+      "visits": 7,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.4286,
+      "avg_views_per_page": 1.25,
+      "df_lof": 1.2456,
+      "rank": 279
+    },
+    {
+      "ip": "76.30.0.255",
+      "distinct_days_visited": 15,
+      "pageviews": 21,
+      "visits": 18,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 21,
+      "df_lof": 1.2451,
+      "rank": 280
+    },
+    {
+      "ip": "107.215.253.236",
+      "distinct_days_visited": 15,
+      "pageviews": 20,
+      "visits": 17,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.1765,
+      "avg_views_per_page": 6.6667,
+      "df_lof": 1.2451,
+      "rank": 281
+    },
+    {
+      "ip": "83.98.24.231",
+      "distinct_days_visited": 13,
+      "pageviews": 55,
+      "visits": 20,
+      "distinct_pages_viewed": 34,
+      "pv_per_visit": 2.75,
+      "avg_views_per_page": 1.6176,
+      "df_lof": 1.245,
+      "rank": 282
+    },
+    {
+      "ip": "216.1.183.14",
+      "distinct_days_visited": 5,
+      "pageviews": 13,
+      "visits": 6,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 2.1667,
+      "avg_views_per_page": 0.9286,
+      "df_lof": 1.2447,
+      "rank": 283
+    },
+    {
+      "ip": "159.53.46.143",
+      "distinct_days_visited": 10,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2446,
+      "rank": 284
+    },
+    {
+      "ip": "72.14.199.104",
+      "distinct_days_visited": 10,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2446,
+      "rank": 285
+    },
+    {
+      "ip": "141.2.53.170",
+      "distinct_days_visited": 4,
+      "pageviews": 32,
+      "visits": 10,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 3.2,
+      "avg_views_per_page": 6.4,
+      "df_lof": 1.2444,
+      "rank": 286
+    },
+    {
+      "ip": "146.148.66.184",
+      "distinct_days_visited": 4,
+      "pageviews": 39,
+      "visits": 4,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 9.75,
+      "avg_views_per_page": 4.875,
+      "df_lof": 1.2444,
+      "rank": 287
+    },
+    {
+      "ip": "209.234.219.134",
+      "distinct_days_visited": 1,
+      "pageviews": 32,
+      "visits": 4,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 8,
+      "avg_views_per_page": 3.5556,
+      "df_lof": 1.2441,
+      "rank": 288
+    },
+    {
+      "ip": "167.114.152.221",
+      "distinct_days_visited": 8,
+      "pageviews": 24,
+      "visits": 20,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 12,
+      "df_lof": 1.2439,
+      "rank": 289
+    },
+    {
+      "ip": "216.75.224.2",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 6,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 0.875,
+      "df_lof": 1.2434,
+      "rank": 290
+    },
+    {
+      "ip": "213.81.218.34",
+      "distinct_days_visited": 4,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 11,
+      "df_lof": 1.2432,
+      "rank": 291
+    },
+    {
+      "ip": "90.165.82.49",
+      "distinct_days_visited": 4,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 11,
+      "df_lof": 1.2432,
+      "rank": 292
+    },
+    {
+      "ip": "38.140.12.78",
+      "distinct_days_visited": 6,
+      "pageviews": 29,
+      "visits": 16,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 1.8125,
+      "avg_views_per_page": 2.0714,
+      "df_lof": 1.2432,
+      "rank": 293
+    },
+    {
+      "ip": "208.52.164.151",
+      "distinct_days_visited": 5,
+      "pageviews": 46,
+      "visits": 5,
+      "distinct_pages_viewed": 30,
+      "pv_per_visit": 9.2,
+      "avg_views_per_page": 1.5333,
+      "df_lof": 1.2418,
+      "rank": 294
+    },
+    {
+      "ip": "194.29.74.39",
+      "distinct_days_visited": 4,
+      "pageviews": 10,
+      "visits": 5,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 0.9091,
+      "df_lof": 1.2412,
+      "rank": 295
+    },
+    {
+      "ip": "57.67.195.205",
+      "distinct_days_visited": 4,
+      "pageviews": 28,
+      "visits": 6,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 4.6667,
+      "avg_views_per_page": 4,
+      "df_lof": 1.241,
+      "rank": 296
+    },
+    {
+      "ip": "202.58.235.140",
+      "distinct_days_visited": 1,
+      "pageviews": 13,
+      "visits": 3,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 4.3333,
+      "avg_views_per_page": 0.9286,
+      "df_lof": 1.2405,
+      "rank": 297
+    },
+    {
+      "ip": "198.96.180.245",
+      "distinct_days_visited": 14,
+      "pageviews": 21,
+      "visits": 19,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 1.1053,
+      "avg_views_per_page": 1.4,
+      "df_lof": 1.2404,
+      "rank": 298
+    },
+    {
+      "ip": "83.138.195.243",
+      "distinct_days_visited": 5,
+      "pageviews": 10,
+      "visits": 9,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.1111,
+      "avg_views_per_page": 5,
+      "df_lof": 1.2402,
+      "rank": 299
+    },
+    {
+      "ip": "66.249.88.185",
+      "distinct_days_visited": 3,
+      "pageviews": 6,
+      "visits": 6,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.2,
+      "df_lof": 1.2399,
+      "rank": 300
+    },
+    {
+      "ip": "115.110.103.182",
+      "distinct_days_visited": 3,
+      "pageviews": 10,
+      "visits": 8,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.25,
+      "avg_views_per_page": 2.5,
+      "df_lof": 1.2396,
+      "rank": 301
+    },
+    {
+      "ip": "211.14.8.248",
+      "distinct_days_visited": 7,
+      "pageviews": 10,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.4286,
+      "avg_views_per_page": 5,
+      "df_lof": 1.2393,
+      "rank": 302
+    },
+    {
+      "ip": "23.243.45.189",
+      "distinct_days_visited": 5,
+      "pageviews": 10,
+      "visits": 9,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.1111,
+      "avg_views_per_page": 3.3333,
+      "df_lof": 1.2392,
+      "rank": 303
+    },
+    {
+      "ip": "186.137.120.87",
+      "distinct_days_visited": 3,
+      "pageviews": 11,
+      "visits": 7,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5714,
+      "avg_views_per_page": 11,
+      "df_lof": 1.2391,
+      "rank": 304
+    },
+    {
+      "ip": "85.61.47.150",
+      "distinct_days_visited": 3,
+      "pageviews": 11,
+      "visits": 7,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5714,
+      "avg_views_per_page": 11,
+      "df_lof": 1.2391,
+      "rank": 305
+    },
+    {
+      "ip": "72.183.109.200",
+      "distinct_days_visited": 3,
+      "pageviews": 20,
+      "visits": 7,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.8571,
+      "avg_views_per_page": 3.3333,
+      "df_lof": 1.2387,
+      "rank": 306
+    },
+    {
+      "ip": "72.76.185.21",
+      "distinct_days_visited": 6,
+      "pageviews": 18,
+      "visits": 8,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 2.25,
+      "avg_views_per_page": 4.5,
+      "df_lof": 1.2386,
+      "rank": 307
+    },
+    {
+      "ip": "124.32.238.250",
+      "distinct_days_visited": 21,
+      "pageviews": 55,
+      "visits": 38,
+      "distinct_pages_viewed": 13,
+      "pv_per_visit": 1.4474,
+      "avg_views_per_page": 4.2308,
+      "df_lof": 1.2386,
+      "rank": 308
+    },
+    {
+      "ip": "202.45.6.164",
+      "distinct_days_visited": 9,
+      "pageviews": 12,
+      "visits": 11,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.0909,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2382,
+      "rank": 309
+    },
+    {
+      "ip": "199.19.138.101",
+      "distinct_days_visited": 12,
+      "pageviews": 15,
+      "visits": 13,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 1.1538,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2369,
+      "rank": 310
+    },
+    {
+      "ip": "138.229.139.142",
+      "distinct_days_visited": 4,
+      "pageviews": 11,
+      "visits": 6,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.8333,
+      "avg_views_per_page": 5.5,
+      "df_lof": 1.2365,
+      "rank": 311
+    },
+    {
+      "ip": "187.176.7.225",
+      "distinct_days_visited": 7,
+      "pageviews": 20,
+      "visits": 14,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1.4286,
+      "avg_views_per_page": 4,
+      "df_lof": 1.2363,
+      "rank": 312
+    },
+    {
+      "ip": "191.181.83.177",
+      "distinct_days_visited": 6,
+      "pageviews": 11,
+      "visits": 7,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5714,
+      "avg_views_per_page": 11,
+      "df_lof": 1.2363,
+      "rank": 313
+    },
+    {
+      "ip": "193.204.158.10",
+      "distinct_days_visited": 2,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2349,
+      "rank": 314
+    },
+    {
+      "ip": "69.136.202.182",
+      "distinct_days_visited": 2,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2349,
+      "rank": 315
+    },
+    {
+      "ip": "194.76.29.70",
+      "distinct_days_visited": 5,
+      "pageviews": 10,
+      "visits": 6,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1.6667,
+      "avg_views_per_page": 0.9091,
+      "df_lof": 1.2331,
+      "rank": 316
+    },
+    {
+      "ip": "98.186.181.210",
+      "distinct_days_visited": 7,
+      "pageviews": 25,
+      "visits": 12,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 2.0833,
+      "avg_views_per_page": 8.3333,
+      "df_lof": 1.2331,
+      "rank": 317
+    },
+    {
+      "ip": "60.241.125.235",
+      "distinct_days_visited": 6,
+      "pageviews": 14,
+      "visits": 8,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.75,
+      "avg_views_per_page": 14,
+      "df_lof": 1.2324,
+      "rank": 318
+    },
+    {
+      "ip": "211.189.163.250",
+      "distinct_days_visited": 14,
+      "pageviews": 16,
+      "visits": 15,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 1.0667,
+      "avg_views_per_page": 1.0667,
+      "df_lof": 1.2308,
+      "rank": 319
+    },
+    {
+      "ip": "62.189.163.68",
+      "distinct_days_visited": 47,
+      "pageviews": 68,
+      "visits": 54,
+      "distinct_pages_viewed": 13,
+      "pv_per_visit": 1.2593,
+      "avg_views_per_page": 5.2308,
+      "df_lof": 1.2308,
+      "rank": 320
+    },
+    {
+      "ip": "80.78.0.37",
+      "distinct_days_visited": 10,
+      "pageviews": 39,
+      "visits": 15,
+      "distinct_pages_viewed": 29,
+      "pv_per_visit": 2.6,
+      "avg_views_per_page": 1.3448,
+      "df_lof": 1.23,
+      "rank": 321
+    },
+    {
+      "ip": "172.56.29.230",
+      "distinct_days_visited": 1,
+      "pageviews": 12,
+      "visits": 3,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 4,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2298,
+      "rank": 322
+    },
+    {
+      "ip": "192.146.101.24",
+      "distinct_days_visited": 13,
+      "pageviews": 39,
+      "visits": 22,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 1.7727,
+      "avg_views_per_page": 4.3333,
+      "df_lof": 1.2292,
+      "rank": 323
+    },
+    {
+      "ip": "130.15.132.152",
+      "distinct_days_visited": 4,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2288,
+      "rank": 324
+    },
+    {
+      "ip": "14.198.111.28",
+      "distinct_days_visited": 4,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2288,
+      "rank": 325
+    },
+    {
+      "ip": "50.201.192.17",
+      "distinct_days_visited": 4,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2288,
+      "rank": 326
+    },
+    {
+      "ip": "62.25.64.1",
+      "distinct_days_visited": 4,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2288,
+      "rank": 327
+    },
+    {
+      "ip": "82.204.252.58",
+      "distinct_days_visited": 4,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2288,
+      "rank": 328
+    },
+    {
+      "ip": "82.75.63.26",
+      "distinct_days_visited": 4,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2288,
+      "rank": 329
+    },
+    {
+      "ip": "99.236.207.204",
+      "distinct_days_visited": 4,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2288,
+      "rank": 330
+    },
+    {
+      "ip": "63.92.227.233",
+      "distinct_days_visited": 1,
+      "pageviews": 14,
+      "visits": 2,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 7,
+      "avg_views_per_page": 2.8,
+      "df_lof": 1.2281,
+      "rank": 331
+    },
+    {
+      "ip": "50.148.132.212",
+      "distinct_days_visited": 3,
+      "pageviews": 48,
+      "visits": 4,
+      "distinct_pages_viewed": 19,
+      "pv_per_visit": 12,
+      "avg_views_per_page": 2.5263,
+      "df_lof": 1.2278,
+      "rank": 332
+    },
+    {
+      "ip": "68.98.130.240",
+      "distinct_days_visited": 8,
+      "pageviews": 25,
+      "visits": 11,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 2.2727,
+      "avg_views_per_page": 6.25,
+      "df_lof": 1.2267,
+      "rank": 333
+    },
+    {
+      "ip": "70.178.203.43",
+      "distinct_days_visited": 9,
+      "pageviews": 22,
+      "visits": 22,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 22,
+      "df_lof": 1.226,
+      "rank": 334
+    },
+    {
+      "ip": "83.244.231.184",
+      "distinct_days_visited": 1,
+      "pageviews": 12,
+      "visits": 5,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.4,
+      "avg_views_per_page": 2,
+      "df_lof": 1.2251,
+      "rank": 335
+    },
+    {
+      "ip": "67.180.211.43",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 8,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 0.875,
+      "avg_views_per_page": 3.5,
+      "df_lof": 1.2249,
+      "rank": 336
+    },
+    {
+      "ip": "99.231.22.180",
+      "distinct_days_visited": 2,
+      "pageviews": 13,
+      "visits": 3,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 4.3333,
+      "avg_views_per_page": 2.6,
+      "df_lof": 1.2247,
+      "rank": 337
+    },
+    {
+      "ip": "89.100.202.221",
+      "distinct_days_visited": 11,
+      "pageviews": 58,
+      "visits": 12,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 4.8333,
+      "avg_views_per_page": 3.8667,
+      "df_lof": 1.2241,
+      "rank": 338
+    },
+    {
+      "ip": "77.99.238.12",
+      "distinct_days_visited": 5,
+      "pageviews": 12,
+      "visits": 10,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 4,
+      "df_lof": 1.2233,
+      "rank": 339
+    },
+    {
+      "ip": "173.66.175.116",
+      "distinct_days_visited": 5,
+      "pageviews": 8,
+      "visits": 8,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 8,
+      "df_lof": 1.223,
+      "rank": 340
+    },
+    {
+      "ip": "180.164.155.115",
+      "distinct_days_visited": 5,
+      "pageviews": 8,
+      "visits": 8,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 8,
+      "df_lof": 1.223,
+      "rank": 341
+    },
+    {
+      "ip": "187.152.177.145",
+      "distinct_days_visited": 5,
+      "pageviews": 8,
+      "visits": 8,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 8,
+      "df_lof": 1.223,
+      "rank": 342
+    },
+    {
+      "ip": "87.163.249.63",
+      "distinct_days_visited": 5,
+      "pageviews": 8,
+      "visits": 8,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 8,
+      "df_lof": 1.223,
+      "rank": 343
+    },
+    {
+      "ip": "203.191.202.210",
+      "distinct_days_visited": 4,
+      "pageviews": 48,
+      "visits": 5,
+      "distinct_pages_viewed": 39,
+      "pv_per_visit": 9.6,
+      "avg_views_per_page": 1.2308,
+      "df_lof": 1.2226,
+      "rank": 344
+    },
+    {
+      "ip": "71.231.195.13",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 4,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.75,
+      "avg_views_per_page": 1.75,
+      "df_lof": 1.2226,
+      "rank": 345
+    },
+    {
+      "ip": "174.59.109.211",
+      "distinct_days_visited": 4,
+      "pageviews": 31,
+      "visits": 9,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 3.4444,
+      "avg_views_per_page": 5.1667,
+      "df_lof": 1.2222,
+      "rank": 346
+    },
+    {
+      "ip": "8.18.111.244",
+      "distinct_days_visited": 74,
+      "pageviews": 96,
+      "visits": 87,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1.1034,
+      "avg_views_per_page": 8.7273,
+      "df_lof": 1.2221,
+      "rank": 347
+    },
+    {
+      "ip": "206.196.184.26",
+      "distinct_days_visited": 1,
+      "pageviews": 13,
+      "visits": 3,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 4.3333,
+      "avg_views_per_page": 1.8571,
+      "df_lof": 1.2219,
+      "rank": 348
+    },
+    {
+      "ip": "68.40.198.236",
+      "distinct_days_visited": 2,
+      "pageviews": 35,
+      "visits": 2,
+      "distinct_pages_viewed": 19,
+      "pv_per_visit": 17.5,
+      "avg_views_per_page": 1.8421,
+      "df_lof": 1.2215,
+      "rank": 349
+    },
+    {
+      "ip": "69.28.84.101",
+      "distinct_days_visited": 5,
+      "pageviews": 14,
+      "visits": 13,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.0769,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2211,
+      "rank": 350
+    },
+    {
+      "ip": "216.23.177.196",
+      "distinct_days_visited": 3,
+      "pageviews": 11,
+      "visits": 3,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 3.6667,
+      "avg_views_per_page": 2.75,
+      "df_lof": 1.2208,
+      "rank": 351
+    },
+    {
+      "ip": "70.168.146.178",
+      "distinct_days_visited": 3,
+      "pageviews": 11,
+      "visits": 3,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 3.6667,
+      "avg_views_per_page": 2.75,
+      "df_lof": 1.2208,
+      "rank": 352
+    },
+    {
+      "ip": "192.0.83.17",
+      "distinct_days_visited": 11,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 11,
+      "df_lof": 1.2207,
+      "rank": 353
+    },
+    {
+      "ip": "50.136.98.41",
+      "distinct_days_visited": 11,
+      "pageviews": 11,
+      "visits": 11,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 11,
+      "df_lof": 1.2207,
+      "rank": 354
+    },
+    {
+      "ip": "86.14.227.32",
+      "distinct_days_visited": 8,
+      "pageviews": 27,
+      "visits": 8,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 3.375,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2204,
+      "rank": 355
+    },
+    {
+      "ip": "98.216.230.11",
+      "distinct_days_visited": 1,
+      "pageviews": 52,
+      "visits": 3,
+      "distinct_pages_viewed": 30,
+      "pv_per_visit": 17.3333,
+      "avg_views_per_page": 1.7333,
+      "df_lof": 1.2199,
+      "rank": 356
+    },
+    {
+      "ip": "72.79.239.165",
+      "distinct_days_visited": 3,
+      "pageviews": 10,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.4286,
+      "avg_views_per_page": 5,
+      "df_lof": 1.2198,
+      "rank": 357
+    },
+    {
+      "ip": "99.113.28.197",
+      "distinct_days_visited": 3,
+      "pageviews": 10,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.4286,
+      "avg_views_per_page": 5,
+      "df_lof": 1.2198,
+      "rank": 358
+    },
+    {
+      "ip": "86.97.102.137",
+      "distinct_days_visited": 6,
+      "pageviews": 15,
+      "visits": 8,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.875,
+      "avg_views_per_page": 7.5,
+      "df_lof": 1.2195,
+      "rank": 359
+    },
+    {
+      "ip": "174.51.5.84",
+      "distinct_days_visited": 6,
+      "pageviews": 12,
+      "visits": 6,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2185,
+      "rank": 360
+    },
+    {
+      "ip": "83.148.194.242",
+      "distinct_days_visited": 3,
+      "pageviews": 8,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2.6667,
+      "avg_views_per_page": 8,
+      "df_lof": 1.2182,
+      "rank": 361
+    },
+    {
+      "ip": "46.7.203.54",
+      "distinct_days_visited": 6,
+      "pageviews": 14,
+      "visits": 11,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.2727,
+      "avg_views_per_page": 7,
+      "df_lof": 1.218,
+      "rank": 362
+    },
+    {
+      "ip": "212.43.68.78",
+      "distinct_days_visited": 3,
+      "pageviews": 13,
+      "visits": 3,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 4.3333,
+      "avg_views_per_page": 4.3333,
+      "df_lof": 1.2173,
+      "rank": 363
+    },
+    {
+      "ip": "71.202.146.73",
+      "distinct_days_visited": 8,
+      "pageviews": 21,
+      "visits": 14,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2169,
+      "rank": 364
+    },
+    {
+      "ip": "111.68.98.144",
+      "distinct_days_visited": 3,
+      "pageviews": 15,
+      "visits": 4,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 3.75,
+      "avg_views_per_page": 5,
+      "df_lof": 1.2164,
+      "rank": 365
+    },
+    {
+      "ip": "208.42.251.123",
+      "distinct_days_visited": 7,
+      "pageviews": 8,
+      "visits": 7,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.1429,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2159,
+      "rank": 366
+    },
+    {
+      "ip": "208.84.225.10",
+      "distinct_days_visited": 7,
+      "pageviews": 8,
+      "visits": 7,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.1429,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2159,
+      "rank": 367
+    },
+    {
+      "ip": "63.144.124.93",
+      "distinct_days_visited": 5,
+      "pageviews": 12,
+      "visits": 12,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 12,
+      "df_lof": 1.2157,
+      "rank": 368
+    },
+    {
+      "ip": "73.46.5.157",
+      "distinct_days_visited": 3,
+      "pageviews": 8,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 8,
+      "df_lof": 1.2151,
+      "rank": 369
+    },
+    {
+      "ip": "67.161.5.185",
+      "distinct_days_visited": 3,
+      "pageviews": 19,
+      "visits": 3,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 6.3333,
+      "avg_views_per_page": 3.1667,
+      "df_lof": 1.2142,
+      "rank": 370
+    },
+    {
+      "ip": "66.68.96.18",
+      "distinct_days_visited": 7,
+      "pageviews": 16,
+      "visits": 7,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 2.2857,
+      "avg_views_per_page": 5.3333,
+      "df_lof": 1.2141,
+      "rank": 371
+    },
+    {
+      "ip": "192.93.124.97",
+      "distinct_days_visited": 5,
+      "pageviews": 18,
+      "visits": 13,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.3846,
+      "avg_views_per_page": 6,
+      "df_lof": 1.214,
+      "rank": 372
+    },
+    {
+      "ip": "192.223.136.6",
+      "distinct_days_visited": 23,
+      "pageviews": 65,
+      "visits": 25,
+      "distinct_pages_viewed": 20,
+      "pv_per_visit": 2.6,
+      "avg_views_per_page": 3.25,
+      "df_lof": 1.2134,
+      "rank": 373
+    },
+    {
+      "ip": "204.28.125.106",
+      "distinct_days_visited": 5,
+      "pageviews": 6,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 0.8571,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2134,
+      "rank": 374
+    },
+    {
+      "ip": "87.2.247.15",
+      "distinct_days_visited": 1,
+      "pageviews": 8,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.6,
+      "avg_views_per_page": 8,
+      "df_lof": 1.2133,
+      "rank": 375
+    },
+    {
+      "ip": "27.33.27.97",
+      "distinct_days_visited": 2,
+      "pageviews": 23,
+      "visits": 2,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 11.5,
+      "avg_views_per_page": 1.6429,
+      "df_lof": 1.2126,
+      "rank": 376
+    },
+    {
+      "ip": "189.77.226.1",
+      "distinct_days_visited": 6,
+      "pageviews": 25,
+      "visits": 12,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 2.0833,
+      "avg_views_per_page": 3.5714,
+      "df_lof": 1.2125,
+      "rank": 377
+    },
+    {
+      "ip": "204.111.24.153",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.75,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2124,
+      "rank": 378
+    },
+    {
+      "ip": "73.54.153.215",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.75,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2124,
+      "rank": 379
+    },
+    {
+      "ip": "93.37.19.172",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 4,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.75,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2124,
+      "rank": 380
+    },
+    {
+      "ip": "71.199.115.159",
+      "distinct_days_visited": 4,
+      "pageviews": 6,
+      "visits": 7,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 0.8571,
+      "avg_views_per_page": 1.5,
+      "df_lof": 1.2124,
+      "rank": 381
+    },
+    {
+      "ip": "14.141.85.52",
+      "distinct_days_visited": 3,
+      "pageviews": 31,
+      "visits": 7,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 4.4286,
+      "avg_views_per_page": 2.2143,
+      "df_lof": 1.2123,
+      "rank": 382
+    },
+    {
+      "ip": "198.135.203.249",
+      "distinct_days_visited": 7,
+      "pageviews": 23,
+      "visits": 12,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.9167,
+      "avg_views_per_page": 3.2857,
+      "df_lof": 1.2123,
+      "rank": 383
+    },
+    {
+      "ip": "65.78.148.69",
+      "distinct_days_visited": 5,
+      "pageviews": 14,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2112,
+      "rank": 384
+    },
+    {
+      "ip": "68.35.223.59",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 3.5,
+      "df_lof": 1.2112,
+      "rank": 385
+    },
+    {
+      "ip": "70.164.31.162",
+      "distinct_days_visited": 25,
+      "pageviews": 71,
+      "visits": 32,
+      "distinct_pages_viewed": 28,
+      "pv_per_visit": 2.2188,
+      "avg_views_per_page": 2.5357,
+      "df_lof": 1.2111,
+      "rank": 386
+    },
+    {
+      "ip": "179.234.43.104",
+      "distinct_days_visited": 4,
+      "pageviews": 8,
+      "visits": 6,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1.3333,
+      "avg_views_per_page": 1.6,
+      "df_lof": 1.2109,
+      "rank": 387
+    },
+    {
+      "ip": "176.58.21.130",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 3,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.3333,
+      "avg_views_per_page": 1.1667,
+      "df_lof": 1.2105,
+      "rank": 388
+    },
+    {
+      "ip": "203.115.71.10",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 3,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.3333,
+      "avg_views_per_page": 1.1667,
+      "df_lof": 1.2105,
+      "rank": 389
+    },
+    {
+      "ip": "50.242.72.118",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 3,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.3333,
+      "avg_views_per_page": 1.1667,
+      "df_lof": 1.2105,
+      "rank": 390
+    },
+    {
+      "ip": "174.44.99.152",
+      "distinct_days_visited": 2,
+      "pageviews": 27,
+      "visits": 3,
+      "distinct_pages_viewed": 12,
+      "pv_per_visit": 9,
+      "avg_views_per_page": 2.25,
+      "df_lof": 1.2104,
+      "rank": 391
+    },
+    {
+      "ip": "120.61.92.146",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2101,
+      "rank": 392
+    },
+    {
+      "ip": "2.68.246.33",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 4,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.5,
+      "avg_views_per_page": 3,
+      "df_lof": 1.2101,
+      "rank": 393
+    },
+    {
+      "ip": "130.226.173.129",
+      "distinct_days_visited": 20,
+      "pageviews": 21,
+      "visits": 21,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 7,
+      "df_lof": 1.21,
+      "rank": 394
+    },
+    {
+      "ip": "66.195.4.2",
+      "distinct_days_visited": 18,
+      "pageviews": 26,
+      "visits": 24,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.0833,
+      "avg_views_per_page": 13,
+      "df_lof": 1.2099,
+      "rank": 395
+    },
+    {
+      "ip": "131.193.207.11",
+      "distinct_days_visited": 1,
+      "pageviews": 27,
+      "visits": 2,
+      "distinct_pages_viewed": 14,
+      "pv_per_visit": 13.5,
+      "avg_views_per_page": 1.9286,
+      "df_lof": 1.2099,
+      "rank": 396
+    },
+    {
+      "ip": "195.65.90.20",
+      "distinct_days_visited": 9,
+      "pageviews": 13,
+      "visits": 13,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.4444,
+      "df_lof": 1.2092,
+      "rank": 397
+    },
+    {
+      "ip": "1.23.208.241",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 10,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 0.9,
+      "df_lof": 1.2088,
+      "rank": 398
+    },
+    {
+      "ip": "14.139.45.244",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 10,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 0.9,
+      "df_lof": 1.2088,
+      "rank": 399
+    },
+    {
+      "ip": "50.158.169.192",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 10,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 0.9,
+      "df_lof": 1.2088,
+      "rank": 400
+    },
+    {
+      "ip": "67.82.117.229",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 10,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 0.9,
+      "df_lof": 1.2088,
+      "rank": 401
+    },
+    {
+      "ip": "86.157.150.160",
+      "distinct_days_visited": 1,
+      "pageviews": 9,
+      "visits": 2,
+      "distinct_pages_viewed": 10,
+      "pv_per_visit": 4.5,
+      "avg_views_per_page": 0.9,
+      "df_lof": 1.2088,
+      "rank": 402
+    },
+    {
+      "ip": "157.83.125.12",
+      "distinct_days_visited": 39,
+      "pageviews": 58,
+      "visits": 44,
+      "distinct_pages_viewed": 22,
+      "pv_per_visit": 1.3182,
+      "avg_views_per_page": 2.6364,
+      "df_lof": 1.2087,
+      "rank": 403
+    },
+    {
+      "ip": "208.91.164.254",
+      "distinct_days_visited": 17,
+      "pageviews": 23,
+      "visits": 22,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.0455,
+      "avg_views_per_page": 11.5,
+      "df_lof": 1.2082,
+      "rank": 404
+    },
+    {
+      "ip": "50.46.170.176",
+      "distinct_days_visited": 3,
+      "pageviews": 26,
+      "visits": 5,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 5.2,
+      "avg_views_per_page": 4.3333,
+      "df_lof": 1.208,
+      "rank": 405
+    },
+    {
+      "ip": "168.122.197.189",
+      "distinct_days_visited": 3,
+      "pageviews": 10,
+      "visits": 8,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.25,
+      "avg_views_per_page": 3.3333,
+      "df_lof": 1.2076,
+      "rank": 406
+    },
+    {
+      "ip": "212.93.55.35",
+      "distinct_days_visited": 5,
+      "pageviews": 10,
+      "visits": 8,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.25,
+      "avg_views_per_page": 1.25,
+      "df_lof": 1.2072,
+      "rank": 407
+    },
+    {
+      "ip": "104.59.90.120",
+      "distinct_days_visited": 7,
+      "pageviews": 77,
+      "visits": 7,
+      "distinct_pages_viewed": 35,
+      "pv_per_visit": 11,
+      "avg_views_per_page": 2.2,
+      "df_lof": 1.2068,
+      "rank": 408
+    },
+    {
+      "ip": "81.145.186.94",
+      "distinct_days_visited": 5,
+      "pageviews": 18,
+      "visits": 11,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1.6364,
+      "avg_views_per_page": 1.6364,
+      "df_lof": 1.2065,
+      "rank": 409
+    },
+    {
+      "ip": "207.180.29.34",
+      "distinct_days_visited": 4,
+      "pageviews": 10,
+      "visits": 8,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.25,
+      "avg_views_per_page": 5,
+      "df_lof": 1.2065,
+      "rank": 410
+    },
+    {
+      "ip": "140.180.251.216",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2064,
+      "rank": 411
+    },
+    {
+      "ip": "189.177.40.177",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2064,
+      "rank": 412
+    },
+    {
+      "ip": "70.191.42.23",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2064,
+      "rank": 413
+    },
+    {
+      "ip": "73.176.114.20",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2064,
+      "rank": 414
+    },
+    {
+      "ip": "73.235.97.247",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.2064,
+      "rank": 415
+    },
+    {
+      "ip": "206.45.30.119",
+      "distinct_days_visited": 5,
+      "pageviews": 22,
+      "visits": 9,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 2.4444,
+      "avg_views_per_page": 5.5,
+      "df_lof": 1.2064,
+      "rank": 416
+    },
+    {
+      "ip": "110.44.117.142",
+      "distinct_days_visited": 1,
+      "pageviews": 13,
+      "visits": 2,
+      "distinct_pages_viewed": 13,
+      "pv_per_visit": 6.5,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2064,
+      "rank": 417
+    },
+    {
+      "ip": "83.145.122.242",
+      "distinct_days_visited": 1,
+      "pageviews": 13,
+      "visits": 2,
+      "distinct_pages_viewed": 13,
+      "pv_per_visit": 6.5,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2064,
+      "rank": 418
+    },
+    {
+      "ip": "115.113.53.204",
+      "distinct_days_visited": 2,
+      "pageviews": 5,
+      "visits": 4,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1.25,
+      "avg_views_per_page": 0.8333,
+      "df_lof": 1.2063,
+      "rank": 419
+    },
+    {
+      "ip": "59.160.29.5",
+      "distinct_days_visited": 2,
+      "pageviews": 5,
+      "visits": 4,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1.25,
+      "avg_views_per_page": 0.8333,
+      "df_lof": 1.2063,
+      "rank": 420
+    },
+    {
+      "ip": "68.65.169.12",
+      "distinct_days_visited": 4,
+      "pageviews": 10,
+      "visits": 7,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1.4286,
+      "avg_views_per_page": 1.6667,
+      "df_lof": 1.2058,
+      "rank": 421
+    },
+    {
+      "ip": "69.242.104.56",
+      "distinct_days_visited": 2,
+      "pageviews": 8,
+      "visits": 5,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.6,
+      "avg_views_per_page": 1.1429,
+      "df_lof": 1.2053,
+      "rank": 422
+    },
+    {
+      "ip": "123.201.152.213",
+      "distinct_days_visited": 1,
+      "pageviews": 6,
+      "visits": 5,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 1.5,
+      "df_lof": 1.2041,
+      "rank": 423
+    },
+    {
+      "ip": "95.95.119.48",
+      "distinct_days_visited": 6,
+      "pageviews": 29,
+      "visits": 7,
+      "distinct_pages_viewed": 15,
+      "pv_per_visit": 4.1429,
+      "avg_views_per_page": 1.9333,
+      "df_lof": 1.2037,
+      "rank": 424
+    },
+    {
+      "ip": "157.166.167.129",
+      "distinct_days_visited": 5,
+      "pageviews": 7,
+      "visits": 7,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2036,
+      "rank": 425
+    },
+    {
+      "ip": "92.222.47.131",
+      "distinct_days_visited": 13,
+      "pageviews": 31,
+      "visits": 20,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.55,
+      "avg_views_per_page": 15.5,
+      "df_lof": 1.2035,
+      "rank": 426
+    },
+    {
+      "ip": "191.43.57.2",
+      "distinct_days_visited": 2,
+      "pageviews": 7,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2027,
+      "rank": 427
+    },
+    {
+      "ip": "134.58.253.57",
+      "distinct_days_visited": 40,
+      "pageviews": 56,
+      "visits": 45,
+      "distinct_pages_viewed": 23,
+      "pv_per_visit": 1.2444,
+      "avg_views_per_page": 2.4348,
+      "df_lof": 1.2026,
+      "rank": 428
+    },
+    {
+      "ip": "81.19.48.130",
+      "distinct_days_visited": 9,
+      "pageviews": 66,
+      "visits": 24,
+      "distinct_pages_viewed": 40,
+      "pv_per_visit": 2.75,
+      "avg_views_per_page": 1.65,
+      "df_lof": 1.2026,
+      "rank": 429
+    },
+    {
+      "ip": "82.178.252.132",
+      "distinct_days_visited": 3,
+      "pageviews": 30,
+      "visits": 11,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 2.7273,
+      "avg_views_per_page": 3.75,
+      "df_lof": 1.2025,
+      "rank": 430
+    },
+    {
+      "ip": "77.96.123.164",
+      "distinct_days_visited": 10,
+      "pageviews": 25,
+      "visits": 19,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.3158,
+      "avg_views_per_page": 12.5,
+      "df_lof": 1.2024,
+      "rank": 431
+    },
+    {
+      "ip": "203.28.166.2",
+      "distinct_days_visited": 6,
+      "pageviews": 14,
+      "visits": 11,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.2727,
+      "avg_views_per_page": 1.75,
+      "df_lof": 1.2021,
+      "rank": 432
+    },
+    {
+      "ip": "128.29.43.1",
+      "distinct_days_visited": 18,
+      "pageviews": 23,
+      "visits": 20,
+      "distinct_pages_viewed": 18,
+      "pv_per_visit": 1.15,
+      "avg_views_per_page": 1.2778,
+      "df_lof": 1.202,
+      "rank": 433
+    },
+    {
+      "ip": "62.28.181.178",
+      "distinct_days_visited": 5,
+      "pageviews": 12,
+      "visits": 10,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 3,
+      "df_lof": 1.202,
+      "rank": 434
+    },
+    {
+      "ip": "72.34.133.250",
+      "distinct_days_visited": 8,
+      "pageviews": 8,
+      "visits": 8,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.2019,
+      "rank": 435
+    },
+    {
+      "ip": "195.81.30.218",
+      "distinct_days_visited": 2,
+      "pageviews": 8,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.3333,
+      "avg_views_per_page": 8,
+      "df_lof": 1.2017,
+      "rank": 436
+    },
+    {
+      "ip": "2.120.217.130",
+      "distinct_days_visited": 2,
+      "pageviews": 8,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.3333,
+      "avg_views_per_page": 8,
+      "df_lof": 1.2017,
+      "rank": 437
+    },
+    {
+      "ip": "68.228.72.159",
+      "distinct_days_visited": 2,
+      "pageviews": 8,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.3333,
+      "avg_views_per_page": 8,
+      "df_lof": 1.2017,
+      "rank": 438
+    },
+    {
+      "ip": "190.3.13.6",
+      "distinct_days_visited": 13,
+      "pageviews": 24,
+      "visits": 20,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1.2,
+      "avg_views_per_page": 4.8,
+      "df_lof": 1.2008,
+      "rank": 439
+    },
+    {
+      "ip": "205.207.104.235",
+      "distinct_days_visited": 6,
+      "pageviews": 17,
+      "visits": 6,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 2.8333,
+      "avg_views_per_page": 4.25,
+      "df_lof": 1.2006,
+      "rank": 440
+    },
+    {
+      "ip": "178.78.253.154",
+      "distinct_days_visited": 3,
+      "pageviews": 12,
+      "visits": 7,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.7143,
+      "avg_views_per_page": 1.5,
+      "df_lof": 1.2004,
+      "rank": 441
+    },
+    {
+      "ip": "86.183.236.3",
+      "distinct_days_visited": 6,
+      "pageviews": 15,
+      "visits": 9,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.6667,
+      "avg_views_per_page": 15,
+      "df_lof": 1.2003,
+      "rank": 442
+    },
+    {
+      "ip": "1.171.71.38",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2002,
+      "rank": 443
+    },
+    {
+      "ip": "173.95.170.26",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2002,
+      "rank": 444
+    },
+    {
+      "ip": "38.88.237.194",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2002,
+      "rank": 445
+    },
+    {
+      "ip": "76.126.166.136",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2002,
+      "rank": 446
+    },
+    {
+      "ip": "96.88.114.193",
+      "distinct_days_visited": 4,
+      "pageviews": 7,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 7,
+      "df_lof": 1.2002,
+      "rank": 447
+    },
+    {
+      "ip": "86.6.231.127",
+      "distinct_days_visited": 6,
+      "pageviews": 15,
+      "visits": 12,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.25,
+      "avg_views_per_page": 3.75,
+      "df_lof": 1.2,
+      "rank": 448
+    },
+    {
+      "ip": "37.25.118.68",
+      "distinct_days_visited": 2,
+      "pageviews": 13,
+      "visits": 6,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.1667,
+      "avg_views_per_page": 2.1667,
+      "df_lof": 1.1999,
+      "rank": 449
+    },
+    {
+      "ip": "164.67.178.201",
+      "distinct_days_visited": 2,
+      "pageviews": 7,
+      "visits": 2,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 3.5,
+      "avg_views_per_page": 3.5,
+      "df_lof": 1.1998,
+      "rank": 450
+    },
+    {
+      "ip": "73.202.55.184",
+      "distinct_days_visited": 2,
+      "pageviews": 7,
+      "visits": 2,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 3.5,
+      "avg_views_per_page": 3.5,
+      "df_lof": 1.1998,
+      "rank": 451
+    },
+    {
+      "ip": "115.111.62.162",
+      "distinct_days_visited": 1,
+      "pageviews": 11,
+      "visits": 5,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 2.2,
+      "avg_views_per_page": 2.2,
+      "df_lof": 1.1995,
+      "rank": 452
+    },
+    {
+      "ip": "216.84.168.254",
+      "distinct_days_visited": 22,
+      "pageviews": 32,
+      "visits": 30,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.0667,
+      "avg_views_per_page": 10.6667,
+      "df_lof": 1.1992,
+      "rank": 453
+    },
+    {
+      "ip": "184.178.141.60",
+      "distinct_days_visited": 7,
+      "pageviews": 11,
+      "visits": 7,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.5714,
+      "avg_views_per_page": 3.6667,
+      "df_lof": 1.1984,
+      "rank": 454
+    },
+    {
+      "ip": "131.203.120.70",
+      "distinct_days_visited": 14,
+      "pageviews": 29,
+      "visits": 22,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.3182,
+      "avg_views_per_page": 4.1429,
+      "df_lof": 1.1981,
+      "rank": 455
+    },
+    {
+      "ip": "98.219.18.255",
+      "distinct_days_visited": 2,
+      "pageviews": 7,
+      "visits": 6,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 1.75,
+      "df_lof": 1.1977,
+      "rank": 456
+    },
+    {
+      "ip": "74.216.94.43",
+      "distinct_days_visited": 4,
+      "pageviews": 15,
+      "visits": 8,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.875,
+      "avg_views_per_page": 5,
+      "df_lof": 1.1975,
+      "rank": 457
+    },
+    {
+      "ip": "207.161.234.219",
+      "distinct_days_visited": 5,
+      "pageviews": 18,
+      "visits": 9,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 6,
+      "df_lof": 1.1972,
+      "rank": 458
+    },
+    {
+      "ip": "72.163.217.103",
+      "distinct_days_visited": 9,
+      "pageviews": 9,
+      "visits": 9,
+      "distinct_pages_viewed": 9,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1,
+      "df_lof": 1.197,
+      "rank": 459
+    },
+    {
+      "ip": "137.48.185.54",
+      "distinct_days_visited": 6,
+      "pageviews": 42,
+      "visits": 12,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 3.5,
+      "avg_views_per_page": 6,
+      "df_lof": 1.197,
+      "rank": 460
+    },
+    {
+      "ip": "69.193.169.69",
+      "distinct_days_visited": 2,
+      "pageviews": 9,
+      "visits": 7,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.2857,
+      "avg_views_per_page": 4.5,
+      "df_lof": 1.1966,
+      "rank": 461
+    },
+    {
+      "ip": "209.220.66.140",
+      "distinct_days_visited": 25,
+      "pageviews": 104,
+      "visits": 40,
+      "distinct_pages_viewed": 38,
+      "pv_per_visit": 2.6,
+      "avg_views_per_page": 2.7368,
+      "df_lof": 1.1964,
+      "rank": 462
+    },
+    {
+      "ip": "71.146.128.193",
+      "distinct_days_visited": 3,
+      "pageviews": 15,
+      "visits": 8,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.875,
+      "avg_views_per_page": 5,
+      "df_lof": 1.1962,
+      "rank": 463
+    },
+    {
+      "ip": "109.18.250.207",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 3,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 2.3333,
+      "avg_views_per_page": 2.3333,
+      "df_lof": 1.1962,
+      "rank": 464
+    },
+    {
+      "ip": "192.150.10.206",
+      "distinct_days_visited": 40,
+      "pageviews": 74,
+      "visits": 48,
+      "distinct_pages_viewed": 31,
+      "pv_per_visit": 1.5417,
+      "avg_views_per_page": 2.3871,
+      "df_lof": 1.1958,
+      "rank": 465
+    },
+    {
+      "ip": "99.104.29.74",
+      "distinct_days_visited": 5,
+      "pageviews": 64,
+      "visits": 8,
+      "distinct_pages_viewed": 31,
+      "pv_per_visit": 8,
+      "avg_views_per_page": 2.0645,
+      "df_lof": 1.1958,
+      "rank": 466
+    },
+    {
+      "ip": "93.175.18.247",
+      "distinct_days_visited": 1,
+      "pageviews": 7,
+      "visits": 2,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 3.5,
+      "avg_views_per_page": 7,
+      "df_lof": 1.1955,
+      "rank": 467
+    },
+    {
+      "ip": "98.26.209.215",
+      "distinct_days_visited": 4,
+      "pageviews": 11,
+      "visits": 7,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5714,
+      "avg_views_per_page": 11,
+      "df_lof": 1.1955,
+      "rank": 468
+    },
+    {
+      "ip": "206.45.74.66",
+      "distinct_days_visited": 4,
+      "pageviews": 38,
+      "visits": 13,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 2.9231,
+      "avg_views_per_page": 4.75,
+      "df_lof": 1.1948,
+      "rank": 469
+    },
+    {
+      "ip": "72.74.168.151",
+      "distinct_days_visited": 19,
+      "pageviews": 30,
+      "visits": 24,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.25,
+      "avg_views_per_page": 10,
+      "df_lof": 1.1942,
+      "rank": 470
+    },
+    {
+      "ip": "203.18.137.38",
+      "distinct_days_visited": 3,
+      "pageviews": 8,
+      "visits": 5,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1.6,
+      "avg_views_per_page": 1.1429,
+      "df_lof": 1.1941,
+      "rank": 471
+    },
+    {
+      "ip": "67.253.185.233",
+      "distinct_days_visited": 5,
+      "pageviews": 11,
+      "visits": 7,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.5714,
+      "avg_views_per_page": 11,
+      "df_lof": 1.1941,
+      "rank": 472
+    },
+    {
+      "ip": "76.121.184.146",
+      "distinct_days_visited": 7,
+      "pageviews": 9,
+      "visits": 9,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.2857,
+      "df_lof": 1.1936,
+      "rank": 473
+    },
+    {
+      "ip": "155.201.35.107",
+      "distinct_days_visited": 4,
+      "pageviews": 8,
+      "visits": 5,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.6,
+      "avg_views_per_page": 1,
+      "df_lof": 1.1936,
+      "rank": 474
+    },
+    {
+      "ip": "80.231.172.154",
+      "distinct_days_visited": 4,
+      "pageviews": 8,
+      "visits": 5,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.6,
+      "avg_views_per_page": 1,
+      "df_lof": 1.1936,
+      "rank": 475
+    },
+    {
+      "ip": "213.115.88.43",
+      "distinct_days_visited": 10,
+      "pageviews": 25,
+      "visits": 14,
+      "distinct_pages_viewed": 8,
+      "pv_per_visit": 1.7857,
+      "avg_views_per_page": 3.125,
+      "df_lof": 1.1935,
+      "rank": 476
+    },
+    {
+      "ip": "92.239.8.148",
+      "distinct_days_visited": 4,
+      "pageviews": 19,
+      "visits": 8,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.375,
+      "avg_views_per_page": 3.1667,
+      "df_lof": 1.1934,
+      "rank": 477
+    },
+    {
+      "ip": "76.26.203.231",
+      "distinct_days_visited": 10,
+      "pageviews": 22,
+      "visits": 10,
+      "distinct_pages_viewed": 18,
+      "pv_per_visit": 2.2,
+      "avg_views_per_page": 1.2222,
+      "df_lof": 1.1934,
+      "rank": 478
+    },
+    {
+      "ip": "117.212.189.227",
+      "distinct_days_visited": 1,
+      "pageviews": 10,
+      "visits": 5,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 2,
+      "df_lof": 1.1932,
+      "rank": 479
+    },
+    {
+      "ip": "50.207.248.118",
+      "distinct_days_visited": 3,
+      "pageviews": 53,
+      "visits": 4,
+      "distinct_pages_viewed": 29,
+      "pv_per_visit": 13.25,
+      "avg_views_per_page": 1.8276,
+      "df_lof": 1.1932,
+      "rank": 480
+    },
+    {
+      "ip": "117.203.74.232",
+      "distinct_days_visited": 1,
+      "pageviews": 10,
+      "visits": 3,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 3.3333,
+      "avg_views_per_page": 0.9091,
+      "df_lof": 1.1929,
+      "rank": 481
+    },
+    {
+      "ip": "88.163.242.161",
+      "distinct_days_visited": 2,
+      "pageviews": 3,
+      "visits": 5,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 0.6,
+      "avg_views_per_page": 1.5,
+      "df_lof": 1.1926,
+      "rank": 482
+    },
+    {
+      "ip": "27.251.15.114",
+      "distinct_days_visited": 31,
+      "pageviews": 58,
+      "visits": 41,
+      "distinct_pages_viewed": 27,
+      "pv_per_visit": 1.4146,
+      "avg_views_per_page": 2.1481,
+      "df_lof": 1.1914,
+      "rank": 483
+    },
+    {
+      "ip": "109.48.123.89",
+      "distinct_days_visited": 1,
+      "pageviews": 13,
+      "visits": 2,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 6.5,
+      "avg_views_per_page": 2.1667,
+      "df_lof": 1.1914,
+      "rank": 484
+    },
+    {
+      "ip": "73.17.199.92",
+      "distinct_days_visited": 1,
+      "pageviews": 13,
+      "visits": 2,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 6.5,
+      "avg_views_per_page": 2.1667,
+      "df_lof": 1.1914,
+      "rank": 485
+    },
+    {
+      "ip": "93.104.123.194",
+      "distinct_days_visited": 2,
+      "pageviews": 8,
+      "visits": 3,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 2.6667,
+      "avg_views_per_page": 8,
+      "df_lof": 1.191,
+      "rank": 486
+    },
+    {
+      "ip": "199.172.169.87",
+      "distinct_days_visited": 7,
+      "pageviews": 8,
+      "visits": 8,
+      "distinct_pages_viewed": 7,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 1.1429,
+      "df_lof": 1.191,
+      "rank": 487
+    },
+    {
+      "ip": "132.198.95.255",
+      "distinct_days_visited": 6,
+      "pageviews": 12,
+      "visits": 6,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 2,
+      "avg_views_per_page": 4,
+      "df_lof": 1.1906,
+      "rank": 488
+    },
+    {
+      "ip": "72.89.48.57",
+      "distinct_days_visited": 2,
+      "pageviews": 14,
+      "visits": 5,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 2.8,
+      "avg_views_per_page": 3.5,
+      "df_lof": 1.1904,
+      "rank": 489
+    },
+    {
+      "ip": "67.174.216.187",
+      "distinct_days_visited": 33,
+      "pageviews": 53,
+      "visits": 41,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 1.2927,
+      "avg_views_per_page": 8.8333,
+      "df_lof": 1.1901,
+      "rank": 490
+    },
+    {
+      "ip": "180.131.255.11",
+      "distinct_days_visited": 3,
+      "pageviews": 7,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 7,
+      "df_lof": 1.1896,
+      "rank": 491
+    },
+    {
+      "ip": "24.98.201.219",
+      "distinct_days_visited": 3,
+      "pageviews": 7,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 7,
+      "df_lof": 1.1896,
+      "rank": 492
+    },
+    {
+      "ip": "69.231.114.24",
+      "distinct_days_visited": 3,
+      "pageviews": 7,
+      "visits": 6,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.1667,
+      "avg_views_per_page": 7,
+      "df_lof": 1.1896,
+      "rank": 493
+    },
+    {
+      "ip": "66.251.224.122",
+      "distinct_days_visited": 3,
+      "pageviews": 7,
+      "visits": 5,
+      "distinct_pages_viewed": 1,
+      "pv_per_visit": 1.4,
+      "avg_views_per_page": 7,
+      "df_lof": 1.189,
+      "rank": 494
+    },
+    {
+      "ip": "199.201.64.134",
+      "distinct_days_visited": 27,
+      "pageviews": 27,
+      "visits": 27,
+      "distinct_pages_viewed": 5,
+      "pv_per_visit": 1,
+      "avg_views_per_page": 5.4,
+      "df_lof": 1.1887,
+      "rank": 495
+    },
+    {
+      "ip": "76.243.108.170",
+      "distinct_days_visited": 9,
+      "pageviews": 29,
+      "visits": 10,
+      "distinct_pages_viewed": 6,
+      "pv_per_visit": 2.9,
+      "avg_views_per_page": 4.8333,
+      "df_lof": 1.1884,
+      "rank": 496
+    },
+    {
+      "ip": "103.245.119.26",
+      "distinct_days_visited": 10,
+      "pageviews": 19,
+      "visits": 17,
+      "distinct_pages_viewed": 4,
+      "pv_per_visit": 1.1176,
+      "avg_views_per_page": 4.75,
+      "df_lof": 1.1882,
+      "rank": 497
+    },
+    {
+      "ip": "216.190.112.154",
+      "distinct_days_visited": 9,
+      "pageviews": 42,
+      "visits": 22,
+      "distinct_pages_viewed": 11,
+      "pv_per_visit": 1.9091,
+      "avg_views_per_page": 3.8182,
+      "df_lof": 1.188,
+      "rank": 498
+    },
+    {
+      "ip": "38.104.195.90",
+      "distinct_days_visited": 5,
+      "pageviews": 9,
+      "visits": 5,
+      "distinct_pages_viewed": 3,
+      "pv_per_visit": 1.8,
+      "avg_views_per_page": 3,
+      "df_lof": 1.188,
+      "rank": 499
+    },
+    {
+      "ip": "74.192.183.194",
+      "distinct_days_visited": 8,
+      "pageviews": 16,
+      "visits": 10,
+      "distinct_pages_viewed": 2,
+      "pv_per_visit": 1.6,
+      "avg_views_per_page": 8,
+      "df_lof": 1.1877,
+      "rank": 500
+    }
+  ],
+  "format": {
+    "type": "json",
+    "parse": {"rank": "number","df_lof": "number"}
+  },
+  "transform": [
+    {
+      "type": "filter",
+      "test": "datum.rank!==null && datum.df_lof!==null"
+    }
+  ]
+},
+{
+  "name": "layout",
+  "values": [{}],
+  "transform": [
+    {"type": "formula","field": "width","expr": "600"},
+    {"type": "formula","field": "height","expr": "300"}
+  ]
+}
+],
+"marks": [
+{
+  "name": "root",
+  "type": "group",
+  "from": {"data": "layout"},
+  "properties": {
+    "update": {
+      "width": {"field": "width"},
+      "height": {"field": "height"}
+    }
+  },
+  "marks": [
+    {
+      "name": "marks",
+      "type": "line",
+      "from": {
+        "data": "source",
+        "transform": [{"type": "sort","by": "-rank"}]
+      },
+      "properties": {
+        "update": {
+          "x": {"scale": "x","field": "rank"},
+          "y": {"scale": "y","field": "df_lof"},
+          "strokeWidth": {"value": 2},
+          "stroke": {"value": "navy"}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "domain": {"data": "source","field": "rank"},
+      "rangeMin": 0,
+      "rangeMax": 600,
+      "round": true,
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": {"data": "source","field": "df_lof"},
+      "rangeMin": 300,
+      "rangeMax": 0,
+      "round": true,
+      "nice": true,
+      "zero": true
+    }
+  ],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "format": "s",
+      "grid": true,
+      "layer": "back",
+      "ticks": 5,
+      "title": "rank"
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "format": "s",
+      "grid": true,
+      "layer": "back",
+      "title": "local outlier factor"
+    }
+  ]
+}
+]
+});
+// ]]></script>
 
 <p>We can see from the graph that there are at least 500 IP addresses that are potential outliers (since the line doesn’t go below a lof value of 1). These points are now a good starting place to go back to our overall table and inspect the entire datafeed records by IP address.</p>
 
@@ -161,7 +6068,7 @@
 </h1>
   <div id="meta-content">
       <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">May 9, 2016</a> &times; Digital Analytics
+          Randy Zwitch &times; <a href="/">May 9, 2016</a> &times; Analytics
       </div>
   </div>
   <div class="content">
@@ -371,12 +6278,12 @@
 			</div>
 			<div class="col-md-3">
 			
-	<div class="panel-group" id="panel-WordPress Tutorials">
+	<div class="panel-group" id="panel-Design">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-WordPress Tutorials" href="#WordPress Tutorials">WordPress Tutorials</a>
+				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Design" href="#Design">Design</a>
 			</div>
-			<div id="WordPress Tutorials" class="panel-collapse collapse">
+			<div id="Design" class="panel-collapse collapse">
 				<div class="panel-body">
 					
 						
@@ -421,10 +6328,6 @@
 						  
 						
 						  
-							<li data-section='/google-analytics-for-wordpress/'><a href='/google-analytics-for-wordpress/'>Google Analytics for WordPress: Two Methods</a></li>
-						  
-						
-						  
 							<li data-section='/comment-bubble-twenty-eleven/'><a href='/comment-bubble-twenty-eleven/'>Removing Comment Bubble From Twenty Eleven Theme</a></li>
 						  
 						
@@ -446,12 +6349,12 @@
 		</div>
 	</div>
 
-	<div class="panel-group" id="panel-Social Media">
+	<div class="panel-group" id="panel-Social">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Social Media" href="#Social Media">Social Media</a>
+				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Social" href="#Social">Social</a>
 			</div>
-			<div id="Social Media" class="panel-collapse collapse">
+			<div id="Social" class="panel-collapse collapse">
 				<div class="panel-body">
 					
 						
@@ -481,12 +6384,12 @@
 		</div>
 	</div>
 
-	<div class="panel-group" id="panel-Digital Analytics">
+	<div class="panel-group" id="panel-Analytics">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Digital Analytics" href="#Digital Analytics">Digital Analytics</a>
+				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Analytics" href="#Analytics">Analytics</a>
 			</div>
-			<div id="Digital Analytics" class="panel-collapse collapse">
+			<div id="Analytics" class="panel-collapse collapse">
 				<div class="panel-body">
 					
 						
@@ -881,12 +6784,12 @@
 		</div>
 	</div>
 
-	<div class="panel-group" id="panel-General Programming">
+	<div class="panel-group" id="panel-Programming">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-General Programming" href="#General Programming">General Programming</a>
+				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Programming" href="#Programming">Programming</a>
 			</div>
-			<div id="General Programming" class="panel-collapse collapse">
+			<div id="Programming" class="panel-collapse collapse">
 				<div class="panel-body">
 					
 						

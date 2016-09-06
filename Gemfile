@@ -4,3 +4,4 @@ gem 'jekyll-seo-tag'
 gem 'jekyll-coffeescript'
 gem 'jekyll-admin', group: :jekyll_plugins
 gem 'jekyll-paginate'
+gem 'jekyll-gist'

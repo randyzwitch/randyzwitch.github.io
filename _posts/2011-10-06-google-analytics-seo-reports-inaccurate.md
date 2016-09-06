@@ -3,18 +3,8 @@ title: 'Google Analytics SEO reports: Not Ready For Primetime?'
 date: 2011-10-06T08:40:58+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=754
 permalink: /google-analytics-seo-reports-inaccurate/
-tweetbackscheck:
-  - 1472943915
-shorturls:
-  - 'a:3:{s:9:"permalink";s:63:"http://randyzwitch.com/google-analytics-seo-reports-inaccurate/";s:7:"tinyurl";s:26:"http://tinyurl.com/8a7ofbn";s:4:"isgd";s:19:"http://is.gd/8l8WSs";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Data Accuracy
   - Google Analytics

@@ -3,18 +3,8 @@ title: 'The Fun of Error Trapping: R Package Edition'
 date: 2013-02-25T17:15:46+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1637
 permalink: /r-error-message-fun/
-tweetbackscheck:
-  - 1472624932
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1637";s:7:"tinyurl";s:26:"http://tinyurl.com/b2htwjd";s:4:"isgd";s:19:"http://is.gd/U3Zi2m";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - General Programming
+category: Programming
 tags:
   - Package Development
   - R

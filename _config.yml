@@ -4,6 +4,7 @@ gems:
 - jekyll-sitemap
 - jekyll-paginate
 - jekyll-admin
+- jekyll-gist
 twitter:
   username: randyzwitch
 permalink: /:title

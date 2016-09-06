@@ -3,18 +3,8 @@ title: 'Getting Started Using R, Part 1:  RStudio'
 date: 2012-08-04T11:58:14+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1262
 permalink: /getting-started-using-rstudio/
-tweetbackscheck:
-  - 1472985266
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1262";s:7:"tinyurl";s:26:"http://tinyurl.com/cfcxjad";s:4:"isgd";s:19:"http://is.gd/1eSVJo";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - R
   - rattle

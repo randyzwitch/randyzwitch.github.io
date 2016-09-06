@@ -3,18 +3,8 @@ title: Tabular Data I/O in Julia
 date: 2013-08-06T10:05:38+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1942
 permalink: /julia-import-data/
-tweetbackscheck:
-  - 1472925583
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1942";s:7:"tinyurl";s:26:"http://tinyurl.com/jwyfbrv";s:4:"isgd";s:19:"http://is.gd/G7Uao0";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Julia
   - Python

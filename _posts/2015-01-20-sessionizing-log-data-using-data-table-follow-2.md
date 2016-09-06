@@ -3,18 +3,8 @@ title: 'Sessionizing Log Data Using data.table [Follow-up #2]'
 date: 2015-01-20T09:01:19+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3418
 permalink: /sessionizing-log-data-using-data-table-follow-2/
-tweetbackscheck:
-  - 1472692597
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3418";s:7:"tinyurl";s:26:"http://tinyurl.com/lt9jp5q";s:4:"isgd";s:19:"http://is.gd/yAQrHn";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - data.table
   - R

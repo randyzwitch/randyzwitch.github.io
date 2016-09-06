@@ -3,18 +3,8 @@ title: Learning R Has Really Made Me Appreciate SAS
 date: 2012-07-25T11:34:03+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1246
 permalink: /learning-r-sas/
-tweetbackscheck:
-  - 1473001281
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1246";s:7:"tinyurl";s:26:"http://tinyurl.com/bsbvgs4";s:4:"isgd";s:19:"http://is.gd/MOfdtV";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Data Visualization
   - Hadoop

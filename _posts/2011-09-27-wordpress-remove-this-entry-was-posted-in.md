@@ -3,18 +3,8 @@ title: 'How To Remove "This entry was posted in" on WordPress single posts'
 date: 2011-09-27T15:29:42+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=633
 permalink: /wordpress-remove-this-entry-was-posted-in/
-tweetbackscheck:
-  - 1472921734
-shorturls:
-  - 'a:3:{s:9:"permalink";s:65:"http://randyzwitch.com/wordpress-remove-this-entry-was-posted-in/";s:7:"tinyurl";s:26:"http://tinyurl.com/88sv6e3";s:4:"isgd";s:19:"http://is.gd/8xavkL";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - Footer

@@ -3,18 +3,8 @@ title: 'Picking a WordPress Theme: Fancy or Basic?'
 date: 2011-07-09T07:43:20+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=47
 permalink: /wordpress-theme-twentyeleven-athualpa/
-tweetbackscheck:
-  - 1472684710
-shorturls:
-  - 'a:3:{s:9:"permalink";s:61:"http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/";s:7:"tinyurl";s:26:"http://tinyurl.com/7pkvxql";s:4:"isgd";s:19:"http://is.gd/EYuRqT";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - Google Adsense

@@ -5,16 +5,7 @@ author: Randy Zwitch
 layout: post
 guid: http://randyzwitch.com/?p=711
 permalink: /an-afternoon-with-edward-tufte/
-tweetbackscheck:
-  - 1472949949
-shorturls:
-  - 'a:3:{s:9:"permalink";s:54:"http://randyzwitch.com/an-afternoon-with-edward-tufte/";s:7:"tinyurl";s:26:"http://tinyurl.com/89eqlpr";s:4:"isgd";s:19:"http://is.gd/3yXMYH";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Analytics
   - Chartjunk

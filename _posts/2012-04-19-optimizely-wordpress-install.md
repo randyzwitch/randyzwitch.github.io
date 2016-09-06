@@ -3,18 +3,8 @@ title: How To Install Optimizely on WordPress
 date: 2012-04-19T07:45:22+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=991
 permalink: /optimizely-wordpress-install/
-tweetbackscheck:
-  - 1472993163
-shorturls:
-  - 'a:3:{s:9:"permalink";s:29:"http://randyzwitch.com/?p=991";s:4:"isgd";s:19:"http://is.gd/SlZBug";s:7:"tinyurl";s:26:"http://tinyurl.com/c34qprp";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - A/B testing
   - Child Theme

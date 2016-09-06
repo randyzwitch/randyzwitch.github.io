@@ -3,18 +3,8 @@ title: "Where's The Relevance, Twitter?"
 date: 2012-06-14T08:42:36+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1151
 permalink: /twitter-promoted-tweets/
-tweetbackscheck:
-  - 1472999655
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1151";s:7:"tinyurl";s:26:"http://tinyurl.com/8672typ";s:4:"isgd";s:19:"http://is.gd/7ANPCR";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Social Media
+category: Social
 tags:
   - Advertising
   - Klout

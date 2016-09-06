@@ -3,18 +3,8 @@ title: Introducing Twitter.jl
 date: 2014-12-08T17:12:58+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3265
 permalink: /twitter-api-julia/
-tweetbackscheck:
-  - 1472809955
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3265";s:7:"tinyurl";s:26:"http://tinyurl.com/otvxln6";s:4:"isgd";s:19:"http://is.gd/WEhZRW";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Julia
   - NLP

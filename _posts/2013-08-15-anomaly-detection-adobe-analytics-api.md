@@ -3,18 +3,8 @@ title: Anomaly Detection Using The Adobe Analytics API
 date: 2013-08-15T10:57:56+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2012
 permalink: /anomaly-detection-adobe-analytics-api/
-tweetbackscheck:
-  - 1472944101
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2012";s:7:"tinyurl";s:26:"http://tinyurl.com/k2gjy2c";s:4:"isgd";s:19:"http://is.gd/gZGoxL";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Omniture

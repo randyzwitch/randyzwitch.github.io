@@ -3,18 +3,8 @@ title: 'Removing "Powered by WordPress" From Scrappy'
 date: 2012-04-23T21:23:37+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1008
 permalink: /removing-powered-by-wordpress-scrappy/
-tweetbackscheck:
-  - 1472937708
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1008";s:7:"tinyurl";s:26:"http://tinyurl.com/6nkkpuu";s:4:"isgd";s:19:"http://is.gd/SQvfFc";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - Footer

@@ -3,18 +3,8 @@ title: 'Adobe Discover 3:  First Impressions'
 date: 2012-04-27T08:24:21+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1017
 permalink: /adobe-discover-3-first-impressions/
-tweetbackscheck:
-  - 1472956017
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1017";s:7:"tinyurl";s:26:"http://tinyurl.com/8xcx954";s:4:"isgd";s:19:"http://is.gd/BcfhjN";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Discover
   - Analytics

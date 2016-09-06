@@ -3,18 +3,8 @@ title: Removing Comment Bubble From Twenty Eleven Theme
 date: 2011-07-29T21:23:16+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=307
 permalink: /comment-bubble-twenty-eleven/
-tweetbackscheck:
-  - 1472915097
-shorturls:
-  - 'a:3:{s:9:"permalink";s:52:"http://randyzwitch.com/comment-bubble-twenty-eleven/";s:7:"tinyurl";s:26:"http://tinyurl.com/85os4q3";s:4:"isgd";s:19:"http://is.gd/6KffEp";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - Firefox

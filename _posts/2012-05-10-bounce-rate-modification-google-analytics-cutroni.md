@@ -3,18 +3,8 @@ title: Effect Of Modified Bounce Rate In Google Analytics
 date: 2012-05-10T08:05:02+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1055
 permalink: /bounce-rate-modification-google-analytics-cutroni/
-tweetbackscheck:
-  - 1472673427
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1055";s:7:"tinyurl";s:26:"http://tinyurl.com/bllzdyh";s:4:"isgd";s:19:"http://is.gd/jWyv4P";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Analytics
   - Google Analytics

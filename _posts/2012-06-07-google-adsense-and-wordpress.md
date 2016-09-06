@@ -3,18 +3,8 @@ title: Get Rich With Google AdSense And WordPress!
 date: 2012-06-07T08:37:28+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1131
 permalink: /google-adsense-and-wordpress/
-tweetbackscheck:
-  - 1472944590
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1131";s:7:"tinyurl";s:26:"http://tinyurl.com/6tybqpc";s:4:"isgd";s:19:"http://is.gd/gX1WeZ";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Google Adsense
 ---

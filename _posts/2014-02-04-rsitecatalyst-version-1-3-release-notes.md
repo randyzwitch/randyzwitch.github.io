@@ -3,18 +3,8 @@ title: RSiteCatalyst Version 1.3 Release Notes
 date: 2014-02-04T09:44:19+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2507
 permalink: /rsitecatalyst-version-1-3-release-notes/
-tweetbackscheck:
-  - 1472735864
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2507";s:7:"tinyurl";s:26:"http://tinyurl.com/l4n7fqc";s:4:"isgd";s:19:"http://is.gd/jDn9Z0";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Omniture

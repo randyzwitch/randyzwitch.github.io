@@ -3,18 +3,8 @@ title: Bulk Downloading Adobe Analytics Data
 date: 2016-07-21T08:25:02+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3974
 permalink: /rsitecatalyst-bulk-download-version-1-4-9-release-notes/
-tweetbackscheck:
-  - 1472922805
-shorturls:
-  - 'a:2:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3974";s:7:"tinyurl";s:26:"http://tinyurl.com/hpmptl8";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Omniture
@@ -25,13 +15,38 @@ _This blog post also serves as release notes for RSiteCatalyst v1.4.9, as only o
 
 Recently, I was asked how I would approach replicating the [market basket analysis](http://33sticks.com/rsitecatalyst-market-basket-analysis-adobe-analytics/) blog post I wrote for [33 Sticks](http://33sticks.com/), but using a lot more data. Like, months and months of order-level data. While you _might_ be able to submit multiple months worth of data in a single RSiteCatalyst call, it's a lot more elegant to request data from the Adobe Analytics API in several calls. With the new batch-submit and batch-receive functionality in RSiteCatalyst, this process can be a LOT faster.
 
-
-
-
-
 ## Non-Batched Method
 
 Prior to version 1.4.9 of RSiteCatalyst, API calls could only be made in a serial fashion:
+
+{% highlight R linenos %}
+library(RSiteCatalyst)
+library(dplyr)
+
+SCAuth(Sys.getenv("USER", ""), Sys.getenv("SECRET", ""))
+
+combined_orders <- data.frame()
+for(d in seq(as.Date("2016-06-01"), as.Date("2016-06-30"), by = "day")){
+
+  d_ <- as.character(as.Date(d, origin = "1970-01-01"))
+  print(d_)
+
+  order_details <- QueueRanked(
+    reportsuite.id = "reportsuite",
+    date.from = d_,
+    date.to = d_,
+    elements = c('evar13', 'product'),
+    metrics = c('revenue', 'units', 'orders'),
+    top = c(50000, 10000),
+    interval.seconds = 60
+  )
+
+  order_details$order_date <- d_
+  combined_orders <- rbind.fill(combined_orders, order_details)
+  rm(order_details)
+
+}
+{% endhighlight %}
 
 The underlying assumption from a package development standpoint was that the user would be working in an interactive fashion; submit a report request, wait to get the answer back. There's nothing inherently wrong with this code from an R standpoint that made this a slow process, you just had to wait until one report was calculated by the Adobe Analytics API until the next one was submitted.
 
@@ -39,7 +54,35 @@ The underlying assumption from a package development standpoint was that the use
 
 Of course, most APIs can process multiple calls simultaneously, and the Adobe Analytics API is no exception. Thanks to user [shashispace](https://github.com/shashispace), it's now possible to submit all of your report calls at once, then retrieve the results:
 
-This code is nearly identical to the serial snippet above, except for 1) the addition of the _<span class="pl-v">enqueueOnly</span> <span class="pl-k">=</span>_ <span class="pl-c1"><em>TRUE</em> keyword argument and 2) lowering the <em>interval.seconds</em> keyword argument to 1 second instead of 60. When you use the enqueueOnly keyword, instead of returning the report results back, a Queue* function will return the report.id; by accumulating these report.id values in a list, we can next retrieve the reports and bind them together using dplyr.</span>
+{% highlight R linenos %}
+queued <- list()
+for(d in seq(as.Date("2016-06-01"), as.Date("2016-06-30"), by = "day")){
+  d_ <- as.character(as.Date(d, origin = "1970-01-01"))
+
+  print(d_)
+
+  reportid <- QueueRanked(
+    reportsuite.id = "reportsuite",
+    date.from = d_,
+    date.to = d_,
+    elements = c('evar13', 'product'),
+    metrics = c('revenue', 'units', 'orders'),
+    top = c(50000, 10000),
+    interval.seconds = 1,
+    enqueueOnly = TRUE
+  )
+
+  queued <- cbind(queued, reportid)
+
+}
+
+queued_df <- data.frame()
+for (i in queued){
+  queued_df <- bind_rows(queued_df, GetReport(i))
+}
+{% endhighlight %}
+
+This code is nearly identical to the serial snippet above, except for 1) the addition of the `enqueueOnly = TRUE` keyword argument and 2) lowering the `interval.seconds` keyword argument to `1` second instead of `60`. When you use the enqueueOnly keyword, instead of returning the report results back, a `Queue*` function will return the `report.id`; by accumulating these `report.id` values in a list, we can next retrieve the reports and bind them together using dplyr.
 
 ## Performance gain: 4x speed-up
 

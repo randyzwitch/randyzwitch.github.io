@@ -3,18 +3,8 @@ title: "A Beginner's Look at Julia"
 date: 2013-07-23T12:16:34+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1899
 permalink: /julia-language-beginners/
-tweetbackscheck:
-  - 1472933681
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1899";s:7:"tinyurl";s:26:"http://tinyurl.com/kkx9ca9";s:4:"isgd";s:19:"http://is.gd/fznBI2";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Julia
   - Python

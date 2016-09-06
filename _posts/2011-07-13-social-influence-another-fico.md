@@ -3,18 +3,8 @@ title: Have Social 'Influence' Scores Become Another FICO?
 date: 2011-07-13T11:52:32+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=123
 permalink: /social-influence-another-fico/
-tweetbackscheck:
-  - 1472875522
-shorturls:
-  - 'a:3:{s:9:"permalink";s:53:"http://randyzwitch.com/social-influence-another-fico/";s:7:"tinyurl";s:26:"http://tinyurl.com/8y6or4s";s:4:"isgd";s:19:"http://is.gd/ZB9zMc";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Social Media
+category: Social
 tags:
   - Klout
   - Peer Index

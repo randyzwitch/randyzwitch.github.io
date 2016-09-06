@@ -3,18 +3,8 @@ title: 'Google Analytics Custom Variables: A Page-Level Example'
 date: 2011-10-02T11:10:37+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=629
 permalink: /google-analytics-custom-variables/
-tweetbackscheck:
-  - 1472954117
-shorturls:
-  - 'a:3:{s:9:"permalink";s:57:"http://randyzwitch.com/google-analytics-custom-variables/";s:7:"tinyurl";s:26:"http://tinyurl.com/6tbhmuf";s:4:"isgd";s:19:"http://is.gd/O2gDuQ";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Custom Variables
   - Google Analytics

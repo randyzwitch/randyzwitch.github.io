@@ -3,18 +3,8 @@ title: Calling RSiteCatalyst From Python
 date: 2016-02-22T10:34:44+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3824
 permalink: /rsitecatalyst-adobe-analytics-python/
-tweetbackscheck:
-  - 1472925966
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3824";s:7:"tinyurl";s:26:"http://tinyurl.com/gv8acx8";s:4:"isgd";s:19:"http://is.gd/5ks78u";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Jupyter Notebook

@@ -3,20 +3,8 @@ title: Automated Re-Install of Packages for R 3.0
 date: 2013-04-03T10:10:09+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1658
 permalink: /automated-re-install-of-packages-for-r-3-0/
-tweetbackscheck:
-  - 1472985336
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1658";s:7:"tinyurl";s:26:"http://tinyurl.com/btnz4p9";s:4:"isgd";s:19:"http://is.gd/JYFou4";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-livefyre_version:
-  - 3
-category:
-  - General Programming
+category: Programming
 tags:
   - R
 ---

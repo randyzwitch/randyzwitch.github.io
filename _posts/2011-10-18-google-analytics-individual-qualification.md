@@ -3,18 +3,8 @@ title: 'Google Analytics Individual Qualification (IQ) - Passed!'
 date: 2011-10-18T07:21:31+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=854
 permalink: /google-analytics-individual-qualification/
-tweetbackscheck:
-  - 1472754575
-shorturls:
-  - 'a:3:{s:9:"permalink";s:65:"http://randyzwitch.com/google-analytics-individual-qualification/";s:7:"tinyurl";s:26:"http://tinyurl.com/7mu52kc";s:4:"isgd";s:19:"http://is.gd/m9HYsn";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Google Analytics
 ---

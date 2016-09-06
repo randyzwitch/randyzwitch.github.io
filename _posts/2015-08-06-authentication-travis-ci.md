@@ -3,18 +3,8 @@ title: Authenticated API Testing Using Travis CI
 date: 2015-08-06T20:21:50+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3584
 permalink: /authentication-travis-ci/
-tweetbackscheck:
-  - 1472935819
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3584";s:7:"tinyurl";s:26:"http://tinyurl.com/o3twqla";s:4:"isgd";s:19:"http://is.gd/gr78tN";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - General Programming
+category: Programming
 tags:
   - Adobe Analytics
   - Omniture

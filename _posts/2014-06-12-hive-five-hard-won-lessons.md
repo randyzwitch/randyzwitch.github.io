@@ -3,18 +3,8 @@ title: Five Hard-Won Lessons Using Hive
 date: 2014-06-12T13:01:18+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2680
 permalink: /hive-five-hard-won-lessons/
-tweetbackscheck:
-  - 1472972120
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2680";s:7:"tinyurl";s:26:"http://tinyurl.com/kcxxsnv";s:4:"isgd";s:19:"http://is.gd/Us2e4V";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Big Data
   - Hadoop

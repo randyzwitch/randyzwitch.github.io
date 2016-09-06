@@ -3,19 +3,8 @@ title: 'Removing "Powered by WordPress" in Twenty Eleven'
 date: 2011-08-20T10:14:38+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=423
 permalink: /removing-powered-by-wordpress-twenty-eleven/
-tweetbackscheck:
-  - 1472942926
-  - 1472942926
-shorturls:
-  - 'a:3:{s:9:"permalink";s:67:"http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/";s:7:"tinyurl";s:26:"http://tinyurl.com/6uql7fp";s:4:"isgd";s:19:"http://is.gd/Nj7ihP";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - Footer

@@ -3,18 +3,8 @@ title: 'Xchange 2011: Think Tank and Harbor Cruise'
 date: 2011-09-13T11:06:58+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=556
 permalink: /xchange-2011-think-tank/
-tweetbackscheck:
-  - 1472218378
-shorturls:
-  - 'a:3:{s:9:"permalink";s:47:"http://randyzwitch.com/xchange-2011-think-tank/";s:7:"tinyurl";s:26:"http://tinyurl.com/837syul";s:4:"isgd";s:19:"http://is.gd/ApZiVb";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Xchange 2011
 ---

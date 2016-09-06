@@ -3,18 +3,8 @@ title: 'Travis CI: "You Have Too Many Tests LOLZ!"'
 date: 2016-04-05T11:41:53+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3891
 permalink: /travisci-10minute-timeout-build-error/
-tweetbackscheck:
-  - 1472924511
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3891";s:7:"tinyurl";s:26:"http://tinyurl.com/hqujsx5";s:4:"isgd";s:19:"http://is.gd/WLoocY";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - General Programming
+category: Programming
 tags:
   - Open Source
   - R

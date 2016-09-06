@@ -3,20 +3,8 @@ title: 'Getting Started Using Hadoop, Part 3: Loading Data'
 date: 2013-05-22T11:39:19+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1757
 permalink: /uploading-data-hadoop-amazon-ec2-cloudera-part-3/
-tweetbackscheck:
-  - 1472951782
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1757";s:7:"tinyurl";s:26:"http://tinyurl.com/bnv3ftf";s:4:"isgd";s:19:"http://is.gd/aKMge6";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-livefyre_version:
-  - 3
-category:
-  - Data Science
+category: Data Science
 tags:
   - Amazon EC2
   - Cloudera

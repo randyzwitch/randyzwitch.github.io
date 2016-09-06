@@ -3,20 +3,8 @@ title: Installing Google Plus Button on WordPress
 date: 2011-09-03T11:33:11+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=484
 permalink: /google-plus-button-wordpress-twenty-eleven/
-sharing_disabled:
-  - 1
-tweetbackscheck:
-  - 1472965542
-shorturls:
-  - 'a:3:{s:9:"permalink";s:66:"http://randyzwitch.com/google-plus-button-wordpress-twenty-eleven/";s:7:"tinyurl";s:26:"http://tinyurl.com/6pog5ca";s:4:"isgd";s:19:"http://is.gd/Z4xJ55";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - WordPress Tutorials
+category: Design
 tags:
   - Child Theme
   - JavaScript

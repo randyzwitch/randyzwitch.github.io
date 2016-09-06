@@ -3,18 +3,8 @@ title: Using Omniture SiteCatalyst Target Report To Calculate YOY growth
 date: 2012-02-22T08:15:18+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=960
 permalink: /omniture-sitecatalyst-target-report/
-tweetbackscheck:
-  - 1472925877
-shorturls:
-  - 'a:3:{s:9:"permalink";s:59:"http://randyzwitch.com/omniture-sitecatalyst-target-report/";s:7:"tinyurl";s:26:"http://tinyurl.com/84khlee";s:4:"isgd";s:19:"http://is.gd/GfGNxm";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Adobe Analytics
   - Analytics

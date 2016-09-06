@@ -5,16 +5,7 @@ author: Randy Zwitch
 layout: post
 guid: http://randyzwitch.com/?p=3108
 permalink: /declaring-twitter-bankruptcy/
-tweetbackscheck:
-  - 1472875624
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3108";s:7:"tinyurl";s:26:"http://tinyurl.com/mnmf4s8";s:4:"isgd";s:19:"http://is.gd/5GLVSD";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Social Media
+category: Social
 tags:
   - Thought Experiment
   - Twitter

@@ -3,18 +3,8 @@ title: 'Using Julia As A "Glue" Language'
 date: 2014-06-24T08:57:31+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=2697
 permalink: /julia-odbc-jl/
-tweetbackscheck:
-  - 1472943221
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=2697";s:7:"tinyurl";s:26:"http://tinyurl.com/lop2gm4";s:4:"isgd";s:19:"http://is.gd/F5Uabf";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Data Visualization
   - Hadoop

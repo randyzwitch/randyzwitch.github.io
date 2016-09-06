@@ -3,18 +3,8 @@ title: '(not provided): Using R and the Google Analytics API'
 date: 2013-01-11T16:27:33+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=1428
 permalink: /r-google-analytics-api/
-tweetbackscheck:
-  - 1473001278
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=1428";s:7:"tinyurl";s:26:"http://tinyurl.com/cadaujl";s:4:"isgd";s:19:"http://is.gd/JN1THR";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Digital Analytics
+category: Analytics
 tags:
   - Google Analytics
   - R

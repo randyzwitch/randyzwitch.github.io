@@ -3,18 +3,8 @@ title: Creating A Stacked Bar Chart in Seaborn
 date: 2014-09-09T08:01:39+00:00
 author: Randy Zwitch
 layout: post
-guid: http://randyzwitch.com/?p=3027
 permalink: /creating-stacked-bar-chart-seaborn/
-tweetbackscheck:
-  - 1472924182
-shorturls:
-  - 'a:3:{s:9:"permalink";s:30:"http://randyzwitch.com/?p=3027";s:7:"tinyurl";s:26:"http://tinyurl.com/ku5ro8o";s:4:"isgd";s:19:"http://is.gd/gmLRbk";}'
-twittercomments:
-  - 'a:0:{}'
-tweetcount:
-  - 0
-category:
-  - Data Science
+category: Data Science
 tags:
   - Data Visualization
   - Python
