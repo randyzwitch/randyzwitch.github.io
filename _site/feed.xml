@@ -280,7 +280,7 @@
       <item>
         <title>Vega.jl Rebooted - Now with 100% More Pie and Donut Charts!</title>
         
-          <description>&lt;p&gt;&lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png&quot;&gt;&amp;lt;img class=” size-medium wp-image-3466 alignleft” /wp-content/uploads/2015/05/pie-300x251.png?fit=300%2C251” alt=”pie” srcset=”http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=300%2C251 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=150%2C125 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?w=610 610w” sizes=”(max-width: 300px) 100vw, 300px” data-recalc-dims=”1” /&amp;gt;&lt;/a&gt;&lt;a href=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/donut-e1432224478621.png&quot;&gt;&amp;lt;img class=” size-full wp-image-3467 alignright” /wp-content/uploads/2015/05/donut-e1432224478621.png?fit=294%2C251” alt=”donut” data-recalc-dims=”1” /&amp;gt;&lt;/a&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png&quot;&gt;&amp;lt;img class=” size-medium wp-image-3466 alignleft” /wp-content/uploads/2015/05/pie-300x251.png?fit=300%2C251” alt=”pie” srcset=”http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=300%2C251 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=150%2C125 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?w=610 610w” sizes=”(max-width: 300px) 100vw, 300px” data-recalc-dims=”1” /&amp;gt;&lt;/a&gt;&lt;a href=&quot;/wp-content/uploads/2015/05/donut-e1432224478621.png&quot;&gt;&amp;lt;img class=” size-full wp-image-3467 alignright” /wp-content/uploads/2015/05/donut-e1432224478621.png?fit=294%2C251” alt=”donut” data-recalc-dims=”1” /&amp;gt;&lt;/a&gt;&lt;/p&gt;
 
 </description>
         
@@ -295,7 +295,7 @@
       <item>
         <title>Sessionizing Log Data Using data.table [Follow-up #2]</title>
         
-          <description>&lt;p&gt;Thanks to user &lt;a title=&quot;dnlbrky comment&quot; href=&quot;http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/#comment-16205&quot; target=&quot;_blank&quot;&gt;dnlbrky&lt;/a&gt;, we now have a third way to accomplish sessionizing log data for any arbitrary time out period (see methods &lt;a href=&quot;http://randyzwitch.com/sessionizing-log-data-sql/&quot; title=&quot;Sessionizing Log Data Using SQL&quot;&gt;1&lt;/a&gt; and &lt;a href=&quot;http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/&quot; title=&quot;Sessionizing Log Data Using dplyr [Follow-up]&quot;&gt;2&lt;/a&gt;), this time using data.table from R along with magrittr for piping:&lt;/p&gt;
+          <description>&lt;p&gt;Thanks to user &lt;a title=&quot;dnlbrky comment&quot; href=&quot;http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/#comment-16205&quot; target=&quot;_blank&quot;&gt;dnlbrky&lt;/a&gt;, we now have a third way to accomplish sessionizing log data for any arbitrary time out period (see methods &lt;a href=&quot;/sessionizing-log-data-sql/&quot; title=&quot;Sessionizing Log Data Using SQL&quot;&gt;1&lt;/a&gt; and &lt;a href=&quot;/sessionizing-log-data-dplyr-r-window-functions/&quot; title=&quot;Sessionizing Log Data Using dplyr [Follow-up]&quot;&gt;2&lt;/a&gt;), this time using data.table from R along with magrittr for piping:&lt;/p&gt;
 
 </description>
         
@@ -310,7 +310,7 @@
       <item>
         <title>Sessionizing Log Data Using dplyr [Follow-up]</title>
         
-          <description>&lt;p&gt;Last week, I wrote a blog post showing how to &lt;a title=&quot;Sessionizing Log Data Using SQL&quot; href=&quot;http://randyzwitch.com/sessionizing-log-data-sql/&quot; target=&quot;_blank&quot;&gt;sessionize log data using standard SQL&lt;/a&gt;. The main idea of that post is that if your analytics platform supports window functions (like Postgres and Hive do), you can make quick work out of sessionizing logs. Here’s the winning query:One nested sub-query and two window functions are all it takes to calculate the event boundaries and create a unique identifier for sessions for any arbitrary timeout chosen.&lt;/p&gt;
+          <description>&lt;p&gt;Last week, I wrote a blog post showing how to &lt;a href=&quot;http://randyzwitch.com/sessionizing-log-data-sql&quot;&gt;sessionize log data using standard SQL&lt;/a&gt;. The main idea of that post is that if your analytics platform supports window functions (like Postgres and Hive do), you can make quick work out of sessionizing logs. Here’s the winning query:&lt;/p&gt;
 
 </description>
         
@@ -1170,7 +1170,7 @@
       <item>
         <title>Get Rich With Google AdSense And WordPress!</title>
         
-          <description>&lt;p&gt;&amp;lt;img class=”alignright size-medium wp-image-1139” title=”google-adsense-wordpress” /wp-content/uploads/2012/06/google-adsense-wordpress-300x240.png?fit=300%2C240” alt=”Google Adsense graphic” srcset=”http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=300%2C240 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=150%2C120 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=374%2C300 374w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/06/google-adsense-wordpress.png?w=438 438w” sizes=”(max-width: 300px) 100vw, 300px” data-recalc-dims=”1” /&amp;gt;There are as many reasons to blog as there are people on Earth.  Whether it’s to use a blog as a personal diary, a means to share something you are passionate about (like &lt;a title=&quot;Food blog&quot; href=&quot;http://zwitchen.com/&quot; target=&quot;_blank&quot;&gt;cooking&lt;/a&gt;, as my wife does), a “voice” for your professional career or something else, eventually the question comes up:  should I try and earn advertising income from Google AdSense from my readership?&lt;/p&gt;
+          <description>&lt;p&gt;&amp;lt;img class=”alignright size-medium wp-image-1139” title=”google-adsense-wordpress” /wp-content/uploads/2012/06/google-adsense-wordpress-300x240.png?fit=300%2C240” alt=”Google Adsense graphic” srcset=”/wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=300%2C240 300w, /wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=150%2C120 150w, /wp-content/uploads/2012/06/google-adsense-wordpress.png?resize=374%2C300 374w, /wp-content/uploads/2012/06/google-adsense-wordpress.png?w=438 438w” sizes=”(max-width: 300px) 100vw, 300px” data-recalc-dims=”1” /&amp;gt;There are as many reasons to blog as there are people on Earth.  Whether it’s to use a blog as a personal diary, a means to share something you are passionate about (like &lt;a title=&quot;Food blog&quot; href=&quot;http://zwitchen.com/&quot; target=&quot;_blank&quot;&gt;cooking&lt;/a&gt;, as my wife does), a “voice” for your professional career or something else, eventually the question comes up:  should I try and earn advertising income from Google AdSense from my readership?&lt;/p&gt;
 
 </description>
         
@@ -1295,7 +1295,7 @@
         <title>100 Miles For charity:water - 12/1 Update</title>
         
           <description>&lt;div id=&quot;attachment_910&quot; style=&quot;width: 551px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &amp;lt;img class=&quot;size-full wp-image-910&quot; title=&quot;100milesfor-charitywater&quot; /wp-content/uploads/2011/12/100milesfor-charitywater.png?fit=541%2C365&quot; alt=&quot;charity:water campaign progress&quot; srcset=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?w=541 541w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=150%2C101 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=300%2C202 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=444%2C300 444w&quot; sizes=&quot;(max-width: 541px) 100vw, 541px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
+  &amp;lt;img class=&quot;size-full wp-image-910&quot; title=&quot;100milesfor-charitywater&quot; /wp-content/uploads/2011/12/100milesfor-charitywater.png?fit=541%2C365&quot; alt=&quot;charity:water campaign progress&quot; srcset=&quot;/wp-content/uploads/2011/12/100milesfor-charitywater.png?w=541 541w, /wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=150%2C101 150w, /wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=300%2C202 300w, /wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=444%2C300 444w&quot; sizes=&quot;(max-width: 541px) 100vw, 541px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
 
 &lt;/div&gt;
 </description>
