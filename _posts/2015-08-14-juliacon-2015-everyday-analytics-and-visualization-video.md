@@ -4,7 +4,7 @@ date: 2015-08-14T10:29:41+00:00
 author: Randy Zwitch
 layout: post
 permalink: /juliacon-2015-everyday-analytics-and-visualization-video/
-category: Data Science
+category: DataScience
 tags:
   - Analytics
   - Data Visualization
@@ -18,3 +18,5 @@ Speaking at JuliaCon 2015 at MIT CSAIL is the professional highlight of my ye
 Enjoy!
 
 _Edit: For those of you who would like to follow-along using the actual [presentation code](https://github.com/randyzwitch/juliacon2015), it is available on GitHub._
+
+<iframe src="https://www.youtube.com/embed/0F8tC3ofH4g" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>

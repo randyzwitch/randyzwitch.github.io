@@ -188,7 +188,7 @@
       <item>
         <title>RSiteCatalyst Version 1.4.5 Release Notes</title>
         
-          <description>&lt;p&gt;It’s only been a month since the &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/&quot; target=&quot;_blank&quot;&gt;last RSiteCatalyst update&lt;/a&gt;, and this update is also a pretty minor update in terms of functionality.&lt;/p&gt;
+          <description>&lt;p&gt;It’s only been a month since the &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/&quot;&gt;last RSiteCatalyst update&lt;/a&gt;, and this update is also a pretty minor update in terms of functionality.&lt;/p&gt;
 
 </description>
         
@@ -218,7 +218,7 @@
       <item>
         <title>Apple MacBook Pro Model A1286 Declared Vintage - The End Of An Era</title>
         
-          <description>&lt;p&gt;It’s hard to believe it’s been over 2.5 years since I wrote about my experience with Apple trying to get my &lt;a title=&quot;Apple Has Earned a Customer for Life&quot; href=&quot;http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/&quot; target=&quot;_blank&quot;&gt;Broken MacBook Pro Hinge&lt;/a&gt; fixed. Since that time, my Late 2008 MacBook Pro continued to work flawlessly, most of the time keeping up with the scientific programming I would do in R, Python or Julia.&lt;/p&gt;
+          <description>&lt;p&gt;It’s hard to believe it’s been over 2.5 years since I wrote about my experience with Apple trying to get my &lt;a href=&quot;http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/&quot;&gt;Broken MacBook Pro Hinge&lt;/a&gt; fixed. Since that time, my Late 2008 MacBook Pro continued to work flawlessly, most of the time keeping up with the scientific programming I would do in R, Python or Julia.&lt;/p&gt;
 
 </description>
         
@@ -249,7 +249,7 @@
         <title>Getting Started: Adobe Analytics Clickstream Data Feed</title>
         
           <description>&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;“Well, first you need a TMS and a three-tiered data layer, then some jQuery with a node backend to inject customer data into the page asynchronously if you want to avoid cookie-based limitations with cross-domain tracking and be Internet Explorer 4 compatible…“&lt;/em&gt;&lt;/p&gt;
+  &lt;p&gt;“Well, first you need a TMS and a three-tiered data layer, then some jQuery with a node backend to inject customer data into the page asynchronously if you want to avoid cookie-based limitations with cross-domain tracking and be Internet Explorer 4 compatible…”&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
@@ -265,7 +265,7 @@
       <item>
         <title>RSiteCatalyst Version 1.4.4 Release Notes</title>
         
-          <description>&lt;p&gt;It’s been about six months since the &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/&quot; target=&quot;_blank&quot;&gt;last RSiteCatalyst update&lt;/a&gt;, and this update is really just a single bug fix, but a big bug fix at that!&lt;/p&gt;
+          <description>&lt;p&gt;It’s been about six months since the last &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/&quot;&gt;RSiteCatalyst update&lt;/a&gt;, and this update is really just a single bug fix, but a big bug fix at that!&lt;/p&gt;
 
 </description>
         

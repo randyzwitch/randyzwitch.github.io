@@ -12,17 +12,13 @@ tags:
   - Macbook Pro
   - Technology
 ---
-It's hard to believe it's been over 2.5 years since I wrote about my experience with Apple trying to get my <a title="Apple Has Earned a Customer for Life" href="http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/" target="_blank">Broken MacBook Pro Hinge</a> fixed. Since that time, my Late 2008 MacBook Pro continued to work flawlessly, most of the time keeping up with the scientific programming I would do in R, Python or Julia.
+It's hard to believe it's been over 2.5 years since I wrote about my experience with Apple trying to get my [Broken MacBook Pro Hinge](http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/) fixed. Since that time, my Late 2008 MacBook Pro continued to work flawlessly, most of the time keeping up with the scientific programming I would do in R, Python or Julia.
 
 Unfortunately, it seems near impossible (if not completely impossible) to get an OEM A1281 battery as a drop-in replacement. When I went to the Apple Store at Suburban Square, PA, the "Genius" that looked at my computer took 15-20 minutes to look on the Apple website (which I obviously did before arriving, so no value-add there), only to show me a battery in stock that didn't fit my model of computer. Only after shaming him into looking up the actual part number, was he able to utter the phrase:
 
 > Oh, no, we don't have those any more. Your model MacBook Pro was declared "Vintage". No more original parts are available from Apple.
 
-_Of course_ it is. After getting home, I was able to find this <a href="https://support.apple.com/en-us/HT201624" target="_blank">service bulletin</a> from Apple, which outlines which models are obsolete. Apparently, it's a hard and fast rule that once five years from the end of manufacturing arrives, a model is declared vintage (unless local laws require longer service). So even though the only "problem" with my MacBook Pro is that I was only getting one hour of battery life per charge (or less if I'm compiling code), the computer is destined for a new life somewhere else.
-
-
-
-
+_Of course_ it is. After getting home, I was able to find this [service bulletin](https://support.apple.com/en-us/HT201624) from Apple, which outlines which models are obsolete. Apparently, it's a hard and fast rule that once five years from the end of manufacturing arrives, a model is declared vintage (unless local laws require longer service). So even though the only "problem" with my MacBook Pro is that I was only getting one hour of battery life per charge (or less if I'm compiling code), the computer is destined for a new life somewhere else.
 
 ### "Vintage" For Me, Powerful For Thee
 
