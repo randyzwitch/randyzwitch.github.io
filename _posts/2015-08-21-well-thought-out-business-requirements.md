@@ -30,7 +30,7 @@ One of the most common issues in business (especially large corporations) is tr
 
 > It would be interesting to model using SAS how our customers shop for our merchandise by channel and what overlaps there are between demographics, geography, product type and tenure. But we also have to timebox this, we can't be boiling-the-ocean just looking for needles-in-a-haystack.
 
-Say WHAT? Mr. Business Person, I cannot help you if you do not run that mess through <a href="http://unsuck-it.com/" target="_blank">Unsuck-It</a> first.
+Say WHAT? Mr. Business Person, I cannot help you if you do not run that mess through [Unsuck-It](http://unsuck-it.com/) first.
 
 In all seriousness, I've found there are a few great ways for an analyst to refine a "question" like the one above into an actionable plan of attack. So the next time you get a jargon-filled, completely generic analysis request such as the one above, try these four tactics.
 
@@ -46,11 +46,9 @@ Note that in all three of the refinement questions above, you are taking a gener
 
 ### 2. Separate The Tools From The Question
 
-The second thing to notice in the mock interaction above is the statement "_using SAS_". I didn't write that to pick on SAS, but rather, this exact statement was said to me really early in my career. I had a boss who would try and guess which tool was appropriate for the question he was asking. I presume that he was trying to gauge how hard he thought the problem was, or try to signal to me how hard he thought the problem was. In the end, a plain SQL query with the results copied into an Excel table was all that was necessary.
+The second thing to notice in the mock interaction above is the statement "_using SAS_". I didn't write that to pick on SAS, but rather, this exact statement was said to me early in my career. I had a boss who would try and guess which tool was appropriate for the question he was asking. I presume that he was trying to gauge how hard he thought the problem was, or try to signal to me how hard he thought the problem was. In the end, a plain SQL query with the results copied into an Excel table was all that was necessary.
 
 As the analyst, confirm whether _the tool_ is actually part of the _deliverable_. Meaning, if you need to deliver a Tableau workbook, ok, specifying "use Tableau" is an important part of the business question. But if the requirement is "production-quality visualizations", Tableau may or may not be the right tool or might just be one part of a larger workflow.
-
-
 
 ### 3. Every Question Is Interesting To Someone. Solve The Valuable Ones.
 
@@ -76,5 +74,3 @@ So even if the refined question becomes 'Build a customer segmentation based on
 If the key to sales is "Always Be Closing", the key to quality analysis is "Always Be Assertive". Ask questions. Make people think about what they are doing, what they ask of others and what can be done to improve the business. It's a rare, ego-centric co-worker who doesn't appreciate collaborating to get to a better quality question (and answer!) than they originally started with.
 
 Being able to read into what other people are asking for, estimating its value, then delivering more than they even knew they were asking for has helped me tremendously throughout my career. Hopefully by doing some or all of the tactics above, you'll see a marked improvement in your analysis and career as well!
-
-&nbsp;
