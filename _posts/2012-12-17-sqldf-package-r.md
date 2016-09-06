@@ -1,5 +1,4 @@
 ---
-id: 1419
 title: 'Video:  SQL Queries in R using sqldf'
 date: 2012-12-17T13:22:51+00:00
 author: Randy Zwitch
@@ -20,7 +19,7 @@ tags:
   - R
   - SQL
 ---
-This video covers how to run SQL queries using the &#8216;sqldf&#8217; package within R. This sqldf tutorial was part of a <a title="Keystone Solutions data science" href="http://www.keystonesolutions.com/index.php/blog/entry/podcast-2-r-u-serious" target="_blank">Keystone Solutions podcast discussion about data science</a> and what skills beginning analysts should be learning to improve their skill set.
+This video covers how to run SQL queries using the 'sqldf' package within R. This sqldf tutorial was part of a <a title="Keystone Solutions data science" href="http://www.keystonesolutions.com/index.php/blog/entry/podcast-2-r-u-serious" target="_blank">Keystone Solutions podcast discussion about data science</a> and what skills beginning analysts should be learning to improve their skill set.
 
 The example files from this tutorial can be downloaded from this link:
 

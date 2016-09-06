@@ -1,5 +1,4 @@
 ---
-id: 2507
 title: RSiteCatalyst Version 1.3 Release Notes
 date: 2014-02-04T09:44:19+00:00
 author: Randy Zwitch
@@ -30,7 +29,7 @@ Version 1.3 of the RSiteCatalyst package to access the Adobe Analytics API is no
   * Fixed validate flag in JSON request to work correctly
   * Deprecated GetAdminConsoleLog (appears to be removed from the API)
 
-<!--more-->
+
 
 ### Searching via Regex functionality
 
@@ -48,16 +47,16 @@ Because of the extensive new functionality for the GetRealTimeConfiguration(), S
 
 ### Variable request timing for Queue function calls
 
-This feature is to fix the issue of having an API request run so long that RSiteCatalyst gave up on retrieving an answer. Usually, API requests come back in a few seconds, but in selected cases a call could run so long as to exhaust the number of attempts (previously, 10 minutes). You can use the maxTries and waitTime arguments to specify how many times you&#8217;d like RSiteCatalyst to retrieve the report and the wait time between calls:
+This feature is to fix the issue of having an API request run so long that RSiteCatalyst gave up on retrieving an answer. Usually, API requests come back in a few seconds, but in selected cases a call could run so long as to exhaust the number of attempts (previously, 10 minutes). You can use the maxTries and waitTime arguments to specify how many times you'd like RSiteCatalyst to retrieve the report and the wait time between calls:
 
-If you don&#8217;t specify either of these arguments, RSiteCatalyst will default to trying every five seconds to retrieve the report, up to 120 tries.
+If you don't specify either of these arguments, RSiteCatalyst will default to trying every five seconds to retrieve the report, up to 120 tries.
 
 ### New Contributor: Willem Paling
 
-I&#8217;m pleased to announce that I&#8217;ve got a new contributor for RSiteCatalyst, <a title="WillemPaling on Twitter" href="https://twitter.com/WillemPaling" target="_blank">Willem Paling</a>! Willem did a near-complete re-write of the underlying code to access the API, and rather than have multiple packages out in the wild, we&#8217;ve decided to merge our works. So look forward to better-written R code and more complete access to the Adobe Analytics API&#8217;s in future releases&#8230;
+I'm pleased to announce that I've got a new contributor for RSiteCatalyst, <a title="WillemPaling on Twitter" href="https://twitter.com/WillemPaling" target="_blank">Willem Paling</a>! Willem did a near-complete re-write of the underlying code to access the API, and rather than have multiple packages out in the wild, we've decided to merge our works. So look forward to better-written R code and more complete access to the Adobe Analytics API's in future releases...
 
 ### Support
 
 If you run into any problems with RSiteCatalyst, please <a title="RSiteCatalyst GitHub issues" href="https://github.com/randyzwitch/RSiteCatalyst/issues" target="_blank">file an issue on GitHub</a> so it can be tracked properly. Note that I’m not an Adobe employee, so I can only provide so much support, as in most cases I can’t validate your settings to ensure you are set up correctly (nor do I have any inside information about how the system works <img alt=":)" src="http://i1.wp.com/randyzwitch.com/wp-includes/images/smilies/icon_smile.gif" data-recalc-dims="1" /> )
 
-_Edit 2/20/2014: I mistakenly forgot to add the new real-time functions to the R NAMESPACE file, and as such, you won&#8217;t be able to use them if you are using version 1.3. Upgrade to 1.3.1 to access the real-time functionality._
+_Edit 2/20/2014: I mistakenly forgot to add the new real-time functions to the R NAMESPACE file, and as such, you won't be able to use them if you are using version 1.3. Upgrade to 1.3.1 to access the real-time functionality._

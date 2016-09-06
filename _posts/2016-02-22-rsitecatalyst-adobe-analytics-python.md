@@ -1,5 +1,4 @@
 ---
-id: 3824
 title: Calling RSiteCatalyst From Python
 date: 2016-02-22T10:34:44+00:00
 author: Randy Zwitch
@@ -35,7 +34,7 @@ tags:
 
 
 
-This will be a very short post, because the only &#8220;new&#8221; information I&#8217;m going to provide is the minimal example to answer the question. Yes, it is in fact possible to call RSiteCatalyst from Python and seems to work well. The most important things are 1) making sure you install <a href="http://rpy2.readthedocs.org/en/version_2.7.x/" target="_blank">rpy2</a> and 2) loading <a href="http://pandas.pydata.org/" target="_blank">Pandas</a> (since so much of RSiteCatalyst are API calls returning data frames). It doesn&#8217;t hurt to already have experience using <a href="http://randyzwitch.com/tag/rsitecatalyst/" target="_blank">RSiteCatalyst</a> in <a href="http://randyzwitch.com/tag/r/" target="_blank">R</a>, since all we&#8217;re doing here is using Python to pass code to R.
+This will be a very short post, because the only "new" information I'm going to provide is the minimal example to answer the question. Yes, it is in fact possible to call RSiteCatalyst from Python and seems to work well. The most important things are 1) making sure you install <a href="http://rpy2.readthedocs.org/en/version_2.7.x/" target="_blank">rpy2</a> and 2) loading <a href="http://pandas.pydata.org/" target="_blank">Pandas</a> (since so much of RSiteCatalyst are API calls returning data frames). It doesn't hurt to already have experience using <a href="http://randyzwitch.com/tag/rsitecatalyst/" target="_blank">RSiteCatalyst</a> in <a href="http://randyzwitch.com/tag/r/" target="_blank">R</a>, since all we're doing here is using Python to pass code to R.
 
 
 
@@ -49,7 +48,7 @@ With this code run, now you can make calls to the RSiteCatalyst R package, just 
 
 ## Sample Call: GetReportSuites
 
-Just to prove it works, here&#8217;s a code snippet using _GetReportSuites()_:
+Just to prove it works, here's a code snippet using _GetReportSuites()_:
 
 And in Jupyter Notebook, you would see something similar to:
 
@@ -57,6 +56,6 @@ And in Jupyter Notebook, you would see something similar to:
 
 ## But, Why?
 
-So that&#8217;s about it&#8230;if you wanted to, you could call RSiteCatalyst from Python without much effort. There aren&#8217;t a whole lot of reasons to do so, unless like Adam above, you&#8217;d rather just use Python. I suppose if you wanted to use some other Python packages, such as <a href="http://flask.pocoo.org/docs/0.10/" target="_blank">Flask</a> to create a dashboard or <a href="http://stanford.edu/~mwaskom/software/seaborn/" target="_blank">Seaborn</a> for visualization you might want to do this. Until I got this tweet, it never occurred to me to do this, so YMMV.
+So that's about it...if you wanted to, you could call RSiteCatalyst from Python without much effort. There aren't a whole lot of reasons to do so, unless like Adam above, you'd rather just use Python. I suppose if you wanted to use some other Python packages, such as <a href="http://flask.pocoo.org/docs/0.10/" target="_blank">Flask</a> to create a dashboard or <a href="http://stanford.edu/~mwaskom/software/seaborn/" target="_blank">Seaborn</a> for visualization you might want to do this. Until I got this tweet, it never occurred to me to do this, so YMMV.
 
 _Edit, 2/26/16: Adam Gitzes, who originally asked the question, also provides a different solution using Jupyter Notebook magics at his [blog post here](http://maassmedia.com/r-site-catalyst-python.php)_

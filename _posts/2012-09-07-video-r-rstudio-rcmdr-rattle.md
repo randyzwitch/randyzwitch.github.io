@@ -1,5 +1,4 @@
 ---
-id: 1315
 title: 'Video:  R, RStudio, Rcmdr &#038; rattle'
 date: 2012-09-07T12:07:45+00:00
 author: Randy Zwitch
@@ -29,4 +28,4 @@ If you have any questions, comments, or jeers about how bad I am at R, feel free
 
 
 
-[R Demo &#8211; Randy Zwitch](http://vimeo.com/48599583) from [Keystone Solutions](http://vimeo.com/user13204299) on [Vimeo](http://vimeo.com).
+[R Demo - Randy Zwitch](http://vimeo.com/48599583) from [Keystone Solutions](http://vimeo.com/user13204299) on [Vimeo](http://vimeo.com).

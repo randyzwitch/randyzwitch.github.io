@@ -1,0 +1,48 @@
+Installing Base R
+
+#Create a user, home directory and set password
+sudo useradd rstudio
+sudo mkdir /home/rstudio
+sudo passwd rstudio
+sudo chmod -R 0777 /home/rstudio
+
+#Update all files from the default state
+sudo apt-get update
+sudo apt-get upgrade
+
+#Add CRAN mirror to custom sources.list file using vi
+sudo vi /etc/apt/sources.list.d/sources.list
+
+#Add following line (or your favorite CRAN mirror)
+deb http://lib.stat.cmu.edu/R/CRAN/bin/linux/ubuntu precise/
+
+#Update files to use CRAN mirror
+#Don't worry about error message
+sudo apt-get update
+
+#Install latest version of R
+#Install without verification
+sudo apt-get install r-base
+
+#Install in order to use RCurl & XML
+sudo aptitude install libcurl4-openssl-dev
+sudo apt-get install libxml2-dev
+
+Installing RStudio Server
+
+#Install a few background files
+sudo apt-get install gdebi-core
+sudo apt-get install libapparmor1
+
+#Change to a writeable directory
+#Download & Install RStudio Server
+cd /tmp
+wget http://download2.rstudio.org/rstudio-server-0.97.336-amd64.deb
+sudo gdebi rstudio-server-0.97.336-amd64.deb
+
+#Install MySQL
+sudo apt-get install mysql-common
+sudo apt-get install mysql-server
+
+#Install MongoDB
+sudo apt-get install mongodb

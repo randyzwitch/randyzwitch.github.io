@@ -1,5 +1,4 @@
 ---
-id: 3881
 title: RSiteCatalyst Version 1.4.8 Release Notes
 date: 2016-04-04T10:05:15+00:00
 author: Randy Zwitch
@@ -22,13 +21,13 @@ tags:
   - R
   - RSiteCatalyst
 ---
-For being in RSiteCatalyst retirement, I&#8217;m ending up working on more functionality lately ¯\_(ツ)_/¯. Here are the changes for RSiteCatalyst 1.4.8, which should be <a href="https://cran.r-project.org/web/packages/RSiteCatalyst/index.html" target="_blank">available on CRAN</a> shortly:
+For being in RSiteCatalyst retirement, I'm ending up working on more functionality lately ¯\_(ツ)_/¯. Here are the changes for RSiteCatalyst 1.4.8, which should be <a href="https://cran.r-project.org/web/packages/RSiteCatalyst/index.html" target="_blank">available on CRAN</a> shortly:
 
 ## Segment Stacking
 
-RSiteCatalyst now has the ability to take multiple values in the _segment.id _keyword for the Queue* functions. This functionality was graciously provided by <a href="https://twitter.com/FootballActuary" target="_blank">Adam Gitzes</a>, closing an <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/129" target="_blank">issue that was nearly a year old</a>. At times it felt like I was hazing him with change requests, but for Adam&#8217;s first open-source contribution, this is a huge addition in functionality.
+RSiteCatalyst now has the ability to take multiple values in the _segment.id _keyword for the Queue* functions. This functionality was graciously provided by <a href="https://twitter.com/FootballActuary" target="_blank">Adam Gitzes</a>, closing an <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/129" target="_blank">issue that was nearly a year old</a>. At times it felt like I was hazing him with change requests, but for Adam's first open-source contribution, this is a huge addition in functionality.
 
-So now you are able to pass multiple segments into a function call and get an &#8216;AND&#8217; behavior like so:
+So now you are able to pass multiple segments into a function call and get an 'AND' behavior like so:
 
 The result (Visits from Social AND Visits from Apple Browsers):
 
@@ -40,16 +39,16 @@ The result (Visits from Social AND Visits from Apple Browsers):
 
 ## QueueSummary: Now with date.to and date.from keywords
 
-In response to <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/158" target="_blank">GitHub issue #158</a>, _date.to_ and _date.from_ parameters were added; this was a minor, but long-term oversight (it&#8217;s always been possible to do this in the Adobe Analytics API). So now rather than just specifying the _date_ keyword and getting a full-year summary or a full-month, you can specify any arbitrary start/end dates.
+In response to <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/158" target="_blank">GitHub issue #158</a>, _date.to_ and _date.from_ parameters were added; this was a minor, but long-term oversight (it's always been possible to do this in the Adobe Analytics API). So now rather than just specifying the _date_ keyword and getting a full-year summary or a full-month, you can specify any arbitrary start/end dates.
 
 ## Trivial Fixes: Silenced httr message, clarified documentation
 
-Starting with the newest version of httr, you get a message for any API call where the encoding wasn&#8217;t set. So for long running Queue* requests, you may have received dozens of warnings to stdout about &#8220;<span class="pl-smi">No</span> <span class="pl-smi">encoding</span> <span class="pl-smi">supplied</span><span class="pl-k">:</span> <span class="pl-smi">defaulting</span> <span class="pl-smi">to</span> <span class="pl-smi">UTF</span><span class="pl-k">&#8211;</span><span class="pl-c1">8</span>.&#8221; This has been remedied, and the warning should no longer occur.
+Starting with the newest version of httr, you get a message for any API call where the encoding wasn't set. So for long running Queue* requests, you may have received dozens of warnings to stdout about "<span class="pl-smi">No</span> <span class="pl-smi">encoding</span> <span class="pl-smi">supplied</span><span class="pl-k">:</span> <span class="pl-smi">defaulting</span> <span class="pl-smi">to</span> <span class="pl-smi">UTF</span><span class="pl-k">-</span><span class="pl-c1">8</span>." This has been remedied, and the warning should no longer occur.
 
-Also, the <a href="https://github.com/randyzwitch/RSiteCatalyst/blob/master/man/QueueRanked.Rd#L86-#L93" target="_blank">documentation for the Queue* functions was clarified</a> to show an example of using SAINT classifications as the report breakdown; hopefully this didn&#8217;t cause too much confusion to anyone else.
+Also, the <a href="https://github.com/randyzwitch/RSiteCatalyst/blob/master/man/QueueRanked.Rd#L86-#L93" target="_blank">documentation for the Queue* functions was clarified</a> to show an example of using SAINT classifications as the report breakdown; hopefully this didn't cause too much confusion to anyone else.
 
 ## Volunteers Wanted!
 
-As I referenced in the first paragraph, while I&#8217;m fully committed to maintaining RSiteCatalyst, I don&#8217;t currently have the time/desire to continue to develop the package to improve functionality. Given that I don&#8217;t use this package for my daily work, it&#8217;s hard for me to dedicate time to the project.
+As I referenced in the first paragraph, while I'm fully committed to maintaining RSiteCatalyst, I don't currently have the time/desire to continue to develop the package to improve functionality. Given that I don't use this package for my daily work, it's hard for me to dedicate time to the project.
 
-Thanks again to Adam Gitzes who stepped up and provided significant effort to close an outstanding feature request. I would love if others in the digital analytics community would follow Adam&#8217;s lead; don&#8217;t worry about whether you are &#8216;good enough&#8217;, get a working solution together and we&#8217;ll figure out how to harden the code and get it merged. Be the code change you want to see the world 🙂
+Thanks again to Adam Gitzes who stepped up and provided significant effort to close an outstanding feature request. I would love if others in the digital analytics community would follow Adam's lead; don't worry about whether you are 'good enough', get a working solution together and we'll figure out how to harden the code and get it merged. Be the code change you want to see the world 🙂

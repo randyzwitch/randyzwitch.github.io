@@ -1,5 +1,4 @@
 ---
-id: 2280
 title: RSiteCatalyst Version 1.2 Release Notes
 date: 2013-11-05T08:29:16+00:00
 author: Randy Zwitch
@@ -43,7 +42,7 @@ For any of you out there that may have installed the 1.2 development version dir
 
 ### Testing
 
-For this release, I&#8217;ve made a more concerted effort to test RSiteCatalyst on various platforms outside of OSX (where I do my development). RSiteCatalyst works in the following environments:
+For this release, I've made a more concerted effort to test RSiteCatalyst on various platforms outside of OSX (where I do my development). RSiteCatalyst works in the following environments:
 
   * OSX Lion and prior
   * Ubuntu 12.04 LTS
@@ -52,10 +51,10 @@ For this release, I&#8217;ve made a more concerted effort to test RSiteCatalyst 
   * R 2.15.2 and newer
   * R and RStudio
 
-If your environment is not listed above, it is still likely the case that RSiteCatalyst will work in your environment, as there is no operating-system-specific code in the package. If you are finding issues, validate that you have all package dependencies installed, your Adobe account has Web Service Access privileges (set in Admin panel), you have permission access to the report suites you are trying to access (also an Admin panel setting) and that your company doesn&#8217;t have any firewall settings that would prevent API access.
+If your environment is not listed above, it is still likely the case that RSiteCatalyst will work in your environment, as there is no operating-system-specific code in the package. If you are finding issues, validate that you have all package dependencies installed, your Adobe account has Web Service Access privileges (set in Admin panel), you have permission access to the report suites you are trying to access (also an Admin panel setting) and that your company doesn't have any firewall settings that would prevent API access.
 
 ### Support
 
-If you run into any problems with RSiteCatalyst, please <a title="RSiteCatalyst GitHub issues" href="https://github.com/randyzwitch/RSiteCatalyst/issues" target="_blank">file an issue on GitHub</a> so it can be tracked properly. Note that I&#8217;m not an Adobe employee, so I can only provide so much support, as in most cases I can&#8217;t validate your settings to ensure you are set up correctly (nor do I have any inside information about how the system works 🙂 )
+If you run into any problems with RSiteCatalyst, please <a title="RSiteCatalyst GitHub issues" href="https://github.com/randyzwitch/RSiteCatalyst/issues" target="_blank">file an issue on GitHub</a> so it can be tracked properly. Note that I'm not an Adobe employee, so I can only provide so much support, as in most cases I can't validate your settings to ensure you are set up correctly (nor do I have any inside information about how the system works 🙂 )
 
 &nbsp;

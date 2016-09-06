@@ -1,5 +1,4 @@
 ---
-id: 3418
 title: 'Sessionizing Log Data Using data.table [Follow-up #2]'
 date: 2015-01-20T09:01:19+00:00
 author: Randy Zwitch
@@ -26,4 +25,4 @@ Thanks to user <a title="dnlbrky comment" href="http://randyzwitch.com/sessioni
 
 
 
-I agree with dnlbrky in that this feels a little better than the dplyr method for heavy SQL users like me, but ultimately, I still think the SQL method is the most elegant and obvious to understand. But that&#8217;s the great thing with open-source software; pick any tool you want, accomplish whatever you choose using any method you choose.
+I agree with dnlbrky in that this feels a little better than the dplyr method for heavy SQL users like me, but ultimately, I still think the SQL method is the most elegant and obvious to understand. But that's the great thing with open-source software; pick any tool you want, accomplish whatever you choose using any method you choose.

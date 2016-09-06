@@ -1,0 +1,14 @@
+Row Labels,Count of Rows,,
+001,364,23.30%,SAS only
+010,350,22.41%,Python only
+011,70,4.48%,Python and SAS
+100,490,31.37%,R only
+101,68,4.35%,R and SAS
+110,200,12.80%,R and Python
+111,20,1.28%,"R, Python and SAS"
+Grand Total,1562,1,
+,,,
+,,,
+,,R Users,49.81%
+,,Python Users,40.97%
+,,SAS Users,33.42%

@@ -1,5 +1,4 @@
 ---
-id: 1742
 title: 'Getting Started Using Hadoop, Part 2: Building a Cluster'
 date: 2013-04-25T17:33:48+00:00
 author: Randy Zwitch
@@ -23,24 +22,24 @@ tags:
   - Cloudera
   - Hadoop
 ---
-In <a title="Getting Started With Hadoop, Part 1" href="http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/" target="_blank">Part 1 of this series</a>, I discussed some of the basic concepts around Hadoop, specifically when it&#8217;s appropriate to use Hadoop to solve your data engineering problems and the terminology of the Hadoop eco-system. This post will cover how to install your own Hadoop cluster on Amazon EC2 using Cloudera Manager.
+In <a title="Getting Started With Hadoop, Part 1" href="http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/" target="_blank">Part 1 of this series</a>, I discussed some of the basic concepts around Hadoop, specifically when it's appropriate to use Hadoop to solve your data engineering problems and the terminology of the Hadoop eco-system. This post will cover how to install your own Hadoop cluster on Amazon EC2 using Cloudera Manager.
 
-Like prior posts talking about <a title="Amazon EC2 posts" href="http://randyzwitch.com/tag/amazon-ec2/" target="_blank">Amazon EC2</a>, this post assumes you have some basic facility with Linux, submitting instructions via the command line, etc. Because really, if you&#8217;re interested in Hadoop, using the command line probably isn&#8217;t a limiting factor!
+Like prior posts talking about <a title="Amazon EC2 posts" href="http://randyzwitch.com/tag/amazon-ec2/" target="_blank">Amazon EC2</a>, this post assumes you have some basic facility with Linux, submitting instructions via the command line, etc. Because really, if you're interested in Hadoop, using the command line probably isn't a limiting factor!
 
 ## Building a 18-node Hadoop Cluster
 
-The SlideShare presentation below shows the steps to building a 18-node Hadoop cluster, using a single _m1.large_ EC2 instance as the &#8216;Name Node&#8217; and 18 _m1.medium_ EC2 instances as the &#8216;Data Nodes&#8217;.  I chose 18 nodes because according to <a title="Cloudera Manager Example" href="http://blog.cloudera.com/blog/2013/03/how-to-create-a-cdh-cluster-on-amazon-ec2-via-cloudera-manager/" target="_blank">Cloudera</a>, 20 is the maximum that can be activated at one time through the Amazon API, so let&#8217;s stay under the max to avoid any errors. It&#8217;s possible to add more instances later through the Cloudera Manager (up to 50 total), if so desired.
+The SlideShare presentation below shows the steps to building a 18-node Hadoop cluster, using a single _m1.large_ EC2 instance as the 'Name Node' and 18 _m1.medium_ EC2 instances as the 'Data Nodes'.  I chose 18 nodes because according to <a title="Cloudera Manager Example" href="http://blog.cloudera.com/blog/2013/03/how-to-create-a-cdh-cluster-on-amazon-ec2-via-cloudera-manager/" target="_blank">Cloudera</a>, 20 is the maximum that can be activated at one time through the Amazon API, so let's stay under the max to avoid any errors. It's possible to add more instances later through the Cloudera Manager (up to 50 total), if so desired.
 
 Note that going through this tutorial will cost $2.40/hr at current prices ($0.24/hr per _m1.large_ instance and $0.12/hr per _m1.medium_ instance).
 
-<!--more-->
+
 
 
 
 <div style="margin-bottom: 5px;">
 </div>
 
-Since the SlideShare presentation is potentially not so friendly on the eyes, I&#8217;ve also created a <a title="Cloudera Amazon EC2 instructions" href="http://randyzwitch.com/wp-content/uploads/2013/04/cloudera-amazon-ec2.pdf" target="_blank">PDF download</a> that&#8217;s full resolution.
+Since the SlideShare presentation is potentially not so friendly on the eyes, I've also created a <a title="Cloudera Amazon EC2 instructions" href="http://randyzwitch.com/wp-content/uploads/2013/04/cloudera-amazon-ec2.pdf" target="_blank">PDF download</a> that's full resolution.
 
 
 
@@ -52,4 +51,4 @@ Once you make it through all these steps to set up a Hadoop cluster, you are rea
 
 &nbsp;
 
-_Update, 7/13/13:_ As is the case with any open-source project, there have been several changes to the Cloudera Manager that makes setup easier. When getting started, on the screen where it asks &#8220;Which Cloudera do you want to deploy?&#8221;, choose &#8216;Cloudera Standard&#8217;. Also, once you get to slides 13-14 where you click on the link to get started with Hue, the link now works correctly (you don&#8217;t need to search for the Amazon DNS any more!)
+_Update, 7/13/13:_ As is the case with any open-source project, there have been several changes to the Cloudera Manager that makes setup easier. When getting started, on the screen where it asks "Which Cloudera do you want to deploy?", choose 'Cloudera Standard'. Also, once you get to slides 13-14 where you click on the link to get started with Hue, the link now works correctly (you don't need to search for the Amazon DNS any more!)

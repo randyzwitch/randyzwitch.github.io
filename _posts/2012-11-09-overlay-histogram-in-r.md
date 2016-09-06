@@ -1,5 +1,4 @@
 ---
-id: 1373
 title: 'Video: Overlay Histogram in R (Normal, Density, Another Series)'
 date: 2012-11-09T13:40:01+00:00
 author: Randy Zwitch
@@ -23,7 +22,7 @@ tags:
 ---
 This video explains how to overlay histogram plots in R for 3 common cases: overlaying a histogram with a normal curve, overlaying a histogram with a density curve, and overlaying a histogram with a second data series plotted on a secondary axis.
 
-Note: Towards the end of the video (maybe minute 14 or so), I make a language error when talking about the &#8220;padj&#8221; parameter in the mtext function&#8230;the setting doesn&#8217;t &#8220;left truncated&#8221; the label, I meant &#8220;right align&#8221;, &#8220;left align&#8221;, etc.
+Note: Towards the end of the video (maybe minute 14 or so), I make a language error when talking about the "padj" parameter in the mtext function...the setting doesn't "left truncated" the label, I meant "right align", "left align", etc.
 
 
 

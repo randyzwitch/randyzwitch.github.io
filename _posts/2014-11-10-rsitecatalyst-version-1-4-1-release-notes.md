@@ -1,5 +1,4 @@
 ---
-id: 3117
 title: RSiteCatalyst Version 1.4.1 Release Notes
 date: 2014-11-10T10:01:36+00:00
 author: Randy Zwitch
@@ -49,6 +48,6 @@ If you were the type of person who enjoyed this blog post showing how to [auto-g
 
 ## Feature Requests/Bugs
 
-If you come across any bugs, or have any feature requests, please continue to use the <a title="RSiteCatalyst GitHub" href="https://github.com/randyzwitch/RSiteCatalyst/issues" target="_blank">RSiteCatalyst GitHub Issues</a> page to make tickets. While I&#8217;ve responded to many of you via the maintainer email provided in the R package itself, it&#8217;s much more efficient (and you&#8217;re much more likely to get a response) if you use the GitHub Issues page. Don&#8217;t worry about cluttering up the page with tickets, please fill out a new issue for anything you encounter, unless you are SURE that it is the same problem someone else is facing.
+If you come across any bugs, or have any feature requests, please continue to use the <a title="RSiteCatalyst GitHub" href="https://github.com/randyzwitch/RSiteCatalyst/issues" target="_blank">RSiteCatalyst GitHub Issues</a> page to make tickets. While I've responded to many of you via the maintainer email provided in the R package itself, it's much more efficient (and you're much more likely to get a response) if you use the GitHub Issues page. Don't worry about cluttering up the page with tickets, please fill out a new issue for anything you encounter, unless you are SURE that it is the same problem someone else is facing.
 
-And finally, like I end every blog post about RSiteCatalyst, please note that **I&#8217;m** **not an Adobe employee**. Please don&#8217;t send me your API credentials, expect immediate replies or ask to set up phone calls to troubleshoot your problems. This is open-source software&#8230;Willem Paling and I did the hard part writing it, you&#8217;re expected to support yourself as best as possible unless you believe you&#8217;re encountering a bug. Then use GitHub 🙂
+And finally, like I end every blog post about RSiteCatalyst, please note that **I'm** **not an Adobe employee**. Please don't send me your API credentials, expect immediate replies or ask to set up phone calls to troubleshoot your problems. This is open-source software...Willem Paling and I did the hard part writing it, you're expected to support yourself as best as possible unless you believe you're encountering a bug. Then use GitHub 🙂

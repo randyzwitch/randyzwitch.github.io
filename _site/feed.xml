@@ -53,7 +53,7 @@
     
       
       <item>
-        <title>Travis CI: &amp;#8220;You Have Too Many Tests LOLZ!&amp;#8221;</title>
+        <title>Travis CI: &quot;You Have Too Many Tests LOLZ!&quot;</title>
         
           <description>&lt;blockquote&gt;
   &lt;pre&gt;&lt;span id=&quot;1-2082&quot;&gt;No output has been received in the last 10m0s, this potentially indicates a
@@ -154,7 +154,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
       <item>
         <title>21st Century C: Error 64 on OSX When Using Make</title>
         
-          <description>&lt;p&gt;To end 2015, I decided to finally learn C, instead of making it a 2016 resolution! I had previously done the ‘&lt;a href=&quot;http://c.learncodethehardway.org/book/&quot; target=&quot;_blank&quot;&gt;Learn C The Hard Way&lt;/a&gt;‘ tutorials, taken about a year off, and thus forgotten everything.&lt;/p&gt;
+          <description>&lt;p&gt;To end 2015, I decided to finally learn C, instead of making it a 2016 resolution! I had previously done the ‘&lt;a href=&quot;http://c.learncodethehardway.org/book/&quot; target=&quot;_blank&quot;&gt;Learn C The Hard Way&lt;/a&gt;’ tutorials, taken about a year off, and thus forgotten everything.&lt;/p&gt;
 
 </description>
         
@@ -216,7 +216,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Apple MacBook Pro Model A1286 Declared Vintage &amp;#8211; The End Of An Era</title>
+        <title>Apple MacBook Pro Model A1286 Declared Vintage - The End Of An Era</title>
         
           <description>&lt;p&gt;It’s hard to believe it’s been over 2.5 years since I wrote about my experience with Apple trying to get my &lt;a title=&quot;Apple Has Earned a Customer for Life&quot; href=&quot;http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/&quot; target=&quot;_blank&quot;&gt;Broken MacBook Pro Hinge&lt;/a&gt; fixed. Since that time, my Late 2008 MacBook Pro continued to work flawlessly, most of the time keeping up with the scientific programming I would do in R, Python or Julia.&lt;/p&gt;
 
@@ -249,7 +249,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>Getting Started: Adobe Analytics Clickstream Data Feed</title>
         
           <description>&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;“Well, first you need a TMS and a three-tiered data layer, then some jQuery with a node backend to inject customer data into the page asynchronously if you want to avoid cookie-based limitations with cross-domain tracking and be Internet Explorer 4 compatible…”&lt;/em&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;em&gt;“Well, first you need a TMS and a three-tiered data layer, then some jQuery with a node backend to inject customer data into the page asynchronously if you want to avoid cookie-based limitations with cross-domain tracking and be Internet Explorer 4 compatible…“&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
@@ -278,7 +278,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Vega.jl Rebooted &amp;#8211; Now with 100% More Pie and Donut Charts!</title>
+        <title>Vega.jl Rebooted - Now with 100% More Pie and Donut Charts!</title>
         
           <description>&lt;p&gt;&lt;a href=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png&quot;&gt;&lt;img class=&quot; size-medium wp-image-3466 alignleft&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie-300x251.png?fit=300%2C251&quot; alt=&quot;pie&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=300%2C251 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?resize=150%2C125 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2015/05/pie.png?w=610 610w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/donut-e1432224478621.png&quot;&gt;&lt;img class=&quot; size-full wp-image-3467 alignright&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2015/05/donut-e1432224478621.png?fit=294%2C251&quot; alt=&quot;donut&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -569,7 +569,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Maybe I Don&amp;#8217;t Really Know R After All</title>
+        <title>Maybe I Don't Really Know R After All</title>
         
           <description>&lt;p&gt;Lately, I’ve been feeling that I’m spreading myself too thin in terms of programming languages. At work, I spend most of my time in &lt;a title=&quot;Hive blog posts&quot; href=&quot;http://randyzwitch.com/tag/hive/&quot; target=&quot;_blank&quot;&gt;Hive&lt;/a&gt;/SQL, with the occasional Python for my smaller data. I really prefer &lt;a title=&quot;Julia blog posts&quot; href=&quot;http://randyzwitch.com/tag/julia/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt;, but I’m alone at work on that one. And since I maintain a package on CRAN (&lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;), I frequently spend my evenings bug fix programming in R. Then, there’s the desire to learn a Java-based language like Scala (or, Java)…maybe Spark for my Hadoop work…&lt;/p&gt;
 
@@ -584,7 +584,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Using Julia As A &amp;#8216;Glue&amp;#8217; Language</title>
+        <title>Using Julia As A &quot;Glue&quot; Language</title>
         
           <description>&lt;p&gt;While much of the focus in the Julia community has been on the performance aspects of Julia relative to other scientific computing languages, Julia is also perfectly suited to ‘glue’ together multiple data sources/languages. In this blog post, I will cover how to create an interactive plot using &lt;a title=&quot;Gadfly.jl documentation&quot; href=&quot;http://dcjones.github.io/Gadfly.jl/&quot; target=&quot;_blank&quot;&gt;Gadfly.jl&lt;/a&gt;, by first preparing the data using Hadoop and &lt;a title=&quot;Teradata Aster&quot; href=&quot;http://www.asterdata.com/&quot; target=&quot;_blank&quot;&gt;Teradata Aster&lt;/a&gt; via &lt;a title=&quot;Julia ODBC&quot; href=&quot;https://github.com/quinnj/ODBC.jl&quot; target=&quot;_blank&quot;&gt;ODBC.jl&lt;/a&gt;.&lt;/p&gt;
 
@@ -871,9 +871,9 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>A Beginner&amp;#8217;s Look at Julia</title>
+        <title>A Beginner's Look at Julia</title>
         
-          <description>&lt;p&gt;Over the past month or so, I’ve been playing with a new scientific programming language called ‘&lt;a title=&quot;Julia language&quot; href=&quot;http://julialang.org/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt;‘, which aims to be a high-level language with performance approaching that of C. With that goal in mind, Julia could be a replacement for the ‘multi-language’ problem of needing to move between R, Python, MATLAB, C, Fortran, Scala, etc. within a single scientific programming project.  Here are some observations that might be helpful for others looking to get started with Julia.&lt;/p&gt;
+          <description>&lt;p&gt;Over the past month or so, I’ve been playing with a new scientific programming language called ‘&lt;a title=&quot;Julia language&quot; href=&quot;http://julialang.org/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt;’, which aims to be a high-level language with performance approaching that of C. With that goal in mind, Julia could be a replacement for the ‘multi-language’ problem of needing to move between R, Python, MATLAB, C, Fortran, Scala, etc. within a single scientific programming project.  Here are some observations that might be helpful for others looking to get started with Julia.&lt;/p&gt;
 
 </description>
         
@@ -888,7 +888,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
       <item>
         <title>Getting Started Using Hadoop, Part 3: Loading Data</title>
         
-          <description>&lt;p&gt;In part 2 of the “Getting Started Using Hadoop” series, I discussed how to &lt;a title=&quot;Build a Hadoop cluster Amazon EC2&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/&quot; target=&quot;_blank&quot;&gt;build a Hadoop cluster on Amazon EC2&lt;/a&gt; using Cloudera CDH. This post will cover how to get your data into the Hadoop Distributed File System (HDFS) using the publicly available “&lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;Airline Dataset&lt;/a&gt;“. While there are multiple ways to upload data into HDFS, this post will only cover the easiest method, which is to use the Hue ‘File Browser’ interface.&lt;/p&gt;
+          <description>&lt;p&gt;In part 2 of the “Getting Started Using Hadoop” series, I discussed how to &lt;a title=&quot;Build a Hadoop cluster Amazon EC2&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/&quot; target=&quot;_blank&quot;&gt;build a Hadoop cluster on Amazon EC2&lt;/a&gt; using Cloudera CDH. This post will cover how to get your data into the Hadoop Distributed File System (HDFS) using the publicly available “&lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;Airline Dataset&lt;/a&gt;”. While there are multiple ways to upload data into HDFS, this post will only cover the easiest method, which is to use the Hue ‘File Browser’ interface.&lt;/p&gt;
 
 </description>
         
@@ -1027,7 +1027,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Adding a &amp;#8216;Back to Top&amp;#8217; Link on WordPress</title>
+        <title>Adding a &quot;Back to Top&quot; Link on WordPress</title>
         
           <description>&lt;p&gt;In a previous post, I discussed how to &lt;a href=&quot;http://randyzwitch.com/removing-powered-by-wordpress-scrappy/&quot; title=&quot;Remove Powered By WordPress Scrappy theme&quot;&gt;remove “Powered By WordPress”&lt;/a&gt; from the footer of the Scrappy theme.  You might also want to add a “Back to Top” link in the footer, especially if your blog has a lot of vertical distance from the top to the bottom.  Here’s how to do it…&lt;/p&gt;
 
@@ -1151,7 +1151,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Where&amp;#8217;s The Relevance, Twitter?</title>
+        <title>Where's The Relevance, Twitter?</title>
         
           <description>&lt;div id=&quot;attachment_1153&quot; style=&quot;width: 652px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
   &lt;img class=&quot;size-full wp-image-1153&quot; title=&quot;twitter-promoted-tweets-spam&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?fit=642%2C481&quot; alt=&quot;twitter promoted tweets no better than spam&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?w=642 642w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=150%2C112 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=300%2C224 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=400%2C300 400w&quot; sizes=&quot;(max-width: 642px) 100vw, 642px&quot; data-recalc-dims=&quot;1&quot; /&gt;
@@ -1186,7 +1186,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
         <title>For Maximum User Understanding, Customize the SiteCatalyst Menu</title>
         
           <description>&lt;blockquote&gt;
-  &lt;p&gt;Customizing anything is better than customizing nothing – Jason Egan (&lt;a title=&quot;Jason Egan tweet&quot; href=&quot;https://twitter.com/jasonegan/status/210398632082538497&quot; target=&quot;_blank&quot;&gt;@jasonegan&lt;/a&gt;)&lt;/p&gt;
+  &lt;p&gt;Customizing anything is better than customizing nothing - Jason Egan (&lt;a title=&quot;Jason Egan tweet&quot; href=&quot;https://twitter.com/jasonegan/status/210398632082538497&quot; target=&quot;_blank&quot;&gt;@jasonegan&lt;/a&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
@@ -1230,7 +1230,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Removing &amp;#8216;Powered by WordPress&amp;#8217; From Scrappy</title>
+        <title>Removing &quot;Powered by WordPress&quot; From Scrappy</title>
         
           <description>&lt;p&gt;My wife started a &lt;a title=&quot;Zwitchen.com | What's Cookin'?&quot; href=&quot;http://zwitchen.com&quot; target=&quot;_blank&quot;&gt;food blog&lt;/a&gt; this weekend and decided to use the &lt;a title=&quot;Scrappy WordPress theme&quot; href=&quot;http://wordpress.org/extend/themes/scrappy&quot; target=&quot;_blank&quot;&gt;“Scrappy” WordPress theme&lt;/a&gt; by &lt;a href=&quot;http://carolinethemes.com/2011/11/04/scrappy/&quot; target=&quot;_blank&quot;&gt;Caroline Moore&lt;/a&gt;.  But like all WordPress themes, there are a few customizations that are usually made to personalize the theme, the first of which is removing “Powered by WordPress” in the footer.&lt;/p&gt;
 
@@ -1292,7 +1292,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>100 Miles For charity:water &amp;#8211; 12/1 Update</title>
+        <title>100 Miles For charity:water - 12/1 Update</title>
         
           <description>&lt;div id=&quot;attachment_910&quot; style=&quot;width: 551px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
   &lt;img class=&quot;size-full wp-image-910&quot; title=&quot;100milesfor-charitywater&quot; src=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?fit=541%2C365&quot; alt=&quot;charity:water campaign progress&quot; srcset=&quot;http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?w=541 541w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=150%2C101 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=300%2C202 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/12/100milesfor-charitywater.png?resize=444%2C300 444w&quot; sizes=&quot;(max-width: 541px) 100vw, 541px&quot; data-recalc-dims=&quot;1&quot; /&gt;
@@ -1339,7 +1339,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Google Analytics Individual Qualification (IQ) &amp;#8211; Passed!</title>
+        <title>Google Analytics Individual Qualification (IQ) - Passed!</title>
         
           <description>&lt;div id=&quot;attachment_856&quot; style=&quot;width: 310px&quot; class=&quot;wp-caption alignright&quot;&gt;
   &lt;img class=&quot;size-full wp-image-856&quot; title=&quot;google-iq-certificate&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?fit=300%2C231&quot; alt=&quot;&quot; srcset=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?w=300 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/google-iq-certificate.png?resize=150%2C115 150w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; data-recalc-dims=&quot;1&quot; /&gt;
@@ -1418,9 +1418,9 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>How To Remove &amp;#8220;This entry was posted in&amp;#8221; on WordPress single posts</title>
+        <title>How To Remove &quot;This entry was posted in&quot; on WordPress single posts</title>
         
-          <description>&lt;p&gt;In prior &lt;a title=&quot;Removing “Powered by WordPress” in Twenty Eleven&quot; href=&quot;http://randyzwitch.com/2011/08/removing-powered-by-wordpress-twenty-eleven/&quot; target=&quot;_blank&quot;&gt;posts&lt;/a&gt;, I’ve commented that I’m a fan of clean, sleek design when it comes to WordPress themes.  I’ve added the “breadcrumb” style navigation to the top of my posts, which makes the “This Entry was Posted in &lt;category&gt;&amp;#8221; and &amp;#8220;Bookmark the Permalink&amp;#8221; text at the bottom of each post redundant.&lt;/category&gt;&lt;/p&gt;
+          <description>&lt;p&gt;In prior &lt;a title=&quot;Removing “Powered by WordPress” in Twenty Eleven&quot; href=&quot;http://randyzwitch.com/2011/08/removing-powered-by-wordpress-twenty-eleven/&quot; target=&quot;_blank&quot;&gt;posts&lt;/a&gt;, I’ve commented that I’m a fan of clean, sleek design when it comes to WordPress themes.  I’ve added the “breadcrumb” style navigation to the top of my posts, which makes the “This Entry was Posted in &lt;category&gt;&quot; and &quot;Bookmark the Permalink&quot; text at the bottom of each post redundant.&lt;/category&gt;&lt;/p&gt;
 
 </description>
         
@@ -1495,7 +1495,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Removing &amp;#8220;Powered by WordPress&amp;#8221; in Twenty Eleven</title>
+        <title>Removing &quot;Powered by WordPress&quot; in Twenty Eleven</title>
         
           <description>&lt;p&gt;So far in the child theme tutorials for the WordPress Twenty Eleven theme, we’ve created a &lt;a title=&quot;Twenty Eleven Child Theme: Creating CSS file&quot; href=&quot;http://randyzwitch.com/2011/07/twenty-eleven-child-theme-creating-css-file/&quot; target=&quot;_blank&quot;&gt;custom CSS&lt;/a&gt; file and &lt;a title=&quot;Twenty Eleven Child Theme:  Custom Header&quot; href=&quot;http://randyzwitch.com/2011/07/custom-header-twenty-eleven-child-theme/&quot; target=&quot;_blank&quot;&gt;custom header&lt;/a&gt;.  Now, let’s add a custom footer and remove “Powered by WordPress”.&lt;/p&gt;
 
@@ -1540,7 +1540,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>WordPress Stats or Google Analytics?  Yes!</title>
+        <title>WordPress Stats or Google Analytics? Yes!</title>
         
           <description>&lt;p&gt;To understand the success of your blog content and site design, you need actionable data on your visitors and how they are interacting with your site.  Whether to use WordPress Stats or Google Analytics (or both) to obtain this data depends on your goals.&lt;/p&gt;
 
@@ -1555,7 +1555,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Twenty Eleven Child Theme:  Custom Header</title>
+        <title>Twenty Eleven Child Theme: Custom Header</title>
         
           <description>&lt;p&gt;In a previous &lt;a href=&quot;http://randyzwitch.com/2011/07/twenty-eleven-child-theme-creating-css-file/&quot;&gt;post&lt;/a&gt; about creating a child theme for Twenty-Eleven, we created a custom CSS file using the &lt;a title=&quot;Import CSS rule&quot; href=&quot;http://www.w3.org/TR/CSS2/cascade.html#at-import&quot; target=&quot;_blank&quot;&gt;@import CSS rule&lt;/a&gt;.  Technically, the new CSS file is all that is needed to create a child theme in WordPress, but &lt;em&gt;just&lt;/em&gt; changing the colors and font styles isn’t that much fun.  If it’s worth making your own WordPress child theme, it’s worth changing _everything…_starting with creating a custom header file.&lt;/p&gt;
 
@@ -1570,7 +1570,7 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Have Social &amp;#8216;Influence&amp;#8217; Scores Become Another FICO?</title>
+        <title>Have Social 'Influence' Scores Become Another FICO?</title>
         
           <description>&lt;div id=&quot;attachment_139&quot; style=&quot;width: 205px&quot; class=&quot;wp-caption alignright&quot;&gt;
   &lt;img class=&quot;size-full wp-image-139   &quot; title=&quot;zwitch-klout-july-2011&quot; src=&quot;http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/07/zwitch-klout-july-2011.png?fit=195%2C179&quot; alt=&quot;&quot; data-recalc-dims=&quot;1&quot; /&gt;
@@ -1602,9 +1602,9 @@ stalled build or something wrong with the build itself.&lt;/span&gt;&lt;/pre&gt;
     
       
       <item>
-        <title>Picking a WordPress Theme:  Fancy or Basic?</title>
+        <title>Picking a WordPress Theme: Fancy or Basic?</title>
         
-          <description>&lt;h2 id=&quot;a-complicated-wordpress-theme-may-look-better8230&quot;&gt;A complicated WordPress theme may LOOK better…&lt;/h2&gt;
+          <description>&lt;h2 id=&quot;a-complicated-wordpress-theme-may-look-better&quot;&gt;A complicated WordPress theme may LOOK better…&lt;/h2&gt;
 
 </description>
         

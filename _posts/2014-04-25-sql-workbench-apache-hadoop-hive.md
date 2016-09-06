@@ -1,5 +1,4 @@
 ---
-id: 2622
 title: Using SQL Workbench with Apache Hive
 date: 2014-04-25T14:05:57+00:00
 author: Randy Zwitch
@@ -23,11 +22,11 @@ tags:
   - Open Source
   - SQL
 ---
-If you&#8217;ve spent any non-trivial amount of time working with Hadoop and Hive at the command line, you&#8217;ve likely wished that you could interact with Hadoop like you would any other database. If you&#8217;re lucky, your Hadoop administrator has already installed the <a title="Apache Hue" href="http://gethue.com/" target="_blank">Apache Hue</a> front-end to your cluster, which allows for <a title="Getting Started Using Hadoop, Part 3: Loading Data" href="http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/" target="_blank">interacting with Hadoop via an easy-to-use browser interface</a>. However, if you don&#8217;t have Hue, Hive also supports access via JDBC; the downside is, setup is not as easy as including a single JDBC driver.
+If you've spent any non-trivial amount of time working with Hadoop and Hive at the command line, you've likely wished that you could interact with Hadoop like you would any other database. If you're lucky, your Hadoop administrator has already installed the <a title="Apache Hue" href="http://gethue.com/" target="_blank">Apache Hue</a> front-end to your cluster, which allows for <a title="Getting Started Using Hadoop, Part 3: Loading Data" href="http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/" target="_blank">interacting with Hadoop via an easy-to-use browser interface</a>. However, if you don't have Hue, Hive also supports access via JDBC; the downside is, setup is not as easy as including a single JDBC driver.
 
-While there are paid database administration tools such as <a title="Aqua Data Studio" href="http://www.aquafold.com/dbspecific/apache_hive_client.html" target="_blank">Aqua Data Studio</a> that support Hive, I&#8217;m an open source kind of guy, so this tutorial will show you how to use <a title="SQL Workbench download" href="http://www.sql-workbench.net/" target="_blank">SQL Workbench</a> to access Hive via JDBC. This tutorial assumes that you are proficient enough to get SQL Workbench installed on whatever computing platform you are using (Windows, OSX, or Linux).
+While there are paid database administration tools such as <a title="Aqua Data Studio" href="http://www.aquafold.com/dbspecific/apache_hive_client.html" target="_blank">Aqua Data Studio</a> that support Hive, I'm an open source kind of guy, so this tutorial will show you how to use <a title="SQL Workbench download" href="http://www.sql-workbench.net/" target="_blank">SQL Workbench</a> to access Hive via JDBC. This tutorial assumes that you are proficient enough to get SQL Workbench installed on whatever computing platform you are using (Windows, OSX, or Linux).
 
-<!--more-->
+
 
 ### Download Hadoop jars
 
@@ -41,7 +40,7 @@ The hardest part of using Hive via JDBC is getting all of the required jars. At 
   </p>
 </div>
 
-Since it&#8217;s not always clear which .jar files are required (especially for other projects/setups you might be doing), I just downloaded the entire set of files and placed them in a directory called &#8220;hadoop_jars&#8221;. If you&#8217;re not using MapR, you&#8217;ll need to find and download your vendor-specific version of the following .jar files:
+Since it's not always clear which .jar files are required (especially for other projects/setups you might be doing), I just downloaded the entire set of files and placed them in a directory called "hadoop_jars". If you're not using MapR, you'll need to find and download your vendor-specific version of the following .jar files:
 
   * hive-exec.jar
   * hive-jdbc.jar
@@ -62,11 +61,11 @@ Whew. Once you have the Hive JDBC driver and the 10 other .jar files, we can beg
 
 ### Setting up Hive JDBC driver
 
-Setting up the JDBC driver is simply a matter of providing SQL Workbench with the location of all 11 of the required .jar files. After clicking File -> Manage Drivers, you&#8217;ll want to click on the white page icon to create a New Driver. Use the Folder icon to add the .jars:
+Setting up the JDBC driver is simply a matter of providing SQL Workbench with the location of all 11 of the required .jar files. After clicking File -> Manage Drivers, you'll want to click on the white page icon to create a New Driver. Use the Folder icon to add the .jars:
 
 [<img class="aligncenter size-full wp-image-2635" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-driver-setup.png?fit=500%2C317" alt="sqlworkbench-hive-driver-setup" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-driver-setup.png?w=500 500w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-driver-setup.png?resize=150%2C95 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-driver-setup.png?resize=300%2C190 300w" sizes="(max-width: 500px) 100vw, 500px" data-recalc-dims="1" />](http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-driver-setup.png)
 
-For the Classname box, if you are using a relatively new version of Hive, you&#8217;ll be using Hive2 server. In that case, the Classname for the Hive driver is org.apache.hive.jdbc.HiveDriver (this should pop up on-screen, you just need to select the value). You are not required to put any value for the Sample URL. Hit OK and the driver window will close.
+For the Classname box, if you are using a relatively new version of Hive, you'll be using Hive2 server. In that case, the Classname for the Hive driver is org.apache.hive.jdbc.HiveDriver (this should pop up on-screen, you just need to select the value). You are not required to put any value for the Sample URL. Hit OK and the driver window will close.
 
 
 
@@ -74,14 +73,14 @@ For the Classname box, if you are using a relatively new version of Hive, you&#8
 
 ### Connection Window
 
-With the Hive driver defined, all that&#8217;s left is to define the connection string. Assuming your Hadoop administrator didn&#8217;t change the default port from 10000, your connection string should look as follows:
+With the Hive driver defined, all that's left is to define the connection string. Assuming your Hadoop administrator didn't change the default port from 10000, your connection string should look as follows:
 
 [<img class="aligncenter size-full wp-image-2639" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-connectionstring.png?fit=500%2C349" alt="sqlworkbench-hive-connectionstring" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-connectionstring.png?w=500 500w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-connectionstring.png?resize=150%2C104 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-connectionstring.png?resize=300%2C209 300w" sizes="(max-width: 500px) 100vw, 500px" data-recalc-dims="1" />](http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/04/sqlworkbench-hive-connectionstring.png)
 
-As stated above, I&#8217;m assuming you are using Hive2 Server; if so, your connection string will be _jdbc:hive2://your-hadoop-cluster-location:10000_. After that, type in your Username and Password and you should be all set.
+As stated above, I'm assuming you are using Hive2 Server; if so, your connection string will be _jdbc:hive2://your-hadoop-cluster-location:10000_. After that, type in your Username and Password and you should be all set.
 
 ### Using Hive with SQL Workbench
 
-Assuming you have achieved success with the instructions above, you&#8217;re now ready to use Hive like any other database. You will be able to submit your Hive code via the Query Window, view your schemas/tables (via the &#8216;Database Explorer&#8217; functionality which opens in a separate tab) and generally use Hive like any other relational database.
+Assuming you have achieved success with the instructions above, you're now ready to use Hive like any other database. You will be able to submit your Hive code via the Query Window, view your schemas/tables (via the 'Database Explorer' functionality which opens in a separate tab) and generally use Hive like any other relational database.
 
-Of course, it&#8217;s good to remember that Hive isn&#8217;t actually a relational database! From my experience, using Hive via SQL Workbench works pretty well, but the underlying processing is still in Hadoop. So you&#8217;re not going to get the clean cancelling of queries like you would with an RDBMS , there can be a significant lag to getting answers back (due to the Hive overhead), you can blow up your computer streaming back results larger than available RAM&#8230;but it beats working at the command line.
+Of course, it's good to remember that Hive isn't actually a relational database! From my experience, using Hive via SQL Workbench works pretty well, but the underlying processing is still in Hadoop. So you're not going to get the clean cancelling of queries like you would with an RDBMS , there can be a significant lag to getting answers back (due to the Hive overhead), you can blow up your computer streaming back results larger than available RAM...but it beats working at the command line.

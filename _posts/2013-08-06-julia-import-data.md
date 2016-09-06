@@ -1,5 +1,4 @@
 ---
-id: 1942
 title: Tabular Data I/O in Julia
 date: 2013-08-06T10:05:38+00:00
 author: Randy Zwitch
@@ -23,7 +22,7 @@ tags:
 ---
 Importing tabular data into Julia can be done in (at least) three ways: reading a delimited file into an array, reading a delimited file into a DataFrame and accessing databases using ODBC.
 
-<!--more-->
+
 
 ### Reading a file into an array using readdlm
 
@@ -35,9 +34,9 @@ The most basic way to read data into Julia is through the use of the _readdlm_ f
 
 <pre style="padding-left: 30px;"></pre>
 
-If you are reading in a fairly normal delimited file, you can get away with just using the first two arguments, _source_ and _delim_:It&#8217;s important to note that by only specifying the first two arguments, you leave it up to Julia to determine the type of array to return. In the code example above, an array of type &#8216;Any&#8217; is returned, as the .csv file I read in was not of homogenous type such as _Int64_ or _ASCIIString_. If you know for certain which type of array you want, you specify the data type using the _type_ argument:
+If you are reading in a fairly normal delimited file, you can get away with just using the first two arguments, _source_ and _delim_:It's important to note that by only specifying the first two arguments, you leave it up to Julia to determine the type of array to return. In the code example above, an array of type 'Any' is returned, as the .csv file I read in was not of homogenous type such as _Int64_ or _ASCIIString_. If you know for certain which type of array you want, you specify the data type using the _type_ argument:
 
-It&#8217;s probably the case that unless you are looking to do linear algebra or other specific mathy type work, you&#8217;ll likely find that reading your data into a DataFrame will be more comfortable to work with (especially if you are coming from an R, Python/pandas or even spreadsheet tradition).
+It's probably the case that unless you are looking to do linear algebra or other specific mathy type work, you'll likely find that reading your data into a DataFrame will be more comfortable to work with (especially if you are coming from an R, Python/pandas or even spreadsheet tradition).
 
 To write an array out to a file, you can use the _writedlm_ function (defaults to comma-separated):
 
@@ -61,11 +60,11 @@ The third major way of importing tabular data into Julia is through the use of O
 
 The <a title="Julia ODBC package" href="https://github.com/karbarcca/ODBC.jl" target="_blank">Julia ODBC package</a> provides functionality to connect to a database using a Data Source Name (DSN). Assuming you store all the credentials in your DSN (server name, username, password, etc.), connecting to a database is as easy as:
 
-Of course, if you don&#8217;t want to store your password in your DSN (especially in the case where there are multiple users for a computer), you can pass the &#8220;usr&#8221; and &#8220;pwd&#8221; arguments to the ODBC.connect function:
+Of course, if you don't want to store your password in your DSN (especially in the case where there are multiple users for a computer), you can pass the "usr" and "pwd" arguments to the ODBC.connect function:
 
 ``Importing tabular data into Julia can be done in (at least) three ways: reading a delimited file into an array, reading a delimited file into a DataFrame and accessing databases using ODBC.
 
-<!--more-->
+
 
 ### Reading a file into an array using readdlm
 
@@ -77,9 +76,9 @@ The most basic way to read data into Julia is through the use of the _readdlm_ f
 
 <pre style="padding-left: 30px;"></pre>
 
-If you are reading in a fairly normal delimited file, you can get away with just using the first two arguments, _source_ and _delim_:It&#8217;s important to note that by only specifying the first two arguments, you leave it up to Julia to determine the type of array to return. In the code example above, an array of type &#8216;Any&#8217; is returned, as the .csv file I read in was not of homogenous type such as _Int64_ or _ASCIIString_. If you know for certain which type of array you want, you specify the data type using the _type_ argument:
+If you are reading in a fairly normal delimited file, you can get away with just using the first two arguments, _source_ and _delim_:It's important to note that by only specifying the first two arguments, you leave it up to Julia to determine the type of array to return. In the code example above, an array of type 'Any' is returned, as the .csv file I read in was not of homogenous type such as _Int64_ or _ASCIIString_. If you know for certain which type of array you want, you specify the data type using the _type_ argument:
 
-It&#8217;s probably the case that unless you are looking to do linear algebra or other specific mathy type work, you&#8217;ll likely find that reading your data into a DataFrame will be more comfortable to work with (especially if you are coming from an R, Python/pandas or even spreadsheet tradition).
+It's probably the case that unless you are looking to do linear algebra or other specific mathy type work, you'll likely find that reading your data into a DataFrame will be more comfortable to work with (especially if you are coming from an R, Python/pandas or even spreadsheet tradition).
 
 To write an array out to a file, you can use the _writedlm_ function (defaults to comma-separated):
 
@@ -103,16 +102,16 @@ The third major way of importing tabular data into Julia is through the use of O
 
 The <a title="Julia ODBC package" href="https://github.com/karbarcca/ODBC.jl" target="_blank">Julia ODBC package</a> provides functionality to connect to a database using a Data Source Name (DSN). Assuming you store all the credentials in your DSN (server name, username, password, etc.), connecting to a database is as easy as:
 
-Of course, if you don&#8217;t want to store your password in your DSN (especially in the case where there are multiple users for a computer), you can pass the &#8220;usr&#8221; and &#8220;pwd&#8221; arguments to the ODBC.connect function:
+Of course, if you don't want to store your password in your DSN (especially in the case where there are multiple users for a computer), you can pass the "usr" and "pwd" arguments to the ODBC.connect function:
 
 ``
 
 #### Using a connection string
 
-Alternatively, you can build your own connection strings within a Julia session using the _advancedconnect_ function:Regardless of which way you connect, you can query data using the _query_ function. If you want your output as a DataFrame, you can assign the result of the function to an object. If you want to save the results to a file, you specify the &#8220;file&#8221; argument:
+Alternatively, you can build your own connection strings within a Julia session using the _advancedconnect_ function:Regardless of which way you connect, you can query data using the _query_ function. If you want your output as a DataFrame, you can assign the result of the function to an object. If you want to save the results to a file, you specify the "file" argument:
 
 ### Summary
 
-Overall, importing data into Julia is no easier/more difficult than any other language. The biggest thing I&#8217;ve noticed thus far is that Julia is a bit less efficient than Python/pandas or R in terms of the amount of RAM needed to store data. In my experience, this is really only an issue once you are working with 1GB+ files (of course, depending on the resources available to you on your machine).
+Overall, importing data into Julia is no easier/more difficult than any other language. The biggest thing I've noticed thus far is that Julia is a bit less efficient than Python/pandas or R in terms of the amount of RAM needed to store data. In my experience, this is really only an issue once you are working with 1GB+ files (of course, depending on the resources available to you on your machine).
 
 _Edit 3/25/2016: A much more up-to-date method of <a href="https://cbrownley.wordpress.com/2015/05/29/reading_writing_csv_with_r_python_julia/" target="_blank">reading CSV data into Julia</a> can be found at this <a href="https://cbrownley.wordpress.com/2015/05/29/reading_writing_csv_with_r_python_julia/" target="_blank">blog post by Clinton Brownley</a>._

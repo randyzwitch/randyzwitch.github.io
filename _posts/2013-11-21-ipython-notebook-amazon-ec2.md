@@ -1,5 +1,4 @@
 ---
-id: 2337
 title: Using Amazon EC2 with IPython Notebook
 date: 2013-11-21T20:13:11+00:00
 author: Randy Zwitch
@@ -20,7 +19,7 @@ tags:
   - Amazon EC2
   - Python
 ---
-Last week, I wrote a guest blog post at <a title="Guest post at Bad Hessian" href="http://badhessian.org/2013/11/cluster-computing-for-027hr-using-amazon-ec2-and-ipython-notebook/" target="_blank">Bad Hessian</a> about how to use IPython Notebook along with Amazon EC2 as your data science & analytics platform. I won&#8217;t reproduce the whole article here, but if you are interested in step-by-step instruction on how to setup an Amazon EC2 instance to use IPython Notebook, see the SlideShare presentation below which outlines the steps needed to setup a remote IPython Notebook environment (or, <a title="amazon-ec2-ipython-installation PDF" href="http://randyzwitch.com/wp-content/uploads/2013/11/cluster-computing-ipython-ec2.pdf" target="_blank">PDF download</a>).
+Last week, I wrote a guest blog post at <a title="Guest post at Bad Hessian" href="http://badhessian.org/2013/11/cluster-computing-for-027hr-using-amazon-ec2-and-ipython-notebook/" target="_blank">Bad Hessian</a> about how to use IPython Notebook along with Amazon EC2 as your data science & analytics platform. I won't reproduce the whole article here, but if you are interested in step-by-step instruction on how to setup an Amazon EC2 instance to use IPython Notebook, see the SlideShare presentation below which outlines the steps needed to setup a remote IPython Notebook environment (or, <a title="amazon-ec2-ipython-installation PDF" href="http://randyzwitch.com/wp-content/uploads/2013/11/cluster-computing-ipython-ec2.pdf" target="_blank">PDF download</a>).
 
 
 

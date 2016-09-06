@@ -1,5 +1,4 @@
 ---
-id: 3814
 title: RSiteCatalyst Version 1.4.7 (and 1.4.6.) Release Notes
 date: 2016-02-01T09:24:04+00:00
 author: Randy Zwitch
@@ -22,7 +21,7 @@ tags:
   - R
   - RSiteCatalyst
 ---
-It seems as though I missed release notes for version RSiteCatalyst 1.4.6, so we&#8217;ll do those and RSiteCatalyst 1.4.7 (now on CRAN) and the same time&#8230;
+It seems as though I missed release notes for version RSiteCatalyst 1.4.6, so we'll do those and RSiteCatalyst 1.4.7 (now on CRAN) and the same time...
 
 ## RSiteCatalyst 1.4.6
 
@@ -34,7 +33,7 @@ This release was mostly tweaking some settings, specifically:
 
 Those changes carry forward into version RSiteCatalyst 1.4.7, so there is no reason for a user to stick with this release.
 
-## RSiteCatalyst 1.4.7 &#8211; No more Unicode Errors!
+## RSiteCatalyst 1.4.7 - No more Unicode Errors!
 
 I was surprised it took so long for someone to report this error, but <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/151" target="_blank">#151</a> finally reported a case from a user in Germany where search keywords were being mangled due to the presence of an umlaut. UTF-8 encoding is now the default for both calling the API and processing the results, so this issue will hopefully not arise again.
 

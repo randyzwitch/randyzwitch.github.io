@@ -1,5 +1,4 @@
 ---
-id: 3652
 title: RSiteCatalyst Version 1.4.5 Release Notes
 date: 2015-08-17T09:43:36+00:00
 author: Randy Zwitch
@@ -22,7 +21,7 @@ tags:
   - R
   - RSiteCatalyst
 ---
-It&#8217;s only been a month since the <a href="http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/" target="_blank">last RSiteCatalyst update</a>, and this update is also a pretty minor update in terms of functionality.
+It's only been a month since the <a href="http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/" target="_blank">last RSiteCatalyst update</a>, and this update is also a pretty minor update in terms of functionality.
 
 ## Set Your Own Endpoint
 
@@ -36,6 +35,6 @@ For this release, I briefly looked through the API explorer to see if  there we
 
 As always, if you come across bugs or have feature requests, please continue to use the <a title="RSiteCatalyst GitHub" href="https://github.com/randyzwitch/RSiteCatalyst/issues" target="_blank">RSiteCatalyst GitHub Issues</a> page to submit issues. Don’t worry about cluttering up the page with tickets, please fill out a new issue for anything you encounter (with code you’ve already tried and is failing), unless you are SURE that it is the same problem someone else is facing.
 
-Outside of patching really serious bugs, I will likely **not spend any more time improving this package in the future**; my interests have changed, and RSiteCatalyst is pretty much complete as far as I&#8217;m concerned. That said, contributors are also _very welcomed_. If there is a feature you&#8217;d like added, and especially if you can fix an outstanding issue reported at GitHub, we&#8217;d love to have your contributions. Willem and I are both parents of young children and have real jobs outside of open-source software creation, so we welcome any meaningful contributions to RSiteCatalyst that anyone would like to contribute.
+Outside of patching really serious bugs, I will likely **not spend any more time improving this package in the future**; my interests have changed, and RSiteCatalyst is pretty much complete as far as I'm concerned. That said, contributors are also _very welcomed_. If there is a feature you'd like added, and especially if you can fix an outstanding issue reported at GitHub, we'd love to have your contributions. Willem and I are both parents of young children and have real jobs outside of open-source software creation, so we welcome any meaningful contributions to RSiteCatalyst that anyone would like to contribute.
 
 &nbsp;

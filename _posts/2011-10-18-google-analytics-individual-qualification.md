@@ -1,6 +1,5 @@
 ---
-id: 854
-title: 'Google Analytics Individual Qualification (IQ) &#8211; Passed!'
+title: 'Google Analytics Individual Qualification (IQ) - Passed!'
 date: 2011-10-18T07:21:31+00:00
 author: Randy Zwitch
 layout: post
@@ -37,12 +36,12 @@ C) I and III
 
 D)  I, II, and III
 
-_You know you&#8217;re a web analytics geek when:_
+_You know you're a web analytics geek when:_
 
 I)  You run Google Analytics on multiple blogs, just to practice
 
 II)  You analyze the hell out of your Google Analytics data, even though your blog only gets 100 pageviews per day
 
-III)  Your wife goes out for the evening and you think, &#8220;Hmm&#8230;I could probably pass the Google Analytics Individual Qualification exam before she gets home&#8221;
+III)  Your wife goes out for the evening and you think, "Hmm...I could probably pass the Google Analytics Individual Qualification exam before she gets home"
 
 The answer, sadly, is D.  But I suspect you already knew that 🙂
