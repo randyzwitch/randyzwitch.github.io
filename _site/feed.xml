@@ -509,7 +509,7 @@
       <item>
         <title>Visualizing Website Structure With Network Graphs</title>
         
-          <description>&lt;p&gt;Last week, &lt;a title=&quot;RSiteCatalyst Version 1.4 Release Notes&quot; href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/&quot; target=&quot;_blank&quot;&gt;version 1.4 of RSiteCatalyst&lt;/a&gt; was released, and now it’s possible to get site pathing information directly within R. Now, it’s easy to create impressive looking network graphs from your Adobe Analytics data using &lt;a title=&quot;RSiteCatalyst CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt; and &lt;a title=&quot;d3Network CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/d3Network/index.html&quot; target=&quot;_blank&quot;&gt;d3Network&lt;/a&gt;. In this blog post, I will cover simple and force-directed network graphs, which show the pairwise representation between pages. In a follow-up blog post, I will show how to visualize longer paths using &lt;a title=&quot;Examples of Sankey Diagrams&quot; href=&quot;http://www.sankey-diagrams.com/&quot; target=&quot;_blank&quot;&gt;Sankey diagrams&lt;/a&gt;, also from the d3Network package.&lt;/p&gt;
+          <description>&lt;p&gt;Last week, &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/&quot;&gt;version 1.4 of RSiteCatalyst&lt;/a&gt; was released, and now it’s possible to get site pathing information directly within R. Now, it’s easy to create impressive looking network graphs from your Adobe Analytics data using &lt;a href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot;&gt;RSiteCatalyst&lt;/a&gt; and &lt;a href=&quot;http://cran.r-project.org/web/packages/d3Network/index.html&quot;&gt;d3Network&lt;/a&gt;. In this blog post, I will cover simple and force-directed network graphs, which show the pairwise representation between pages. In a follow-up blog post, I will show how to visualize longer paths using &lt;a href=&quot;http://www.sankey-diagrams.com/&quot;&gt;Sankey diagrams&lt;/a&gt;, also from the d3Network package.&lt;/p&gt;
 
 </description>
         
@@ -524,7 +524,7 @@
       <item>
         <title>RSiteCatalyst Version 1.4 Release Notes</title>
         
-          <description>&lt;p&gt;It felt like it would never happen, but &lt;a title=&quot;RSiteCatalyst CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst v1.4&lt;/a&gt; is now available on CRAN! There are numerous changes in this version of the package, so unlike previous posts, there won’t be any code examples.&lt;/p&gt;
+          <description>&lt;p&gt;It felt like it would never happen, but &lt;a href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot;&gt;RSiteCatalyst v1.4&lt;/a&gt; is now available on CRAN! There are numerous changes in this version of the package, so unlike previous posts, there won’t be any code examples.&lt;/p&gt;
 
 </description>
         

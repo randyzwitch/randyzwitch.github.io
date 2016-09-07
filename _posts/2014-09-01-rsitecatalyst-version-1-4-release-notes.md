@@ -7,10 +7,11 @@ permalink: /rsitecatalyst-version-1-4-release-notes/
 category: Analytics
 tags:
   - Adobe Analytics
+  - Omniture
   - R
   - RSiteCatalyst
 ---
-It felt like it would never happen, but <a title="RSiteCatalyst CRAN" href="http://cran.r-project.org/web/packages/RSiteCatalyst/index.html" target="_blank">RSiteCatalyst v1.4</a> is now available on CRAN! There are numerous changes in this version of the package, so unlike previous posts, there won't be any code examples.
+It felt like it would never happen, but [RSiteCatalyst v1.4](http://cran.r-project.org/web/packages/RSiteCatalyst/index.html) is now available on CRAN! There are numerous changes in this version of the package, so unlike previous posts, there won't be any code examples.
 
 ## THIS VERSION IS ONE BIG BREAKING CHANGE
 
@@ -22,11 +23,7 @@ While not the most important _improvement_, it can't be stressed enough that mig
 
 Of the changes listed above, I think #2 and #3 are the biggest benefit to end-users of RSiteCatalyst. The codebase is now much cleaner and more consistent in terms of the keyword arguments, has better error handling, and having a second person helping maintain the project has led to a better overall package.
 
-Where you'll see the most difference is that all keyword arguments are now all lowercase and multi-word keyword arguments are now separated by a period instead of underscores or weird caMelCAse. We tried to maintain the same keyword order where possible, to minimize code re-writes where possible.
-
-
-
-
+Where you'll see the most difference is that all keyword arguments are now all lowercase and multi-word keyword arguments are now separated by a period instead of underscores or weird caMelCAse. We tried to maintain the same keyword order where possible to minimize code re-writes.
 
 ## Pathing and Fallout Reports
 
@@ -40,7 +37,7 @@ For those of you who don't have OAuth credentials setup yet, the "legacy" versio
 
 ## GetClassifications, Inline Segmentation and More
 
-Finally, there is now additional functionality on the descriptive side, as you can now download which Classifications are defined for a report suite, segments can be defined inline (i.e. from R) for the 'Queue' reports using the _BuildClassificationValueSegment() _function and functions that existed in previous versions of RSiteCatalyst tend to have more options defined than in previous versions.
+Finally, there is now additional functionality on the descriptive side, as you can now download which Classifications are defined for a report suite, segments can be defined inline (i.e. from R) for the 'Queue' reports using the `BuildClassificationValueSegment()` function and functions that existed in previous versions of RSiteCatalyst tend to have more options defined than in previous versions.
 
 ## Summary/We Want To Hear From You
 
@@ -49,5 +46,3 @@ While this new version of RSiteCatalyst has some annoying breaking changes, over
 But for all of the improvements that have been made, there's always room for improvement, whether it's fixing unforeseen bugs, adding new features, improving the documentation or anything else. For all suggestions, bug fixes and the like, please submit them to the <a title="RSiteCatalyst GitHub" href="https://github.com/randyzwitch/RSiteCatalyst" target="_blank">GitHub repository</a> so that myself and Willem can evaluate and incorporate them. We're also VERY open to any of you in the R community who are able to patch the code or add new features. As a friend in the data science community says, a Pull Request is always better than a Feature Request 🙂
 
 Happy API'ing everyone!
-
-&nbsp;

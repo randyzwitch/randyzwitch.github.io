@@ -4,7 +4,7 @@ date: 2014-09-09T08:01:39+00:00
 author: Randy Zwitch
 layout: post
 permalink: /creating-stacked-bar-chart-seaborn/
-category: Data Science
+category: DataScience
 tags:
   - Data Visualization
   - Python
@@ -21,29 +21,69 @@ The other day I was having a heck of a time trying to figure out how to make a s
   </p>
 </blockquote>
 
-So there you go. I don't want to put words in Michael's mouth, but if he's not a fan, then it sounded like it was up to me to find my own solution if I wanted a stacked bar chart. I hacked around on the <a title="pandas visualization" href="http://pandas.pydata.org/pandas-docs/stable/visualization.html" target="_blank">pandas plotting functionality</a> a while, went to the <a title="matplotlib stacked bar chart" href="http://matplotlib.org/1.3.1/examples/pylab_examples/bar_stacked.html" target="_blank">matplotlib documentation/example for a stacked bar chart</a>, tried Seaborn some more and then it hit me...I've gotten so used to these amazing open-source packages that my brain has atrophied! Creating a stacked bar chart is SIMPLE, even in Seaborn (and even if Michael doesn't like them 🙂 )
-
-
+So there you go. I don't want to put words in Michael's mouth, but if he's not a fan, then it sounded like it was up to me to find my own solution if I wanted a stacked bar chart. I hacked around on the [pandas plotting functionality](http://pandas.pydata.org/pandas-docs/stable/visualization.html) a while, went to the [matplotlib documentation/example for a stacked bar chart](http://matplotlib.org/1.3.1/examples/pylab_examples/bar_stacked.html), tried Seaborn some more and then it hit me...I've gotten so used to these amazing open-source packages that my brain has atrophied! Creating a stacked bar chart is SIMPLE, even in Seaborn (and even if Michael doesn't like them 🙂 )
 
 ## Stacked Bar Chart = Sum of Two Series
 
-In trying so hard to create a stacked bar chart, I neglected the most obvious part. Given two series of data, Series 1 ("bottom") and Series 2 ("top"), to create a stacked bar chart you just need to create:
+In trying so hard to create a stacked bar chart, I neglected the most obvious part. Given two series of data, `Series 1` ("bottom") and `Series 2` ("top"), to create a stacked bar chart you just need to create:
 
-<pre style="padding-left: 30px;">Series 3 = Series 1 + Series 2</pre>
+{% highlight python linenos %}
+Series 3 = Series 1 + Series 2
+{% endhighlight %}
 
-Once you have Series 3 ("total"), then you can use the overlay feature of matplotlib and Seaborn in order to create your stacked bar chart. Plot "total" first, which will become the base layer of the chart. Because the total by definition will be greater-than-or-equal-to the "bottom" series, once you overlay the "bottom" series on top of the "total" series, the "top" series will now be stacked on top:
+Once you have `Series 3` ("total"), then you can use the overlay feature of matplotlib and Seaborn in order to create your stacked bar chart. Plot "total" first, which will become the base layer of the chart. Because the total by definition will be greater-than-or-equal-to the "bottom" series, once you overlay the "bottom" series on top of the "total" series, the "top" series will now be stacked on top:
 
 #### Background: "Total" Series
 
-[<img class="aligncenter size-full wp-image-3034" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/09/background_total.png?fit=1385%2C607" alt="background_total" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/09/background_total.png?w=1385 1385w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/09/background_total.png?resize=150%2C65 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/09/background_total.png?resize=300%2C131 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/09/background_total.png?resize=1024%2C448 1024w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />](http://i1.wp.com/randyzwitch.com/wp-content/uploads/2014/09/background_total.png)
+![background_total](/wp-content/uploads/2014/09/background_total.png)
 
 #### Overlay: "Bottom" Series
 
-[<img class="aligncenter size-full wp-image-3039" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/09/bottom_plot1.png?fit=1380%2C607" alt="bottom_plot" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/09/bottom_plot1.png?w=1380 1380w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/09/bottom_plot1.png?resize=150%2C65 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/09/bottom_plot1.png?resize=300%2C131 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/09/bottom_plot1.png?resize=1024%2C450 1024w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />](http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/09/bottom_plot1.png)
+![bottom_plot](/wp-content/uploads/2014/09/bottom_plot1.png)
 
 ## End Result: Stacked Bar Chart
 
-Running the code in the same IPython Notebook cell results in the following chart (<a title="chart-data" href="http://randyzwitch.com/wp-content/uploads/2014/09/stacked_bar.csv" target="_blank">download chart data</a>): [<img class="aligncenter size-full wp-image-3041" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/09/stacked-bar-seaborn.png?fit=1395%2C621" alt="stacked-bar-seaborn" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/09/stacked-bar-seaborn.png?w=1395 1395w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/09/stacked-bar-seaborn.png?resize=150%2C66 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/09/stacked-bar-seaborn.png?resize=300%2C133 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/09/stacked-bar-seaborn.png?resize=1024%2C455 1024w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/09/stacked-bar-seaborn.png)
+Running the code in the same IPython Notebook cell results in the following chart ([download chart data](http://randyzwitch.com/wp-content/uploads/2014/09/stacked_bar.csv)):
+
+![stacked-bar-seaborn](/wp-content/uploads/2014/09/stacked-bar-seaborn.png)
+
+{% highlight python linenos %}
+import pandas as pd
+from matplotlib import pyplot as plt
+import matplotlib as mpl
+import seaborn as sns
+%matplotlib inline
+
+#Read in data & create total column
+stacked_bar_data = pd.read_csv("C:\stacked_bar.csv")
+stacked_bar_data["total"] = stacked_bar_data.Series1 + stacked_bar_data.Series2
+
+#Set general plot properties
+sns.set_style("white")
+sns.set_context({"figure.figsize": (24, 10)})
+
+#Plot 1 - background - "total" (top) series
+sns.barplot(x = stacked_bar_data.Group, y = stacked_bar_data.total, color = "red")
+
+#Plot 2 - overlay - "bottom" series
+bottom_plot = sns.barplot(x = stacked_bar_data.Group, y = stacked_bar_data.Series1, color = "#0000A3")
+
+
+topbar = plt.Rectangle((0,0),1,1,fc="red", edgecolor = 'none')
+bottombar = plt.Rectangle((0,0),1,1,fc='#0000A3',  edgecolor = 'none')
+l = plt.legend([bottombar, topbar], ['Bottom Bar', 'Top Bar'], loc=1, ncol = 2, prop={'size':16})
+l.draw_frame(False)
+
+#Optional code - Make plot look nicer
+sns.despine(left=True)
+bottom_plot.set_ylabel("Y-axis label")
+bottom_plot.set_xlabel("X-axis label")
+
+#Set fonts to consistent 16pt size
+for item in ([bottom_plot.xaxis.label, bottom_plot.yaxis.label] +
+             bottom_plot.get_xticklabels() + bottom_plot.get_yticklabels()):
+    item.set_fontsize(16)
+{% endhighlight %}
 
 ## Don't Overthink Things!
 
