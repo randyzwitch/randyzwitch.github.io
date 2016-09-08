@@ -554,7 +554,7 @@
       <item>
         <title>String Interpolation for Fun and Profit</title>
         
-          <description>&lt;p&gt;In a previous post, I showed how I frequently use &lt;a title=&quot;Using Julia As A ‘Glue’ Language&quot; href=&quot;http://randyzwitch.com/julia-odbc-jl/&quot; target=&quot;_blank&quot;&gt;Julia as a ‘glue’ language&lt;/a&gt; to connect multiple systems in a complicated data pipeline. For this blog post, I will show two more examples where I use Julia for general programming, rather than for computationally-intense programs.&lt;/p&gt;
+          <description>&lt;p&gt;In a previous post, I showed how I frequently use &lt;a href=&quot;http://randyzwitch.com/julia-odbc-jl/&quot;&gt;Julia as a ‘glue’ language&lt;/a&gt; to connect multiple systems in a complicated data pipeline. For this blog post, I will show two more examples where I use Julia for general programming, rather than for computationally-intense programs.&lt;/p&gt;
 
 </description>
         

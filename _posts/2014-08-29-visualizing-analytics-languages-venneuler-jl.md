@@ -4,7 +4,7 @@ date: 2014-08-29T15:16:24+00:00
 author: Randy Zwitch
 layout: post
 permalink: /visualizing-analytics-languages-venneuler-jl/
-category: Data Science
+category: DataScience
 tags:
   - Data Visualization
   - Julia
@@ -37,7 +37,9 @@ Hey, I'm someone looking for something to do! And I like writing Julia code! So 
 
 Because VennEuler.jl is not in METADATA as of the time of writing, instead of using Pkg.add() you'll need to run:
 
-<pre style="padding-left: 30px;"> Pkg.clone("https://github.com/HarlanH/VennEuler.jl.git")</pre>
+{% highlight julia linenos %}
+Pkg.clone("https://github.com/HarlanH/VennEuler.jl.git")
+{% endhighlight %}
 
 Note that VennEuler uses some of the more exotic packages (at least to me) like NLopt and Cairo, so you might need to have a few additional dependencies installed with the package.
 
@@ -45,22 +47,59 @@ Note that VennEuler uses some of the more exotic packages (at least to me) like 
 
 The data was a bit confusing to me at first, since the percentages add up to more than 100% (people could vote multiple times). In order to create a dataset to use, I took the percentages, multiplied by 1000, then re-created the voting pattern. The data for the graph can be downloaded from <a title="Dataset" href="http://randyzwitch.com/wp-content/uploads/2014/08/kdnuggets_language_survey_2014.csv" target="_blank">this link</a>.
 
-
-
-
-
 ## Code - Circles
 
-With a few modifications, I basically re-purposed Harlan's code from the <a title="Original VennEuler code" href="https://github.com/HarlanH/VennEuler.jl/blob/master/test/DC2.jl" target="_blank">package test files</a>. The circle result is as follows:[<img class="aligncenter size-full wp-image-2961" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulercircles.png?fit=669%2C669" alt="venneulercircles" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulercircles.png?w=669 669w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulercircles.png?resize=150%2C150 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulercircles.png?resize=300%2C300 300w" sizes="(max-width: 669px) 100vw, 669px" data-recalc-dims="1" />](http://i0.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulercircles.png) Since the percentage of R, SAS, and Python users isn't too dramatically different (49.81%, 33.42%, 40.97% respectively) and the visualizations are circles, it's a bit hard to tell that R is about 16% points higher than SAS and 9% points higher than Python.
+With a few modifications, I basically re-purposed Harlan's code from the [package test files](https://github.com/HarlanH/VennEuler.jl/blob/master/test/DC2.jl). The circle result is as follows:
+
+{% highlight julia linenos %}
+using VennEuler
+
+data, labels = readcsv("/home/rzwitch/Desktop/kdnuggets_language_survey_2014.csv", header=true)
+data = bool(data)
+labels = vec(labels)
+
+#Circles
+eo = make_euler_object(labels, data, EulerSpec()) # circles, for now
+
+(minf,minx,ret) = optimize(eo, random_state(eo), ftol=-1, xtol=0.0025, maxtime=120, pop=1000)
+println("got $minf at $minx (returned $ret)")
+
+render("/home/rzwitch/Desktop/kd.svg", eo, minx)
+{% endhighlight %}
+
+![venneulercircles](/wp-content/uploads/2014/08/venneulercircles.png)
+
+Since the percentage of R, SAS, and Python users isn't too dramatically different (`49.81%`, `33.42%`, `40.97%` respectively) and the visualizations are circles, it's a bit hard to tell that R is about 16% points higher than SAS and 9% points higher than Python.
 
 ## Code - Rectangles
 
 Alternatively, we can use rectangles to represent the areas:
 
-[<img class="aligncenter size-full wp-image-2963" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulerrectangles.png?fit=390%2C488" alt="venneulerrectangles" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulerrectangles.png?w=390 390w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulerrectangles.png?resize=119%2C150 119w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulerrectangles.png?resize=239%2C300 239w" sizes="(max-width: 390px) 100vw, 390px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2014/08/venneulerrectangles.png)
+{% highlight julia linenos %}
+using VennEuler
+
+data, labels = readcsv("/home/rzwitch/Desktop/kdnuggets_language_survey_2014.csv", header=true)
+data = bool(data)
+labels = vec(labels)
+
+# Rectangles
+eo = make_euler_object(labels, data, [EulerSpec(:rectangle), EulerSpec(:rectangle, [.5, .5, .4], [0, 0, 0]),
+    EulerSpec(:rectangle)],
+    sizesum=.3)
+
+
+(minf,minx,ret) = optimize_iteratively(eo, random_state(eo), ftol=-1, xtol=0.0025, maxtime=5, pop=100)
+println("phase 1: got $minf at $minx (returned $ret)")
+(minf,minx,ret) = optimize(eo, minx, ftol=-1, xtol=0.001, maxtime=30, pop=100)
+println("phase 2: got $minf at $minx (returned $ret)")
+
+render("/home/rzwitch/Desktop/kd-rects.svg", eo, minx)
+{% endhighlight %}
+
+![venneulerrectangles](/wp-content/uploads/2014/08/venneulerrectangles.png)
 
 Here, it's a slight bit easier to see that SAS and Python are about the same area-wise and that R is larger, although the different dimensions do obscure this fact a bit.
 
 ## Summary
 
-If I spent more time with this package, I'm sure I could make something even more aesthetically pleasing. And for that matter, it's still a pre-production package that will no doubt get better in the future. But at the very least, there is a way to create an area-accurate representation of relationships using VennEuler.jl in Julia.
+If I spent more time with this package, I'm sure I could make something even more aesthetically pleasing. And for that matter, it's still a pre-production package that will no doubt get better in the future. But at the very least, there is a way to create an area-proportional representation of relationships using VennEuler.jl in Julia.
