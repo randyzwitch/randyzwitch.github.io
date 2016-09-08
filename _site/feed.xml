@@ -1013,7 +1013,7 @@
       <item>
         <title>Video:  SQL Queries in R using sqldf</title>
         
-          <description>&lt;p&gt;This video covers how to run SQL queries using the ‘sqldf’ package within R. This sqldf tutorial was part of a &lt;a title=&quot;Keystone Solutions data science&quot; href=&quot;http://www.keystonesolutions.com/index.php/blog/entry/podcast-2-r-u-serious&quot; target=&quot;_blank&quot;&gt;Keystone Solutions podcast discussion about data science&lt;/a&gt; and what skills beginning analysts should be learning to improve their skill set.&lt;/p&gt;
+          <description>&lt;p&gt;This video covers how to run SQL queries using the ‘sqldf’ package within R. This sqldf tutorial was part of a &lt;a href=&quot;http://keystonesolutions.com&quot;&gt;Keystone Solutions&lt;/a&gt; podcast discussion about data science and what skills beginning analysts should be learning to improve their skill set.&lt;/p&gt;
 
 </description>
         
