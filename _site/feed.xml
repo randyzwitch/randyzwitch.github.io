@@ -600,7 +600,7 @@
       <item>
         <title>Five Hard-Won Lessons Using Hive</title>
         
-          <description>&lt;p&gt;I’ve been spending a ton of time lately on the data &lt;em&gt;engineering&lt;/em&gt; side of ‘data science’, so I’ve been writing a lot of Hive queries. Hive is a great tool for querying large amounts of data, without having to know very much about the underpinnings of Hadoop. Unfortunately, there are a lot of things about Hive (version 0.12 and before) that aren’t quite the same as SQL and have caused me a bunch of frustration; here they are, in no particular order.&lt;/p&gt;
+          <description>&lt;p&gt;&lt;em&gt;EDIT, 9/8/2016: Hive has come a long way in the two years since I’ve written this. While some of the code snippets might still work, it’s likely the case that this information is so out-of-date to be nothing more than a reflection of working with Hadoop in 2014.&lt;/em&gt;&lt;/p&gt;
 
 </description>
         
@@ -1135,10 +1135,8 @@
       <item>
         <title>Apple Has Earned a Customer for Life</title>
         
-          <description>&lt;div id=&quot;attachment_1177&quot; style=&quot;width: 710px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &amp;lt;img class=&quot; wp-image-1177 &quot; title=&quot;macbook-pro-broken-hinge-screen&quot; alt=&quot;macbook pro broken hinge&quot; /wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=700%2C259&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?w=700 700w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=150%2C55 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=300%2C111 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg?resize=500%2C185 500w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
+          <description>&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg&quot; alt=&quot;macbook pro broken hinge&quot; /&gt;&lt;/p&gt;
 
-&lt;/div&gt;
 </description>
         
         <pubDate>Mon, 25 Jun 2012 16:38:57 -0400</pubDate>
