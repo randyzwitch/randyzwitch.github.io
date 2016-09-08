@@ -5,11 +5,12 @@ author: Randy Zwitch
 layout: post
 permalink: /xchange-2011-think-tank/
 category: Analytics
+redirect_to: /tags/#Analytics
 tags:
   - Xchange 2011
 ---
 <div id="attachment_558" style="width: 637px" class="wp-caption aligncenter">
-  <img class="size-full wp-image-558" title="sunset-san-diego-harbor" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?fit=627%2C338" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?w=627 627w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=300%2C161 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=500%2C269 500w" sizes="(max-width: 627px) 100vw, 627px" data-recalc-dims="1" />
+  <img class="size-full wp-image-558" title="sunset-san-diego-harbor" /wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?fit=627%2C338" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?w=627 627w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=300%2C161 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/09/sunset-san-diego-harbor.jpg?resize=500%2C269 500w" sizes="(max-width: 627px) 100vw, 627px" data-recalc-dims="1" />
 
   <p class="wp-caption-text">
     Sunset over Coronado Island - 9/12/11
@@ -25,10 +26,6 @@ The Xchange 2011 Think Tank sessions are represented as a mini-conference before
 My first topic of the day was around issues relating to managing a digital analytics program, no matter whether the program is in its infancy or quite sophisticated and moving to the top rungs of the <a title="Web Analytics Maturity Model" href="http://blog.immeria.net/2009/05/web-analytics-maturity-model.html" target="_blank">web analytics maturity model</a>.
 
 I quite enjoyed this session, as the web analytics programs I've worked with have all had what I perceived as a gaping hole or two; this Think Tank session gave lots concrete tips on how to build web data ambassadors within a company, to improving documentation practices, and ultimately creating a governance model that allows a digital measurement program to minimize future roadblocks to success.
-
-
-
-
 
 ## Xchange 2011 Think Tank 2:  Measurement and Analytical Approaches to Visitor Engagement- Paul Legutko and Chris Meares
 

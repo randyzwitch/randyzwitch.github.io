@@ -162,6 +162,7 @@ DEPENDENCIES
   jekyll-coffeescript
   jekyll-gist
   jekyll-paginate
+  jekyll-redirect-from
   jekyll-seo-tag
 
 BUNDLED WITH
