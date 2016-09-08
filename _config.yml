@@ -5,6 +5,7 @@ gems:
 - jekyll-paginate
 - jekyll-admin
 - jekyll-gist
+- jekyll-redirect-from
 twitter:
   username: randyzwitch
 permalink: /:title
