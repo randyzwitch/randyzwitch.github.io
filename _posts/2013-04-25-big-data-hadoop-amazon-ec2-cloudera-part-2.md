@@ -4,7 +4,7 @@ date: 2013-04-25T17:33:48+00:00
 author: Randy Zwitch
 layout: post
 permalink: /big-data-hadoop-amazon-ec2-cloudera-part-2/
-category: Data Science
+category: DataScience
 tags:
   - Amazon EC2
   - Cloudera
@@ -20,23 +20,12 @@ The SlideShare presentation below shows the steps to building a 18-node Hadoop c
 
 Note that going through this tutorial will cost $2.40/hr at current prices ($0.24/hr per _m1.large_ instance and $0.12/hr per _m1.medium_ instance).
 
-
-
-
-
-<div style="margin-bottom: 5px;">
-</div>
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/19982722" height="421" width="512" allowfullscreen="" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 Since the SlideShare presentation is potentially not so friendly on the eyes, I've also created a <a title="Cloudera Amazon EC2 instructions" href="http://randyzwitch.com/wp-content/uploads/2013/04/cloudera-amazon-ec2.pdf" target="_blank">PDF download</a> that's full resolution.
-
-
-
-
 
 ## Next Steps
 
 Once you make it through all these steps to set up a Hadoop cluster, you are ready to do some analysis. [Part 3 of this tutorial](http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/ "Upload data into HDFS using Hue") will cover how to upload data into HDFS using Hue.
-
-&nbsp;
 
 _Update, 7/13/13:_ As is the case with any open-source project, there have been several changes to the Cloudera Manager that makes setup easier. When getting started, on the screen where it asks "Which Cloudera do you want to deploy?", choose 'Cloudera Standard'. Also, once you get to slides 13-14 where you click on the link to get started with Hue, the link now works correctly (you don't need to search for the Amazon DNS any more!)

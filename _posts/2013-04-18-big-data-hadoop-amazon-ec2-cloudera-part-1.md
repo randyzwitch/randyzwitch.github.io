@@ -4,7 +4,7 @@ date: 2013-04-18T12:47:15+00:00
 author: Randy Zwitch
 layout: post
 permalink: /big-data-hadoop-amazon-ec2-cloudera-part-1/
-category: Data Science
+category: DataScience
 tags:
   - Amazon EC2
   - Cloudera
@@ -25,8 +25,6 @@ This series will be at least 5 parts, as follows:
 
 My aim with this series is to _simply_ explain why you might want to consider using Hadoop for your data storage and processing. There's a lot of marketing & vendor <del>bullshit</del> excitement surrounding the term 'big data', so for this blog series, I'm just going to focus on the most important points for an analyst/marketer to understand. And other than this sentence, there will be no mentions of _MS Excel_ in terms of 'big data', which is <a title="Use R not Excel" href="http://blog.revolutionanalytics.com/2013/04/more-reasons-not-to-use-excel-for-modeling.html" target="_blank">barely an appropriate tool for analysis</a> in general, let alone analysis at scale.
 
-
-
 ### What Is Hadoop & Why Are People Talking About It?
 
 At it's simplest, Hadoop provides a parallel-processing computing framework for data storage and processing. The reason why a parallel-processing framework is important for enterprise-level analysis is due to physical limitations on how quickly a single machine can process information.
@@ -36,10 +34,6 @@ As an example, suppose  you want to create a report that looks at 1 trillion da
 The solution might seem to add more processors and RAM to a desktop, but what happens when you add more users asking questions? Now you need an enterprise-class server such as Oracle or Teradata (and a few million dollars!). And for every terabyte of data you want to store, you'll need a few thousand dollars. And that's just for your nicely structured data...what happens when you want to start storing data such as free-form text that's not so cleanly structured? Eventually, these types of _engineering questions_ lead you towards a solution like Hadoop.
 
 The reason why there is so much discussion around Hadoop as a data platform is that it solves the problems stated above: excessive time to process vast amounts of data and excessive cost of data storage. By using "commodity hardware" along with some fancy engineering, Hadoop provides an extremely cost-effective and flexible way to handle your enterprise data.
-
-
-
-
 
 ### If Hadoop is so Great, Why Doesn't Everyone Use It?
 
