@@ -4,9 +4,6 @@ date: 2014-06-24T08:57:31+00:00
 author: Randy Zwitch
 layout: post
 permalink: /julia-odbc-jl/
-custom_js:
-  - gadfly.js
-  - airline_plot3.js
 category: DataScience
 tags:
   - Data Visualization
