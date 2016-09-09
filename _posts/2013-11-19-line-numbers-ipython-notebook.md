@@ -4,7 +4,7 @@ date: 2013-11-19T08:48:18+00:00
 author: Randy Zwitch
 layout: post
 permalink: /line-numbers-ipython-notebook/
-category: Data Science
+category: DataScience
 tags:
   - Julia
   - Python
@@ -15,11 +15,7 @@ Lately, I've been using Jupyter Notebooks for all of my Python and Julia coding
 
 The easiest way to add line numbers to a Jupyter Notebook is to use the keyboard shortcut, which is **Ctrl-m** to enter Command Mode, then type** L**. Just highlight the cell you are interested in adding line numbers to, then hit the keyboard shortcut to toggle the line numbers.
 
-[<img class="aligncenter size-full wp-image-2322" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?fit=1370%2C358" alt="ipython-notebook-line-numbers" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?w=1370 1370w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?resize=150%2C39 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?resize=300%2C78 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png?resize=1024%2C267 1024w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png)
-
-
-
-
+![ipython-notebook-line-numbers](/wp-content/uploads/2013/11/ipython-notebook-line-numbers.png)
 
 ## Add Line Numbers to All Cells at Startup
 

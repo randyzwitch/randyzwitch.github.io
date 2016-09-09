@@ -765,7 +765,7 @@
       <item>
         <title>Clustering Search Keywords Using K-Means Clustering</title>
         
-          <description>&lt;p&gt;One of the key tenets to doing impactful digital analysis is understanding what your visitors are trying to accomplish. One of the easiest methods to do this is by analyzing the words your visitors use to arrive on site (search keywords) and what words they are using while on the site (on-site search). Although Google has made it much more difficult to analyze search keywords over the past several years (due to their passing of &lt;a title=&quot;(not provided): Using R and the Google Analytics API&quot; href=&quot;http://randyzwitch.com/r-google-analytics-api/&quot; target=&quot;_blank&quot;&gt;“(not provided)”&lt;/a&gt; instead of the actual keywords), we can create customer intent segments based on the keywords that are still being passed using unsupervised clustering methods such as k-means clustering.&lt;/p&gt;
+          <description>&lt;p&gt;One of the key tenets to doing impactful digital analysis is understanding what your visitors are trying to accomplish. One of the easiest methods to do this is by analyzing the words your visitors use to arrive on site (search keywords) and what words they are using while on the site (on-site search). &lt;/p&gt;
 
 </description>
         
