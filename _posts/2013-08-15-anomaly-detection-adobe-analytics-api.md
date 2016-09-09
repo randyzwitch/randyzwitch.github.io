@@ -12,15 +12,12 @@ tags:
   - RSiteCatalyst
   - Statistics
 ---
-<p style="text-align: center;">
-  <a href="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics.jpg"><img class="size-full wp-image-2019 aligncenter" alt="anomaly-detection-adobe-analytics" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics-e1376429163809.jpg?fit=550%2C188" data-recalc-dims="1" /></a>
-</p>
+
+![anomaly-detection-adobe-analytics](/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics.jpg)
 
 As digital marketers & analysts, we're often asked to quantify when a metric goes beyond just random variation and becomes an actual "unexpected" result. In cases such as _A/B..N_ testing, it's easy to calculate a t-test to quantify the difference between two testing populations, but <a title="Why t-test not appropriate for time-series" href="http://www.indiana.edu/~statmath/stat/all/ttest/ttest1.html" target="_blank">for time-series metrics, using a t-test is likely not appropriate</a>.
 
 To determine whether a time-series has become "out-of-control", we can use Exponential Smoothing to forecast the Expected Value, as well as calculate Upper Control Limits (UCL) and Lower Control Limits (LCL). To the extent a data point exceeds the UCL or falls below the LCL, we can say that statistically a time-series is no longer within the expected range. There are numerous ways to <a title="R time-series" href="http://cran.r-project.org/web/views/TimeSeries.html" target="_blank">create time-series models using R</a>, but for the purposes of this blog post I'm going to focus on Exponential Smoothing, which is how the <a title="Anomaly Detection Adobe Analytics API" href="https://developer.omniture.com/en_US/documentation/sitecatalyst-reporting/c-anomaly#concept_E51D14B9899A4974BD946A77D7368BC5" target="_blank">anomaly detection</a> feature is implemented within the Adobe Analytics API.
-
-
 
 ### Holt-Winters & Exponential Smoothing
 
@@ -34,17 +31,28 @@ The formulas behind each of the techniques are easily found elsewhere, but the m
 
 The Adobe Analytics API simplifies the choice of which technique to use by calculating a forecast using all three methods, then choosing the method that has the best fit as calculated by the model having the minimum (squared) error. It's important to note that while this is probably an okay model selection method for detecting anomalies, this method does not guarantee that the model chosen is the actual "best" forecast model to fit the data.
 
-
-
-
-
 ### RSiteCatalyst API call
 
-Using the _RSiteCatalyst_ R package version 1.1, it's trivial to access the anomaly detection feature:Once the function call is run, you will receive a DataFrame of 'Day' granularity with the actual metric and three additional columns for the forecasted value, UCL and LCL.  Graphing these data using ggplot2 (<a title="ggplot2 Anomaly Detection graph" href="https://gist.github.com/randyzwitch/6241051" target="_blank">Graph Code Here - GitHub Gist</a>), we can now see on which days an anomalous result occurred:
+Using the RSiteCatalyst R package version 1.1, it's trivial to access the anomaly detection feature:
 
-<p style="text-align: center;">
-  <a href="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics1.png"><img class="size-full wp-image-2050 aligncenter" alt="Huge spike in traffic July 23 - 24" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics1.png?fit=550%2C401" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics1.png?w=550 550w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics1.png?resize=150%2C109 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics1.png?resize=300%2C218 300w" sizes="(max-width: 550px) 100vw, 550px" data-recalc-dims="1" /></a>
-</p>
+{% highlight R linenos %}
+#Run until version > 1.0 on CRAN
+library(devtools)
+install_github("RSiteCatalyst", "randyzwitch", ref = "master")
+
+#Run if version >= 1.1 on CRAN
+library("RSiteCatalyst")
+
+#API Authentication
+SCAuth(<username:company>, <shared_secret>)
+
+#API function call
+pageviews_w_forecast <- QueueOvertime(reportSuiteID=<report suite>, dateFrom = "2013-06-01", dateTo="2013-08-13", metrics = "pageviews", dateGranularity="day", anomalyDetection="1")
+{% endhighlight %}
+
+Once the function call is run, you will receive a DataFrame of 'Day' granularity with the actual metric and three additional columns for the forecasted value, UCL and LCL.  Graphing these data using ggplot2 (<a title="ggplot2 Anomaly Detection graph" href="https://gist.github.com/randyzwitch/6241051" target="_blank">Graph Code Here - GitHub Gist</a>), we can now see on which days an anomalous result occurred:
+
+![Huge spike in traffic July 23 - 24](/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics1.png)
 
 The red dots in the graph above indicate days where page views either exceeded the UCL or fell below the LCL. On July 23 - 24 timeframe, traffic to this blog spiked dramatically due to a <a title="A Beginner’s Look at Julia" href="http://randyzwitch.com/julia-language-beginners/" target="_blank">blog post about the Julia programming language</a>, and continued to stay above the norm for about a week afterwards.
 

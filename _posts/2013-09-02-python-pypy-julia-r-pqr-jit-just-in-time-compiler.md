@@ -4,7 +4,7 @@ date: 2013-09-02T19:57:45+00:00
 author: Randy Zwitch
 layout: post
 permalink: /python-pypy-julia-r-pqr-jit-just-in-time-compiler/
-category: Data Science
+category: DataScience
 tags:
   - Julia
   - pqR
@@ -16,27 +16,33 @@ Recently I've been spending a lot of time trying to learn <a title="Julia langua
 
 As I've been working on optimizing my Julia code, I decided to figure out how fast this problem can be solved using any of the languages/techniques I know. So I decided to benchmark one of the Project Euler problems using <a title="Julia language" href="http://julialang.org/" target="_blank">Julia</a>, <a title="Python language" href="http://python.org/" target="_blank">Python</a>, <a title="Numba" href="http://numba.pydata.org/" target="_blank">Python with Numba</a>, <a title="Pypy" href="http://pypy.org/" target="_blank">PyPy</a>, <a title="R" href="http://cran.us.r-project.org/" target="_blank">R</a>, R using the <a title="R compiler" href="http://stat.ethz.ch/R-manual/R-devel/library/compiler/html/compile.html" target="_blank">compiler</a> package, <a title="pqR" href="http://radfordneal.wordpress.com/2013/06/22/announcing-pqr-a-faster-version-of-r/" target="_blank">pqR</a> and pqR using the compiler package. Here's what I found...
 
-
-
 ## Problem
 
-The problem I'm using for the benchmark is calculating the smallest number that is divisible by all of the numbers in a factorial. For example, for the numbers in 5!, 60 is the smallest number that is divisible by 2, 3, 4 and 5. Here's the Julia code:
+The problem I'm using for the benchmark is calculating the smallest number that is divisible by all of the numbers in a factorial. For example, for the numbers in `5!`, 60 is the smallest number that is divisible by 2, 3, 4 and 5. Here's the Julia code:
 
-All code versions follow this same pattern: the outside loop will run from 1 up to n!, since by definition the last value in the loop will be divisible by all of the numbers in the factorial. The inner loops go through and do a modulo calculation, checking to see if there is a remainder after division. If there is a remainder, break out of the loop and move to the next number. Once the state occurs where there is no remainder on the modulo calculation and the inner loop value of j equals the last number in the factorial (i.e. it is divisible by all of the factorial numbers), we have found the minimum number.
+{% highlight julia linenos %}
+function smallestdivisall(n::Int64)
+    for i = 1:factorial(n)
+        for j = 1:n
+            if i % j !=0
+                break
+            elseif j == n
+                return i
+            end
+        end
+    end
+end
+{% endhighlight %}
 
-
-
-
+All code versions follow this same pattern: the outside loop will run from `1` up to `n!`, since by definition the last value in the loop will be divisible by all of the numbers in the factorial. The inner loops go through and do a modulo calculation, checking to see if there is a remainder after division. If there is a remainder, break out of the loop and move to the next number. Once the state occurs where there is no remainder on the modulo calculation and the inner loop value of j equals the last number in the factorial (i.e. it is divisible by all of the factorial numbers), we have found the minimum number.
 
 ## Benchmarking - Overall
 
 Here are the results of the eight permutations of languages/techniques (see <a title="GitHub Gist for JIT test" href="https://gist.github.com/randyzwitch/6341926" target="_blank">this</a> GitHub Gist for the actual code used, <a title="compiler results" href="http://randyzwitch.com/wp-content/uploads/2013/09/jit.csv" target="_blank">this link</a> for results file, and <a title="ggplot2 code" href="https://gist.github.com/randyzwitch/6414244" target="_blank">this</a> GitHub Gist for the ggplot2 code):
 
-<p style="text-align: center;">
-  <a href="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/08/jit-comparison.png"><img class="aligncenter size-full wp-image-2128" alt="jit-comparison" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2013/08/jit-comparison-e1377942789214.png?fit=500%2C277" data-recalc-dims="1" /></a>
-</p>
+![jit-comparison](/wp-content/uploads/2013/08/jit-comparison.png)
 
-Across the range of tests from 5! to 20!, Julia is the fastest to find the minimum number. Python with Numba is second and PyPy is third. pqR fares better than R in general, but using the compiler package can narrow the gap.
+Across the range of tests from `5!` to `20!`, Julia is the fastest to find the minimum number. Python with Numba is second and PyPy is third. pqR fares better than R in general, but using the compiler package can narrow the gap.
 
 To make more useful comparisons, in the next section I'll compare each language to its "compiled" function state.
 
@@ -44,15 +50,15 @@ To make more useful comparisons, in the next section I'll compare each language 
 
 ### Python
 
-[<img class="aligncenter size-full wp-image-2138" alt="JITpython" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2013/09/JITpython-e1378131849775.png?fit=500%2C320" data-recalc-dims="1" />](http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/09/JITpython.png)
+![JITpython](/wp-content/uploads/2013/09/JITpython-e1378131849775.png)
 
-Amongst the native Python code options, I saw a 16x speedup by using PyPy instead of Python 2.7.6 (10.62s vs. 172.06s at 20!). Using Numba with Python instead of PyPy nets an _incremental_ ~40% speedup using the <a title="autojit example" href="http://numba.pydata.org/" target="_blank">@autojit</a> decorator (7.63s vs. 10.63 at 20!).
+Amongst the native Python code options, I saw a 16x speedup by using PyPy instead of Python 2.7.6 (10.62s vs. 172.06s at `20!`). Using Numba with Python instead of PyPy nets an _incremental_ ~40% speedup using the <a title="autojit example" href="http://numba.pydata.org/" target="_blank">`@autojit`</a> decorator (7.63s vs. 10.63 at 20!).
 
 So in the case of Python, using two lines of code with the Numba JIT compiler you can get substantial improvements in performance without needing to do any code re-writes. This is a great benefit given that you can stay in native Python, since PyPy doesn't support all existing packages within the Python ecosystem.
 
 ### R/pqR
 
-[<img class="aligncenter size-full wp-image-2143" alt="JITr" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/09/JITr-e1378132951124.png?fit=500%2C320" data-recalc-dims="1" />](http://i2.wp.com/randyzwitch.com/wp-content/uploads/2013/09/JITr.png)
+![JITr](/wp-content/uploads/2013/09/JITr-e1378132951124.png)
 
 It's understood in the R community that <a title="Why are R loops slow?" href="http://stackoverflow.com/questions/7142767/why-are-loops-slow-in-r" target="_blank">loops are not a strong point</a> of the language. In the case of this problem, I decided to use loops because 1) it keeps the code pattern similar across languages and 2) I hoped I'd see the max benefit from the compiler package by not trying any funky R optimizations up front.
 
