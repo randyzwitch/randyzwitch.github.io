@@ -630,7 +630,7 @@
       <item>
         <title>Using SQL Workbench with Apache Hive</title>
         
-          <description>&lt;p&gt;If you’ve spent any non-trivial amount of time working with Hadoop and Hive at the command line, you’ve likely wished that you could interact with Hadoop like you would any other database. If you’re lucky, your Hadoop administrator has already installed the &lt;a title=&quot;Apache Hue&quot; href=&quot;http://gethue.com/&quot; target=&quot;_blank&quot;&gt;Apache Hue&lt;/a&gt; front-end to your cluster, which allows for &lt;a title=&quot;Getting Started Using Hadoop, Part 3: Loading Data&quot; href=&quot;http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/&quot; target=&quot;_blank&quot;&gt;interacting with Hadoop via an easy-to-use browser interface&lt;/a&gt;. However, if you don’t have Hue, Hive also supports access via JDBC; the downside is, setup is not as easy as including a single JDBC driver.&lt;/p&gt;
+          <description>&lt;p&gt;If you’ve spent any non-trivial amount of time working with Hadoop and Hive at the command line, you’ve likely wished that you could interact with Hadoop like you would any other database. If you’re lucky, your Hadoop administrator has already installed the &lt;a href=&quot;http://gethue.com/&quot;&gt;Apache Hue&lt;/a&gt; front-end to your cluster, which allows for &lt;a href=&quot;http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/&quot;&gt;interacting with Hadoop via an easy-to-use browser interface&lt;/a&gt;. However, if you don’t have Hue, Hive also supports access via JDBC; the downside is, setup is not as easy as including a single JDBC driver.&lt;/p&gt;
 
 </description>
         
@@ -645,7 +645,7 @@
       <item>
         <title>Real-time Reporting with the Adobe Analytics API</title>
         
-          <description>&lt;p&gt;Starting with &lt;a title=&quot;RSiteCatalyst Version 1.3 Release Notes&quot; href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/&quot; target=&quot;_blank&quot;&gt;version 1.3.1 of RSiteCatalyst&lt;/a&gt;, you can now access the &lt;a title=&quot;Realtime reporting Adobe Analytics API documentation&quot; href=&quot;https://developer.omniture.com/en_US/documentation/sitecatalyst-reporting/c-real-time#concept_AD1D9EC2BC9C4897B9DE3C99D0066B8E&quot; target=&quot;_blank&quot;&gt;real-time reporting capabilities of the Adobe Analytics API&lt;/a&gt; through a familiar R interface. Here’s how to get started…&lt;/p&gt;
+          <description>&lt;p&gt;Starting with &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/&quot;&gt;version 1.3.1 of RSiteCatalyst&lt;/a&gt;, you can now access the &lt;a href=&quot;https://developer.omniture.com/en_US/documentation/sitecatalyst-reporting/c-real-time#concept_AD1D9EC2BC9C4897B9DE3C99D0066B8E&quot;&gt;real-time reporting capabilities of the Adobe Analytics API&lt;/a&gt; through a familiar R interface. Here’s how to get started…&lt;/p&gt;
 
 </description>
         
