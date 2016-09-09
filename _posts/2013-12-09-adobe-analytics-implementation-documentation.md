@@ -15,17 +15,54 @@ When I was working as a digital analytics consultant, no question quite had the 
 
 Luckily for Adobe Analytics customers, the API provides a means of generating the framework for a properly-documented implementation. Here's how to do it using <a title="RSiteCatalyst CRAN" href="http://cran.r-project.org/web/packages/RSiteCatalyst/index.html" target="_blank">RSiteCatalyst</a>.
 
-
-
 ## Generating Adobe Analytics documentation file
 
 The code below outlines the commands needed to generate an Excel file (<a title="Example Excel file Adobe Analytics Documentation" href="http://randyzwitch.com/wp-content/uploads/2013/12/adobe_analytics_implementation_doc.xlsx" target="_blank">see example</a>) with six tabs containing the basic structure of an Adobe Analytics. This report contains all of the report suites you have access to, the elements that reports can be broken down by, traffic variables (props), conversion variables (eVars) and segments available for reporting.
 
-Additionally, within each tab metadata is provided that contains the various settings for variables, so you'll be able to document the expiration settings for eVars, participation, list variables, segment types and so on. The only "gotchas" to keep in mind when using the script above is that the user running this will only receive data for report suites they have access to (which is determined by Admin panel setting within Adobe Analytics) and that you need to have the <a title="WriteXLS" href="http://cran.r-project.org/web/packages/WriteXLS/index.html" target="_blank">WriteXLS</a> package installed to write to Excel. The WriteXLS package uses Perl as the underlying code, so you'll need to validate that the package is installed correctly, which is done using the _testPerl()_ function in the package.
+Additionally, within each tab metadata is provided that contains the various settings for variables, so you'll be able to document the expiration settings for eVars, participation, list variables, segment types and so on. 
 
+{% highlight r linenos %}
+library("RSiteCatalyst")
+library("WriteXLS")
 
+#Validate that underlying Perl modules for WriteXLS are installed correctly
+#Will return "Perl found. All required Perl modules were found" if installed correctly
+testPerl()
 
+#### 1. Pull data for all report suites to create one comprehensive report ####
 
+#Authenticate with Adobe Analytics API
+SCAuth("user:company", "sharedsecret")
+
+#Get Report Suites
+report_suites <- GetReportSuites()
+
+#Get Available Elements
+elements <- GetElements(report_suites$rsid)
+
+#Get eVars
+evars <- GetEvars(report_suites$rsid)
+
+#Get Segments
+segments <- GetSegments(report_suites$rsid)
+
+#Get Success Events
+events <- GetSuccessEvents(report_suites$rsid)
+
+#Get Traffic Vars
+props <- GetProps(report_suites$rsid)
+
+#### 2. Generate a single Excel file
+
+#Create list of report suite objects, written as strings
+objlist <- c("report_suites", "elements", "evars", "segments", "events", "props")
+
+#Write out Excel file with auto-width columns, a bolded header row and filters turned on
+WriteXLS(objlist, "/Users/randyzwitch/Desktop/adobe_analytics_implementation_doc.xlsx",
+         AdjWidth = TRUE, BoldHeaderRow = TRUE, AutoFilter = TRUE)
+{% endhighlight %}
+
+The only "gotchas" to keep in mind when using the script above is that the user running this will only receive data for report suites they have access to (which is determined by Admin panel setting within Adobe Analytics) and that you need to have the <a title="WriteXLS" href="http://cran.r-project.org/web/packages/WriteXLS/index.html" target="_blank">WriteXLS</a> package installed to write to Excel. The WriteXLS package uses Perl as the underlying code, so you'll need to validate that the package is installed correctly, which is done using the `testPerl()` function in the package.
 
 ## This is pretty bare-bones, no?
 

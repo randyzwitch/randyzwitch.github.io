@@ -14,19 +14,13 @@ tags:
 ---
 ## A complicated WordPress theme may LOOK better...
 
-As I referenced in my prior <a title="Does the World really need another web analytics blog?" href="http://randyzwitch.com/2011/07/introduction/" target="_blank">post</a>, when I was getting <a title="The Fuqua Experience" href="http://the-fuqua-experience.com" target="_blank">The Fuqua Experience</a> (TFE) off the ground, I tried to find good-looking themes to complement my writing.  For a while, I used the <a title="Cutline 3-column Theme" href="http://cutline.tubetorial.com/" target="_blank">Cutline 3-column split</a> theme, because I liked the spartan nature of the theme.  I figured that all that white-space could be filled up with crazy tag-cloud widgets, Google Adsense ads, Twitter feeds...the web equivalent of Tufte's "<a title="Business Week Chartjunk" href="http://images.businessweek.com/ss/09/06/0608_tufte/7.htm" target="_blank">chartjunk</a>."
+As I referenced in a prior post</a>, when I was getting [The Fuqua Experience](http://the-fuqua-experience.com) (TFE) off the ground, I tried to find good-looking themes to complement my writing.  For a while, I used the [Cutline 3-column split](http://cutline.tubetorial.com/) theme, because I liked the spartan nature of the theme.  I figured that all that white-space could be filled up with crazy tag-cloud widgets, Google Adsense ads, Twitter feeds...the web equivalent of Tufte's "<a title="Business Week Chartjunk" href="http://images.businessweek.com/ss/09/06/0608_tufte/7.htm" target="_blank">chartjunk</a>."
 
 Once I moved away from the "must put every widget and plugin everywhere" mentality, I switched to the <a title="Atahualpa theme" href="http://wordpress.bytesforall.com/?p=102" target="_blank">Atahualpha</a> theme.  This is an amazing theme that allowed me to get TFE into a more professional, magazine style layout. I started thinking about search engine optimization (due to the included functionality), as well as customizing the hell out of every single font and layout attribute.  I started getting into using WordPress <a title="Wordpress shortcodes" href="http://codex.wordpress.org/Shortcode" target="_blank">shortcodes</a>, adding some additional social networking features like a Twitter widget and some special RSS buttons, and learning a lot along the way.
 
-
-
 ## ...but eventually you run out of flexibility
 
-While complex themes like Atahualpa are great, eventually you come upon a problem that you can't solve.  For me, it was adding a JavaScript "onclick" event to the "Read More" tag in WordPress (for tracking in Google Analytics).  Because of how the theme is set up, you can go right into the options area and modify what text is shown on the link (say, "_Continue Reading_" or "_Read this, Fool!_" instead of "Read More"), but you can't put JavaScript in that box.
-
-
-
-
+While complex themes like Atahualpa are great, eventually you come upon a problem that you can't solve.  For me, it was adding a JavaScript `onclick` event to the "Read More" tag in WordPress (for tracking in Google Analytics).  Because of how the theme is set up, you can go right into the options area and modify what text is shown on the link (say, "_Continue Reading_" or "_Read this, Fool!_" instead of "Read More"), but you can't put JavaScript in that box.
 
 After contacting the theme developer, I still haven't solved that problem!  So rather than make the same mistake again, I sought out the easiest, cleanest theme I could:  [Twenty Eleven](http://theme.wordpress.com/themes/twentyeleven/ "Twenty Eleven"), designed by WordPress.  Compared to Cutline and (definitely) Atahualpa, Twenty Eleven looks like it is written in English instead of PHP!
 

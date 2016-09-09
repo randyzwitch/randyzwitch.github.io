@@ -1554,7 +1554,7 @@
       <item>
         <title>Twenty Eleven Child Theme: Custom Header</title>
         
-          <description>&lt;p&gt;In a previous &lt;a href=&quot;http://randyzwitch.com/2011/07/twenty-eleven-child-theme-creating-css-file/&quot;&gt;post&lt;/a&gt; about creating a child theme for Twenty-Eleven, we created a custom CSS file using the &lt;a title=&quot;Import CSS rule&quot; href=&quot;http://www.w3.org/TR/CSS2/cascade.html#at-import&quot; target=&quot;_blank&quot;&gt;@import CSS rule&lt;/a&gt;.  Technically, the new CSS file is all that is needed to create a child theme in WordPress, but &lt;em&gt;just&lt;/em&gt; changing the colors and font styles isn’t that much fun.  If it’s worth making your own WordPress child theme, it’s worth changing _everything…_starting with creating a custom header file.&lt;/p&gt;
+          <description>&lt;p&gt;In a previous &lt;a href=&quot;http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/&quot;&gt;post&lt;/a&gt; about creating a child theme for Twenty-Eleven, we created a custom CSS file using the &lt;a title=&quot;Import CSS rule&quot; href=&quot;http://www.w3.org/TR/CSS2/cascade.html#at-import&quot; target=&quot;_blank&quot;&gt;@import CSS rule&lt;/a&gt;.  Technically, the new CSS file is all that is needed to create a child theme in WordPress, but &lt;em&gt;just&lt;/em&gt; changing the colors and font styles isn’t that much fun.  If it’s worth making your own WordPress child theme, it’s worth changing _everything…_starting with creating a custom header file.&lt;/p&gt;
 
 </description>
         
@@ -1569,10 +1569,8 @@
       <item>
         <title>Have Social 'Influence' Scores Become Another FICO?</title>
         
-          <description>&lt;div id=&quot;attachment_139&quot; style=&quot;width: 205px&quot; class=&quot;wp-caption alignright&quot;&gt;
-  &amp;lt;img class=&quot;size-full wp-image-139   &quot; title=&quot;zwitch-klout-july-2011&quot; /wp-content/uploads/2011/07/zwitch-klout-july-2011.png?fit=195%2C179&quot; alt=&quot;&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
+          <description>&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2011/07/zwitch-klout-july-2011.png&quot; alt=&quot;zwitch-klout-july-2011&quot; /&gt;&lt;/p&gt;
 
-&lt;/div&gt;
 </description>
         
         <pubDate>Wed, 13 Jul 2011 07:52:32 -0400</pubDate>
@@ -1586,7 +1584,7 @@
       <item>
         <title>Twenty Eleven Child Theme: Creating CSS File</title>
         
-          <description>&lt;p&gt;With the Twenty Eleven child theme directory &lt;a title=&quot;Picking a WordPress Theme:  Fancy or Basic?&quot; href=&quot;http://randyzwitch.com/2011/07/wordpress-theme-twentyeleven-athualpa/&quot; target=&quot;_blank&quot;&gt;created&lt;/a&gt; as “twentyeleven-child” in the ‘/wp-content/themes’ directory, we’re now ready to create the first file as part of the child theme: the CSS file.&lt;/p&gt;
+          <description>&lt;p&gt;With the Twenty Eleven child theme directory &lt;a title=&quot;Picking a WordPress Theme:  Fancy or Basic?&quot; href=&quot;http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/&quot; target=&quot;_blank&quot;&gt;created&lt;/a&gt; as “twentyeleven-child” in the ‘/wp-content/themes’ directory, we’re now ready to create the first file as part of the child theme: the CSS file.&lt;/p&gt;
 
 </description>
         
