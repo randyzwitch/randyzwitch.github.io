@@ -979,7 +979,7 @@
       <item>
         <title>The Fun of Error Trapping: R Package Edition</title>
         
-          <description>&lt;p&gt;For the last month or so I’ve been working on an R package to make accessing the &lt;a title=&quot;Omniture Reporting API&quot; href=&quot;https://developer.omniture.com/&quot; target=&quot;_blank&quot;&gt;Adobe (Omniture) Digital Marketing Suite Reporting API&lt;/a&gt; easier.  As part of this development effort, I’m at the point where I’m intentionally introducing errors into my function inputs, trying to guess some of the ways useRs might incorrectly input arguments into each function.  Imagine my surprise when I saw this:&lt;/p&gt;
+          <description>&lt;p&gt;For the last month or so I’ve been working on an R package to make accessing the &lt;a title=&quot;Omniture Reporting API&quot; href=&quot;https://developer.omniture.com/&quot; target=&quot;_blank&quot;&gt;Adobe (Omniture) Digital Marketing Suite Reporting API&lt;/a&gt; easier.  As part of this development effort, I’m at the point where I’m intentionally introducing errors into my function inputs, trying to guess some of the ways users might incorrectly input arguments into each function.  Imagine my surprise when I saw this:&lt;/p&gt;
 
 </description>
         
@@ -994,10 +994,8 @@
       <item>
         <title>(not provided): Using R and the Google Analytics API</title>
         
-          <description>&lt;div id=&quot;attachment_1432&quot; style=&quot;width: 610px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
-  &amp;lt;img class=&quot;size-full wp-image-1432&quot; alt=&quot;(not provided) terms from Google average 35%-60% of all organic search terms&quot; /wp-content/uploads/2013/01/google-not-provided.png?fit=600%2C331&quot; srcset=&quot;http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?w=600 600w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=150%2C82 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=300%2C165 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2013/01/google-not-provided.png?resize=500%2C275 500w&quot; sizes=&quot;(max-width: 600px) 100vw, 600px&quot; data-recalc-dims=&quot;1&quot; /&amp;gt;
+          <description>&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2013/01/google-not-provided.png&quot; alt=&quot;(not provided) terms from Google average 35%-60% of all organic search terms&quot; /&gt;&lt;/p&gt;
 
-&lt;/div&gt;
 </description>
         
         <pubDate>Fri, 11 Jan 2013 11:27:33 -0500</pubDate>
@@ -1054,7 +1052,7 @@
     
       
       <item>
-        <title>Video:  R, RStudio, Rcmdr &amp;#038; rattle</title>
+        <title>Video:  R, RStudio, Rcmdr &amp; rattle</title>
         
           <description>&lt;p&gt;I did a screencast for my co-workers to show how to get started with R, specifically what a base installation of R looks like, then showing how to improve your workflow using RStudio, Rcmdr or rattle.  The examples are somewhat pedestrian, but it gives a feel for what using R actually looks like.&lt;/p&gt;
 
