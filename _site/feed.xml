@@ -673,7 +673,7 @@
     
       
       <item>
-        <title>Getting Started With Hadoop, Final: Analysis Using Hive &amp;#038; Pig</title>
+        <title>Getting Started With Hadoop, Final: Analysis Using Hive &amp; Pig</title>
         
           <description>&lt;p&gt;We’ve finally made it to the final post in this tutorial! In my prior posts about getting started with &lt;a title=&quot;Hadoop posts&quot; href=&quot;http://randyzwitch.com/tag/hadoop/&quot; target=&quot;_blank&quot;&gt;Hadoop&lt;/a&gt;, we’ve covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the &lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;airline dataset&lt;/a&gt; using Hive and Pig.&lt;/p&gt;
 
@@ -1370,7 +1370,7 @@
       <item>
         <title>Google Analytics SEO reports: Not Ready For Primetime?</title>
         
-          <description>&lt;p&gt;On October 4th, Google &lt;a title=&quot;Webmaster Tools in GA&quot; href=&quot;http://analytics.blogspot.com/2011/10/webmaster-tools-in-google-analytics-for.html&quot; target=&quot;_blank&quot;&gt;announced&lt;/a&gt; that the Webmaster Tools/Google Analytics integration was now available to all users. The three new reports (Queries, Landing Pages, and Geographical Summary) are intended to allow site owners and content creators to monitor how well their content is indexed in Google for their keywords of interest across time, all within the Google Analytics interface.  However, based on my preliminary research from the first few days of data, I have to question the current algorithm’s accuracy.&lt;/p&gt;
+          <description>&lt;p&gt;On October 4th, Google announced that the &lt;a href=&quot;http://analytics.blogspot.com/2011/10/webmaster-tools-in-google-analytics-for.html&quot;&gt;Webmaster Tools/Google Analytics integration&lt;/a&gt; was now available to all users. The three new reports (Queries, Landing Pages, and Geographical Summary) are intended to allow site owners and content creators to monitor how well their content is indexed in Google for their keywords of interest across time, all within the Google Analytics interface.  However, based on my preliminary research from the first few days of data, I have to question the current algorithm’s accuracy.&lt;/p&gt;
 
 </description>
         
