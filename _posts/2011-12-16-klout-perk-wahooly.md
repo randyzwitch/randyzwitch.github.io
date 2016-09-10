@@ -10,17 +10,13 @@ tags:
   - Social Media
   - Twitter
 ---
-<div id="attachment_923" style="width: 682px" class="wp-caption aligncenter">
-  <img class="size-full wp-image-923" title="klout-perk-wahooly" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?fit=672%2C239" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?w=672 672w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=150%2C53 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=300%2C106 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/12/klout-perk-wahooly.png?resize=500%2C177 500w" sizes="(max-width: 672px) 100vw, 672px" data-recalc-dims="1" />
+![klout-perk-wahooly](/wp-content/uploads/2011/12/klout-perk-wahooly.png)
 
-  <p class="wp-caption-text">
-    "Ownership in startup companies for nothing...sign up today!"
-  </p>
-</div>
+<p class="wp-caption-text">
+"Ownership in startup companies for nothing...sign up today!"
+</p>
 
 I'm not sure what it is about Klout that keeps me coming back.  I tell myself that as a digital marketer/analyst that I need to monitor the newest trends in the market, blah blah blah.  But every time I interact with Klout, they find a new way to abuse me, leaving me feeling dirty for having looked to see what value they assign to me based on the data that I _willingly_ provide.
-
-
 
 ## Klout Perks - Send a lot of Tweets, get free sh-!
 
@@ -29,10 +25,6 @@ In a previous post on <a title="Klout will never be FICO" href="http://randyzwit
 That said, trying to get "influential" people using your goods is a tried-and-true advertising technique, and one that companies pay handsomely for.  You see it in car commercials, luxury goods like watches and clothing, and even home goods retail. So again, I can't fault large companies that are testing into new markets, as top-line growth can often be hard to find (and expensive!)
 
 But once you start moving into investment offers, venture capital, and startups, now you're moving into a whole other world of due diligence...
-
-
-
-
 
 ## I qualify for "Wahooly"...what's that?
 
@@ -50,11 +42,8 @@ Wanting to know more, I dug farther into the article to find these two gems:
 
 > **"If you're an equity stakeholder in a company, I can guarantee that the FTC is going to think that's a relationship that needs to be disclosed,"** she said...
 
-> <snip>
 >
 > ...Wahooly is looking to structure itself like a venture capital fund, in which it would be the sole shareholder and represent the interests of its users, and thereby avoid registering itself and the startups it represents with the Securities and Exchange Commission as public companies...
-
-> <snip>
 
 > However, **the SEC has a [history of cracking down](http://www.sec.gov/news/headlines/webstock.htm "SEC") on so-called "free stock" offerings that seek to be exempted from registration on that basis.**
 

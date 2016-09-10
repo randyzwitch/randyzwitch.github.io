@@ -18,8 +18,6 @@ When the iPhone 4S was announced on October 4th, there was much gnashing of teet
 
 So if you're like me and using an iPhone 3GS (or older!), the iPhone 4S should definitely be a worthy upgrade.
 
-
-
 ## iPhone 4S Hardware: Many Improvements over the iPhone 3GS
 
 One of the biggest reasons I've been looking to upgrade from the iPhone 3GS is that my phone has just started acting "tired" in the last 6-9 months.  When I purchased the 3GS, that was before iOS4 and iOS5, and with each iOS update I'm sure the processor usage has increased.  Skipping the iPhone 4 and waiting for the 4S, that's two processor upgrades compared to my current phone, which I'm sure will make the phone feel that much speedier.
@@ -28,17 +26,15 @@ But it's not just the processor here that's a huge improvement...moving to the 4
 
 I think it's safe to say that even without a case re-design, the iPhone 4S is in a different world hardware-wise than my current 3GS.
 
-
-
-
-
 ## iPhone 4S Activation Issues
 
 At this point, you're probably expecting that I would cover how the iOS5 software is working on said hardware upgrade.  But if you've been following any of the major tech blogs like <a title="CNET iPhone 4S story" href="http://news.cnet.com/8301-13506_3-20120568-17/iphone-4s-buyers-complain-of-at-t-activation-issues/?tag=mncol" target="_blank">CNET</a>, you see that there are widespread reports of users being unable to activate their iPhone 4S's.  At first, I thought it was just AT&T's generally poor service and network, but <a title="InformationWeek iPhone 4S" href="http://www.informationweek.com/news/mobility/smart_phones/231900844" target="_blank">InformationWeek</a> is reporting that all carriers are experiencing this phenomenon.  There may have been gnashing of teeth during the iPhone 4S announcement, but with Apple's <a title="Apple sells out iPhone 4S pre-sale" href="http://www.usatoday.com/tech/news/story/2011-10-08/apple-iphone-pre-orders/50706650/1" target="_blank">announcement</a> of a pre-sale sell out, clearly there are ton of buyers out there.
 
 One thing I can blame on AT&T though is a lack of foresight of proper error messaging.  When you sign in through iTunes, here's the error message you get:
 
-<img class="aligncenter size-full wp-image-840" title="iphone-4S-activation-error-att" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-error-att.png?fit=872%2C259" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-error-att.png?w=872 872w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-error-att.png?resize=150%2C44 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-error-att.png?resize=300%2C89 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-error-att.png?resize=500%2C148 500w" sizes="(max-width: 872px) 100vw, 872px" data-recalc-dims="1" />Well, which is it AT&T and Apple?  If my activation is still pending, and you are going to send me an email, why do I need to try again later?  I have to believe that some of the activation server problems stem from not being clear about what to do.  With users (like myself) re-sending the activation over-and-over again, and potentially a script inside of AT&T trying to activate all these iPhones, there's got to be a ton of redundant processor cycles being burned.
+![iphone-4S-activation-error-att](/wp-content/uploads/2011/10/iphone-4S-activation-error-att.png)
+
+Well, which is it AT&T and Apple?  If my activation is still pending, and you are going to send me an email, why do I need to try again later?  I have to believe that some of the activation server problems stem from not being clear about what to do.  With users (like myself) re-sending the activation over-and-over again, and potentially a script inside of AT&T trying to activate all these iPhones, there's got to be a ton of redundant processor cycles being burned.
 
 I've also tried to activate straight from my iPhone via Wi-Fi and over the 3G cell network, and even called AT&T.  Not surprisingly, the customer "service" rep at AT&T claimed there's no internal report of an activation problem, but I should try iTunes to see if that will activate my phone.
 
@@ -54,10 +50,10 @@ As if the first confusing error message wasn't enough, now AT&T/Apple have switc
 
 7 hours in, who knows how many attempts...no activation.
 
-<img class="aligncenter size-full wp-image-849" title="iphone-4s-activate-off-on" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4s-activate-off-on.png?fit=846%2C247" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4s-activate-off-on.png?w=846 846w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4s-activate-off-on.png?resize=150%2C43 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4s-activate-off-on.png?resize=300%2C87 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4s-activate-off-on.png?resize=500%2C145 500w" sizes="(max-width: 846px) 100vw, 846px" data-recalc-dims="1" />
+![iphone-4s-activate-off-on](/wp-content/uploads/2011/10/iphone-4s-activate-off-on.png)
 
 ## Update 2:  iPhone 4S Activation Complete!
 
 After 7 hours of trying, finally I have a working iPhone 4S!
 
-<img class="aligncenter size-full wp-image-851" title="iphone-4S-activation-complete" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-complete.png?fit=841%2C303" alt="" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-complete.png?w=841 841w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-complete.png?resize=150%2C54 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-complete.png?resize=300%2C108 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2011/10/iphone-4S-activation-complete.png?resize=500%2C180 500w" sizes="(max-width: 841px) 100vw, 841px" data-recalc-dims="1" />
+![iphone-4S-activation-complete](/wp-content/uploads/2011/10/iphone-4S-activation-complete.png)

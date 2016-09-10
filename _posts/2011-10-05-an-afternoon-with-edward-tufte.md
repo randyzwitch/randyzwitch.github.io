@@ -11,19 +11,15 @@ tags:
   - Chartjunk
   - Data Visualization
 ---
-<div id="attachment_713" style="width: 310px" class="wp-caption alignright">
-  <img class="size-medium wp-image-713 " title="tufte-data-visualization" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization-300x225.jpg?fit=300%2C225" alt="Tufte Seminar Philly" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=300%2C225 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=150%2C112 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?resize=400%2C300 400w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2011/10/tufte-data-visualization.jpg?w=640 640w" sizes="(max-width: 300px) 100vw, 300px" data-recalc-dims="1" />
+![tufte-data-visualization](/wp-content/uploads/2011/10/tufte-data-visualization-300x225.jpg)
 
-  <p class="wp-caption-text">
-    There had to be 400+ people in the seminar!
-  </p>
-</div>
+<p class="wp-caption-text">
+There had to be 400+ people in the seminar!
+</p>
 
 Yesterday, I had the opportunity to attend the "Presenting Data and Information" seminar hosted by Edward Tufte in Philadelphia.  A world-renowned expert in the field of data presentation/visualization, Edward Tufte has written seven books outlining terrible and fantastic examples of data display (and how to make sure your charts and tables fall into the latter!)
 
-Unfortunately, as great as each of these books are at explaining methods for data visualization, the seminar was little more than a topical discussion of his book material, rather than a concise summary of what pitfalls to avoid. However, for the relatively low cost of the seminar ($380) and receiving hardcover editions of 4 of 7 of Tufte's works, there are many worse ways to spend your time and money if you are a data geek!
-
-
+Unfortunately, as great as each of these books are at explaining methods for data visualization, the seminar was little more than a topical discussion of his book material, rather than a concise summary of what pitfalls to avoid. However, for the relatively low cost of the seminar ($380) and receiving hardcover editions of 4 of 7 of Tufte's works, there are many worse ways to spend your time and money if you are a data enthusiast!
 
 ## Course materials
 
