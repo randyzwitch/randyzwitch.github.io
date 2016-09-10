@@ -11,19 +11,15 @@ tags:
   - Targeting
   - Twitter
 ---
-<div id="attachment_1153" style="width: 652px" class="wp-caption aligncenter">
-  <img class="size-full wp-image-1153" title="twitter-promoted-tweets-spam" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?fit=642%2C481" alt="twitter promoted tweets no better than spam" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?w=642 642w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=150%2C112 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=300%2C224 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png?resize=400%2C300 400w" sizes="(max-width: 642px) 100vw, 642px" data-recalc-dims="1" />
+![twitter-promoted-tweets-spam](/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png)
 
-  <p class="wp-caption-text">
-    Left: #WWDC (Apple developer conference)           Right: #EdLoverDance
-  </p>
-</div>
+<p class="wp-caption-text">
+Left: #WWDC (Apple developer conference)           Right: #EdLoverDance
+</p>
 
 Before we get started, let's get something out of the way:  _Yes, I know I'm complaining about a free service that I don't have to use.  And further, it's their platform to do whatever they want..._
 
 I can't fault Twitter for wanting to monetize their platform.  Given that Twitter (and pretty much every social network) would collapse if they started charging users, selling ads is pretty much the de facto next move.  But given the recent declaration by <a title="GM drops Facebook ads" href="http://thenextweb.com/facebook/2012/05/15/gm-to-drop-facebook-advertising-citing-poor-results/" target="_blank">GM that they dropped Facebook ads</a> because they "don't work", why isn't Twitter making a better effort to provide relevance with their Promoted Tweets?
-
-
 
 ## Promoted Tweet 1:  Apple Worldwide Developer Conference vs. Pepsi/Nicki Minaj
 
@@ -33,13 +29,11 @@ _BOOM!  Nicki Manaj!  Barbie shot a commercial, gave up her underground hood s
 
 Uh, ok.  Can't think of anything further from a tech conference than a rapper whose name is a no-so-subtle reference to sex.
 
-
-
-
-
 ## Promoted Tweet 2:  Ed Lover Dance vs. Dell for Business
 
-If you don't know the [Ed Lover Dance](http://www.youtube.com/watch?v=99lwNnrUNs8&feature=results_video&playnext=1&list=PL971FEE464B7AAD24 "Ed Lover dance on YouTube"), you're either not a fan of hip-hop or you're not as old as me.  Regardless, one thing the Ed Lover Dance is NOT is Dell for Business.  Unless, of course, someone has a video of Michael Dell doing the Ed Lover Dance, in that case, carry on...
+<iframe width="560" height="315" src="https://www.youtube.com/embed/99lwNnrUNs8" frameborder="0" allowfullscreen></iframe>
+
+If you don't know the Ed Lover Dance, you're either not a fan of hip-hop or you're not as old as me.  Regardless, one thing the Ed Lover Dance is NOT is Dell for Business.  Unless, of course, someone has a video of Michael Dell doing the Ed Lover Dance, in that case, carry on...
 
 ## Let's do better, Twitter...I've given you 3,500 opportunities to learn about me
 

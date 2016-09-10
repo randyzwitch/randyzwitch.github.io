@@ -10,17 +10,13 @@ tags:
   - Omniture
   - Usability
 ---
-<div id="attachment_1233" style="width: 272px" class="wp-caption alignright">
-  <img class="size-medium wp-image-1233" title="data-squirrel" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel-262x300.png?fit=262%2C300" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=262%2C300 262w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?resize=131%2C150 131w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/07/data-squirrel.png?w=362 362w" sizes="(max-width: 262px) 100vw, 262px" data-recalc-dims="1" />
+![data-squirrel](/wp-content/uploads/2012/07/data-squirrel-262x300.png)
 
-  <p class="wp-caption-text">
-    Just because data CAN be captured doesn't mean it SHOULD be!
-  </p>
-</div>
+<p class="wp-caption-text">
+Just because data CAN be captured doesn't mean it SHOULD be!
+</p>
 
 In a prior post about [customizing the SiteCatalyst menu interface](http://randyzwitch.com/customize-adobe-sitecatalyst-menu/ "For maximum user understanding, customize the SiteCatalyst menu"), I discussed how simple changes such as hiding empty Omniture variables/reports and re-organizing the menu structure will help improve understanding within your organization.  In the spirit of even further interface optimization, here are 20 reports within Omniture that I feel that can be hidden due to their lack of business-actionable information.
-
-
 
 Here are my Top 20, in no particular order:
 
@@ -47,7 +43,7 @@ Here are my Top 20, in no particular order:
 
 ## Mobile reports
 
-For the most part, the information in the separate reports can determined just by knowing the device (which is also a default Omniture report).  So, a single report can take the place of 10.
+For the most part, the information in the separate reports can determined just by knowing the device (which is also a default Omniture report). So, a single report can take the place of 10.
 
 There's also the pesky issue that the reports more often than not show "Unknown" for 90%+ of the mobile traffic (at least, in the U.S.).  So not only can the data be determined from knowing the mobile device being used, the additional reports aren't even well populated.
 
@@ -59,27 +55,23 @@ The "Connection Type" report, along with "Monitor Color Depth", measure things t
 
 Finally, JavaScript version?  The JavaScript report with "Enabled/Disabled" is likely more than enough information.  Or, you can just include jQuery in your website and know with 100% certainty what version is being used.
 
-
-
-
-
 ## Visitor Profile reports
 
-My dislike of the identified Visitor Profile reports are due to halfway implementation.  The "GeoSegmentation report shows a nice map representation, but only of traffic metrics like Page Views and Visits.  Why not open this up to conversion variables and really make the visualization useful, instead of needing to rely on the "flat", non-map Visitor Zip (s.zip) report?
+My dislike of the identified Visitor Profile reports are due to halfway implementation.  The "GeoSegmentation report shows a nice map representation, but only of traffic metrics like Page Views and Visits.  Why not open this up to conversion variables and really make the visualization useful, instead of needing to rely on the "flat", non-map Visitor Zip (`s.zip`) report?
 
 For the "Domains" and "Top-Level Domains" report, you have granularity issues; the "Top-Level Domains" report is sort-of a country-level report, but the U.S. has several line items.  The "Domains" report shows what ISP people are using to access the Internet (which I think is generally useless in itself), but again...it spans geography, so the ISP network someone is on may not even have the same technology.  So what are we really measuring in these reports?
 
 ## Traffic Sources reports
 
-The "All Search Page Ranking" report seems like it could be useful, until you realize that 1) it aggregates all search engines (whose different algorithms provide different rankings and 2) with personalized search, rankings are no longer static.  Literally every single person could see a different link position for the same search term.  So while this report may have made sense for SEO measurement in the past, it's really past it's prime...use the right SEO tool for the job (Conductor, SEOmoz, and the like).
+The "All Search Page Ranking" report seems like it could be useful, until you realize that 1) it aggregates all search engines (whose different algorithms provide different rankings and 2) with personalized search, rankings are no longer static. Literally every single person could see a different link position for the same search term.  So while this report may have made sense for SEO measurement in the past, it's really past it's prime...use the right SEO tool for the job (Conductor, SEOmoz, and the like).
 
 The "Original Referring Domains" report is weird in its own way...the absolute first URL that referred you to the site.  Really?  As Avinash has said, giving 100% credit to the first touchpoint is like giving your first girlfriend credit for you marrying your wife (paraphrased).  This report is very limited in its usefulness IMO, especially given the advances in attribution modeling in the past several years.
 
 ## Custom Variable:  s.server report
 
-The only custom variable report I have on this list is the s.server report; hopefully, all of your other custom variables are capturing only business-useful information!
+The only custom variable report I have on this list is the `s.server` report; hopefully, all of your other custom variables are capturing only business-useful information!
 
-The reason I dislike the s.server variable/report is the same reason I dislike the "All Search Page Ranking" report; use the right tool for the job.  This is a lazy way of monitoring server volume for load balancing.  But if you're doing the job well on the back-end, shouldn't every server have the same level of volume?
+The reason I dislike the `s.server` variable/report is the same reason I dislike the "All Search Page Ranking" report; use the right tool for the job.  This is a lazy way of monitoring server volume for load balancing.  But if you're doing the job well on the back-end, shouldn't every server have the same level of volume?
 
 Even if the answer to the previous question is no (I'm not a network engineer, clearly), having an _operational_ report like this doesn't make much sense to me in a _marketing_ reporting tool.
 
