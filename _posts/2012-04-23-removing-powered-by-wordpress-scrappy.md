@@ -15,43 +15,45 @@ My wife started a <a title="Zwitchen.com | What's Cookin'?" href="http://zwitche
 
 This blog post is essentially the same as my prior blog post about <a title="Removing Powered by WordPress from Twenty Eleven theme" href="http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/" target="_blank">removing "Powered by WordPress" from the Twenty Eleven theme</a>, but of course, for the Scrappy theme!  This post assumes you've created a <a title="Creating a WordPress child theme" href="http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/" target="_blank">child theme</a> already, so that the changes you make persist even if the theme gets updated by the original author.
 
+## Copy the `footer.php` file from the Scrappy theme
 
-
-## Copy the footer.php file from the Scrappy theme
-
-The first thing to do to customize the Scrappy footer is make a copy of the _footer.php_ file from the Scrappy theme and place it in your child theme folder.  It is this file that we will modify in order to remove "Powered by WordPress" and the reference to the Scrappy theme name.
-
-
-
-
+The first thing to do to customize the Scrappy footer is make a copy of the `footer.php` file from the Scrappy theme and place it in your child theme folder.  It is this file that we will modify in order to remove "Powered by WordPress" and the reference to the Scrappy theme name.
 
 ## Comment out code within the "site-info" section of the footer
 
-Within the footer code, there is a <div> section that references "site-info":
+Within the footer code, there is a `<div>` section that references `site-info`:
 
+{% highlight php linenos %}
+<div>
+         <?php do_action( 'scrappy_credits' ); ?>
+            <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'scrappy' ) ); ?>" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'scrappy' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'scrappy' ), 'WordPress' ); ?></a>
+            <span> | </span>
+            <?php printf( __( 'Theme: %1$s by %2$s', 'scrappy' ), 'Scrappy', '<a href="http://carolinemoore.net/" rel="designer">Caroline Moore</a>' ); ?>
+        </div><!-- .site-info -->
+{% endhighlight %}
 
+What we want to do is comment out the code, starting at the first php reference and ending after the "Caroline Moore" line.  We can do this using the `<!-` and `->` <a title="HTML Tag Comments article" href="http://www.w3schools.com/tags/tag_comment.asp" target="_blank">codes</a>.  When the code is commented out correctly, it will look like the following:
 
-What we want to do is comment out the code, starting at the first php reference and ending after the "Caroline Moore" line.  We can do this using the "<!-" and "->" <a title="HTML Tag Comments article" href="http://www.w3schools.com/tags/tag_comment.asp" target="_blank">codes</a>.  When the code is commented out correctly, it will look like the following:
+{% highlight php linenos %}
+<!--        <?php do_action( 'scrappy_credits' ); ?>
+            <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'scrappy' ) ); ?>" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'scrappy' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'scrappy' ), 'WordPress' ); ?></a>
+            <span> | </span>
+            <?php printf( __( 'Theme: %1$s by %2$s', 'scrappy' ), 'Scrappy', '<a href="http://carolinemoore.net/" rel="designer">Caroline Moore</a>' ); ?> -->
+{% endhighlight %}
 
+Be sure to hit "Save" to your `footer.php` file after making the comment changes, and you're all done:  no more "Powered by WordPress"!
 
+![wordpress-scrappy-footer-original](/wp-content/uploads/2012/04/wordpress-scrappy-footer-original.png)
 
-Be sure to hit "Save" to your footer.php file after making the comment changes, and you're all done:  no more "Powered by WordPress"!
+<p class="wp-caption-text">
+Original "Scrappy" footer - Powered by WordPress
+</p>
 
-<div id="attachment_1012" style="width: 660px" class="wp-caption alignleft">
-  <img class="size-full wp-image-1012" title="wordpress-scrappy-footer-original" alt="WordPress Scrappy footer" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-original.png?fit=650%2C86" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-original.png?w=650 650w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-original.png?resize=150%2C19 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-original.png?resize=300%2C39 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-original.png?resize=500%2C66 500w" sizes="(max-width: 650px) 100vw, 650px" data-recalc-dims="1" />
+![WordPress Scrappy footer modified](/wp-content/uploads/2012/04/wordpress-scrappy-footer-modified.png)
 
-  <p class="wp-caption-text">
-    Original "Scrappy" footer - Powered by WordPress
-  </p>
-</div>
-
-<div id="attachment_1013" style="width: 660px" class="wp-caption alignleft">
-  <img class=" wp-image-1013" title="wordpress-scrappy-footer-modified" alt="WordPress Scrappy footer modified" src="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-modified.png?resize=650%2C66" srcset="http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-modified.png?w=650 650w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-modified.png?resize=150%2C15 150w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-modified.png?resize=300%2C30 300w, http://i0.wp.com/randyzwitch.com/wp-content/uploads/2012/04/wordpress-scrappy-footer-modified.png?resize=500%2C50 500w" sizes="(max-width: 650px) 100vw, 650px" data-recalc-dims="1" />
-
-  <p class="wp-caption-text">
-    Modified WordPress Scrappy footer (with slightly different pattern!)
-  </p>
-</div>
+<p class="wp-caption-text">
+Modified WordPress Scrappy footer (with slightly different pattern!)
+</p>
 
 ## Adding your own footer text
 

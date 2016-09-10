@@ -4,7 +4,7 @@ date: 2012-04-19T07:45:22+00:00
 author: Randy Zwitch
 layout: post
 permalink: /optimizely-wordpress-install/
-category: Analytics
+category: Design
 tags:
   - A/B testing
   - Child Theme
@@ -16,27 +16,19 @@ If you've spent any time working in digital marketing or analytics, you're alrea
 
 At the enterprise level, there are plenty of testing tools such as <a href="http://www.omniture.com/en/products/conversion/test-and-target" target="_blank">Omniture Test & Target</a>, <a href="http://www.sitespect.com/" target="_blank">SiteSpect</a>, <a href="http://webtrends.com/products/optimize/" target="_blank">WebTrends Optimize</a>, and <a href="http://www.monetate.com" target="_blank">Monetate</a>, but these tools are cost-prohibitive to all but the largest websites.  Google provides <a href="www.google.com/websiteoptimizer" target="_blank">Google Website Optimizer</a> (for free!), but that has often been viewed as difficult to manage, especially for dynamically created websites.  That's where <a href="http://www.optimizely.com" target="_blank">Optimizely</a> comes in.
 
-
-
-
-
 Optimizely's tagline is "A/B testing software you'll actually use", a reference to complication (and I think indirectly, the expense) of other testing tools in the marketplace.  Optimizely claims is that you can start testing after adding a single line of JavaScript code...and here's how you do it.
-
-
 
 ## Getting Started - Sign up
 
-The first step to installing Optimizely is to sign up (obviously).  A 30-day trial is provided, but you do need to put in a credit card to activate the free trial.
+The first step to installing Optimizely is to sign up. A 30-day trial is provided, but you do need to put in a credit card to activate the free trial.
 
 After doing so, when you click on the "Implementation" button, a pop-up shows you your customized "single line of code" to implement.
 
-<div id="attachment_996" style="width: 810px" class="wp-caption aligncenter">
-  <img class="size-full wp-image-996" title="optimizely-implementation" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?fit=800%2C301" alt="" srcset="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?w=800 800w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?resize=150%2C56 150w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?resize=300%2C112 300w, http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-implementation.png?resize=500%2C188 500w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" />
+![optimizely-implementation](/wp-content/uploads/2012/04/optimizely-implementation.png)
 
-  <p class="wp-caption-text">
-    Clicking on the "Implementation" link gives you your JavaScript code
-  </p>
-</div>
+<p class="wp-caption-text">
+Clicking on the "Implementation" link gives you your JavaScript code
+</p>
 
 ## Installing Optimizely code snippet in WordPress Header
 
@@ -46,7 +38,9 @@ When you click on the 'Implementation' link, you'll get code that looks like the
 
 What we want to do is install this code in our <a title="Twenty Eleven Child Theme: Custom Header" href="http://randyzwitch.com/custom-header-twenty-eleven-child-theme/" target="_blank">WordPress header</a>, pretty much after the first <head> tag.  By placing the code as high as possible in the WordPress header, this gives Optimizely the ability to affect your website as soon as the page starts loading, and assures that your site visitors don't notice anything happening before their eyes!
 
-<img class="alignright size-medium wp-image-1049" title="optimizely-jquery-menu" src="http://i1.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-jquery-menu-300x200.png?fit=300%2C200" alt="" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-jquery-menu.png?resize=300%2C200 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-jquery-menu.png?resize=150%2C100 150w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2012/04/optimizely-jquery-menu.png?w=374 374w" sizes="(max-width: 300px) 100vw, 300px" data-recalc-dims="1" />The only consideration you need to make when installing the code snippet is whether your site is already running jQuery or not.  You can determine this by looking in the header of your WordPress site to see if there are any scripts that say something like _jquery-162.js._  If you don't see any jQuery references in the header, you don't need to do anything:  Optimizely already includes jQuery!  If you already have jQuery installed, be sure to place the Optimizely code snippet after the WordPress jQuery reference.  Then, go to the Optimizely website, click on the  "My Experiments" -> "View All Experiments" - > "Project Code" menu to change the jQuery settings to "Do not include".
+![optimizely-jquery-menu](/wp-content/uploads/2012/04/optimizely-jquery-menu-300x200.png)
+
+The only consideration you need to make when installing the code snippet is whether your site is already running jQuery or not.  You can determine this by looking in the header of your WordPress site to see if there are any scripts that say something like `jquery-xxxx`.js.  If you don't see any jQuery references in the header, you don't need to do anything: Optimizely already includes jQuery!  If you already have jQuery installed, be sure to place the Optimizely code snippet after the WordPress jQuery reference.  Then, go to the Optimizely website, click on the  `My Experiments" -> "View All Experiments" - > "Project Code"` menu to change the jQuery settings to "Do not include".
 
 After you place the code snippet line in the header and hit save, that's it!  You'll be able to start using Optimizely to create experiments.
 
