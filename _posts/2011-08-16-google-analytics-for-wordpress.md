@@ -13,27 +13,21 @@ There are two ways to install Google Analytics for WordPress:  manually in your
 
 Note:  This post isn't going to cover creating an account at Google, since most people have at least one already through Gmail, Google+, YouTube, Picasa, etc.  However, if you do need help setting up a Google Analytics account, there is a great video provided by Google as part of their Conversion University series:  [Creating a Google Analytics account](http://services.google.com/analytics/breeze/en/installing_ga_code/index.html "Google Analytics Video")
 
-
-
 ## Finding your Google Analytics Account Number
 
 Once you have your Google Analytics account set up, you've conquered probably 75% of your installation.  Hard to believe, right?  All you need now is your account number/profile from Google Analytics to plug in to the tracking code.
 
 To find the proper code, sign in to Google Analytics and look for the following on the account home tab:
 
-<img class="aligncenter size-full wp-image-364" title="google-analytics-account-number" alt="" src="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/08/google-analytics-account-number.png?fit=513%2C235" srcset="http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/08/google-analytics-account-number.png?w=513 513w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/08/google-analytics-account-number.png?resize=300%2C137 300w, http://i2.wp.com/randyzwitch.com/wp-content/uploads/2011/08/google-analytics-account-number.png?resize=500%2C229 500w" sizes="(max-width: 513px) 100vw, 513px" data-recalc-dims="1" />I've obscured my number with red X's so that no one accidentally starts writing data to my account!  But if you see a code that starts with "UA-", that's your account and profile number.
+![google-analytics-account-number](/wp-content/uploads/2011/08/google-analytics-account-number.png)
+
+I've obscured my number with red X's so that no one accidentally starts writing data to my account!  But if you see a code that starts with `UA-`, that's your account and profile number.
 
 ## Installing the default Google Analytics tracking code
 
-With account number in hand, we're ready to install the tracking code in our WordPress header file, right before the _wp_head();_ line (and definitely before the closing tag.)  Note:  if you are using the Twenty Eleven theme, there are some comments about how removing the wp_head line will break WordPress plugins...this is the correct location.
+With account number in hand, we're ready to install the tracking code in our WordPress header file, right before the `wp_head();` line (and definitely before the closing tag.)  Note: if you are using the Twenty Eleven theme, there are some comments about how removing the `wp_head` line will break WordPress plugins...this is the correct location.
 
-
-
-Once you hit save to your header.php file, you're done.  If all is well, you'll see the basic Google Analytics data starting to populate in your account in about 24 hours!
-
-
-
-
+Once you hit save to your `header.php` file, you're done. If all is well, you'll see the basic Google Analytics data starting to populate in your account in about 24 hours!
 
 ## Of course, you can always use the Google Analytics for WordPress plugin...
 
