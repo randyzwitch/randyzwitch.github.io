@@ -24,7 +24,7 @@ permalink: /tag/r/feed/
         <link>
         {{ site.url }}{{ post.url }}</link>
         <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-        <content type="html" xml:base="{{ post.url | prepend: url_base | xml_escape }}">{{ post.content | markdownify | strip | xml_escape }}</content>
+        <content type="html" xml:base="{{ post.url | prepend: url_base | xml_escape }}">{{ post.content | strip | xml_escape }}</content>
       </item>
       {% endif %}
       {% endunless %}
