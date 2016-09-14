@@ -1,5 +1,6 @@
 ---
 layout: null
+permalink: /tag/julia/feed/
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -8,8 +9,10 @@ layout: null
     <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
     <link>
     {{ site.url }}</link>
+
     {% for post in site.posts %}
       {% unless post.link %}
+      {% if post.tags contains "Julia" %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         {% if post.excerpt %}
@@ -21,9 +24,11 @@ layout: null
         <link>
         {{ site.url }}{{ post.url }}</link>
         <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-        <content type="html" xml:base="{{ post.url | prepend: url_base | xml_escape }}">{{ post.content | strip | xml_escape }}</content>
+        <content type="html" xml:base="{{ post.url | prepend: url_base | xml_escape }}">{{ post.content | markdownify | strip | xml_escape }}</content>
       </item>
+      {% endif %}
       {% endunless %}
     {% endfor %}
+
   </channel>
 </rss>
