@@ -10,6 +10,7 @@ twitter:
   username: randyzwitch
 permalink: /:title
 name: randyzwitch
+description: Data Science, Programming, Technology, Design
 url: http://randyzwitch.com
 paginate: 3
 defaults:
