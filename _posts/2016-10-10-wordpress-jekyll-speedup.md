@@ -91,5 +91,5 @@ toolbox!(b)
 
 Usually, a box plot comparison that is as smushed as the Jekyll plot vs the WordPress one would be a poor visualization, but in this case I think it actually works. The load time for the Jekyll version of this blog is so quick and so consistent that it barely registers as an outlier if it were WordPress! It's crazy to think that the `-1.5 * IQR` time for WordPress is the mean/median/min load time of Jekyll.
 
-# # Where To Go Next?
+## Where To Go Next?
 This blog post is really just an interesting finding from my experience moving to Jekyll on GitHub. As it stands now, ECharts.jl is stil in pre-METADATA mode. Right now, I assume that this would be a useful enough package to submit to METADATA some day, but I guess that depends on how much further I get smoothing the rough edges. If there are people who are interested in cleaning up this package further, I'd absolutely love to collaborate.
