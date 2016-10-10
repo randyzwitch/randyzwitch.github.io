@@ -1,0 +1,83 @@
+---
+title: 'WordPress to Jekyll: A 30x Speedup'
+date: '2016-10-10'
+author: Randy Zwitch
+layout: post
+permalink: /wordpress-jekyll-30x-speedup/
+category: Analytics
+custom_js:
+- 2016-10-10-line.js
+- 2016-10-10-boxp.js
+tags:
+- Julia
+- Data Visualization
+---
+
+About a month ago, I switched this blog from WordPress hosted on Bluehost to Jekyll on GitHub Pages. I suspected moving to a static website would be faster than generated HTML via PHP, and it is certainly cheaper (GitHub Pages is "free"). But it wasn't until I needed a dataset for doing some dataset visualization development that I realize how much of an improvement it has been!
+
+## Packages, Packages, Packages
+
+With the release of v0.5 of Julia, I've been working (less) on updating my packages and making new packages (more), because making new stuff is more fun than maintaining old stuff! One of the packages I've been building is for the [ECharts visualization library](http://echarts.baidu.com/) (v3) from Baidu. While Julia doesn't necessarily need another visualization library, visualization is something I'm interested in and learning is easier when you're solving problems you like. And since the world doesn't need another Iris example, I decided to share some real world website performance data :)
+
+## Line Chart
+
+One of the first features I developed for [ECharts.jl](https://github.com/randyzwitch/ECharts.jl) was X-Y charts, which I posit is the most common chart type in business. One thing that is great about the underlying ECharts JavaScript library is that interactivity is really easy to achieve:
+
+<div id="linep" style="height:400px;width:800px;"></div>
+
+{% highlight julia %}
+using ECharts, DataFrames
+
+#Read in data
+df = readtable("/assets/data/website_time_data.csv")
+
+#Make data two different series that overlap, so endpoint touches
+df[:pre] = [(x[1] <= "2016-09-06" ? x[2] : nothing) for x in zip(df[:date], df[:loadtime_ms])]
+df[:post] = [(x[1] >= "2016-09-06" ? x[2] : nothing) for x in zip(df[:date], df[:loadtime_ms])]
+
+#Graph code
+l = line(df[:date], hcat(df[:pre], df[:post]))
+l.ec_width = 800
+seriesnames!(l, ["loadtime_ms", "post"])
+colorscheme!(l, palette = ("acw", "FlatUI"))
+yAxis!(l, name = "Load time in ms")
+title!(l, text = "randyzwitch.com",
+          subtext = "Switching from WordPress on Bluehost to Jekyll on GitHub (2016/09/06)")
+toolbox!(l, chartTypes = ["bar", "line"])
+slider!(l)
+{% endhighlight %}
+
+Even though I switched to Jekyll on WordPress on 9/6/2016, it appears that the page cache for Google Webmaster Tools didn't really expire until 9/12/2016 or so. At the average case, the load time went from 1128ms to 38ms! Of course, this isn't really a _fair_ comparison, as presumably GitHub Pages runs on much better hardware than the cheap Bluehost hosting I have, and I didn't reimplement most of the garbage I had on the WordPress version of the blog. But from a user-experience standpoint, good lord what an improvement!
+
+## Box Plots
+
+Want to test out further functionality, here are some box plots of the load time variation:
+
+<div id="boxp" style="height:400px;width:800px;"></div>
+
+{% highlight julia %}
+using ECharts, DataFrames
+
+#Read in data
+df = readtable("/Users/randyzwitch/Desktop/website_load_time.csv")
+df[:pre] = [(x[1] <= "2016-09-06" ? x[2] : nothing) for x in zip(df[:date], df[:loadtime_ms])]
+df[:post] = [(x[1] >= "2016-09-12" ? x[2] : nothing) for x in zip(df[:date], df[:loadtime_ms])]
+
+#Remove nulls
+pre = [x for x in df[:pre] if x != nothing]
+post = [x for x in df[:post] if x != nothing]
+
+#Graph code
+b = box([pre, post], names = ["WordPress", "Jekyll"])
+b.ec_width = 800
+colorscheme!(b, palette = ("acw", "VitaminC"))
+yAxis!(b, name = "Load time in ms", nameGap = 50, min = 0)
+title!(b, text = "randyzwitch.com",
+           subtext = "Switching from WordPress on Bluehost to Jekyll on GitHub (2016/09/06)")
+toolbox!(b)
+{% endhighlight %}
+
+Usually, a box plot comparison that is as smushed as the Jekyll plot vs the WordPress one would be a poor visualization, but in this case I think it actually works. The load time for the Jekyll version of this blog is so quick and so consistent that it barely registers as an outlier if it were WordPress! It's crazy to think that the `-1.5 * IQR` time for WordPress is the mean/median/min load time of Jekyll.
+
+# # Where To Go Next?
+This blog post is really just an interesting finding from my experience moving to Jekyll on GitHub. As it stands now, ECharts.jl is stil in pre-METADATA mode. Right now, I assume that this would be a useful enough package to submit to METADATA some day, but I guess that depends on how much further I get smoothing the rough edges. If there are people who are interested in cleaning up this package further, I'd absolutely love to collaborate.
