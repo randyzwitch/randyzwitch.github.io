@@ -6,7 +6,6 @@ layout: post
 permalink: /apple-macbook-pro-model-a1286-late-2008-vintage/
 category: Technology
 description: Finding a replacement A1281 battery for a Late-2008 MacBook Pro is difficult, but not impossible. Here's what I solved my battery issues.
-description: Creating a stacked bar chart in Seaborn can take a minor bit of effort, but the cognitive refresher for me was well worth the effort.
 tags:
   - Apple
   - Customer Service

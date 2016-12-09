@@ -5,7 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /100-miles-for-charitywater-update-1/
 category: Miscellany
-description: I've already raised $675 of my $1000 campaign goal for charity:water. The running continues, but the donations have stagnated...
+description: "I've already raised $675 of my $1000 campaign goal for charity:water. The running continues, but the donations have stagnated..."
 tags:
   - charity:water
 ---

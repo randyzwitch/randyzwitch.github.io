@@ -5,7 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /overlay-histogram-in-r/
 category: DataScience
-description: Here's a video explaining how to overlay histograms in R. Three examples: histogram with normal curve, density curve, and second series on right side axis
+description: "Here's a video explaining how to overlay histograms in R. Three examples: histogram with normal curve, density curve, and second series on right side axis"
 tags:
   - Data Visualization
   - R
