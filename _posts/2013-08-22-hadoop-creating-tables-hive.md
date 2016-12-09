@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /hadoop-creating-tables-hive/
 category: DataScience
+description: Creating tables in Hadoop using Hive is a relatively simple process once your data is loaded in HDFS.
 tags:
   - Amazon EC2
   - Cloudera

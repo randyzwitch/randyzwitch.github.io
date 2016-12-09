@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /charitywater-campaign/
 category: Miscellany
+description: Just because I'm volunteering time with charity:water, doesn't mean I can't generate some cash as well. 100 miles for charity:water.
 tags:
   - Analysis Exchange
   - Charity

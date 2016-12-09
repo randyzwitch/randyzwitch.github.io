@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-4-8-release-notes/
 category: Analytics
+description: RSiteCatalyst version 1.4.8 is now available on CRAN. This release adds segment stacking functionality and has minor bug fixes.
 tags:
   - Adobe Analytics
   - Omniture

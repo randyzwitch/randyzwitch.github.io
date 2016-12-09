@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-4-5-release-notes/
 category: Analytics
+description: It's only been a month since the last RSiteCatalyst update, and this update is also a pretty minor update in terms of functionality.
 tags:
   - Adobe Analytics
   - Omniture

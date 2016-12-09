@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /adobe-analytics-clickstream-raw-data-feed/
 category: Analytics
+description: Working with the Adobe Analytics Clickstream Raw Data Feed can be challenging; here's how to analyze a single day of data using R.
 tags:
   - Adobe Analytics
   - Big Data

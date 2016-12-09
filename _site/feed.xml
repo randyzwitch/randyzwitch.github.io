@@ -37,7 +37,25 @@
     myChart.setOption({&quot;xAxis&quot;:[{&quot;scale&quot;:false,&quot;gridIndex&quot;:0,&quot;splitNumber&quot;:5,&quot;minInterval&quot;:0,&quot;silent&quot;:true,&quot;data&quot;:[&quot;2016-06-20&quot;,&quot;2016-06-21&quot;,&quot;2016-06-22&quot;,&quot;2016-06-23&quot;,&quot;2016-06-24&quot;,&quot;2016-06-25&quot;,&quot;2016-06-26&quot;,&quot;2016-06-27&quot;,&quot;2016-06-28&quot;,&quot;2016-06-29&quot;,&quot;2016-06-30&quot;,&quot;2016-07-01&quot;,&quot;2016-07-02&quot;,&quot;2016-07-03&quot;,&quot;2016-07-04&quot;,&quot;2016-07-05&quot;,&quot;2016-07-06&quot;,&quot;2016-07-07&quot;,&quot;2016-07-08&quot;,&quot;2016-07-09&quot;,&quot;2016-07-10&quot;,&quot;2016-07-11&quot;,&quot;2016-07-12&quot;,&quot;2016-07-13&quot;,&quot;2016-07-14&quot;,&quot;2016-07-15&quot;,&quot;2016-07-16&quot;,&quot;2016-07-17&quot;,&quot;2016-07-18&quot;,&quot;2016-07-19&quot;,&quot;2016-07-20&quot;,&quot;2016-07-21&quot;,&quot;2016-07-22&quot;,&quot;2016-07-23&quot;,&quot;2016-07-24&quot;,&quot;2016-07-25&quot;,&quot;2016-07-26&quot;,&quot;2016-07-27&quot;,&quot;2016-07-28&quot;,&quot;2016-07-29&quot;,&quot;2016-07-30&quot;,&quot;2016-07-31&quot;,&quot;2016-08-01&quot;,&quot;2016-08-02&quot;,&quot;2016-08-03&quot;,&quot;2016-08-04&quot;,&quot;2016-08-05&quot;,&quot;2016-08-06&quot;,&quot;2016-08-07&quot;,&quot;2016-08-08&quot;,&quot;2016-08-09&quot;,&quot;2016-08-10&quot;,&quot;2016-08-11&quot;,&quot;2016-08-12&quot;,&quot;2016-08-13&quot;,&quot;2016-08-14&quot;,&quot;2016-08-15&quot;,&quot;2016-08-16&quot;,&quot;2016-08-17&quot;,&quot;2016-08-18&quot;,&quot;2016-08-19&quot;,&quot;2016-08-20&quot;,&quot;2016-08-21&quot;,&quot;2016-08-22&quot;,&quot;2016-08-23&quot;,&quot;2016-08-24&quot;,&quot;2016-08-25&quot;,&quot;2016-08-26&quot;,&quot;2016-08-27&quot;,&quot;2016-08-28&quot;,&quot;2016-08-29&quot;,&quot;2016-08-30&quot;,&quot;2016-08-31&quot;,&quot;2016-09-01&quot;,&quot;2016-09-02&quot;,&quot;2016-09-03&quot;,&quot;2016-09-04&quot;,&quot;2016-09-05&quot;,&quot;2016-09-06&quot;,&quot;2016-09-07&quot;,&quot;2016-09-08&quot;,&quot;2016-09-09&quot;,&quot;2016-09-10&quot;,&quot;2016-09-11&quot;,&quot;2016-09-12&quot;,&quot;2016-09-13&quot;,&quot;2016-09-14&quot;,&quot;2016-09-15&quot;,&quot;2016-09-16&quot;,&quot;2016-09-17&quot;,&quot;2016-09-18&quot;,&quot;2016-09-19&quot;,&quot;2016-09-20&quot;,&quot;2016-09-21&quot;,&quot;2016-09-22&quot;,&quot;2016-09-23&quot;,&quot;2016-09-24&quot;,&quot;2016-09-25&quot;,&quot;2016-09-26&quot;,&quot;2016-09-27&quot;,&quot;2016-09-28&quot;,&quot;2016-09-29&quot;,&quot;2016-09-30&quot;,&quot;2016-10-01&quot;,&quot;2016-10-02&quot;,&quot;2016-10-03&quot;,&quot;2016-10-04&quot;,&quot;2016-10-05&quot;,&quot;2016-10-06&quot;,&quot;2016-10-07&quot;],&quot;inverse&quot;:false,&quot;type&quot;:&quot;category&quot;,&quot;nameLocation&quot;:&quot;middle&quot;,&quot;nameGap&quot;:30}],&quot;yAxis&quot;:[{&quot;scale&quot;:false,&quot;gridIndex&quot;:0,&quot;name&quot;:&quot;Load time in ms&quot;,&quot;splitNumber&quot;:5,&quot;minInterval&quot;:0,&quot;silent&quot;:true,&quot;inverse&quot;:false,&quot;type&quot;:&quot;value&quot;,&quot;nameLocation&quot;:&quot;middle&quot;,&quot;nameGap&quot;:50}],&quot;toolbox&quot;:{&quot;feature&quot;:{&quot;dataView&quot;:{&quot;show&quot;:true,&quot;title&quot;:&quot;Data View&quot;,&quot;lang&quot;:[&quot;Data View&quot;,&quot;Cancel&quot;,&quot;Refresh&quot;]},&quot;restore&quot;:{&quot;show&quot;:true,&quot;title&quot;:&quot;Restore&quot;},&quot;saveAsImage&quot;:{&quot;show&quot;:true,&quot;title&quot;:&quot;Save As PNG&quot;},&quot;magicType&quot;:{&quot;show&quot;:true,&quot;title&quot;:{&quot;line&quot;:&quot;Line&quot;,&quot;bar&quot;:&quot;Bar&quot;,&quot;tiled&quot;:&quot;Tiled&quot;,&quot;chord&quot;:&quot;Chord&quot;,&quot;stack&quot;:&quot;Stack&quot;,&quot;pie&quot;:&quot;Pie&quot;,&quot;force&quot;:&quot;Force&quot;,&quot;funnel&quot;:&quot;Funnel&quot;},&quot;type&quot;:[&quot;bar&quot;,&quot;line&quot;]}},&quot;itemSize&quot;:15,&quot;orient&quot;:&quot;vertical&quot;,&quot;height&quot;:&quot;auto&quot;,&quot;zlevel&quot;:0,&quot;z&quot;:2,&quot;itemGap&quot;:20,&quot;right&quot;:&quot;auto&quot;,&quot;top&quot;:&quot;center&quot;,&quot;width&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;showTitle&quot;:true},&quot;ec_width&quot;:800,&quot;ec_height&quot;:400,&quot;ec_charttype&quot;:&quot;xy plot&quot;,&quot;color&quot;:[&quot;#2C3E50&quot;,&quot;#E74C3C&quot;,&quot;#ECF0F1&quot;,&quot;#3498DB&quot;,&quot;#2980B9&quot;],&quot;title&quot;:[{&quot;left&quot;:&quot;left&quot;,&quot;borderColor&quot;:&quot;transparent&quot;,&quot;bottom&quot;:&quot;auto&quot;,&quot;padding&quot;:5,&quot;zlevel&quot;:0,&quot;borderWidth&quot;:1,&quot;target&quot;:&quot;blank&quot;,&quot;z&quot;:2,&quot;itemGap&quot;:5,&quot;shadowOffsetY&quot;:0,&quot;shadowOffsetX&quot;:0,&quot;right&quot;:&quot;auto&quot;,&quot;subtext&quot;:&quot;Switching from WordPress on Bluehost to Jekyll on GitHub (2016/09/06)&quot;,&quot;top&quot;:&quot;auto&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;show&quot;:true,&quot;text&quot;:&quot;randyzwitch.com&quot;}],&quot;dataZoom&quot;:[{&quot;show&quot;:true}],&quot;series&quot;:[{&quot;name&quot;:&quot;loadtime_ms&quot;,&quot;data&quot;:[1282,1728,1047,1111,1027,643,757,1049,1201,1265,1617,1145,614,673,1023,1323,1117,1048,904,647,830,761,759,607,1141,1022,864,743,866,1328,1147,973,1178,1093,927,998,1195,1167,1023,1329,1051,929,1037,897,1197,1179,1402,1018,605,2261,2059,2383,2402,1385,2068,2290,2627,1862,2494,2753,1556,898,926,1158,1253,1403,655,497,544,526,503,575,545,628,467,518,568,513,386,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],&quot;smooth&quot;:false,&quot;minSize&quot;:&quot;0%&quot;,&quot;type&quot;:&quot;line&quot;,&quot;maxSize&quot;:&quot;100%&quot;},{&quot;name&quot;:&quot;post&quot;,&quot;data&quot;:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,386,629,533,453,279,193,83,45,40,46,44,29,34,46,36,29,32,40,35,32,47,43,36,38,36,26,35,35,35,32,40,33],&quot;smooth&quot;:false,&quot;minSize&quot;:&quot;0%&quot;,&quot;type&quot;:&quot;line&quot;,&quot;maxSize&quot;:&quot;100%&quot;}]});
 &lt;/script&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ECharts&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrames&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ECharts&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrames&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;#Read in data&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readtable&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/data/website_time_data.csv&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
@@ -55,7 +73,8 @@
 &lt;span class=&quot;n&quot;&gt;title!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;randyzwitch.com&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;
           &lt;span class=&quot;n&quot;&gt;subtext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Switching from WordPress on Bluehost to Jekyll on GitHub (2016/09/06)&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;toolbox!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chartTypes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;line&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;slider!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;n&quot;&gt;slider!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Even though I switched to Jekyll on WordPress on 9/6/2016, it appears that the page cache for Google Webmaster Tools didn’t really expire until 9/12/2016 or so. At the average case, the load time went from 1128ms to 38ms! Of course, this isn’t really a &lt;em&gt;fair&lt;/em&gt; comparison, as presumably GitHub Pages runs on much better hardware than the cheap Bluehost hosting I have, and I didn’t reimplement most of the garbage I had on the WordPress version of the blog. But from a user-experience standpoint, good lord what an improvement!&lt;/p&gt;
 
@@ -73,7 +92,25 @@
 );
 &lt;/script&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ECharts&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrames&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ECharts&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrames&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;#Read in data&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readtable&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/Users/randyzwitch/Desktop/website_load_time.csv&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
@@ -91,7 +128,8 @@
 &lt;span class=&quot;n&quot;&gt;yAxis!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Load time in ms&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nameGap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;title!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;randyzwitch.com&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;
            &lt;span class=&quot;n&quot;&gt;subtext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Switching from WordPress on Bluehost to Jekyll on GitHub (2016/09/06)&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;toolbox!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;n&quot;&gt;toolbox!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Usually, a box plot comparison that is as smushed as the Jekyll plot vs the WordPress one would be a poor visualization, but in this case I think it actually works. The load time for the Jekyll version of this blog is so quick and so consistent that it barely registers as an outlier if it were WordPress! It’s crazy to think that the &lt;code class=&quot;highlighter-rouge&quot;&gt;-1.5 * IQR&lt;/code&gt; time for WordPress is the mean/median/min load time of Jekyll.&lt;/p&gt;
 

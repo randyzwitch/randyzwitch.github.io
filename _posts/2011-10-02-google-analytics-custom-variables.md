@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /google-analytics-custom-variables/
 category: Analytics
+description: Tracking popular blog content by WordPress Category is easy using Google Analytics custom variables. Here's how to create a summary report.
 tags:
   - Custom Variables
   - Google Analytics

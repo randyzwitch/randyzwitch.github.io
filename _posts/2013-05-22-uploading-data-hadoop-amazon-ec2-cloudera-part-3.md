@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /uploading-data-hadoop-amazon-ec2-cloudera-part-3/
 category: DataScience
+description: Loading data into HDFS is trivial using Hue. Here's how to load the airline dataset into your Hadoop cluster.
 tags:
   - Amazon EC2
   - Cloudera

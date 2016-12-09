@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /iphone-4s-activation-issues/
 category: Technology
+description: For iPhone 3GS users, the iPhone 4S is a major upgrade. But due to iPhone 4S activation issues on AT&T, I can't use it for anything.
 tags:
   - Apple
   - iPhone

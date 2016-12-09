@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-4-4-release-notes/
 category: Analytics
+description: RSiteCatalyst Version 1.4.4 is only a minor update, fixing a bug with multiple reports having null values.
 tags:
   - Adobe Analytics
   - Omniture

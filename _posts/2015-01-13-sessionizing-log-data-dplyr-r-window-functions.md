@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /sessionizing-log-data-dplyr-r-window-functions/
 category: DataScience
+description: If you're not comfortable writing SQL, it is possible to use R to sessionize log data. But just because it's possible doesn't make it easier...
 tags:
   - Postgres
   - R

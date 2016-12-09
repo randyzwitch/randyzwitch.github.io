@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /big-data-hadoop-amazon-ec2-cloudera-part-1/
 category: DataScience
+description: Getting started using Hadoop is simple using Amazon EC2 and Cloudera. For a few dollars per hour, you can create a fully functioning Hadoop cluster.
 tags:
   - Amazon EC2
   - Cloudera

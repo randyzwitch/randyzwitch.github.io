@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /anomaly-detection-adobe-analytics-api/
 category: Analytics
+description: Determining unexpected events is easy using RSiteCatalyst to access the Anomaly Detection feature of the Adobe Analytics API.
 tags:
   - Adobe Analytics
   - Omniture

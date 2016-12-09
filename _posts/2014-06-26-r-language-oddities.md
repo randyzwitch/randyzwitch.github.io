@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /r-language-oddities/
 category: Analytics
+description: It seems lately, the more I use R the more edge-cases I find. Maybe I don't really know how to program in R after all.
 tags:
   - Hive
   - Python

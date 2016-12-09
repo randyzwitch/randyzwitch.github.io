@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /least-useful-omniture-reports/
 category: Analytics
+description: If you want to streamline the Omniture interface for your users, hiding these default reports in the SiteCatalyst menu is a great start.
 tags:
   - Adobe Analytics
   - Omniture

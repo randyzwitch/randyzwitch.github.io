@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /gnu-parallel-medium-data/
 category: Programming
+description: Although I make my living doing distributed computing, not every solution requires millions of dollars of hardware. Using GNU Parallel is often enough.
 custom_js:
   - 2016-01-28-gnu-parallel.js
 tags:

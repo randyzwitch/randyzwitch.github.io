@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /sqldf-package-r/
 category: DataScience
+description: SQL is a powerful language to join datasets, as well as do summaries and other computations. This video outlines how to run SQL code within R using sqldf.
 tags:
   - R
   - SQL

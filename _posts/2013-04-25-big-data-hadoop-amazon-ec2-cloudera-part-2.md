@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /big-data-hadoop-amazon-ec2-cloudera-part-2/
 category: DataScience
+description: Setting up a Hadoop cluster on Amazon EC2 is fairly easy using Cloudera Manager. Here are the detailed instructions to build an 18 node cluster.
 tags:
   - Amazon EC2
   - Cloudera

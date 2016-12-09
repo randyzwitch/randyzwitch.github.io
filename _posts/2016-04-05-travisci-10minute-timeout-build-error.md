@@ -4,6 +4,7 @@ date: 2016-04-05T11:41:53+00:00
 author: Randy Zwitch
 layout: post
 permalink: /travisci-10minute-timeout-build-error/
+description: When using Travis CI, if you receive a message of 'No output has been received in the last 10m0s', here's one way to fix it if you're using R.
 category: Programming
 tags:
   - Open Source

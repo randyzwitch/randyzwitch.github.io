@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /sessionizing-log-data-sql/
 category: DataScience
+description: Window functions add amazing functionality to SQL, allowing for sequential processing of time-series data. Here's how to sessionize log data using Postgres.
 tags:
   - Hadoop
   - Hive

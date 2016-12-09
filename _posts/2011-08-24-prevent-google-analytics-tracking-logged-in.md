@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /prevent-google-analytics-tracking-logged-in/
 category: Design
+description: Preventing Google Analytics from tracking logged in users isn't as easy as in WordPress stats, but it still can be done pretty easily.
 tags:
   - Google Analytics
   - JavaScript

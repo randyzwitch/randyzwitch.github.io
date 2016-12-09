@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /wordpress-stats-or-google-analytics/
 category: Analytics
+description: To understand the success of your blog, you need data. Whether to use WordPress Stats or Google Analytics (or both) depends on your goals.
 tags:
   - Google Analytics
   - WordPress Stats

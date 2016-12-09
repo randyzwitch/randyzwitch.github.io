@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-bulk-download-version-1-4-9-release-notes/
 category: Analytics
+description: Version 1.4.9 of RSiteCatalyst adds bulk submit/retrieve of reports, which can lead to 3-4x time savings with a large number of Adobe Analytics API calls.
 tags:
   - Adobe Analytics
   - Omniture

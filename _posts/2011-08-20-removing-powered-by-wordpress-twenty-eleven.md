@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /removing-powered-by-wordpress-twenty-eleven/
 category: Design
+description: So far in the child theme tutorials, we've created a custom CSS and Header. Let's add a custom footer and remove \"Powered by Wordpress\".
 tags:
   - Child Theme
   - Footer

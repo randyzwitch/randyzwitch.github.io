@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /automated-re-install-of-packages-for-r-3-0/
 category: Programming
+description: When R releases a new major version, you'll probably have to re-install packages. Here's how to do it quickly using R without a lot of typing.
 tags:
   - R
 ---

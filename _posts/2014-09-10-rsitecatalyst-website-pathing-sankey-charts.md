@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-website-pathing-sankey-charts/
 category: Analytics
+description: In order to effectively visualize how visitors path through your website, you can use a Sankey diagram. Here's how to do it using RSiteCatalyst and d3Network.
 tags:
   - Adobe Analytics
   - Data Visualization

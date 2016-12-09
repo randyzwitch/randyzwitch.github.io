@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /line-numbers-ipython-notebook/
 category: DataScience
+description: IPython Notebook is quickly becoming the de facto environment for scientific computing. Here's how to add line numbers to each cell automatically.
 tags:
   - Julia
   - Python

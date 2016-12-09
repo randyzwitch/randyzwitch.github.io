@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /python-pypy-julia-r-pqr-jit-just-in-time-compiler/
 category: DataScience
+description: Through the usage of Just-In-Time (JIT) compilers, it's possible to speed up commonly-used programming patterns used in Data Science.
 tags:
   - Julia
   - pqR

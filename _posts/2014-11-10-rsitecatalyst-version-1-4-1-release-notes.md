@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-4-1-release-notes/
 category: Analytics
+description: Version 1.4.1 of RSiteCatalyst fixed several bugs, as well as added numerous additional GET methods for obtaining information about your Report Suites.
 tags:
   - Adobe Analytics
   - Omniture

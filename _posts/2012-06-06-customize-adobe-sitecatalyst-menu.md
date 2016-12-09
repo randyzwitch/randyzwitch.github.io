@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /customize-adobe-sitecatalyst-menu/
 category: Analytics
+description: To get your stakeholders up to speed as quickly as possible using Omniture SiteCatalyst, customize the menu interface! It's easy and free!
 tags:
   - Adobe Analytics
   - Analytics

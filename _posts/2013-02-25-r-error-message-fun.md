@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /r-error-message-fun/
 category: Programming
+description: Trying to figure out how users of your software will make mistakes is usually pretty boring. That is, until you get an error that throws an error!
 tags:
   - Adobe Analytics
   - Omniture

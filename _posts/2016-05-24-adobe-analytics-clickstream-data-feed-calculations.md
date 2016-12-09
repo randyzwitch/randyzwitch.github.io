@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /adobe-analytics-clickstream-data-feed-calculations/
 category: Analytics
+description: Using a technique called local outlier factors, we can the Adobe Analytics data feed to identify IP addresses that show unusual site behavior.
 custom_js:
   - 2016-05-24-lofgraph.js
 tags:

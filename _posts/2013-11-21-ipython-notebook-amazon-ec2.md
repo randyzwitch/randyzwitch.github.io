@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /ipython-notebook-amazon-ec2/
 category: DataScience
+description: Using IPython Notebook with Amazon EC2 is a great way to access large amounts of computing power at very low cost. Here's how to do it.
 tags:
   - Amazon EC2
   - Python

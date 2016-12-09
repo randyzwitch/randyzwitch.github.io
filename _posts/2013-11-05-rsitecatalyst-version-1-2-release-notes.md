@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-2-release-notes/
 category: Analytics
+description: RSiteCatalyst Version 1.2 for the R programming language removes issues related to RCurl, fixes some bugs and sets the proper type for numeric variables.
 tags:
   - Adobe Analytics
   - Omniture

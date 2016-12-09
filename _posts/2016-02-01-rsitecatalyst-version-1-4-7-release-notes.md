@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-4-7-release-notes/
 category: Analytics
+description: Version 1.4.7 of RSiteCatalyst fixed bugs due to Unicode issues as well as added a Top argument for Queue* functions
 tags:
   - Adobe Analytics
   - Omniture

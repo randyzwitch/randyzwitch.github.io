@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-4-release-notes/
 category: Analytics
+description: Changes for RSiteCatalyst v1.4 include migrating to new Adobe Analytics API, new functionality, better error handling and keyword argument consistency.
 tags:
   - Adobe Analytics
   - Omniture

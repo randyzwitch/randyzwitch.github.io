@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /bounce-rate-modification-google-analytics-cutroni/
 category: Analytics
+description: Changing the standard definition of bounce rate/time on site in Google Analytics can make a huge difference on how you view blog success.
 tags:
   - Analytics
   - Google Analytics

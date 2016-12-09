@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /omniture-sitecatalyst-target-report/
 category: Analytics
+description: Calculating year over year growth in Omniture SiteCatalyst is easy using this simple hack of the Omniture SiteCatalyst Target report.
 tags:
   - Adobe Analytics
   - Analytics

@@ -4,6 +4,7 @@ date: 2011-07-13T11:52:32+00:00
 author: Randy Zwitch
 layout: post
 permalink: /social-influence-another-fico/
+description: Like FICO, social influence scores measure a very specific behavior. It's a shame social 'influence' is starting to be misappropriated.
 category: Social
 tags:
   - Klout

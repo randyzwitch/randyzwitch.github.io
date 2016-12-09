@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-d3-network-graphs/
 category: Analytics
+description: Visualizing the structure of your website is easy using RSiteCatalyst and network graphs from d3Network in R.
 tags:
   - Adobe Analytics
   - Data Visualization

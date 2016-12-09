@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /data-science-innovation/
 category: DataScience
+description: Data Science at the push of a button is the wrong goal. Innovation is not the same as reporting, so why would the tool requirements be the same?
 tags:
   - Amazon EC2
   - Data Visualization

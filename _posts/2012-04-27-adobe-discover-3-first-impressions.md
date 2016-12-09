@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /adobe-discover-3-first-impressions/
 category: Analytics
+description: Adobe Discover used to be a nice addition to the basic SiteCatalyst tool. Adobe Discover 3 is now required to get the most from your data.
 tags:
   - Adobe Discover
   - Adobe Analytics

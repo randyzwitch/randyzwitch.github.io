@@ -9,6 +9,9 @@
     {% if page.description %}
     <!-- Uses the ‘description:’ in post/page YAML frontmatter for meta description-->
     <meta name="description" content="{{page.description}}" />
+    {% elsif post.description %}
+    <!-- Uses the ‘description:’ in post/page YAML frontmatter for meta description-->
+    <meta name="description" content="{{post.description}}" />
     {% else %}
     <!-- else use the site description given in _config.yml -->
     <meta name="description" content="{{site.description}}" />

@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /real-time-reporting-adobe-analytics-api/
 category: Analytics
+description: Monitoring real-time activity on your website is easy if you are using Adobe Analytics. Here's how to get real-time reports with RSiteCatalyst.
 tags:
   - Adobe Analytics
   - R

@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /well-thought-out-business-requirements/
 category: Miscellany
+description: Well thought out business requirements are the key to success for a short-term project and your long-term career. Here are four tactics to try.
 tags:
   - Analytics
   - Business

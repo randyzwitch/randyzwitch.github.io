@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-1-release-notes/
 category: Analytics
+description: RSiteCatalyst version 1.1 release notes
 tags:
   - Adobe Analytics
   - Omniture

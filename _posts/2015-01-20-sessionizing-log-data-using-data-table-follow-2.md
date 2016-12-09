@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /sessionizing-log-data-using-data-table-follow-2/
 category: DataScience
+description: Sessionizing log data can be accomplished three (or more!) ways. Here's how to use R along with data.table to sessionize click-level data into sessions.
 tags:
   - data.table
   - R

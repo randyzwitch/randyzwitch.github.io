@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /visualizing-analytics-languages-venneuler-jl/
 category: DataScience
+description: The package is still rough, but here's how to create Venn-Euler diagrams in Julia.
 tags:
   - Data Visualization
   - Julia

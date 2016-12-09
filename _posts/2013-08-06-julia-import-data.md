@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /julia-import-data/
 category: DataScience
+description: Importing data into Julia can take three major forms: reading a delimited file into an array, reading a file into a DataFrame and accessing databases.
 tags:
   - Julia
   - Python

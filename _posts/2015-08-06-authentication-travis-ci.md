@@ -4,6 +4,7 @@ date: 2015-08-06T20:21:50+00:00
 author: Randy Zwitch
 layout: post
 permalink: /authentication-travis-ci/
+description: With open-source software, you owe it to your users to have unit tests. Here's how to test using Travis CI when you need to authenticate to run your tests.
 category: Programming
 tags:
   - Adobe Analytics

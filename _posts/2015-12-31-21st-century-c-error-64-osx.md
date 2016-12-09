@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /21st-century-c-error-64-osx/
 category: Programming
+description: If you are getting Error 64 when running the examples from 21st Century C from O'Reilly, here is the solution
 tags:
   - C
   - Clang

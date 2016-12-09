@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /comment-bubble-twenty-eleven/
 category: Design
+description: The comment bubble in the upper right of each post on the front page of the WordPress Twenty Eleven theme clutters up the front page.
 tags:
   - Child Theme
   - Firefox

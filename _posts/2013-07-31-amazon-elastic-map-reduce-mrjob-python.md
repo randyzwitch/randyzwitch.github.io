@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /amazon-elastic-map-reduce-mrjob-python/
 category: DataScience
+description: Running jobs on Amazon Elastic MapReduce using Python and MRJob is quite simple. Here's how to do it.
 tags:
   - EMR
   - Hadoop

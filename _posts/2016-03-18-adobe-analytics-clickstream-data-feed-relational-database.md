@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /adobe-analytics-clickstream-data-feed-relational-database/
 category: Analytics
+description: When dealing with the Adobe Analytics Clickstream Data Feed, one approach is to load the files into a relational database. Here's how using R.
 tags:
   - Adobe Analytics
   - Omniture

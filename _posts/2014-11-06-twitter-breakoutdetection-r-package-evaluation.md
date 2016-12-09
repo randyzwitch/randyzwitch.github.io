@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /twitter-breakoutdetection-r-package-evaluation/
 category: DataScience
+description: Twitter open-sourced an R package to detect shifts in time-series data. Here's an evaluation of the package, using blog posts/traffic as the time-series.
 tags:
   - Adobe Analytics
   - Data Visualization

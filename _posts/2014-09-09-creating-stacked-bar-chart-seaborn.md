@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /creating-stacked-bar-chart-seaborn/
 category: DataScience
+description: Creating a stacked bar chart in Seaborn can take a minor bit of effort, but the cognitive refresher for me was well worth the effort.
 tags:
   - Data Visualization
   - Python

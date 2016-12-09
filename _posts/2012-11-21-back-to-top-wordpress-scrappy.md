@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /back-to-top-wordpress-scrappy/
 category: Design
+description: Adding a 'Back to Top' link on a WordPress blog is a simple update that can add a lot of usability. This post shows how to update the Scrappy theme.
 tags:
   - Child Theme
   - Footer

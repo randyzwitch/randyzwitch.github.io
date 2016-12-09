@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /creating-dummy-variables-data-frame-r/
 category: DataScience
+description: Algorithms such as randomForest in R often have limits on how many levels you can pass in using a Factor. Here's how to code around the limit.
 tags:
   - Machine Learning
   - R

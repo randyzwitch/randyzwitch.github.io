@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /string-interpolation-julia/
 category: DataScience
+description: Building strings with Julia is simple using the dollar-sign interpolation method. Here are two examples where generating strings saves time and coding.
 tags:
   - Julia
 ---

@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /data-science-command-line-review-janssens/
 category: DataScience
+description: Data Science at the Command Line is an easily-accessible book for anyone who wants to learn efficient techniques for data manipulation from the command line
 tags:
   - Command Line
   - Data Science

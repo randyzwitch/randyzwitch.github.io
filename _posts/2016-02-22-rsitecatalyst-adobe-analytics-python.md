@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-adobe-analytics-python/
 category: Analytics
+description: Calling RSiteCatalyst from Python is absolutely possible and works quite well, using the rpy2 package
 tags:
   - Adobe Analytics
   - Jupyter Notebook

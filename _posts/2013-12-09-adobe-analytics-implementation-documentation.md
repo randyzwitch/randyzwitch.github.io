@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /adobe-analytics-implementation-documentation/
 category: Analytics
+description: Generating documentation for an Adobe Analytics implementation doesn't need to be an ordeal. Using the RSiteCatalyst package for R takes less than a minute.
 tags:
   - Adobe Analytics
   - Omniture

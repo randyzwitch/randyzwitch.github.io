@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /getting-started-hadoop-hive-pig/
 category: DataScience
+description: Once your data is loaded into HDFS, doing analysis is as easy as using SQL by submitting Hive and Pig commands using the Hue interface.
 tags:
   - Hadoop
   - Hive

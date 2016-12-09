@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /optimizely-wordpress-install/
 category: Design
+description: Installing Optimizely on WordPress and integrating with Google Analytics couldn't be easier. All it takes is a quick mod to the header.
 tags:
   - A/B testing
   - Child Theme

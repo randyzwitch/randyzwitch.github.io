@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /video-r-rstudio-rcmdr-rattle/
 category: DataScience
+description: An R video screencast showing the basic interfaces of R, RStudio, Rcmdr and rattle. If you're a beginner wondering what R looks like, this is your video.
 tags:
   - R
   - rattle

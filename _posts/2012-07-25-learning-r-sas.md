@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /learning-r-sas/
 category: DataScience
+description: Learning R is like repeatedly punching myself in the face. From memory errors to continuous downloading of packages, a huge time suck.
 tags:
   - Data Visualization
   - Hadoop

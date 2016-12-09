@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /getting-started-using-r-rcmdr/
 category: DataScience
+description: If you want to get started with R, without needing to spend months learning the language, the Rcmdr package is a must-have download.
 tags:
   - rattle
   - Rcmdr

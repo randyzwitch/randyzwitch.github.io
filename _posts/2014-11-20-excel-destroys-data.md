@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /excel-destroys-data/
 category: Analytics
+description: When Excel is outlawed, only outlaws will have Excel. Well, them, and people who don't care about numerical accuracy.
 tags:
   - Data Visualization
   - Excel

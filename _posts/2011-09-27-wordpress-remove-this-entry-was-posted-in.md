@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /wordpress-remove-this-entry-was-posted-in/
 category: Design
+description: To further clean up the WordPress Twenty Eleven theme, remove the \"This entry was posted in\" and \"Bookmark the Permalink\" text.
 tags:
   - Child Theme
   - Footer

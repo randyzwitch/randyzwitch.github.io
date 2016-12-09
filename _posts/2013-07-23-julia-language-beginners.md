@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /julia-language-beginners/
 category: DataScience
+description: For the scientific programmer already using Python, R, Java, MATLAB or other languages, Julia should feel pretty familiar. Here's how to get started.
 tags:
   - Julia
   - Python

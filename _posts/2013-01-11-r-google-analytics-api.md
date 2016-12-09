@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /r-google-analytics-api/
 category: Analytics
+description: Connecting to the Google Analytics API using R is pretty straightforward. This post calculates the percentage of (not provided) terms using the API and R.
 tags:
   - Google Analytics
   - R

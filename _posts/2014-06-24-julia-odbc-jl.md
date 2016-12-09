@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /julia-odbc-jl/
 category: DataScience
+description: Julia is great for high-performance scientific computing. But Julia is also well suited for gluing together various data sources and scripting.
 tags:
   - Data Visualization
   - Hadoop

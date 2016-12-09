@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-k-means-clustering/
 category: Analytics
+description: Analyzing search keywords using k-means clustering is a powerful way to unlock the hidden relationships in your data. Here's how to do it using R.
 tags:
   - Adobe Analytics
   - Omniture

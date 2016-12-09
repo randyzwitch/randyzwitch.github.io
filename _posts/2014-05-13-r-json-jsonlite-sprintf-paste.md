@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /r-json-jsonlite-sprintf-paste/
 category: Analytics
+description: There are several ways to build JSON using R. Here are three methods with code examples.
 tags:
   - Adobe Analytics
   - Omniture

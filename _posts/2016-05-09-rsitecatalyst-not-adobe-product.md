@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-not-adobe-product/
 category: Analytics
+description: RSiteCatalyst was created by users in the digital analytics community. It's a shame that Adobe doesn't respect that, taking credit where none is due.
 tags:
   - Adobe Analytics
   - Omniture

@@ -6,6 +6,7 @@ layout: post
 guid: http://randyzwitch.com/?p=711
 permalink: /an-afternoon-with-edward-tufte/
 category: Analytics
+description: Edward Tufte is the world-renowned leader of data visualization techniques. Make your data shine by incorporating a few simple ideas.
 tags:
   - Analytics
   - Chartjunk

@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-3-release-notes/
 category: Analytics
+description: Version 1.3 of RSiteCatalyst adds support for regex searching, variable API timing and realtime API support
 tags:
   - Adobe Analytics
   - Omniture

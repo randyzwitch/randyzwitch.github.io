@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /vega-jl-julia/
 category: DataScience
+description: The Vega.jl package was abandoned at one time, but now it's back and ready for Julia v0.4 and beyond!
 tags:
   - Chartjunk
   - d3.js

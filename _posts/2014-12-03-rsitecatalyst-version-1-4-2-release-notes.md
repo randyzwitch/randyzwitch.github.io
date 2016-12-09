@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-4-2-release-notes/
 category: Analytics
+description: RSiteCatalyst version 1.4.2 is primarily bug fixes with one minor feature added.
 tags:
   - Adobe Analytics
   - Omniture

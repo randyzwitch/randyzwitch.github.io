@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /custom-header-twenty-eleven-child-theme/
 category: Design
+description: When developing a child theme for WordPress, creating a custom header file will give great flexibility in customizing your theme's design.
 tags:
   - Child Theme
   - CSS

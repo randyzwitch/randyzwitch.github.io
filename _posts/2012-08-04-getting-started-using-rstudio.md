@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /getting-started-using-rstudio/
 category: DataScience
+description: Getting started with the R can be difficult, but downloading RStudio, Rcmdr and rattle can make the process a little bit easier.
 tags:
   - R
   - rattle

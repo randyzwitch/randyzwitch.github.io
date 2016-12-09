@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /juliacon-2015-everyday-analytics-and-visualization-video/
 category: DataScience
+description: JuliaCon 2015 video of \"Everyday Analytics and Visualization\" presentation by Randy Zwitch at MIT CSAIL at the Strata Center.
 tags:
   - Analytics
   - Data Visualization

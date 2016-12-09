@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /rsitecatalyst-version-1-4-3-release-notes/
 category: Analytics
+description: RSiteCatalyst v1.4.3 is primarily a bug-fix release, with two additional functions added for Data Feed functionality.
 tags:
   - Adobe Analytics
   - Omniture

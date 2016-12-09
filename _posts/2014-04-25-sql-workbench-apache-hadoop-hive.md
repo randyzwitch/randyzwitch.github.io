@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /sql-workbench-apache-hadoop-hive/
 category: DataScience
+description: Accessing Hive from SQL Workbench is slightly involved, but can significantly improve your big data workflow. Here's how to get started.
 tags:
   - Hadoop
   - Hive

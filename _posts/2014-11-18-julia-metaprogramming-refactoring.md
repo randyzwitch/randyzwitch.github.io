@@ -6,6 +6,7 @@ layout: post
 guid: http://randyzwitch.com/?p=3184
 permalink: /julia-metaprogramming-refactoring/
 category: DataScience
+description: Using metaprogramming in Julia, it's often possible to refactor code from dozens- or hundreds-of-lines down to just a few lines.
 tags:
   - Code Refactoring
   - Julia

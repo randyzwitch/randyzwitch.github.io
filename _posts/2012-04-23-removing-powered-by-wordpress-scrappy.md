@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /removing-powered-by-wordpress-scrappy/
 category: Design
+description: Removing 'Powered by WordPress' is one of the the first changes that I make to any theme I install. All it takes is a simple footer change.
 tags:
   - Child Theme
   - Footer

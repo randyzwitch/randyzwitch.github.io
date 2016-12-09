@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /hive-five-hard-won-lessons/
 category: DataScience
+description: Using Hive on Hadoop is pretty much the same as using SQL. Except when it isn't. Here are some things I've learned from the battlefield.
 tags:
   - Big Data
   - Hadoop

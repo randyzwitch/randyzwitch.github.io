@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /twitter-api-julia/
 category: DataScience
+description: Twitter.jl is a near-complete wrapper/client of the Twitter REST API v1.1. Both GET and POST methods are provided for the ability to post and download data.
 tags:
   - Julia
   - NLP
