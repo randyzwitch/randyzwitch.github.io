@@ -8,6 +8,104 @@
     
       
       <item>
+        <title>RSiteCatalyst Version 1.4.10 Release Notes</title>
+        
+          <description>&lt;p&gt;Version 1.4.10 of RSiteCatalyst brings a handful of new &lt;code class=&quot;highlighter-rouge&quot;&gt;Get*&lt;/code&gt; methods, &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDatawarehouse&lt;/code&gt; and a couple of bugs fixes/low-level code improvements.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 13 Dec 2016 00:00:00 -0500</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-10-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-10-release-notes/</guid>
+        <content type="html" xml:base="/rsitecatalyst-version-1-4-10-release-notes/">&lt;p&gt;Version 1.4.10 of RSiteCatalyst brings a handful of new &lt;code class=&quot;highlighter-rouge&quot;&gt;Get*&lt;/code&gt; methods, &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDatawarehouse&lt;/code&gt; and a couple of bugs fixes/low-level code improvements.&lt;/p&gt;
+
+&lt;h2 id=&quot;queuedatawarehouse&quot;&gt;QueueDatawarehouse&lt;/h2&gt;
+
+&lt;p&gt;The most useful user-facing change IMO is the addition of the &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDatawarehouse&lt;/code&gt; method, which allows for submitting (and &lt;em&gt;sometimes&lt;/em&gt; retrieving) Data Warehouse requests via R. This should be a huge timesaver for those of you using Data Warehouse as a substitute for the Adobe Analytics raw data feed (my employer alone pulls hundreds of Data Warehouse feeds per day).&lt;/p&gt;
+
+&lt;p&gt;In the coming days, I’ll write a blog post in more detail about how to use this method effectively to query Data Warehouse, but in the meantime, here’s a sample function call:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;#API Credentials
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SCAuth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;USER&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SECRET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#FTP Credentials
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FTP&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FTP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FTPUSER&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FTPUSER&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FTPPW&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FTPPW&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#Write QueueWarehouse to FTP
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report.id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QueueDataWarehouse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;report-suite&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2016-11-01&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2016-11-07&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;visits&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pageviews&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;page&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enqueueOnly&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ftp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                           &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;21&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                           &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;directory&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/DWtest/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                           &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FTPUSER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                           &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FTPPW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                                           &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;myreport.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;viewprocessingrules&quot;&gt;ViewProcessingRules&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ViewProcessingRules&lt;/code&gt; has also been added on an experimental basis, as this API method is not documented (as of the writing of this post), so Adobe may choose to modify or remove this in a future release. As the method name indicates, this new feature allows for the viewing of the processing rules for a list of report suites, including the behaviors that define the rules. There is currently no (public) method for &lt;em&gt;setting&lt;/em&gt; processing rules via the API.&lt;/p&gt;
+
+&lt;p&gt;As processing rules are a super-user functionality, I would love it if someone in the community could verify that this method works for a large number of report suites/rules.&lt;/p&gt;
+
+&lt;h2 id=&quot;get-method-additions&quot;&gt;Get* method additions&lt;/h2&gt;
+
+&lt;p&gt;Three Get* methods were added in this release: &lt;code class=&quot;highlighter-rouge&quot;&gt;GetVirtualReportSuiteSettings&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;GetReportSuiteGroups&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;GetTimeStampEnabled&lt;/code&gt;, each corresponding to settings able to be viewed within the Adobe Analytics admin panel.&lt;/p&gt;
+
+&lt;h2 id=&quot;bug-fixes&quot;&gt;Bug fixes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;GetRealTimeSettings: fixed bug where a passing a list of report suites lead to a parsing error&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;QueueSummary: Redefined method arguments to make &lt;code class=&quot;highlighter-rouge&quot;&gt;date&lt;/code&gt; an optional parameter, allowing for more elegant use of &lt;code class=&quot;highlighter-rouge&quot;&gt;date.to&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;date.from&lt;/code&gt; parameters.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;package-level-improvements&quot;&gt;Package-level improvements&lt;/h2&gt;
+
+&lt;p&gt;At long last, I’ve added integration testing via the AppVeyor testing service. For the longest time, I’ve had a very nonchalant attitude towards Windows (since I don’t use it), but given that RSiteCatalyst is enterprise software and so many businesses use Windows, I figured it was time.&lt;/p&gt;
+
+&lt;p&gt;Luckily, there were none of the tests in the test suite throws any errors specifically due to Windows, so effectively this change is just defensive programming against that class of error in the future.&lt;/p&gt;
+
+&lt;h2 id=&quot;community-contributions&quot;&gt;Community Contributions&lt;/h2&gt;
+
+&lt;p&gt;As in the past several releases, there have been contributions from the community keeping RSiteCatalyst moving forward! Special thanks to Diego Villuendas Pellicero for writing the &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDataWarehouse&lt;/code&gt; functionality and Johann de Boer for highlighting that &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueSummary&lt;/code&gt; could be improved.&lt;/p&gt;
+
+&lt;p&gt;I encourage all users of the software to continue reporting bugs via GitHub issues, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>WordPress to Jekyll: A 30x Speedup</title>
         
           <description>&lt;p&gt;About a month ago, I switched this blog from WordPress hosted on Bluehost to Jekyll on GitHub Pages. I suspected moving to a static website would be faster than generated HTML via PHP, and it is certainly cheaper (GitHub Pages is “free”). But it wasn’t until I needed a dataset for doing some dataset visualization development that I realize how much of an improvement it has been!&lt;/p&gt;
