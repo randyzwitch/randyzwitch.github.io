@@ -168,3 +168,8 @@ img { max-width: 100%;}
 .h2, h2 {
     font-size: 26px;
 }
+
+td, th {
+    padding-right: 5px;
+    border-bottom: 1px solid #ddd;
+}
