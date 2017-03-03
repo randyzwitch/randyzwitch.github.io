@@ -14,6 +14,7 @@ tags:
   - Omniture
   - R
   - SQL
+  - Clickstream Data
 ---
 In a previous post, I outlined how to load [daily Adobe Analytics Clickstream data feeds](http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/) into a PostgreSQL database. While this isn't a long-term scalable solution for large e-commerce companies doing millions of page views per day, for exploratory analysis a relational database structure can work well until a more robust solution is put into place (such as Hadoop/Spark).
 

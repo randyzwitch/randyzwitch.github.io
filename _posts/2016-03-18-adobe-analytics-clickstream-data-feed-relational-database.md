@@ -11,6 +11,7 @@ tags:
   - Omniture
   - R
   - SQL
+  - Clickstream Data
 ---
 In my previous post about the [Adobe Analytics Clickstream Data Feed](http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/), I showed how it was possible to take a single day worth of data and build a dataframe in R. However, most likely your analysis will require using multiple days/weeks/months of data, and given the size and complexity of the feed, loading the files into a relational database makes a lot of sense.
 
