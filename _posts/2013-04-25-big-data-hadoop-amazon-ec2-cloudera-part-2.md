@@ -13,7 +13,7 @@ tags:
 ---
 In <a title="Getting Started With Hadoop, Part 1" href="http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/" target="_blank">Part 1 of this series</a>, I discussed some of the basic concepts around Hadoop, specifically when it's appropriate to use Hadoop to solve your data engineering problems and the terminology of the Hadoop eco-system. This post will cover how to install your own Hadoop cluster on Amazon EC2 using Cloudera Manager.
 
-Like prior posts talking about <a title="Amazon EC2 posts" href="http://randyzwitch.com/tag/amazon-ec2/" target="_blank">Amazon EC2</a>, this post assumes you have some basic facility with Linux, submitting instructions via the command line, etc. Because really, if you're interested in Hadoop, using the command line probably isn't a limiting factor!
+Like prior posts talking about <a title="Amazon EC2 posts" href="http://randyzwitch.com/tags/#amazon_ec2" target="_blank">Amazon EC2</a>, this post assumes you have some basic facility with Linux, submitting instructions via the command line, etc. Because really, if you're interested in Hadoop, using the command line probably isn't a limiting factor!
 
 ## Building a 18-node Hadoop Cluster
 

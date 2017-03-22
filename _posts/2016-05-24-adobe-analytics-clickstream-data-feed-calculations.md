@@ -20,7 +20,7 @@ In a previous post, I outlined how to load [daily Adobe Analytics Clickstream da
 
 ## Data Validation <groan>
 
-Before digging too deeply into the data, we should validate that data from the data feed in our database ([custom database view code](https://gist.github.com/randyzwitch/7a9c48e7132e6ed9dfb0d02ec906961c)) matches what we observe from other sources (mainly, the Adobe Analytics interface and/or [RSiteCatalyst](http://randyzwitch.com/tag/rsitecatalyst/)). Given the Adobe Analytics data feed represents an export of the underlying data, and Adobe provides the formulas in the [data feed documentation](https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_calculate.html), _in theory_ you should be able to replicate the numbers exactly:
+Before digging too deeply into the data, we should validate that data from the data feed in our database ([custom database view code](https://gist.github.com/randyzwitch/7a9c48e7132e6ed9dfb0d02ec906961c)) matches what we observe from other sources (mainly, the Adobe Analytics interface and/or [RSiteCatalyst](http://randyzwitch.com/tags/#rsitecatalyst)). Given the Adobe Analytics data feed represents an export of the underlying data, and Adobe provides the formulas in the [data feed documentation](https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_calculate.html), _in theory_ you should be able to replicate the numbers exactly:
 
 {% highlight R linenos %}
 # "Source 1": Pull data from the API using RSiteCatalyst

@@ -26,7 +26,7 @@ So the first step for this tutorial is to install this plugin!
 
 When you install this plugin and refresh your blog, the first thing you'll realize is that nothing happened!  This occurs because the plugin itself doesn't know where you want to put the page navigation; this needs to be done with some minor PHP coding.
 
-In your WordPress Twenty Eleven [child theme](http://randyzwitch.com/tag/child-theme/ "Child Theme posts"), we need to add a new PHP file if it's not already available:  _index.php_.  It is this file that controls the front page container of the blog, and is where the "Next Page/Previous Page" code resides.
+In your WordPress Twenty Eleven [child theme](http://randyzwitch.com/tags/#child_theme "Child Theme posts"), we need to add a new PHP file if it's not already available:  _index.php_.  It is this file that controls the front page container of the blog, and is where the "Next Page/Previous Page" code resides.
 
 In the _index.php_ file, find the following code:
 

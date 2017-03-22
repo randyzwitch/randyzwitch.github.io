@@ -8,6 +8,102 @@
     
       
       <item>
+        <title>Self-Service Adobe Analytics Data Feeds!</title>
+        
+          <description>&lt;p&gt;I’ve written several posts about the Adobe Analytics Analytics (née Clickstream) Data Feed (links: &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/&quot;&gt;2&lt;/a&gt;,&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/&quot;&gt;3&lt;/a&gt;) over the past several years. The &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/reference/analytics-data-feed.html&quot;&gt;Analytics Data Feed&lt;/a&gt; is an invaluable tool for moving beyond aggregate-level reporting information about your customers to really in-depth, customer-level analytics.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 03 Mar 2017 00:00:00 -0800</pubDate>
+        <link>
+        http://randyzwitch.com/adobe-clickstream-data-feed-self-service-admin-panel/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/adobe-clickstream-data-feed-self-service-admin-panel/</guid>
+        <content type="html" xml:base="/adobe-clickstream-data-feed-self-service-admin-panel/">&lt;p&gt;I’ve written several posts about the Adobe Analytics Analytics (née Clickstream) Data Feed (links: &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/&quot;&gt;2&lt;/a&gt;,&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/&quot;&gt;3&lt;/a&gt;) over the past several years. The &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/reference/analytics-data-feed.html&quot;&gt;Analytics Data Feed&lt;/a&gt; is an invaluable tool for moving beyond aggregate-level reporting information about your customers to really in-depth, customer-level analytics.&lt;/p&gt;
+
+&lt;p&gt;While the Analytics Data Feed is nowhere as easy to use as the Adobe UI, Report Builder, Analytics Workspace or even &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt;, the hardest part for me when I was a digital analytics consultant was just obtaining the files in the first place (to say nothing of restarting a failed feed)! Luckily, Adobe has now built an interface accessible by any Adobe Analytics admin, removing the need for ClientCare to set up and maintain feeds.&lt;/p&gt;
+
+&lt;p&gt;In this post, I will briefly highlight how to set up an Analytics Data Feed from inside Adobe Analytics and give my impressions of the tool (as it exists at the time of writing). Note this post is not meant to be a substitute to the official documentation; Adobe provides detailed information about the entire process &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/reference/analytics-data-feed.html&quot;&gt;in their Help section&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;landing-the-files-via-ftpsftps3&quot;&gt;Landing the Files via FTP/SFTP/S3&lt;/h2&gt;
+
+&lt;p&gt;After clicking ‘Admin -&amp;gt; Data Feeds’ in the Adobe Analytics Admin menu/panel, you should see an interface similar to the following:
+&lt;img src=&quot;/assets/img/adobe-analytics-data-feed-landing-page.png&quot; alt=&quot;landing page&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After clicking the “(+) Add” button, you will be brought to a page with three parts: Feed Information, Delivery Location and Data Column Definitions. The top half of the page looks as follows:
+&lt;img src=&quot;/assets/img/adobe-analytics-data-feed-ftp.png&quot; alt=&quot;feed info&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I find these two panels fairly self-explanatory. On the left, you give your data feed a name, choose the report suite(s) you want the data feed for, pick the delivery granularity, then choose the start/end date or choose ‘continuous’ for indefinite future delivery. On the right side, you provide your server information, FTP/SFTP or Amazon S3.&lt;/p&gt;
+
+&lt;p&gt;There are several things I love about this setup:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Delivery via SFTP and S3: For the longest time, FTP was the only choice, which disappointed security-minded folks who wanted SFTP. With S3 delivery, you can house your data files and read them into Hadoop directly (assuming you use AWS); this means you don’t necessarily have to do anything with the data until you need it, then you can fire up an EMR job to get your data. Dump the cluster when you’re done. Nice.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Multiple Report Suites, same window: I’m so happy to see that this interface supports choosing multiple report suites within the same “feed”. This makes it so much easier than having to create a separate feed instance, when in many cases the settings will stay the same (other than report suite of course).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What I don’t love:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Not saving FTP information: When you do choose to create separate feeds, there doesn’t appear to be a way to use the same credentials without typing them in yourself. Not a huge deal if your password is “Mom”, a little more annoying if you auto-generate a password that looks like “aHR0cDovL3JhbmR5endpdGNoLmNvbQ==”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data-column-definitions&quot;&gt;Data Column Definitions&lt;/h2&gt;
+
+&lt;p&gt;After choosing the report suites and providing the delivery details, the remaining step is to decide which data fields you want as part of the data feed. Luckily, there are templates that can be chosen, so that the user doesn’t have to remember every single field and the order that they need.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-analytics-data-feed-definition.png&quot; alt=&quot;column structure&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;My favored practice when working with the data feeds is to have every feed have the same structure, even if certain report suites don’t have nearly the same amount of eVars and props implemented. I’m of the mind that taking all the fields, then letting the ETL process handle what to do with the data is much less error-prone. You can always re-run an ETL process if you forgot something; if you forget a column in your data feed, you need to re-process all of the feeds.&lt;/p&gt;
+
+&lt;p&gt;Empty columns are also much less wasteful in the age of distributed computing (such as Hadoop), as &lt;a href=&quot;http://blog.cloudera.com/blog/2013/03/introducing-parquet-columnar-storage-for-apache-hadoop/&quot;&gt;columnar data formats&lt;/a&gt;/databases remove much of the performance penalty of empty columns. Using dictionary encoding and columnar data structures, you can represent an entire column of missing values as {NA: &lt;number of=&quot;&quot; rows=&quot;&quot;&gt;} and spend mere bytes for data storage and still have lossless compression.&lt;/number&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;save-and-repeat&quot;&gt;Save and Repeat&lt;/h2&gt;
+
+&lt;p&gt;Once you have your data feed defined, you save your work and that’s it! I’m not sure what SLA might be in place, but it seems like there’s roughly a 48-hour delay between submitting a new feed and having the data start to process. Once the processing starts, your notification inbox will quickly look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-analytics-data-feed-email-notification.png&quot; alt=&quot;emails&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;automated-monitoring-with-rsitecatalyst&quot;&gt;Automated Monitoring with RSiteCatalyst&lt;/h2&gt;
+&lt;p&gt;If you want to have more control around monitoring than just staring at your inbox, you can use RSiteCatalyst to get the processing status of your feed:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RSiteCatalyst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#Authentication (assumes credentials saved in .Renviron)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SCAuth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;USER&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SECRET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#Get full list of report suites
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetReportSuites&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#Pass in all non-virtual report suites
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;feedstatus&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetFeeds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is.na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;virtual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GetFeeds&lt;/code&gt; will return a dataframe that returns the feed information, as well as the processing status:
+&lt;img src=&quot;/assets/img/adobe-analytics-data-feed-rsitecatalyst.png&quot; alt=&quot;processing status&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s not hard to imagine what a cronjob would look like, polling the Adobe API every few minutes to see which feeds are complete, then kicking off an ETL process.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-liberated&quot;&gt;Data, Liberated!&lt;/h2&gt;
+
+&lt;p&gt;This blog post has been relatively light on code and analysis, but I hope I’ve highlighted that the barriers to obtaining the most granular data Adobe can provide have been completely removed. With the new Analytics Data Feed interface, the possibility of bespoke customer analytics is only a few button clicks and an FTP away.&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>Building a Data Science Workstation (2017)</title>
         
           <description>&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;i need some kind of super computer to parse a multi-gigabyte XML file, &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt;&lt;/p&gt;&amp;mdash; jason thompson (@usujason) &lt;a href=&quot;https://twitter.com/usujason/status/821429000270528512&quot;&gt;January 17, 2017&lt;/a&gt;&lt;/blockquote&gt;
@@ -15,7 +111,7 @@
 
 </description>
         
-        <pubDate>Wed, 18 Jan 2017 00:00:00 -0500</pubDate>
+        <pubDate>Wed, 18 Jan 2017 00:00:00 -0800</pubDate>
         <link>
         http://randyzwitch.com/building-data-science-workstation-2017/</link>
         <guid isPermaLink="true">http://randyzwitch.com/building-data-science-workstation-2017/</guid>
@@ -117,7 +213,7 @@
 
 </description>
         
-        <pubDate>Tue, 13 Dec 2016 00:00:00 -0500</pubDate>
+        <pubDate>Tue, 13 Dec 2016 00:00:00 -0800</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-10-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-10-release-notes/</guid>
@@ -215,7 +311,7 @@
 
 </description>
         
-        <pubDate>Mon, 10 Oct 2016 00:00:00 -0400</pubDate>
+        <pubDate>Mon, 10 Oct 2016 00:00:00 -0700</pubDate>
         <link>
         http://randyzwitch.com/wordpress-jekyll-30x-speedup/</link>
         <guid isPermaLink="true">http://randyzwitch.com/wordpress-jekyll-30x-speedup/</guid>
@@ -347,7 +443,7 @@
 
 </description>
         
-        <pubDate>Thu, 21 Jul 2016 04:25:02 -0400</pubDate>
+        <pubDate>Thu, 21 Jul 2016 01:25:02 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-bulk-download-version-1-4-9-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-bulk-download-version-1-4-9-release-notes/</guid>
@@ -493,7 +589,7 @@
 
 </description>
         
-        <pubDate>Tue, 24 May 2016 07:11:20 -0400</pubDate>
+        <pubDate>Tue, 24 May 2016 04:11:20 -0700</pubDate>
         <link>
         http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/</link>
         <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/</guid>
@@ -501,7 +597,7 @@
 
 &lt;h2 id=&quot;data-validation-groan&quot;&gt;Data Validation &lt;groan&gt;&lt;/groan&gt;&lt;/h2&gt;
 
-&lt;p&gt;Before digging too deeply into the data, we should validate that data from the data feed in our database (&lt;a href=&quot;https://gist.github.com/randyzwitch/7a9c48e7132e6ed9dfb0d02ec906961c&quot;&gt;custom database view code&lt;/a&gt;) matches what we observe from other sources (mainly, the Adobe Analytics interface and/or &lt;a href=&quot;http://randyzwitch.com/tag/rsitecatalyst/&quot;&gt;RSiteCatalyst&lt;/a&gt;). Given the Adobe Analytics data feed represents an export of the underlying data, and Adobe provides the formulas in the &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_calculate.html&quot;&gt;data feed documentation&lt;/a&gt;, &lt;em&gt;in theory&lt;/em&gt; you should be able to replicate the numbers exactly:&lt;/p&gt;
+&lt;p&gt;Before digging too deeply into the data, we should validate that data from the data feed in our database (&lt;a href=&quot;https://gist.github.com/randyzwitch/7a9c48e7132e6ed9dfb0d02ec906961c&quot;&gt;custom database view code&lt;/a&gt;) matches what we observe from other sources (mainly, the Adobe Analytics interface and/or &lt;a href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt;). Given the Adobe Analytics data feed represents an export of the underlying data, and Adobe provides the formulas in the &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_calculate.html&quot;&gt;data feed documentation&lt;/a&gt;, &lt;em&gt;in theory&lt;/em&gt; you should be able to replicate the numbers exactly:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -733,7 +829,7 @@
 
 </description>
         
-        <pubDate>Mon, 09 May 2016 08:31:51 -0400</pubDate>
+        <pubDate>Mon, 09 May 2016 05:31:51 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-not-adobe-product/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-not-adobe-product/</guid>
@@ -790,7 +886,7 @@
 
 </description>
         
-        <pubDate>Tue, 05 Apr 2016 07:41:53 -0400</pubDate>
+        <pubDate>Tue, 05 Apr 2016 04:41:53 -0700</pubDate>
         <link>
         http://randyzwitch.com/travisci-10minute-timeout-build-error/</link>
         <guid isPermaLink="true">http://randyzwitch.com/travisci-10minute-timeout-build-error/</guid>
@@ -871,7 +967,7 @@ OK&lt;/p&gt;
 
 </description>
         
-        <pubDate>Mon, 04 Apr 2016 06:05:15 -0400</pubDate>
+        <pubDate>Mon, 04 Apr 2016 03:05:15 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/</guid>
@@ -928,7 +1024,7 @@ OK&lt;/p&gt;
 
 </description>
         
-        <pubDate>Fri, 18 Mar 2016 10:42:23 -0400</pubDate>
+        <pubDate>Fri, 18 Mar 2016 07:42:23 -0700</pubDate>
         <link>
         http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/</link>
         <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/</guid>
@@ -1149,7 +1245,7 @@ OK&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         
-        <pubDate>Mon, 22 Feb 2016 05:34:44 -0500</pubDate>
+        <pubDate>Mon, 22 Feb 2016 02:34:44 -0800</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-adobe-analytics-python/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-adobe-analytics-python/</guid>
@@ -1163,7 +1259,7 @@ OK&lt;/p&gt;
   &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;This will be a very short post, because the only “new” information I’m going to provide is the minimal example to answer the question. Yes, it is in fact possible to call RSiteCatalyst from Python and seems to work well. The most important things are 1) making sure you install &lt;a href=&quot;http://rpy2.readthedocs.org/en/version_2.7.x/&quot;&gt;rpy2&lt;/a&gt; and 2) loading &lt;a href=&quot;http://pandas.pydata.org/&quot;&gt;Pandas&lt;/a&gt; (since so much of RSiteCatalyst is API calls returning data frames). It doesn’t hurt to already have experience using &lt;a href=&quot;http://randyzwitch.com/tag/rsitecatalyst/&quot;&gt;RSiteCatalyst&lt;/a&gt; in &lt;a href=&quot;/tags/#r&quot;&gt;R&lt;/a&gt;, since all we’re doing here is using Python to pass code to R.&lt;/p&gt;
+&lt;p&gt;This will be a very short post, because the only “new” information I’m going to provide is the minimal example to answer the question. Yes, it is in fact possible to call RSiteCatalyst from Python and seems to work well. The most important things are 1) making sure you install &lt;a href=&quot;http://rpy2.readthedocs.org/en/version_2.7.x/&quot;&gt;rpy2&lt;/a&gt; and 2) loading &lt;a href=&quot;http://pandas.pydata.org/&quot;&gt;Pandas&lt;/a&gt; (since so much of RSiteCatalyst is API calls returning data frames). It doesn’t hurt to already have experience using &lt;a href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt; in &lt;a href=&quot;/tags/#r&quot;&gt;R&lt;/a&gt;, since all we’re doing here is using Python to pass code to R.&lt;/p&gt;
 
 &lt;h2 id=&quot;setup-code-rpy2-and-pandas&quot;&gt;Setup Code: rpy2 and Pandas&lt;/h2&gt;
 
@@ -1223,7 +1319,7 @@ OK&lt;/p&gt;
 
 </description>
         
-        <pubDate>Mon, 01 Feb 2016 04:24:04 -0500</pubDate>
+        <pubDate>Mon, 01 Feb 2016 01:24:04 -0800</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-7-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-7-release-notes/</guid>
@@ -1263,7 +1359,7 @@ OK&lt;/p&gt;
 
 </description>
         
-        <pubDate>Thu, 28 Jan 2016 04:53:42 -0500</pubDate>
+        <pubDate>Thu, 28 Jan 2016 01:53:42 -0800</pubDate>
         <link>
         http://randyzwitch.com/gnu-parallel-medium-data/</link>
         <guid isPermaLink="true">http://randyzwitch.com/gnu-parallel-medium-data/</guid>
@@ -1531,7 +1627,7 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Thu, 31 Dec 2015 08:17:30 -0500</pubDate>
+        <pubDate>Thu, 31 Dec 2015 05:17:30 -0800</pubDate>
         <link>
         http://randyzwitch.com/21st-century-c-error-64-osx/</link>
         <guid isPermaLink="true">http://randyzwitch.com/21st-century-c-error-64-osx/</guid>
@@ -1645,7 +1741,7 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 &lt;/blockquote&gt;
 </description>
         
-        <pubDate>Fri, 21 Aug 2015 06:42:13 -0400</pubDate>
+        <pubDate>Fri, 21 Aug 2015 03:42:13 -0700</pubDate>
         <link>
         http://randyzwitch.com/well-thought-out-business-requirements/</link>
         <guid isPermaLink="true">http://randyzwitch.com/well-thought-out-business-requirements/</guid>
@@ -1724,7 +1820,7 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Mon, 17 Aug 2015 05:43:36 -0400</pubDate>
+        <pubDate>Mon, 17 Aug 2015 02:43:36 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-5-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-5-release-notes/</guid>
@@ -1754,7 +1850,7 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Fri, 14 Aug 2015 06:29:41 -0400</pubDate>
+        <pubDate>Fri, 14 Aug 2015 03:29:41 -0700</pubDate>
         <link>
         http://randyzwitch.com/juliacon-2015-everyday-analytics-and-visualization-video/</link>
         <guid isPermaLink="true">http://randyzwitch.com/juliacon-2015-everyday-analytics-and-visualization-video/</guid>
@@ -1778,7 +1874,7 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Fri, 07 Aug 2015 16:07:12 -0400</pubDate>
+        <pubDate>Fri, 07 Aug 2015 13:07:12 -0700</pubDate>
         <link>
         http://randyzwitch.com/apple-macbook-pro-model-a1286-late-2008-vintage/</link>
         <guid isPermaLink="true">http://randyzwitch.com/apple-macbook-pro-model-a1286-late-2008-vintage/</guid>
@@ -1810,15 +1906,15 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
       <item>
         <title>Authenticated API Testing Using Travis CI</title>
         
-          <description>&lt;p&gt;As I’ve become more serious about contributing in the open-source community, having quality tests for my packages has been something I’ve spent much more time on than when I was just writing quick-and-dirty code for my own purposes. My most used open-sourced package is &lt;a href=&quot;http://randyzwitch.com/tag/rsitecatalyst/&quot;&gt;RSiteCatalyst&lt;/a&gt;, which accesses the Adobe Analytics (authenticated) API, which poses a problem: how do you maintain a project on GitHub with a full test suite, while at the same time not hard-coding your credentials in plain sight for everyone to see?&lt;/p&gt;
+          <description>&lt;p&gt;As I’ve become more serious about contributing in the open-source community, having quality tests for my packages has been something I’ve spent much more time on than when I was just writing quick-and-dirty code for my own purposes. My most used open-sourced package is &lt;a href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt;, which accesses the Adobe Analytics (authenticated) API, which poses a problem: how do you maintain a project on GitHub with a full test suite, while at the same time not hard-coding your credentials in plain sight for everyone to see?&lt;/p&gt;
 
 </description>
         
-        <pubDate>Thu, 06 Aug 2015 16:21:50 -0400</pubDate>
+        <pubDate>Thu, 06 Aug 2015 13:21:50 -0700</pubDate>
         <link>
         http://randyzwitch.com/authentication-travis-ci/</link>
         <guid isPermaLink="true">http://randyzwitch.com/authentication-travis-ci/</guid>
-        <content type="html" xml:base="/authentication-travis-ci/">&lt;p&gt;As I’ve become more serious about contributing in the open-source community, having quality tests for my packages has been something I’ve spent much more time on than when I was just writing quick-and-dirty code for my own purposes. My most used open-sourced package is &lt;a href=&quot;http://randyzwitch.com/tag/rsitecatalyst/&quot;&gt;RSiteCatalyst&lt;/a&gt;, which accesses the Adobe Analytics (authenticated) API, which poses a problem: how do you maintain a project on GitHub with a full test suite, while at the same time not hard-coding your credentials in plain sight for everyone to see?&lt;/p&gt;
+        <content type="html" xml:base="/authentication-travis-ci/">&lt;p&gt;As I’ve become more serious about contributing in the open-source community, having quality tests for my packages has been something I’ve spent much more time on than when I was just writing quick-and-dirty code for my own purposes. My most used open-sourced package is &lt;a href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt;, which accesses the Adobe Analytics (authenticated) API, which poses a problem: how do you maintain a project on GitHub with a full test suite, while at the same time not hard-coding your credentials in plain sight for everyone to see?&lt;/p&gt;
 
 &lt;p&gt;The answer ends up being using &lt;a href=&quot;http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables&quot;&gt;encrypted environment variables&lt;/a&gt; within &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI&lt;/a&gt;.&lt;/p&gt;
 
@@ -2019,7 +2115,7 @@ Pro Tip: You can add it automatically by running with --add.&lt;/code&gt;&lt;/pr
 
 </description>
         
-        <pubDate>Tue, 04 Aug 2015 05:00:35 -0400</pubDate>
+        <pubDate>Tue, 04 Aug 2015 02:00:35 -0700</pubDate>
         <link>
         http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/</link>
         <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/</guid>
@@ -2305,7 +2401,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 13 Jul 2015 05:40:20 -0400</pubDate>
+        <pubDate>Mon, 13 Jul 2015 02:40:20 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/</guid>
@@ -2350,7 +2446,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Thu, 21 May 2015 08:56:07 -0400</pubDate>
+        <pubDate>Thu, 21 May 2015 05:56:07 -0700</pubDate>
         <link>
         http://randyzwitch.com/vega-jl-julia/</link>
         <guid isPermaLink="true">http://randyzwitch.com/vega-jl-julia/</guid>
@@ -2399,7 +2495,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 20 Jan 2015 04:01:19 -0500</pubDate>
+        <pubDate>Tue, 20 Jan 2015 01:01:19 -0800</pubDate>
         <link>
         http://randyzwitch.com/sessionizing-log-data-using-data-table-follow-2/</link>
         <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-using-data-table-follow-2/</guid>
@@ -2464,7 +2560,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 13 Jan 2015 11:24:52 -0500</pubDate>
+        <pubDate>Tue, 13 Jan 2015 08:24:52 -0800</pubDate>
         <link>
         http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/</link>
         <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/</guid>
@@ -2643,7 +2739,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Thu, 08 Jan 2015 06:57:56 -0500</pubDate>
+        <pubDate>Thu, 08 Jan 2015 03:57:56 -0800</pubDate>
         <link>
         http://randyzwitch.com/sessionizing-log-data-sql/</link>
         <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-sql/</guid>
@@ -2776,7 +2872,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 06 Jan 2015 08:00:40 -0500</pubDate>
+        <pubDate>Tue, 06 Jan 2015 05:00:40 -0800</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/</guid>
@@ -2826,7 +2922,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 15 Dec 2014 05:22:46 -0500</pubDate>
+        <pubDate>Mon, 15 Dec 2014 02:22:46 -0800</pubDate>
         <link>
         http://randyzwitch.com/data-science-command-line-review-janssens/</link>
         <guid isPermaLink="true">http://randyzwitch.com/data-science-command-line-review-janssens/</guid>
@@ -2880,7 +2976,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 08 Dec 2014 12:12:58 -0500</pubDate>
+        <pubDate>Mon, 08 Dec 2014 09:12:58 -0800</pubDate>
         <link>
         http://randyzwitch.com/twitter-api-julia/</link>
         <guid isPermaLink="true">http://randyzwitch.com/twitter-api-julia/</guid>
@@ -2962,7 +3058,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Wed, 03 Dec 2014 18:01:05 -0500</pubDate>
+        <pubDate>Wed, 03 Dec 2014 15:01:05 -0800</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-2-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-2-release-notes/</guid>
@@ -2992,7 +3088,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Thu, 20 Nov 2014 05:07:55 -0500</pubDate>
+        <pubDate>Thu, 20 Nov 2014 02:07:55 -0800</pubDate>
         <link>
         http://randyzwitch.com/excel-destroys-data/</link>
         <guid isPermaLink="true">http://randyzwitch.com/excel-destroys-data/</guid>
@@ -3050,7 +3146,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 18 Nov 2014 04:11:06 -0500</pubDate>
+        <pubDate>Tue, 18 Nov 2014 01:11:06 -0800</pubDate>
         <link>
         http://randyzwitch.com/julia-metaprogramming-refactoring/</link>
         <guid isPermaLink="true">http://randyzwitch.com/julia-metaprogramming-refactoring/</guid>
@@ -3227,7 +3323,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 10 Nov 2014 05:01:36 -0500</pubDate>
+        <pubDate>Mon, 10 Nov 2014 02:01:36 -0800</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-1-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-1-release-notes/</guid>
@@ -3276,7 +3372,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 &lt;/blockquote&gt;
 </description>
         
-        <pubDate>Fri, 07 Nov 2014 09:43:53 -0500</pubDate>
+        <pubDate>Fri, 07 Nov 2014 06:43:53 -0800</pubDate>
         <link>
         http://randyzwitch.com/declaring-twitter-bankruptcy/</link>
         <guid isPermaLink="true">http://randyzwitch.com/declaring-twitter-bankruptcy/</guid>
@@ -3326,7 +3422,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Thu, 06 Nov 2014 16:24:00 -0500</pubDate>
+        <pubDate>Thu, 06 Nov 2014 13:24:00 -0800</pubDate>
         <link>
         http://randyzwitch.com/twitter-breakoutdetection-r-package-evaluation/</link>
         <guid isPermaLink="true">http://randyzwitch.com/twitter-breakoutdetection-r-package-evaluation/</guid>
@@ -3425,7 +3521,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Wed, 10 Sep 2014 17:27:10 -0400</pubDate>
+        <pubDate>Wed, 10 Sep 2014 14:27:10 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-website-pathing-sankey-charts/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-website-pathing-sankey-charts/</guid>
@@ -3544,7 +3640,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 &lt;p&gt;Unlike the network graphs, Sankey Charts are fairly easy to understand. The “worst” path on my site in terms of keeping visitors on site is where I praised Apple for &lt;a href=&quot;http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/&quot;&gt;fixing my MacBook Pro screen&lt;/a&gt; out-of-warranty. The easy explanation for this poor performance is that this article attracts people who aren’t really my target audience in data science, but looking for information about getting THEIR screens fixed. If I wanted to engage these readers more, I guess I would need to write more Apple-related content.&lt;/p&gt;
 
-&lt;p&gt;To the extent there are multi-stage paths, these tend to be &lt;a href=&quot;http://randyzwitch.com/tag/hadoop/&quot;&gt;Hadoop&lt;/a&gt; and &lt;a href=&quot;http://randyzwitch.com/tag/julia/&quot;&gt;Julia&lt;/a&gt;-related content. This makes sense as both technologies are fairly new, I have a lot more content in these areas, and especially in the case of Julia, I’m one of the few people writing practical content. So I’m glad to see I’m achieving some level of success in these areas.&lt;/p&gt;
+&lt;p&gt;To the extent there are multi-stage paths, these tend to be &lt;a href=&quot;http://randyzwitch.com/tags/#hadoop&quot;&gt;Hadoop&lt;/a&gt; and &lt;a href=&quot;http://randyzwitch.com/tags/#julia&quot;&gt;Julia&lt;/a&gt;-related content. This makes sense as both technologies are fairly new, I have a lot more content in these areas, and especially in the case of Julia, I’m one of the few people writing practical content. So I’m glad to see I’m achieving some level of success in these areas.&lt;/p&gt;
 
 &lt;p&gt;Hopefully this blog post and my previous post on &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-d3-network-graphs/&quot;&gt;visualizing your website visitors using network graphs&lt;/a&gt; have given a feel for the &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/&quot;&gt;new functionality available in RSiteCatalyst v1.4&lt;/a&gt;, as well providing a new way of thinking about data visualization beyond just the default graphs provided by the Adobe Analytics interface.&lt;/p&gt;</content>
       </item>
@@ -3558,7 +3654,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 09 Sep 2014 04:01:39 -0400</pubDate>
+        <pubDate>Tue, 09 Sep 2014 01:01:39 -0700</pubDate>
         <link>
         http://randyzwitch.com/creating-stacked-bar-chart-seaborn/</link>
         <guid isPermaLink="true">http://randyzwitch.com/creating-stacked-bar-chart-seaborn/</guid>
@@ -3684,7 +3780,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 08 Sep 2014 02:40:38 -0400</pubDate>
+        <pubDate>Sun, 07 Sep 2014 23:40:38 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-d3-network-graphs/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-d3-network-graphs/</guid>
@@ -3964,7 +4060,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 01 Sep 2014 16:30:14 -0400</pubDate>
+        <pubDate>Mon, 01 Sep 2014 13:30:14 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/</guid>
@@ -4016,7 +4112,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Fri, 29 Aug 2014 11:16:24 -0400</pubDate>
+        <pubDate>Fri, 29 Aug 2014 08:16:24 -0700</pubDate>
         <link>
         http://randyzwitch.com/visualizing-analytics-languages-venneuler-jl/</link>
         <guid isPermaLink="true">http://randyzwitch.com/visualizing-analytics-languages-venneuler-jl/</guid>
@@ -4151,7 +4247,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 14 Jul 2014 08:01:10 -0400</pubDate>
+        <pubDate>Mon, 14 Jul 2014 05:01:10 -0700</pubDate>
         <link>
         http://randyzwitch.com/string-interpolation-julia/</link>
         <guid isPermaLink="true">http://randyzwitch.com/string-interpolation-julia/</guid>
@@ -4423,15 +4519,15 @@ group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;&quot;&lt;/span&gt;
       <item>
         <title>Maybe I Don't Really Know R After All</title>
         
-          <description>&lt;p&gt;Lately, I’ve been feeling that I’m spreading myself too thin in terms of programming languages. At work, I spend most of my time in &lt;a title=&quot;Hive blog posts&quot; href=&quot;http://randyzwitch.com/tag/hive/&quot; target=&quot;_blank&quot;&gt;Hive&lt;/a&gt;/SQL, with the occasional Python for my smaller data. I really prefer &lt;a href=&quot;http://randyzwitch.com/tag/julia/&quot;&gt;Julia&lt;/a&gt;, but I’m alone at work on that one. And since I maintain a package on CRAN (&lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;), I frequently spend my evenings bug fix programming in R. Then, there’s the desire to learn a Java-based language like Scala (or, Java)…maybe Spark for my Hadoop work…&lt;/p&gt;
+          <description>&lt;p&gt;Lately, I’ve been feeling that I’m spreading myself too thin in terms of programming languages. At work, I spend most of my time in &lt;a title=&quot;Hive blog posts&quot; href=&quot;http://randyzwitch.com/tags/#hive&quot; target=&quot;_blank&quot;&gt;Hive&lt;/a&gt;/SQL, with the occasional Python for my smaller data. I really prefer &lt;a href=&quot;http://randyzwitch.com/tags/#julia&quot;&gt;Julia&lt;/a&gt;, but I’m alone at work on that one. And since I maintain a package on CRAN (&lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;), I frequently spend my evenings bug fix programming in R. Then, there’s the desire to learn a Java-based language like Scala (or, Java)…maybe Spark for my Hadoop work…&lt;/p&gt;
 
 </description>
         
-        <pubDate>Thu, 26 Jun 2014 07:18:36 -0400</pubDate>
+        <pubDate>Thu, 26 Jun 2014 04:18:36 -0700</pubDate>
         <link>
         http://randyzwitch.com/r-language-oddities/</link>
         <guid isPermaLink="true">http://randyzwitch.com/r-language-oddities/</guid>
-        <content type="html" xml:base="/r-language-oddities/">&lt;p&gt;Lately, I’ve been feeling that I’m spreading myself too thin in terms of programming languages. At work, I spend most of my time in &lt;a title=&quot;Hive blog posts&quot; href=&quot;http://randyzwitch.com/tag/hive/&quot; target=&quot;_blank&quot;&gt;Hive&lt;/a&gt;/SQL, with the occasional Python for my smaller data. I really prefer &lt;a href=&quot;http://randyzwitch.com/tag/julia/&quot;&gt;Julia&lt;/a&gt;, but I’m alone at work on that one. And since I maintain a package on CRAN (&lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;), I frequently spend my evenings bug fix programming in R. Then, there’s the desire to learn a Java-based language like Scala (or, Java)…maybe Spark for my Hadoop work…&lt;/p&gt;
+        <content type="html" xml:base="/r-language-oddities/">&lt;p&gt;Lately, I’ve been feeling that I’m spreading myself too thin in terms of programming languages. At work, I spend most of my time in &lt;a title=&quot;Hive blog posts&quot; href=&quot;http://randyzwitch.com/tags/#hive&quot; target=&quot;_blank&quot;&gt;Hive&lt;/a&gt;/SQL, with the occasional Python for my smaller data. I really prefer &lt;a href=&quot;http://randyzwitch.com/tags/#julia&quot;&gt;Julia&lt;/a&gt;, but I’m alone at work on that one. And since I maintain a package on CRAN (&lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;), I frequently spend my evenings bug fix programming in R. Then, there’s the desire to learn a Java-based language like Scala (or, Java)…maybe Spark for my Hadoop work…&lt;/p&gt;
 
 &lt;p&gt;So last night, when I ran into this series of follies with R, it really makes me wonder if I really understand how R works.&lt;/p&gt;
 
@@ -4548,7 +4644,7 @@ group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Tue, 24 Jun 2014 04:57:31 -0400</pubDate>
+        <pubDate>Tue, 24 Jun 2014 01:57:31 -0700</pubDate>
         <link>
         http://randyzwitch.com/julia-odbc-jl/</link>
         <guid isPermaLink="true">http://randyzwitch.com/julia-odbc-jl/</guid>
@@ -4858,7 +4954,7 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Thu, 12 Jun 2014 09:01:18 -0400</pubDate>
+        <pubDate>Thu, 12 Jun 2014 06:01:18 -0700</pubDate>
         <link>
         http://randyzwitch.com/hive-five-hard-won-lessons/</link>
         <guid isPermaLink="true">http://randyzwitch.com/hive-five-hard-won-lessons/</guid>
@@ -5036,7 +5132,7 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Tue, 13 May 2014 09:27:39 -0400</pubDate>
+        <pubDate>Tue, 13 May 2014 06:27:39 -0700</pubDate>
         <link>
         http://randyzwitch.com/r-json-jsonlite-sprintf-paste/</link>
         <guid isPermaLink="true">http://randyzwitch.com/r-json-jsonlite-sprintf-paste/</guid>
@@ -5153,7 +5249,7 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Fri, 25 Apr 2014 10:05:57 -0400</pubDate>
+        <pubDate>Fri, 25 Apr 2014 07:05:57 -0700</pubDate>
         <link>
         http://randyzwitch.com/sql-workbench-apache-hadoop-hive/</link>
         <guid isPermaLink="true">http://randyzwitch.com/sql-workbench-apache-hadoop-hive/</guid>
@@ -5226,7 +5322,7 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Mon, 10 Mar 2014 07:28:21 -0400</pubDate>
+        <pubDate>Mon, 10 Mar 2014 04:28:21 -0700</pubDate>
         <link>
         http://randyzwitch.com/real-time-reporting-adobe-analytics-api/</link>
         <guid isPermaLink="true">http://randyzwitch.com/real-time-reporting-adobe-analytics-api/</guid>
@@ -5333,7 +5429,7 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Tue, 04 Feb 2014 04:44:19 -0500</pubDate>
+        <pubDate>Tue, 04 Feb 2014 01:44:19 -0800</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/</guid>
@@ -5451,15 +5547,15 @@ order by 1,2;&quot;&lt;/span&gt;
       <item>
         <title>Getting Started With Hadoop, Final: Analysis Using Hive &amp; Pig</title>
         
-          <description>&lt;p&gt;We’ve finally made it to the final post in this tutorial! In my prior posts about getting started with &lt;a title=&quot;Hadoop posts&quot; href=&quot;http://randyzwitch.com/tag/hadoop/&quot; target=&quot;_blank&quot;&gt;Hadoop&lt;/a&gt;, we’ve covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the &lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;airline dataset&lt;/a&gt; using Hive and Pig.&lt;/p&gt;
+          <description>&lt;p&gt;We’ve finally made it to the final post in this tutorial! In my prior posts about getting started with &lt;a title=&quot;Hadoop posts&quot; href=&quot;http://randyzwitch.com/tags/#hadoop&quot; target=&quot;_blank&quot;&gt;Hadoop&lt;/a&gt;, we’ve covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the &lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;airline dataset&lt;/a&gt; using Hive and Pig.&lt;/p&gt;
 
 </description>
         
-        <pubDate>Sun, 12 Jan 2014 15:25:32 -0500</pubDate>
+        <pubDate>Sun, 12 Jan 2014 12:25:32 -0800</pubDate>
         <link>
         http://randyzwitch.com/getting-started-hadoop-hive-pig/</link>
         <guid isPermaLink="true">http://randyzwitch.com/getting-started-hadoop-hive-pig/</guid>
-        <content type="html" xml:base="/getting-started-hadoop-hive-pig/">&lt;p&gt;We’ve finally made it to the final post in this tutorial! In my prior posts about getting started with &lt;a title=&quot;Hadoop posts&quot; href=&quot;http://randyzwitch.com/tag/hadoop/&quot; target=&quot;_blank&quot;&gt;Hadoop&lt;/a&gt;, we’ve covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the &lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;airline dataset&lt;/a&gt; using Hive and Pig.&lt;/p&gt;
+        <content type="html" xml:base="/getting-started-hadoop-hive-pig/">&lt;p&gt;We’ve finally made it to the final post in this tutorial! In my prior posts about getting started with &lt;a title=&quot;Hadoop posts&quot; href=&quot;http://randyzwitch.com/tags/#hadoop&quot; target=&quot;_blank&quot;&gt;Hadoop&lt;/a&gt;, we’ve covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the &lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;airline dataset&lt;/a&gt; using Hive and Pig.&lt;/p&gt;
 
 &lt;h2 id=&quot;basic-descriptive-statistics-using-hive&quot;&gt;Basic Descriptive Statistics Using Hive&lt;/h2&gt;
 
@@ -5538,7 +5634,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 02 Jan 2014 08:58:51 -0500</pubDate>
+        <pubDate>Thu, 02 Jan 2014 05:58:51 -0800</pubDate>
         <link>
         http://randyzwitch.com/creating-dummy-variables-data-frame-r/</link>
         <guid isPermaLink="true">http://randyzwitch.com/creating-dummy-variables-data-frame-r/</guid>
@@ -5598,7 +5694,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Mon, 09 Dec 2013 04:46:30 -0500</pubDate>
+        <pubDate>Mon, 09 Dec 2013 01:46:30 -0800</pubDate>
         <link>
         http://randyzwitch.com/adobe-analytics-implementation-documentation/</link>
         <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-implementation-documentation/</guid>
@@ -5707,7 +5803,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 21 Nov 2013 15:13:11 -0500</pubDate>
+        <pubDate>Thu, 21 Nov 2013 12:13:11 -0800</pubDate>
         <link>
         http://randyzwitch.com/ipython-notebook-amazon-ec2/</link>
         <guid isPermaLink="true">http://randyzwitch.com/ipython-notebook-amazon-ec2/</guid>
@@ -5836,7 +5932,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 19 Nov 2013 03:48:18 -0500</pubDate>
+        <pubDate>Tue, 19 Nov 2013 00:48:18 -0800</pubDate>
         <link>
         http://randyzwitch.com/line-numbers-ipython-notebook/</link>
         <guid isPermaLink="true">http://randyzwitch.com/line-numbers-ipython-notebook/</guid>
@@ -5888,7 +5984,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 05 Nov 2013 03:29:16 -0500</pubDate>
+        <pubDate>Tue, 05 Nov 2013 00:29:16 -0800</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-2-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-2-release-notes/</guid>
@@ -5938,7 +6034,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 17 Sep 2013 10:41:01 -0400</pubDate>
+        <pubDate>Tue, 17 Sep 2013 07:41:01 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-k-means-clustering/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-k-means-clustering/</guid>
@@ -6162,7 +6258,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Mon, 02 Sep 2013 15:57:45 -0400</pubDate>
+        <pubDate>Mon, 02 Sep 2013 12:57:45 -0700</pubDate>
         <link>
         http://randyzwitch.com/python-pypy-julia-r-pqr-jit-just-in-time-compiler/</link>
         <guid isPermaLink="true">http://randyzwitch.com/python-pypy-julia-r-pqr-jit-just-in-time-compiler/</guid>
@@ -6245,7 +6341,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Sun, 25 Aug 2013 09:54:32 -0400</pubDate>
+        <pubDate>Sun, 25 Aug 2013 06:54:32 -0700</pubDate>
         <link>
         http://randyzwitch.com/rsitecatalyst-version-1-1-release-notes/</link>
         <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-1-release-notes/</guid>
@@ -6258,7 +6354,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
   &lt;li&gt;Decrease in wait time for API calls (from 5 seconds to 2 seconds) and extending total number of API tries before report failure (from 100 seconds to 10 minutes)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;For those of you Adobe Analytics (Omniture) users who haven’t yet tried to use the Adobe Analytics API, I’ve created an &lt;a title=&quot;RSiteCatalyst main page&quot; href=&quot;http://randyzwitch.com/rsitecatalyst/&quot; target=&quot;_blank&quot;&gt;introduction video&lt;/a&gt; to get started. There will also continue to be examples of using this package on this blog on the &lt;a title=&quot;RSiteCatalyst usage examples&quot; href=&quot;http://randyzwitch.com/tag/rsitecatalyst/&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt; tag. Enjoy!&lt;/p&gt;</content>
+&lt;p&gt;For those of you Adobe Analytics (Omniture) users who haven’t yet tried to use the Adobe Analytics API, I’ve created an &lt;a title=&quot;RSiteCatalyst main page&quot; href=&quot;http://randyzwitch.com/rsitecatalyst/&quot; target=&quot;_blank&quot;&gt;introduction video&lt;/a&gt; to get started. There will also continue to be examples of using this package on this blog on the &lt;a title=&quot;RSiteCatalyst usage examples&quot; href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt; tag. Enjoy!&lt;/p&gt;</content>
       </item>
       
     
@@ -6270,7 +6366,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 22 Aug 2013 14:03:19 -0400</pubDate>
+        <pubDate>Thu, 22 Aug 2013 11:03:19 -0700</pubDate>
         <link>
         http://randyzwitch.com/hadoop-creating-tables-hive/</link>
         <guid isPermaLink="true">http://randyzwitch.com/hadoop-creating-tables-hive/</guid>
@@ -6384,7 +6480,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 15 Aug 2013 06:57:56 -0400</pubDate>
+        <pubDate>Thu, 15 Aug 2013 03:57:56 -0700</pubDate>
         <link>
         http://randyzwitch.com/anomaly-detection-adobe-analytics-api/</link>
         <guid isPermaLink="true">http://randyzwitch.com/anomaly-detection-adobe-analytics-api/</guid>
@@ -6470,7 +6566,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 06 Aug 2013 06:05:38 -0400</pubDate>
+        <pubDate>Tue, 06 Aug 2013 03:05:38 -0700</pubDate>
         <link>
         http://randyzwitch.com/julia-import-data/</link>
         <guid isPermaLink="true">http://randyzwitch.com/julia-import-data/</guid>
@@ -6640,7 +6736,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Wed, 31 Jul 2013 08:34:58 -0400</pubDate>
+        <pubDate>Wed, 31 Jul 2013 05:34:58 -0700</pubDate>
         <link>
         http://randyzwitch.com/amazon-elastic-map-reduce-mrjob-python/</link>
         <guid isPermaLink="true">http://randyzwitch.com/amazon-elastic-map-reduce-mrjob-python/</guid>
@@ -6773,7 +6869,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 23 Jul 2013 08:16:34 -0400</pubDate>
+        <pubDate>Tue, 23 Jul 2013 05:16:34 -0700</pubDate>
         <link>
         http://randyzwitch.com/julia-language-beginners/</link>
         <guid isPermaLink="true">http://randyzwitch.com/julia-language-beginners/</guid>
@@ -6939,7 +7035,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Wed, 22 May 2013 07:39:19 -0400</pubDate>
+        <pubDate>Wed, 22 May 2013 04:39:19 -0700</pubDate>
         <link>
         http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/</link>
         <guid isPermaLink="true">http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/</guid>
@@ -6992,7 +7088,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 &lt;/blockquote&gt;
 </description>
         
-        <pubDate>Fri, 17 May 2013 06:28:47 -0400</pubDate>
+        <pubDate>Fri, 17 May 2013 03:28:47 -0700</pubDate>
         <link>
         http://randyzwitch.com/data-science-innovation/</link>
         <guid isPermaLink="true">http://randyzwitch.com/data-science-innovation/</guid>
@@ -7070,13 +7166,13 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 25 Apr 2013 13:33:48 -0400</pubDate>
+        <pubDate>Thu, 25 Apr 2013 10:33:48 -0700</pubDate>
         <link>
         http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/</link>
         <guid isPermaLink="true">http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/</guid>
         <content type="html" xml:base="/big-data-hadoop-amazon-ec2-cloudera-part-2/">&lt;p&gt;In &lt;a title=&quot;Getting Started With Hadoop, Part 1&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot; target=&quot;_blank&quot;&gt;Part 1 of this series&lt;/a&gt;, I discussed some of the basic concepts around Hadoop, specifically when it’s appropriate to use Hadoop to solve your data engineering problems and the terminology of the Hadoop eco-system. This post will cover how to install your own Hadoop cluster on Amazon EC2 using Cloudera Manager.&lt;/p&gt;
 
-&lt;p&gt;Like prior posts talking about &lt;a title=&quot;Amazon EC2 posts&quot; href=&quot;http://randyzwitch.com/tag/amazon-ec2/&quot; target=&quot;_blank&quot;&gt;Amazon EC2&lt;/a&gt;, this post assumes you have some basic facility with Linux, submitting instructions via the command line, etc. Because really, if you’re interested in Hadoop, using the command line probably isn’t a limiting factor!&lt;/p&gt;
+&lt;p&gt;Like prior posts talking about &lt;a title=&quot;Amazon EC2 posts&quot; href=&quot;http://randyzwitch.com/tags/#amazon_ec2&quot; target=&quot;_blank&quot;&gt;Amazon EC2&lt;/a&gt;, this post assumes you have some basic facility with Linux, submitting instructions via the command line, etc. Because really, if you’re interested in Hadoop, using the command line probably isn’t a limiting factor!&lt;/p&gt;
 
 &lt;h2 id=&quot;building-a-18-node-hadoop-cluster&quot;&gt;Building a 18-node Hadoop Cluster&lt;/h2&gt;
 
@@ -7104,7 +7200,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 18 Apr 2013 08:47:15 -0400</pubDate>
+        <pubDate>Thu, 18 Apr 2013 05:47:15 -0700</pubDate>
         <link>
         http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/</link>
         <guid isPermaLink="true">http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/</guid>
@@ -7172,7 +7268,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Mon, 08 Apr 2013 12:36:07 -0400</pubDate>
+        <pubDate>Mon, 08 Apr 2013 09:36:07 -0700</pubDate>
         <link>
         http://randyzwitch.com/r-amazon-ec2/</link>
         <guid isPermaLink="true">http://randyzwitch.com/r-amazon-ec2/</guid>
@@ -7311,7 +7407,7 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Wed, 03 Apr 2013 06:10:09 -0400</pubDate>
+        <pubDate>Wed, 03 Apr 2013 03:10:09 -0700</pubDate>
         <link>
         http://randyzwitch.com/automated-re-install-of-packages-for-r-3-0/</link>
         <guid isPermaLink="true">http://randyzwitch.com/automated-re-install-of-packages-for-r-3-0/</guid>
@@ -7329,7 +7425,7 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Mon, 25 Feb 2013 12:15:46 -0500</pubDate>
+        <pubDate>Mon, 25 Feb 2013 09:15:46 -0800</pubDate>
         <link>
         http://randyzwitch.com/r-error-message-fun/</link>
         <guid isPermaLink="true">http://randyzwitch.com/r-error-message-fun/</guid>
@@ -7362,7 +7458,7 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Fri, 11 Jan 2013 11:27:33 -0500</pubDate>
+        <pubDate>Fri, 11 Jan 2013 08:27:33 -0800</pubDate>
         <link>
         http://randyzwitch.com/r-google-analytics-api/</link>
         <guid isPermaLink="true">http://randyzwitch.com/r-google-analytics-api/</guid>
@@ -7563,7 +7659,7 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Mon, 17 Dec 2012 08:22:51 -0500</pubDate>
+        <pubDate>Mon, 17 Dec 2012 05:22:51 -0800</pubDate>
         <link>
         http://randyzwitch.com/sqldf-package-r/</link>
         <guid isPermaLink="true">http://randyzwitch.com/sqldf-package-r/</guid>
@@ -7585,7 +7681,7 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Wed, 21 Nov 2012 12:44:30 -0500</pubDate>
+        <pubDate>Wed, 21 Nov 2012 09:44:30 -0800</pubDate>
         <link>
         http://randyzwitch.com/back-to-top-wordpress-scrappy/</link>
         <guid isPermaLink="true">http://randyzwitch.com/back-to-top-wordpress-scrappy/</guid>
@@ -7668,7 +7764,7 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Fri, 09 Nov 2012 08:40:01 -0500</pubDate>
+        <pubDate>Fri, 09 Nov 2012 05:40:01 -0800</pubDate>
         <link>
         http://randyzwitch.com/overlay-histogram-in-r/</link>
         <guid isPermaLink="true">http://randyzwitch.com/overlay-histogram-in-r/</guid>
@@ -7795,7 +7891,7 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Fri, 07 Sep 2012 08:07:45 -0400</pubDate>
+        <pubDate>Fri, 07 Sep 2012 05:07:45 -0700</pubDate>
         <link>
         http://randyzwitch.com/video-r-rstudio-rcmdr-rattle/</link>
         <guid isPermaLink="true">http://randyzwitch.com/video-r-rstudio-rcmdr-rattle/</guid>
@@ -7816,7 +7912,7 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Mon, 06 Aug 2012 06:54:18 -0400</pubDate>
+        <pubDate>Mon, 06 Aug 2012 03:54:18 -0700</pubDate>
         <link>
         http://randyzwitch.com/getting-started-using-r-rcmdr/</link>
         <guid isPermaLink="true">http://randyzwitch.com/getting-started-using-r-rcmdr/</guid>
@@ -7877,7 +7973,7 @@ Boxplot output created by Rcmdr
 
 </description>
         
-        <pubDate>Sat, 04 Aug 2012 07:58:14 -0400</pubDate>
+        <pubDate>Sat, 04 Aug 2012 04:58:14 -0700</pubDate>
         <link>
         http://randyzwitch.com/getting-started-using-rstudio/</link>
         <guid isPermaLink="true">http://randyzwitch.com/getting-started-using-rstudio/</guid>
@@ -7920,7 +8016,7 @@ R Studio is an IDE that dramatically improves the R experience
 
 </description>
         
-        <pubDate>Wed, 25 Jul 2012 07:34:03 -0400</pubDate>
+        <pubDate>Wed, 25 Jul 2012 04:34:03 -0700</pubDate>
         <link>
         http://randyzwitch.com/learning-r-sas/</link>
         <guid isPermaLink="true">http://randyzwitch.com/learning-r-sas/</guid>
@@ -7984,7 +8080,7 @@ R Studio is an IDE that dramatically improves the R experience
 
 </description>
         
-        <pubDate>Tue, 17 Jul 2012 20:14:04 -0400</pubDate>
+        <pubDate>Tue, 17 Jul 2012 17:14:04 -0700</pubDate>
         <link>
         http://randyzwitch.com/least-useful-omniture-reports/</link>
         <guid isPermaLink="true">http://randyzwitch.com/least-useful-omniture-reports/</guid>
@@ -8071,7 +8167,7 @@ Just because data CAN be captured doesn't mean it SHOULD be!
 
 </description>
         
-        <pubDate>Mon, 25 Jun 2012 16:38:57 -0400</pubDate>
+        <pubDate>Mon, 25 Jun 2012 13:38:57 -0700</pubDate>
         <link>
         http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/</link>
         <guid isPermaLink="true">http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/</guid>
@@ -8157,7 +8253,7 @@ Just because data CAN be captured doesn't mean it SHOULD be!
 
 </description>
         
-        <pubDate>Thu, 14 Jun 2012 04:42:36 -0400</pubDate>
+        <pubDate>Thu, 14 Jun 2012 01:42:36 -0700</pubDate>
         <link>
         http://randyzwitch.com/twitter-promoted-tweets/</link>
         <guid isPermaLink="true">http://randyzwitch.com/twitter-promoted-tweets/</guid>
@@ -8203,7 +8299,7 @@ Left: #WWDC (Apple developer conference)           Right: #EdLoverDanc
 
 </description>
         
-        <pubDate>Thu, 07 Jun 2012 04:37:28 -0400</pubDate>
+        <pubDate>Thu, 07 Jun 2012 01:37:28 -0700</pubDate>
         <link>
         http://randyzwitch.com/google-adsense-and-wordpress/</link>
         <guid isPermaLink="true">http://randyzwitch.com/google-adsense-and-wordpress/</guid>
@@ -8239,7 +8335,7 @@ Some weeks I make a few bucks, many I make nothing!
 
 &lt;p&gt;Heck, maybe you’re an SEO god with a whole network of MFA (Made-for-AdSense) blogs with highly targeted content.  I do have friends who seem to make enough money through these schemes to make it “worth it” to do.  Especially if you’re willing to put in the time to make dozens, if not hundreds of individual blog sites.&lt;/p&gt;
 
-&lt;p&gt;That said, it’s up to the individual blog owner what constitutes “worth it” in the trade-off between spending time to generate residual income.  For me, I leave the Google AdSense ads up as a learning experience; it’s good in my industry (digital analytics) to understand all of the Google tools.  And really, that is why I blog at all; to practice &lt;a title=&quot;Google Analytics tutorials&quot; href=&quot;http://randyzwitch.com/tag/google-analytics/&quot; target=&quot;_blank&quot;&gt;implementing Google Analytics&lt;/a&gt;, learn PHP and JavaScript through &lt;a title=&quot;WordPress tutorials&quot; href=&quot;http://randyzwitch.com/category/wordpress-tutorials/&quot; target=&quot;_blank&quot;&gt;customizing WordPress&lt;/a&gt;, and occasionally pontificate on the &lt;a title=&quot;Digital Analytics&quot; href=&quot;http://randyzwitch.com/category/web-analytics/&quot; target=&quot;_blank&quot;&gt;digital analytics&lt;/a&gt; industry.&lt;/p&gt;</content>
+&lt;p&gt;That said, it’s up to the individual blog owner what constitutes “worth it” in the trade-off between spending time to generate residual income.  For me, I leave the Google AdSense ads up as a learning experience; it’s good in my industry (digital analytics) to understand all of the Google tools.  And really, that is why I blog at all; to practice &lt;a title=&quot;Google Analytics tutorials&quot; href=&quot;http://randyzwitch.com/tags/#google_analytics&quot; target=&quot;_blank&quot;&gt;implementing Google Analytics&lt;/a&gt;, learn PHP and JavaScript through &lt;a title=&quot;WordPress tutorials&quot; href=&quot;http://randyzwitch.com/category/wordpress-tutorials/&quot; target=&quot;_blank&quot;&gt;customizing WordPress&lt;/a&gt;, and occasionally pontificate on the &lt;a title=&quot;Digital Analytics&quot; href=&quot;http://randyzwitch.com/category/web-analytics/&quot; target=&quot;_blank&quot;&gt;digital analytics&lt;/a&gt; industry.&lt;/p&gt;</content>
       </item>
       
     
@@ -8252,7 +8348,7 @@ Some weeks I make a few bucks, many I make nothing!
 
 </description>
         
-        <pubDate>Wed, 06 Jun 2012 13:31:39 -0400</pubDate>
+        <pubDate>Wed, 06 Jun 2012 10:31:39 -0700</pubDate>
         <link>
         http://randyzwitch.com/customize-adobe-sitecatalyst-menu/</link>
         <guid isPermaLink="true">http://randyzwitch.com/customize-adobe-sitecatalyst-menu/</guid>
@@ -8333,7 +8429,7 @@ Default Omniture report menu
 
 </description>
         
-        <pubDate>Thu, 10 May 2012 04:05:02 -0400</pubDate>
+        <pubDate>Thu, 10 May 2012 01:05:02 -0700</pubDate>
         <link>
         http://randyzwitch.com/bounce-rate-modification-google-analytics-cutroni/</link>
         <guid isPermaLink="true">http://randyzwitch.com/bounce-rate-modification-google-analytics-cutroni/</guid>
@@ -8413,7 +8509,7 @@ Hard to see because of the Y-axis, but Avg. Visit Duration increases significant
 
 </description>
         
-        <pubDate>Fri, 27 Apr 2012 04:24:21 -0400</pubDate>
+        <pubDate>Fri, 27 Apr 2012 01:24:21 -0700</pubDate>
         <link>
         http://randyzwitch.com/adobe-discover-3-first-impressions/</link>
         <guid isPermaLink="true">http://randyzwitch.com/adobe-discover-3-first-impressions/</guid>
@@ -8479,7 +8575,7 @@ You should prefer green, not carbon.
 
 </description>
         
-        <pubDate>Mon, 23 Apr 2012 17:23:37 -0400</pubDate>
+        <pubDate>Mon, 23 Apr 2012 14:23:37 -0700</pubDate>
         <link>
         http://randyzwitch.com/removing-powered-by-wordpress-scrappy/</link>
         <guid isPermaLink="true">http://randyzwitch.com/removing-powered-by-wordpress-scrappy/</guid>
@@ -8549,7 +8645,7 @@ Modified WordPress Scrappy footer (with slightly different pattern!)
 
 </description>
         
-        <pubDate>Thu, 19 Apr 2012 03:45:22 -0400</pubDate>
+        <pubDate>Thu, 19 Apr 2012 00:45:22 -0700</pubDate>
         <link>
         http://randyzwitch.com/optimizely-wordpress-install/</link>
         <guid isPermaLink="true">http://randyzwitch.com/optimizely-wordpress-install/</guid>
@@ -8599,7 +8695,7 @@ Clicking on the &quot;Implementation&quot; link gives you your JavaScript code
 
 </description>
         
-        <pubDate>Wed, 22 Feb 2012 03:15:18 -0500</pubDate>
+        <pubDate>Wed, 22 Feb 2012 00:15:18 -0800</pubDate>
         <link>
         http://randyzwitch.com/omniture-sitecatalyst-target-report/</link>
         <guid isPermaLink="true">http://randyzwitch.com/omniture-sitecatalyst-target-report/</guid>
@@ -8671,7 +8767,7 @@ Omniture SiteCatalyst Target Report - &quot;Variance&quot; option
 
 </description>
         
-        <pubDate>Fri, 16 Dec 2011 05:41:26 -0500</pubDate>
+        <pubDate>Fri, 16 Dec 2011 02:41:26 -0800</pubDate>
         <link>
         http://randyzwitch.com/klout-perk-wahooly/</link>
         <guid isPermaLink="true">http://randyzwitch.com/klout-perk-wahooly/</guid>
@@ -8744,7 +8840,7 @@ Omniture SiteCatalyst Target Report - &quot;Variance&quot; option
 
 </description>
         
-        <pubDate>Thu, 01 Dec 2011 03:26:24 -0500</pubDate>
+        <pubDate>Thu, 01 Dec 2011 00:26:24 -0800</pubDate>
         <link>
         http://randyzwitch.com/100-miles-for-charitywater-update-1/</link>
         <guid isPermaLink="true">http://randyzwitch.com/100-miles-for-charitywater-update-1/</guid>
@@ -8770,7 +8866,7 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Thu, 27 Oct 2011 10:09:09 -0400</pubDate>
+        <pubDate>Thu, 27 Oct 2011 07:09:09 -0700</pubDate>
         <link>
         http://randyzwitch.com/charitywater-campaign/</link>
         <guid isPermaLink="true">http://randyzwitch.com/charitywater-campaign/</guid>
@@ -8802,7 +8898,7 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Fri, 21 Oct 2011 07:18:47 -0400</pubDate>
+        <pubDate>Fri, 21 Oct 2011 04:18:47 -0700</pubDate>
         <link>
         http://randyzwitch.com/page-navigation-wordpress-twenty-eleven/</link>
         <guid isPermaLink="true">http://randyzwitch.com/page-navigation-wordpress-twenty-eleven/</guid>
@@ -8820,7 +8916,7 @@ Donations come in spurts, but the running continues!
 
 &lt;p&gt;When you install this plugin and refresh your blog, the first thing you’ll realize is that nothing happened!  This occurs because the plugin itself doesn’t know where you want to put the page navigation; this needs to be done with some minor PHP coding.&lt;/p&gt;
 
-&lt;p&gt;In your WordPress Twenty Eleven &lt;a href=&quot;http://randyzwitch.com/tag/child-theme/&quot; title=&quot;Child Theme posts&quot;&gt;child theme&lt;/a&gt;, we need to add a new PHP file if it’s not already available:  &lt;em&gt;index.php&lt;/em&gt;.  It is this file that controls the front page container of the blog, and is where the “Next Page/Previous Page” code resides.&lt;/p&gt;
+&lt;p&gt;In your WordPress Twenty Eleven &lt;a href=&quot;http://randyzwitch.com/tags/#child_theme&quot; title=&quot;Child Theme posts&quot;&gt;child theme&lt;/a&gt;, we need to add a new PHP file if it’s not already available:  &lt;em&gt;index.php&lt;/em&gt;.  It is this file that controls the front page container of the blog, and is where the “Next Page/Previous Page” code resides.&lt;/p&gt;
 
 &lt;p&gt;In the &lt;em&gt;index.php&lt;/em&gt; file, find the following code:&lt;/p&gt;
 
@@ -8864,7 +8960,7 @@ Donations come in spurts, but the running continues!
 &lt;/div&gt;
 </description>
         
-        <pubDate>Tue, 18 Oct 2011 03:21:31 -0400</pubDate>
+        <pubDate>Tue, 18 Oct 2011 00:21:31 -0700</pubDate>
         <link>
         http://randyzwitch.com/google-analytics-individual-qualification/</link>
         <guid isPermaLink="true">http://randyzwitch.com/google-analytics-individual-qualification/</guid>
@@ -8889,7 +8985,7 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Fri, 14 Oct 2011 11:07:29 -0400</pubDate>
+        <pubDate>Fri, 14 Oct 2011 08:07:29 -0700</pubDate>
         <link>
         http://randyzwitch.com/iphone-4s-activation-issues/</link>
         <guid isPermaLink="true">http://randyzwitch.com/iphone-4s-activation-issues/</guid>
@@ -8951,7 +9047,7 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Thu, 06 Oct 2011 04:40:58 -0400</pubDate>
+        <pubDate>Thu, 06 Oct 2011 01:40:58 -0700</pubDate>
         <link>
         http://randyzwitch.com/google-analytics-seo-reports-inaccurate/</link>
         <guid isPermaLink="true">http://randyzwitch.com/google-analytics-seo-reports-inaccurate/</guid>
@@ -9011,7 +9107,7 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Wed, 05 Oct 2011 04:22:22 -0400</pubDate>
+        <pubDate>Wed, 05 Oct 2011 01:22:22 -0700</pubDate>
         <link>
         http://randyzwitch.com/an-afternoon-with-edward-tufte/</link>
         <guid isPermaLink="true">http://randyzwitch.com/an-afternoon-with-edward-tufte/</guid>
@@ -9088,7 +9184,7 @@ There had to be 400+ people in the seminar!
 
 </description>
         
-        <pubDate>Sun, 02 Oct 2011 07:10:37 -0400</pubDate>
+        <pubDate>Sun, 02 Oct 2011 04:10:37 -0700</pubDate>
         <link>
         http://randyzwitch.com/google-analytics-custom-variables/</link>
         <guid isPermaLink="true">http://randyzwitch.com/google-analytics-custom-variables/</guid>
@@ -9217,7 +9313,7 @@ WordPress Categories in Google Analytics Custom Variable 2
 
 </description>
         
-        <pubDate>Tue, 27 Sep 2011 11:29:42 -0400</pubDate>
+        <pubDate>Tue, 27 Sep 2011 08:29:42 -0700</pubDate>
         <link>
         http://randyzwitch.com/wordpress-remove-this-entry-was-posted-in/</link>
         <guid isPermaLink="true">http://randyzwitch.com/wordpress-remove-this-entry-was-posted-in/</guid>
@@ -9327,7 +9423,7 @@ WordPress Categories in Google Analytics Custom Variable 2
 &lt;/div&gt;
 </description>
         
-        <pubDate>Tue, 13 Sep 2011 07:06:58 -0400</pubDate>
+        <pubDate>Tue, 13 Sep 2011 04:06:58 -0700</pubDate>
         <link>
         http://randyzwitch.com/xchange-2011-think-tank/</link>
         <guid isPermaLink="true">http://randyzwitch.com/xchange-2011-think-tank/</guid>
@@ -9352,7 +9448,7 @@ WordPress Categories in Google Analytics Custom Variable 2
 
 </description>
         
-        <pubDate>Fri, 09 Sep 2011 07:53:04 -0400</pubDate>
+        <pubDate>Fri, 09 Sep 2011 04:53:04 -0700</pubDate>
         <link>
         http://randyzwitch.com/disable-mobile-theme-in-wordpress/</link>
         <guid isPermaLink="true">http://randyzwitch.com/disable-mobile-theme-in-wordpress/</guid>
@@ -9403,7 +9499,7 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Sat, 03 Sep 2011 07:33:11 -0400</pubDate>
+        <pubDate>Sat, 03 Sep 2011 04:33:11 -0700</pubDate>
         <link>
         http://randyzwitch.com/google-plus-button-wordpress-twenty-eleven/</link>
         <guid isPermaLink="true">http://randyzwitch.com/google-plus-button-wordpress-twenty-eleven/</guid>
@@ -9436,7 +9532,7 @@ Any CSS mods and the mobile theme breaks down
 
 &lt;h2 id=&quot;adding-google-plus-button-on-front-page&quot;&gt;Adding Google Plus button on front page&lt;/h2&gt;
 
-&lt;p&gt;To add the Google Plus button to each post displayed on the first page, we need to modify the &lt;code class=&quot;highlighter-rouge&quot;&gt;content.php&lt;/code&gt; file.  Like all of the other modifications we’ve made to create a &lt;a href=&quot;http://randyzwitch.com/tag/child-theme/&quot; title=&quot;WordPress Twenty Eleven Child Theme&quot;&gt;child theme&lt;/a&gt; like creating a &lt;a href=&quot;http://randyzwitch.com/2011/07/custom-header-twenty-eleven-child-theme/&quot; title=&quot;Twenty Eleven Child Theme:  Custom Header&quot;&gt;custom header&lt;/a&gt; and &lt;a href=&quot;http://randyzwitch.com/2011/08/removing-powered-by-wordpress-twenty-eleven/&quot; title=&quot;Removing “Powered by WordPress” in Twenty Eleven&quot;&gt;custom footer&lt;/a&gt;, copy the &lt;code class=&quot;highlighter-rouge&quot;&gt;content.php&lt;/code&gt; file into your child theme folder. To display the Google Plus button underneath the title, we need to place the following code, after the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div class=&quot;entry-content&quot;&amp;gt;&lt;/code&gt; and before the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;?php the_content&amp;gt;&lt;/code&gt; tag:&lt;/p&gt;
+&lt;p&gt;To add the Google Plus button to each post displayed on the first page, we need to modify the &lt;code class=&quot;highlighter-rouge&quot;&gt;content.php&lt;/code&gt; file.  Like all of the other modifications we’ve made to create a &lt;a href=&quot;http://randyzwitch.com/tags/#child_theme&quot; title=&quot;WordPress Twenty Eleven Child Theme&quot;&gt;child theme&lt;/a&gt; like creating a &lt;a href=&quot;http://randyzwitch.com/2011/07/custom-header-twenty-eleven-child-theme/&quot; title=&quot;Twenty Eleven Child Theme:  Custom Header&quot;&gt;custom header&lt;/a&gt; and &lt;a href=&quot;http://randyzwitch.com/2011/08/removing-powered-by-wordpress-twenty-eleven/&quot; title=&quot;Removing “Powered by WordPress” in Twenty Eleven&quot;&gt;custom footer&lt;/a&gt;, copy the &lt;code class=&quot;highlighter-rouge&quot;&gt;content.php&lt;/code&gt; file into your child theme folder. To display the Google Plus button underneath the title, we need to place the following code, after the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div class=&quot;entry-content&quot;&amp;gt;&lt;/code&gt; and before the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;?php the_content&amp;gt;&lt;/code&gt; tag:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -9484,7 +9580,7 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Wed, 24 Aug 2011 04:22:15 -0400</pubDate>
+        <pubDate>Wed, 24 Aug 2011 01:22:15 -0700</pubDate>
         <link>
         http://randyzwitch.com/prevent-google-analytics-tracking-logged-in/</link>
         <guid isPermaLink="true">http://randyzwitch.com/prevent-google-analytics-tracking-logged-in/</guid>
@@ -9585,7 +9681,7 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Sat, 20 Aug 2011 06:14:38 -0400</pubDate>
+        <pubDate>Sat, 20 Aug 2011 03:14:38 -0700</pubDate>
         <link>
         http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/</link>
         <guid isPermaLink="true">http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/</guid>
@@ -9650,7 +9746,7 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Tue, 16 Aug 2011 04:19:40 -0400</pubDate>
+        <pubDate>Tue, 16 Aug 2011 01:19:40 -0700</pubDate>
         <link>
         http://randyzwitch.com/google-analytics-for-wordpress/</link>
         <guid isPermaLink="true">http://randyzwitch.com/google-analytics-for-wordpress/</guid>
@@ -9692,7 +9788,7 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Fri, 29 Jul 2011 17:23:16 -0400</pubDate>
+        <pubDate>Fri, 29 Jul 2011 14:23:16 -0700</pubDate>
         <link>
         http://randyzwitch.com/comment-bubble-twenty-eleven/</link>
         <guid isPermaLink="true">http://randyzwitch.com/comment-bubble-twenty-eleven/</guid>
@@ -9748,7 +9844,7 @@ We need to look for &quot;comment-link&quot; in our WordPress template
 
 </description>
         
-        <pubDate>Fri, 22 Jul 2011 09:57:14 -0400</pubDate>
+        <pubDate>Fri, 22 Jul 2011 06:57:14 -0700</pubDate>
         <link>
         http://randyzwitch.com/wordpress-stats-or-google-analytics/</link>
         <guid isPermaLink="true">http://randyzwitch.com/wordpress-stats-or-google-analytics/</guid>
@@ -9802,7 +9898,7 @@ Google Analytics dashboard from The Fuqua Experience
 
 </description>
         
-        <pubDate>Wed, 20 Jul 2011 09:16:53 -0400</pubDate>
+        <pubDate>Wed, 20 Jul 2011 06:16:53 -0700</pubDate>
         <link>
         http://randyzwitch.com/custom-header-twenty-eleven-child-theme/</link>
         <guid isPermaLink="true">http://randyzwitch.com/custom-header-twenty-eleven-child-theme/</guid>
@@ -9863,7 +9959,7 @@ After: 1000px by 225 px
 
 </description>
         
-        <pubDate>Wed, 13 Jul 2011 07:52:32 -0400</pubDate>
+        <pubDate>Wed, 13 Jul 2011 04:52:32 -0700</pubDate>
         <link>
         http://randyzwitch.com/social-influence-another-fico/</link>
         <guid isPermaLink="true">http://randyzwitch.com/social-influence-another-fico/</guid>
@@ -9913,7 +10009,7 @@ After: 1000px by 225 px
 
 </description>
         
-        <pubDate>Sun, 10 Jul 2011 08:37:42 -0400</pubDate>
+        <pubDate>Sun, 10 Jul 2011 05:37:42 -0700</pubDate>
         <link>
         http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/</link>
         <guid isPermaLink="true">http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/</guid>
@@ -9985,7 +10081,7 @@ Template: twentyeleven */
 
 </description>
         
-        <pubDate>Sat, 09 Jul 2011 03:43:20 -0400</pubDate>
+        <pubDate>Sat, 09 Jul 2011 00:43:20 -0700</pubDate>
         <link>
         http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/</link>
         <guid isPermaLink="true">http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/</guid>

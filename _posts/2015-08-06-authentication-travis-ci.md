@@ -12,7 +12,7 @@ tags:
   - Package Development
   - R
 ---
-As I've become more serious about contributing in the open-source community, having quality tests for my packages has been something I've spent much more time on than when I was just writing quick-and-dirty code for my own purposes. My most used open-sourced package is [RSiteCatalyst](http://randyzwitch.com/tag/rsitecatalyst/), which accesses the Adobe Analytics (authenticated) API, which poses a problem: how do you maintain a project on GitHub with a full test suite, while at the same time not hard-coding your credentials in plain sight for everyone to see?
+As I've become more serious about contributing in the open-source community, having quality tests for my packages has been something I've spent much more time on than when I was just writing quick-and-dirty code for my own purposes. My most used open-sourced package is [RSiteCatalyst](http://randyzwitch.com/tags/#rsitecatalyst), which accesses the Adobe Analytics (authenticated) API, which poses a problem: how do you maintain a project on GitHub with a full test suite, while at the same time not hard-coding your credentials in plain sight for everyone to see?
 
 The answer ends up being using [encrypted environment variables](http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables) within [Travis CI](https://travis-ci.org/).
 

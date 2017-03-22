@@ -12,7 +12,7 @@ tags:
   - R
   - SQL
 ---
-Lately, I've been feeling that I'm spreading myself too thin in terms of programming languages. At work, I spend most of my time in <a title="Hive blog posts" href="http://randyzwitch.com/tag/hive/" target="_blank">Hive</a>/SQL, with the occasional Python for my smaller data. I really prefer [Julia](http://randyzwitch.com/tag/julia/), but I'm alone at work on that one. And since I maintain a package on CRAN (<a title="RSiteCatalyst" href="http://cran.r-project.org/web/packages/RSiteCatalyst/index.html" target="_blank">RSiteCatalyst</a>), I frequently spend my evenings bug fix programming in R. Then, there's the desire to learn a Java-based language like Scala (or, Java)...maybe Spark for my Hadoop work...
+Lately, I've been feeling that I'm spreading myself too thin in terms of programming languages. At work, I spend most of my time in <a title="Hive blog posts" href="http://randyzwitch.com/tags/#hive" target="_blank">Hive</a>/SQL, with the occasional Python for my smaller data. I really prefer [Julia](http://randyzwitch.com/tags/#julia), but I'm alone at work on that one. And since I maintain a package on CRAN (<a title="RSiteCatalyst" href="http://cran.r-project.org/web/packages/RSiteCatalyst/index.html" target="_blank">RSiteCatalyst</a>), I frequently spend my evenings bug fix programming in R. Then, there's the desire to learn a Java-based language like Scala (or, Java)...maybe Spark for my Hadoop work...
 
 So last night, when I ran into this series of follies with R, it really makes me wonder if I really understand how R works.
 

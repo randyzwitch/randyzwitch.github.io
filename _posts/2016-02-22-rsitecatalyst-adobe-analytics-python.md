@@ -23,7 +23,7 @@ tags:
   </p>
 </blockquote>
 
-This will be a very short post, because the only "new" information I'm going to provide is the minimal example to answer the question. Yes, it is in fact possible to call RSiteCatalyst from Python and seems to work well. The most important things are 1) making sure you install [rpy2](http://rpy2.readthedocs.org/en/version_2.7.x/) and 2) loading [Pandas](http://pandas.pydata.org/) (since so much of RSiteCatalyst is API calls returning data frames). It doesn't hurt to already have experience using [RSiteCatalyst](http://randyzwitch.com/tag/rsitecatalyst/) in [R](/tags/#r), since all we're doing here is using Python to pass code to R.
+This will be a very short post, because the only "new" information I'm going to provide is the minimal example to answer the question. Yes, it is in fact possible to call RSiteCatalyst from Python and seems to work well. The most important things are 1) making sure you install [rpy2](http://rpy2.readthedocs.org/en/version_2.7.x/) and 2) loading [Pandas](http://pandas.pydata.org/) (since so much of RSiteCatalyst is API calls returning data frames). It doesn't hurt to already have experience using [RSiteCatalyst](http://randyzwitch.com/tags/#rsitecatalyst) in [R](/tags/#r), since all we're doing here is using Python to pass code to R.
 
 ## Setup Code: rpy2 and Pandas
 

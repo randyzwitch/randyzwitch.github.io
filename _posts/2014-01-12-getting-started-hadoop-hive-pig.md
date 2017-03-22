@@ -11,7 +11,7 @@ tags:
   - Hive
   - Pig
 ---
-We've finally made it to the final post in this tutorial! In my prior posts about getting started with <a title="Hadoop posts" href="http://randyzwitch.com/tag/hadoop/" target="_blank">Hadoop</a>, we've covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the <a title="Airline dataset" href="http://stat-computing.org/dataexpo/2009/the-data.html" target="_blank">airline dataset</a> using Hive and Pig.
+We've finally made it to the final post in this tutorial! In my prior posts about getting started with <a title="Hadoop posts" href="http://randyzwitch.com/tags/#hadoop" target="_blank">Hadoop</a>, we've covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the <a title="Airline dataset" href="http://stat-computing.org/dataexpo/2009/the-data.html" target="_blank">airline dataset</a> using Hive and Pig.
 
 ## Basic Descriptive Statistics Using Hive
 
