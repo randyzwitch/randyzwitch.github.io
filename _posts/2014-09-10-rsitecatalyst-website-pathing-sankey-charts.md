@@ -25,7 +25,7 @@ The data processing for this visualization is near identical to the network diag
 
 ## Many-to-Many Page Pathing
 
-The example above picks a single page related to Hadoop, then shows how my visitors continue through my site; sometimes, they go to other Hadoop pages, some view <a title="Data Science content" href="http://randyzwitch.com/category/data-science/" target="_blank">Data Science related content</a> or any number of other paths. If we want, however, we can visualize how all visitors path through all pages. Like the force-directed graph, we can get this information by using the `("::anything::", "::anything::")` path pattern with `QueuePathing()`:
+The example above picks a single page related to Hadoop, then shows how my visitors continue through my site; sometimes, they go to other Hadoop pages, some view <a title="Data Science content" href="http://randyzwitch.com/#DataScience" target="_blank">Data Science related content</a> or any number of other paths. If we want, however, we can visualize how all visitors path through all pages. Like the force-directed graph, we can get this information by using the `("::anything::", "::anything::")` path pattern with `QueuePathing()`:
 
 {% highlight R linenos %}
 #Multi-page pathing

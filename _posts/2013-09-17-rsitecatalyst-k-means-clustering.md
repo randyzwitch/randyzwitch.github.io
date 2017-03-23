@@ -24,7 +24,7 @@ Without getting too technical, k-means clustering is a method of partitioning da
 
 ## Converting Text to Numeric Data: Document-Term Matrix
 
-Since I use Adobe Analytics on this blog, I'm going to use the <a title="RSiteCatalyst" href="http://randyzwitch.com/rsitecatalyst/" target="_blank">RSiteCatalyst package</a> to get my natural search keywords into a dataframe. Once the keywords are in a dataframe, we can use the <a title="RTextTools" href="http://www.rtexttools.com/" target="_blank">RTextTools</a> package to create a document-term matrix, where each row is our search term and each column is a 1/0 representation of whether a single word is contained within natural search term. 
+Since I use Adobe Analytics on this blog, I'm going to use the <a title="RSiteCatalyst" href="http://randyzwitch.com/rsitecatalyst" target="_blank">RSiteCatalyst package</a> to get my natural search keywords into a dataframe. Once the keywords are in a dataframe, we can use the <a title="RTextTools" href="http://www.rtexttools.com/" target="_blank">RTextTools</a> package to create a document-term matrix, where each row is our search term and each column is a 1/0 representation of whether a single word is contained within natural search term. 
 
 {% highlight r linenos %}
 #### 0. Setup

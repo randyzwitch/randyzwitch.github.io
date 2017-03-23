@@ -2127,7 +2127,7 @@ Pro Tip: You can add it automatically by running with --add.&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;In this blog post, I will show the structure of the Adobe Analytics Clickstream Data Feed and how to work with a day worth of data within R. Clickstream data isn’t as raw as pure server logs, but the only limit to what we can calculate from clickstream data is what we can accomplish with a bit of programming and imagination. In later posts, I’ll show how to store a year worth of data in a relational database, storing the same data in Hadoop and doing analysis using modern tools such as Apache Spark.&lt;/p&gt;
 
-&lt;p&gt;This blog post will not cover the mechanics of getting the feed delivered via FTP. The &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/whitepapers/clickstream/datafeeds_configure.html&quot;&gt;Adobe Clickstream Feed documentation&lt;/a&gt; is sufficiently clear in how to get started.&lt;/p&gt;
+&lt;p&gt;This blog post will not cover the mechanics of getting the feed delivered via FTP. The &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_configure.html&quot;&gt;Adobe Clickstream Feed documentation&lt;/a&gt; is sufficiently clear in how to get started.&lt;/p&gt;
 
 &lt;h3 id=&quot;ftpfile-structure&quot;&gt;FTP/File Structure&lt;/h3&gt;
 
@@ -3537,7 +3537,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 &lt;h2 id=&quot;many-to-many-page-pathing&quot;&gt;Many-to-Many Page Pathing&lt;/h2&gt;
 
-&lt;p&gt;The example above picks a single page related to Hadoop, then shows how my visitors continue through my site; sometimes, they go to other Hadoop pages, some view &lt;a title=&quot;Data Science content&quot; href=&quot;http://randyzwitch.com/category/data-science/&quot; target=&quot;_blank&quot;&gt;Data Science related content&lt;/a&gt; or any number of other paths. If we want, however, we can visualize how all visitors path through all pages. Like the force-directed graph, we can get this information by using the &lt;code class=&quot;highlighter-rouge&quot;&gt;(&quot;::anything::&quot;, &quot;::anything::&quot;)&lt;/code&gt; path pattern with &lt;code class=&quot;highlighter-rouge&quot;&gt;QueuePathing()&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;The example above picks a single page related to Hadoop, then shows how my visitors continue through my site; sometimes, they go to other Hadoop pages, some view &lt;a title=&quot;Data Science content&quot; href=&quot;http://randyzwitch.com/#DataScience&quot; target=&quot;_blank&quot;&gt;Data Science related content&lt;/a&gt; or any number of other paths. If we want, however, we can visualize how all visitors path through all pages. Like the force-directed graph, we can get this information by using the &lt;code class=&quot;highlighter-rouge&quot;&gt;(&quot;::anything::&quot;, &quot;::anything::&quot;)&lt;/code&gt; path pattern with &lt;code class=&quot;highlighter-rouge&quot;&gt;QueuePathing()&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -6050,7 +6050,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 &lt;h2 id=&quot;converting-text-to-numeric-data-document-term-matrix&quot;&gt;Converting Text to Numeric Data: Document-Term Matrix&lt;/h2&gt;
 
-&lt;p&gt;Since I use Adobe Analytics on this blog, I’m going to use the &lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://randyzwitch.com/rsitecatalyst/&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst package&lt;/a&gt; to get my natural search keywords into a dataframe. Once the keywords are in a dataframe, we can use the &lt;a title=&quot;RTextTools&quot; href=&quot;http://www.rtexttools.com/&quot; target=&quot;_blank&quot;&gt;RTextTools&lt;/a&gt; package to create a document-term matrix, where each row is our search term and each column is a 1/0 representation of whether a single word is contained within natural search term. &lt;/p&gt;
+&lt;p&gt;Since I use Adobe Analytics on this blog, I’m going to use the &lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://randyzwitch.com/rsitecatalyst&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst package&lt;/a&gt; to get my natural search keywords into a dataframe. Once the keywords are in a dataframe, we can use the &lt;a title=&quot;RTextTools&quot; href=&quot;http://www.rtexttools.com/&quot; target=&quot;_blank&quot;&gt;RTextTools&lt;/a&gt; package to create a document-term matrix, where each row is our search term and each column is a 1/0 representation of whether a single word is contained within natural search term. &lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -6354,7 +6354,7 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
   &lt;li&gt;Decrease in wait time for API calls (from 5 seconds to 2 seconds) and extending total number of API tries before report failure (from 100 seconds to 10 minutes)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;For those of you Adobe Analytics (Omniture) users who haven’t yet tried to use the Adobe Analytics API, I’ve created an &lt;a title=&quot;RSiteCatalyst main page&quot; href=&quot;http://randyzwitch.com/rsitecatalyst/&quot; target=&quot;_blank&quot;&gt;introduction video&lt;/a&gt; to get started. There will also continue to be examples of using this package on this blog on the &lt;a title=&quot;RSiteCatalyst usage examples&quot; href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt; tag. Enjoy!&lt;/p&gt;</content>
+&lt;p&gt;For those of you Adobe Analytics (Omniture) users who haven’t yet tried to use the Adobe Analytics API, I’ve created an &lt;a title=&quot;RSiteCatalyst main page&quot; href=&quot;http://randyzwitch.com/rsitecatalyst&quot; target=&quot;_blank&quot;&gt;introduction video&lt;/a&gt; to get started. There will also continue to be examples of using this package on this blog on the &lt;a title=&quot;RSiteCatalyst usage examples&quot; href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt; tag. Enjoy!&lt;/p&gt;</content>
       </item>
       
     
@@ -8004,7 +8004,7 @@ R Studio is an IDE that dramatically improves the R experience
 
 &lt;h2 id=&quot;installation-of-rstudio&quot;&gt;Installation of RStudio&lt;/h2&gt;
 
-&lt;p&gt;&lt;a title=&quot;R Studio download&quot; href=&quot;http://rstudio.org/download/&quot; target=&quot;_blank&quot;&gt;RStudio&lt;/a&gt; installs like any other program for Windows or Mac OSX.  As far as I can tell, there are no advantages to using &lt;a title=&quot;R Studio download&quot; href=&quot;http://rstudio.org/download/&quot; target=&quot;_blank&quot;&gt;RStudio&lt;/a&gt; in either environment, both the Windows and OSX versions seem to work equally well.  The most important consideration is that RStudio is just an “add-on” so-to-speak, it does not include R itself.  So be sure to go to one of the &lt;a title=&quot;CRAN downloads for R&quot; href=&quot;http://cran.cs.wwu.edu/&quot; target=&quot;_blank&quot;&gt;Comprehensive R Archive Network (CRAN) sites&lt;/a&gt; to download R first.&lt;/p&gt;</content>
+&lt;p&gt;&lt;a title=&quot;R Studio download&quot; href=&quot;http://rstudio.org/download/&quot; target=&quot;_blank&quot;&gt;RStudio&lt;/a&gt; installs like any other program for Windows or Mac OSX.  As far as I can tell, there are no advantages to using &lt;a title=&quot;R Studio download&quot; href=&quot;http://rstudio.org/download/&quot; target=&quot;_blank&quot;&gt;RStudio&lt;/a&gt; in either environment, both the Windows and OSX versions seem to work equally well.  The most important consideration is that RStudio is just an “add-on” so-to-speak, it does not include R itself.  So be sure to go to one of the &lt;a title=&quot;CRAN downloads for R&quot; href=&quot;https://cran.r-project.org/&quot; target=&quot;_blank&quot;&gt;Comprehensive R Archive Network (CRAN) sites&lt;/a&gt; to download R first.&lt;/p&gt;</content>
       </item>
       
     
@@ -8050,7 +8050,7 @@ R Studio is an IDE that dramatically improves the R experience
 
 &lt;p&gt;According to the error message, I’m supposed to use colMeans instead…but once you get to how, you’re on your own, the Help documentation is garbage.  Some combination of “by” and “colMeans” might work, but I don’t have an example to follow.&lt;/p&gt;
 
-&lt;p&gt;Google sent me to the &lt;a title=&quot;Quick-R website&quot; href=&quot;http://www.statmethods.net/&quot; target=&quot;_blank&quot;&gt;Quick-R&lt;/a&gt; website, and I found a “&lt;a title=&quot;Descriptive Statistics in R&quot; href=&quot;http://www.statmethods.net/stats/descriptives.html&quot; target=&quot;_blank&quot;&gt;descriptive statistics&lt;/a&gt;” article with by group processing…with the recommendation of using the “psych” package or the “doBy” package.  But &lt;a title=&quot;Comprehensive R Archive Network&quot; href=&quot;http://cran.cs.wwu.edu/&quot; target=&quot;_blank&quot;&gt;CRAN&lt;/a&gt; won’t let me download all of the dependencies, so again, stuck trying to do the simplest thing in statistics.&lt;/p&gt;
+&lt;p&gt;Google sent me to the &lt;a title=&quot;Quick-R website&quot; href=&quot;http://www.statmethods.net/&quot; target=&quot;_blank&quot;&gt;Quick-R&lt;/a&gt; website, and I found a “&lt;a title=&quot;Descriptive Statistics in R&quot; href=&quot;http://www.statmethods.net/stats/descriptives.html&quot; target=&quot;_blank&quot;&gt;descriptive statistics&lt;/a&gt;” article with by group processing…with the recommendation of using the “psych” package or the “doBy” package.  But &lt;a title=&quot;Comprehensive R Archive Network&quot; href=&quot;https://cran.r-project.org/&quot; target=&quot;_blank&quot;&gt;CRAN&lt;/a&gt; won’t let me download all of the dependencies, so again, stuck trying to do the simplest thing in statistics.&lt;/p&gt;
 
 &lt;h2 id=&quot;lets-be-fast-and-run-everything-in-ram&quot;&gt;Let’s be fast and run everything in RAM!&lt;/h2&gt;
 

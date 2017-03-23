@@ -8,7 +8,7 @@ gems:
 - jekyll-redirect-from
 twitter:
   username: randyzwitch
-permalink: /:title
+permalink: /:title/
 name: randyzwitch
 description: Data Science, Programming, Technology, Design
 url: http://randyzwitch.com

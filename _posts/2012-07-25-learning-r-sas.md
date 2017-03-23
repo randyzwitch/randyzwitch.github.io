@@ -39,7 +39,7 @@ Very simple, fewer lines...and technically wrong, throwing a 6 unhelpful errors 
 
 According to the error message, I'm supposed to use colMeans instead...but once you get to how, you're on your own, the Help documentation is garbage.  Some combination of "by" and "colMeans" might work, but I don't have an example to follow.
 
-Google sent me to the <a title="Quick-R website" href="http://www.statmethods.net/" target="_blank">Quick-R</a> website, and I found a "<a title="Descriptive Statistics in R" href="http://www.statmethods.net/stats/descriptives.html" target="_blank">descriptive statistics</a>" article with by group processing...with the recommendation of using the "psych" package or the "doBy" package.  But <a title="Comprehensive R Archive Network" href="http://cran.cs.wwu.edu/" target="_blank">CRAN</a> won't let me download all of the dependencies, so again, stuck trying to do the simplest thing in statistics.
+Google sent me to the <a title="Quick-R website" href="http://www.statmethods.net/" target="_blank">Quick-R</a> website, and I found a "<a title="Descriptive Statistics in R" href="http://www.statmethods.net/stats/descriptives.html" target="_blank">descriptive statistics</a>" article with by group processing...with the recommendation of using the "psych" package or the "doBy" package.  But <a title="Comprehensive R Archive Network" href="https://cran.r-project.org/" target="_blank">CRAN</a> won't let me download all of the dependencies, so again, stuck trying to do the simplest thing in statistics.
 
 ## Let's be fast and run everything in RAM!
 

@@ -21,7 +21,7 @@ Blah Blah Blah. There's a whole cottage industry around jargon-ing each other to
 
 In this blog post, I will show the structure of the Adobe Analytics Clickstream Data Feed and how to work with a day worth of data within R. Clickstream data isn't as raw as pure server logs, but the only limit to what we can calculate from clickstream data is what we can accomplish with a bit of programming and imagination. In later posts, I'll show how to store a year worth of data in a relational database, storing the same data in Hadoop and doing analysis using modern tools such as Apache Spark.
 
-This blog post will not cover the mechanics of getting the feed delivered via FTP. The [Adobe Clickstream Feed documentation](https://marketing.adobe.com/resources/help/en_US/whitepapers/clickstream/datafeeds_configure.html) is sufficiently clear in how to get started.
+This blog post will not cover the mechanics of getting the feed delivered via FTP. The [Adobe Clickstream Feed documentation](https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_configure.html) is sufficiently clear in how to get started.
 
 ### FTP/File Structure
 
