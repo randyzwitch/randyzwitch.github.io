@@ -23,13 +23,13 @@ To install Julia, you need to compile the code. The instructions for each suppor
 
 I use 8 concurrent processes on a 2013 MacBook Pro and it works pretty well. Certainly much faster than a single process. Note that the first time you run the `make` command, the build process will take much longer than successive builds, as Julia downloads all the required libraries needed. After the first build, you can just run the `make` command with a single process, as the code updates don't take very long to build.
 
-Package management is also done via GitHub. To add <a title="Julia packages" href="http://docs.julialang.org/en/latest/packages/packagelist/" target="_blank">Julia packages</a> to your install, you use the `Pkg.add()` function, with the package name in double-quotes.
+Package management is also done via GitHub. To add <a title="Julia packages" href="http://pkg.julialang.org/" target="_blank">Julia packages</a> to your install, you use the `Pkg.add()` function, with the package name in double-quotes.
 
 ### Julia code feels very familiar
 
 #### Text file import
 
-Although the <a title="Julia documentation" href="http://docs.julialang.org/en/latest/manual/introduction/" target="_blank">Julia documentation</a> makes numerous references to MATLAB in terms of code similarity, Julia feels very familiar to me as an R and Python user. Take reading a .csv file into a dataframe and finding the dimensions of the resulting object
+Although the <a title="Julia documentation" href="http://docs.julialang.org/en/latest/manual/introduction.html#man-introduction-1" target="_blank">Julia documentation</a> makes numerous references to MATLAB in terms of code similarity, Julia feels very familiar to me as an R and Python user. Take reading a .csv file into a dataframe and finding the dimensions of the resulting object
 
 {% highlight julia linenos %}
 #R: Read in 1987.csv from airline dataset into a dataframe
