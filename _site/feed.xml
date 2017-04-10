@@ -8,6 +8,45 @@
     
       
       <item>
+        <title>RSiteCatalyst Version 1.4.12 (and 1.4.11) Release Notes</title>
+        
+          <description>&lt;p&gt;I released version 1.4.12 of RSiteCatalyst before I wrote the release notes for version 1.4.11, so this blog post will treat both releases as one. Users should upgrade directly to version 1.4.12 as the releases are cumulative in nature.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 10 Apr 2017 00:00:00 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-12-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-12-release-notes/</guid>
+        <content type="html" xml:base="/rsitecatalyst-version-1-4-12-release-notes/">&lt;p&gt;I released version 1.4.12 of RSiteCatalyst before I wrote the release notes for version 1.4.11, so this blog post will treat both releases as one. Users should upgrade directly to version 1.4.12 as the releases are cumulative in nature.&lt;/p&gt;
+
+&lt;h2 id=&quot;get-method-additions&quot;&gt;Get* method additions&lt;/h2&gt;
+
+&lt;p&gt;Two &lt;code class=&quot;highlighter-rouge&quot;&gt;Get*&lt;/code&gt; methods were added in this release: &lt;code class=&quot;highlighter-rouge&quot;&gt;GetClickMapReporting&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;GetPreviousServerCalls&lt;/code&gt;, mostly for completeness. Analytics users will likely not need to use these methods, but they are useful for &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-implementation-documentation/&quot;&gt;generating documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;bug-fixes&quot;&gt;Bug fixes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fixed &lt;code class=&quot;highlighter-rouge&quot;&gt;GetLogin&lt;/code&gt; function, adding &lt;code class=&quot;highlighter-rouge&quot;&gt;selected_ims_group_list&lt;/code&gt; parameter to response (caused test suite failure)&lt;/li&gt;
+  &lt;li&gt;Fixed issue with &lt;code class=&quot;highlighter-rouge&quot;&gt;ViewProcessingRules&lt;/code&gt; where nested rules threw errors (#214)&lt;/li&gt;
+  &lt;li&gt;Fixed issue with &lt;code class=&quot;highlighter-rouge&quot;&gt;GetMarketingChannelRules&lt;/code&gt; where nested rules threw errors, &lt;code class=&quot;highlighter-rouge&quot;&gt;matches&lt;/code&gt; column duplicated values across rows (#180)&lt;/li&gt;
+  &lt;li&gt;Added ability to use a segment in &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDataWarehouse&lt;/code&gt; function, which was previously implemented incorrectly (#216)&lt;/li&gt;
+  &lt;li&gt;Fixed issue with &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDataWarehouse&lt;/code&gt; not returning the proper number of results when &lt;code class=&quot;highlighter-rouge&quot;&gt;enqueueOnly = FALSE&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Fixed encoding for &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDataWarehouse&lt;/code&gt; to correctly use UTF-8-BOM (#198)&lt;/li&gt;
+  &lt;li&gt;Fixed parser for &lt;code class=&quot;highlighter-rouge&quot;&gt;GetFeeds&lt;/code&gt;, to unnest ‘activity’ data frame into discrete columns&lt;/li&gt;
+  &lt;li&gt;Fixed issue where message &lt;code class=&quot;highlighter-rouge&quot;&gt;Error in if (!is.null(elements[i, ]$classification) &amp;amp;&amp;amp; nchar(elements[i, : missing value where TRUE/FALSE needed&lt;/code&gt; displayed when using multiple elements in a &lt;code class=&quot;highlighter-rouge&quot;&gt;Queue*&lt;/code&gt; function (#207)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;community-contributions-an-adobe-summit-bounce&quot;&gt;Community Contributions (An Adobe Summit bounce?!)&lt;/h2&gt;
+
+&lt;p&gt;In the past month, the number of GitHub issues submitted has increased dramatically, a good problem to have!&lt;/p&gt;
+
+&lt;p&gt;I encourage all users of the software to continue reporting bugs via GitHub issues, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>Self-Service Adobe Analytics Data Feeds!</title>
         
           <description>&lt;p&gt;I’ve written several posts about the Adobe Analytics Analytics (née Clickstream) Data Feed (links: &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/&quot;&gt;2&lt;/a&gt;,&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/&quot;&gt;3&lt;/a&gt;) over the past several years. The &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/reference/analytics-data-feed.html&quot;&gt;Analytics Data Feed&lt;/a&gt; is an invaluable tool for moving beyond aggregate-level reporting information about your customers to really in-depth, customer-level analytics.&lt;/p&gt;

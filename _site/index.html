@@ -81,6 +81,45 @@
 
 <h1 class="entry-title">
 
+    <a href="/rsitecatalyst-version-1-4-12-release-notes/">RSiteCatalyst Version 1.4.12 (and 1.4.11) Release Notes</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">April 10, 2017</a> &times; Analytics
+      </div>
+  </div>
+  <div class="content">
+    <p>I released version 1.4.12 of RSiteCatalyst before I wrote the release notes for version 1.4.11, so this blog post will treat both releases as one. Users should upgrade directly to version 1.4.12 as the releases are cumulative in nature.</p>
+
+<h2 id="get-method-additions">Get* method additions</h2>
+
+<p>Two <code class="highlighter-rouge">Get*</code> methods were added in this release: <code class="highlighter-rouge">GetClickMapReporting</code> and <code class="highlighter-rouge">GetPreviousServerCalls</code>, mostly for completeness. Analytics users will likely not need to use these methods, but they are useful for <a href="http://randyzwitch.com/adobe-analytics-implementation-documentation/">generating documentation</a>.</p>
+
+<h2 id="bug-fixes">Bug fixes</h2>
+
+<ul>
+  <li>Fixed <code class="highlighter-rouge">GetLogin</code> function, adding <code class="highlighter-rouge">selected_ims_group_list</code> parameter to response (caused test suite failure)</li>
+  <li>Fixed issue with <code class="highlighter-rouge">ViewProcessingRules</code> where nested rules threw errors (#214)</li>
+  <li>Fixed issue with <code class="highlighter-rouge">GetMarketingChannelRules</code> where nested rules threw errors, <code class="highlighter-rouge">matches</code> column duplicated values across rows (#180)</li>
+  <li>Added ability to use a segment in <code class="highlighter-rouge">QueueDataWarehouse</code> function, which was previously implemented incorrectly (#216)</li>
+  <li>Fixed issue with <code class="highlighter-rouge">QueueDataWarehouse</code> not returning the proper number of results when <code class="highlighter-rouge">enqueueOnly = FALSE</code></li>
+  <li>Fixed encoding for <code class="highlighter-rouge">QueueDataWarehouse</code> to correctly use UTF-8-BOM (#198)</li>
+  <li>Fixed parser for <code class="highlighter-rouge">GetFeeds</code>, to unnest ‘activity’ data frame into discrete columns</li>
+  <li>Fixed issue where message <code class="highlighter-rouge">Error in if (!is.null(elements[i, ]$classification) &amp;&amp; nchar(elements[i, : missing value where TRUE/FALSE needed</code> displayed when using multiple elements in a <code class="highlighter-rouge">Queue*</code> function (#207)</li>
+</ul>
+
+<h2 id="community-contributions-an-adobe-summit-bounce">Community Contributions (An Adobe Summit bounce?!)</h2>
+
+<p>In the past month, the number of GitHub issues submitted has increased dramatically, a good problem to have!</p>
+
+<p>I encourage all users of the software to continue reporting bugs via GitHub issues, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
     <a href="/adobe-clickstream-data-feed-self-service-admin-panel/">Self-Service Adobe Analytics Data Feeds!</a>
 
 </h1>
@@ -277,104 +316,6 @@
     <hr>
   </div>
 
-<h1 class="entry-title">
-
-    <a href="/rsitecatalyst-version-1-4-10-release-notes/">RSiteCatalyst Version 1.4.10 Release Notes</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">December 13, 2016</a> &times; Analytics
-      </div>
-  </div>
-  <div class="content">
-    <p>Version 1.4.10 of RSiteCatalyst brings a handful of new <code class="highlighter-rouge">Get*</code> methods, <code class="highlighter-rouge">QueueDatawarehouse</code> and a couple of bugs fixes/low-level code improvements.</p>
-
-<h2 id="queuedatawarehouse">QueueDatawarehouse</h2>
-
-<p>The most useful user-facing change IMO is the addition of the <code class="highlighter-rouge">QueueDatawarehouse</code> method, which allows for submitting (and <em>sometimes</em> retrieving) Data Warehouse requests via R. This should be a huge timesaver for those of you using Data Warehouse as a substitute for the Adobe Analytics raw data feed (my employer alone pulls hundreds of Data Warehouse feeds per day).</p>
-
-<p>In the coming days, I’ll write a blog post in more detail about how to use this method effectively to query Data Warehouse, but in the meantime, here’s a sample function call:</p>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></td><td class="code"><pre><span class="c1">#API Credentials
-</span><span class="n">SCAuth</span><span class="p">(</span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"USER"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">),</span><span class="w"> </span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"SECRET"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">))</span><span class="w">
-</span><span class="c1">#FTP Credentials
-</span><span class="n">FTP</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"FTP"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w">
-</span><span class="n">FTPUSER</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"FTPUSER"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w">
-</span><span class="n">FTPPW</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"FTPPW"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w">
-
-</span><span class="c1">#Write QueueWarehouse to FTP
-</span><span class="n">report.id</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">QueueDataWarehouse</span><span class="p">(</span><span class="s2">"report-suite"</span><span class="p">,</span><span class="w">
-                                </span><span class="s2">"2016-11-01"</span><span class="p">,</span><span class="w">
-                                </span><span class="s2">"2016-11-07"</span><span class="p">,</span><span class="w">
-                                </span><span class="nf">c</span><span class="p">(</span><span class="s2">"visits"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pageviews"</span><span class="p">),</span><span class="w">
-                                </span><span class="nf">c</span><span class="p">(</span><span class="s2">"page"</span><span class="p">),</span><span class="w">
-                                </span><span class="n">enqueueOnly</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
-                                </span><span class="n">ftp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FTP</span><span class="p">,</span><span class="w">
-                                           </span><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-                                           </span><span class="n">directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/DWtest/"</span><span class="p">,</span><span class="w">
-                                           </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FTPUSER</span><span class="p">,</span><span class="w">
-                                           </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FTPPW</span><span class="p">,</span><span class="w">
-                                           </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"myreport.csv"</span><span class="p">)</span><span class="w">
-</span><span class="p">)</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h2 id="viewprocessingrules">ViewProcessingRules</h2>
-
-<p><code class="highlighter-rouge">ViewProcessingRules</code> has also been added on an experimental basis, as this API method is not documented (as of the writing of this post), so Adobe may choose to modify or remove this in a future release. As the method name indicates, this new feature allows for the viewing of the processing rules for a list of report suites, including the behaviors that define the rules. There is currently no (public) method for <em>setting</em> processing rules via the API.</p>
-
-<p>As processing rules are a super-user functionality, I would love it if someone in the community could verify that this method works for a large number of report suites/rules.</p>
-
-<h2 id="get-method-additions">Get* method additions</h2>
-
-<p>Three Get* methods were added in this release: <code class="highlighter-rouge">GetVirtualReportSuiteSettings</code>, <code class="highlighter-rouge">GetReportSuiteGroups</code>, <code class="highlighter-rouge">GetTimeStampEnabled</code>, each corresponding to settings able to be viewed within the Adobe Analytics admin panel.</p>
-
-<h2 id="bug-fixes">Bug fixes</h2>
-
-<ul>
-  <li>
-    <p>GetRealTimeSettings: fixed bug where a passing a list of report suites lead to a parsing error</p>
-  </li>
-  <li>
-    <p>QueueSummary: Redefined method arguments to make <code class="highlighter-rouge">date</code> an optional parameter, allowing for more elegant use of <code class="highlighter-rouge">date.to</code> and <code class="highlighter-rouge">date.from</code> parameters.</p>
-  </li>
-</ul>
-
-<h2 id="package-level-improvements">Package-level improvements</h2>
-
-<p>At long last, I’ve added integration testing via the AppVeyor testing service. For the longest time, I’ve had a very nonchalant attitude towards Windows (since I don’t use it), but given that RSiteCatalyst is enterprise software and so many businesses use Windows, I figured it was time.</p>
-
-<p>Luckily, there were none of the tests in the test suite throws any errors specifically due to Windows, so effectively this change is just defensive programming against that class of error in the future.</p>
-
-<h2 id="community-contributions">Community Contributions</h2>
-
-<p>As in the past several releases, there have been contributions from the community keeping RSiteCatalyst moving forward! Special thanks to Diego Villuendas Pellicero for writing the <code class="highlighter-rouge">QueueDataWarehouse</code> functionality and Johann de Boer for highlighting that <code class="highlighter-rouge">QueueSummary</code> could be improved.</p>
-
-<p>I encourage all users of the software to continue reporting bugs via GitHub issues, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.</p>
-
-    <hr>
-  </div>
-
 
 <!-- Pagination links -->
 
@@ -528,6 +469,10 @@
       <a href="/page36">36</a>
     
   
+    
+      <a href="/page37">37</a>
+    
+  
 
   
     <a href="/page2">Next &raquo;</a>
@@ -664,6 +609,10 @@
 						  
 						
 					
+						
+						  
+							<li data-section='/rsitecatalyst-version-1-4-12-release-notes/'><a href='/rsitecatalyst-version-1-4-12-release-notes/'>RSiteCatalyst Version 1.4.12 (and 1.4.11) Release Notes</a></li>
+						  
 						
 						  
 							<li data-section='/adobe-clickstream-data-feed-self-service-admin-panel/'><a href='/adobe-clickstream-data-feed-self-service-admin-panel/'>Self-Service Adobe Analytics Data Feeds!</a></li>
