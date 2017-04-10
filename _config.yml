@@ -6,6 +6,7 @@ gems:
 - jekyll-admin
 - jekyll-gist
 - jekyll-redirect-from
+highlighter: rouge
 twitter:
   username: randyzwitch
 permalink: /:title/
