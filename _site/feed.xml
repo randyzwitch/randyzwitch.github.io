@@ -8,6 +8,31 @@
     
       
       <item>
+        <title>RSiteCatalyst Version 1.4.13 Release Notes</title>
+        
+          <description>&lt;p&gt;This blog post will be fairly short, given the minor nature of the update.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 23 Jul 2017 00:00:00 -0400</pubDate>
+        <link>
+        http://randyzwitch.com/rsitecatalyst-version-1-4-13-release-notes/</link>
+        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-13-release-notes/</guid>
+        <content type="html" xml:base="/rsitecatalyst-version-1-4-13-release-notes/">&lt;p&gt;This blog post will be fairly short, given the minor nature of the update.&lt;/p&gt;
+
+&lt;p&gt;Several users complained about OAUTH2 authentication not working, which I didn’t know because I usually use the legacy authentication method! Luckily, GitHub user &lt;a href=&quot;https://github.com/leocwlau&quot;&gt;leocwlau&lt;/a&gt; reported the &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues/223&quot;&gt;issue&lt;/a&gt; AND provided the &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/pull/224&quot;&gt;solution&lt;/a&gt;. No other bug fixes were made, nor was any additional functionality added.&lt;/p&gt;
+
+&lt;p&gt;So if you ran into an issue where your login no longer worked, version 1.4.13 of RSiteCatalyst should remedy the issue. Even if you hadn’t run into this authentication issue, users should still upgrade, as all updates are cumulative in nature.&lt;/p&gt;
+
+&lt;h2 id=&quot;community-contributions&quot;&gt;Community Contributions&lt;/h2&gt;
+&lt;p&gt;As I’ve mentioned in many a blog post before this one, I encourage all users of the software to continue reporting bugs via &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues&quot;&gt;GitHub issues&lt;/a&gt;, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Please don’t email directly via the email in the RSiteCatalyst package, it will not be returned. Having a valid email contact in the package is a requirement to have a package listed on CRAN so they can contact the package author, it is not meant to imply I can/will provide endless, personalized support for free.&lt;/em&gt;&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>RSiteCatalyst Version 1.4.12 (and 1.4.11) Release Notes</title>
         
           <description>&lt;p&gt;I released version 1.4.12 of RSiteCatalyst before I wrote the release notes for version 1.4.11, so this blog post will treat both releases as one. Users should upgrade directly to version 1.4.12 as the releases are cumulative in nature.&lt;/p&gt;
