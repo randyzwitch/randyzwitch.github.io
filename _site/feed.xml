@@ -4,7 +4,7 @@
     <title>randyzwitch - Articles</title>
     <description>Data Science, Programming, Technology, Design</description>
     <link>
-    http://randyzwitch.com</link>
+    http://localhost:4000</link>
     
       
       <item>
@@ -16,8 +16,8 @@
         
         <pubDate>Sun, 23 Jul 2017 00:00:00 -0400</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-13-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-13-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-13-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-13-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-13-release-notes/">&lt;p&gt;This blog post will be fairly short, given the minor nature of the update.&lt;/p&gt;
 
 &lt;p&gt;Several users complained about OAUTH2 authentication not working, which I didn’t know because I usually use the legacy authentication method! Luckily, GitHub user &lt;a href=&quot;https://github.com/leocwlau&quot;&gt;leocwlau&lt;/a&gt; reported the &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues/223&quot;&gt;issue&lt;/a&gt; AND provided the &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/pull/224&quot;&gt;solution&lt;/a&gt;. No other bug fixes were made, nor was any additional functionality added.&lt;/p&gt;
@@ -41,8 +41,8 @@
         
         <pubDate>Mon, 10 Apr 2017 00:00:00 -0400</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-12-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-12-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-12-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-12-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-12-release-notes/">&lt;p&gt;I released version 1.4.12 of RSiteCatalyst before I wrote the release notes for version 1.4.11, so this blog post will treat both releases as one. Users should upgrade directly to version 1.4.12 as the releases are cumulative in nature.&lt;/p&gt;
 
 &lt;h2 id=&quot;get-method-additions&quot;&gt;Get* method additions&lt;/h2&gt;
@@ -80,8 +80,8 @@
         
         <pubDate>Fri, 03 Mar 2017 00:00:00 -0500</pubDate>
         <link>
-        http://randyzwitch.com/adobe-clickstream-data-feed-self-service-admin-panel/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/adobe-clickstream-data-feed-self-service-admin-panel/</guid>
+        http://localhost:4000/adobe-clickstream-data-feed-self-service-admin-panel/</link>
+        <guid isPermaLink="true">http://localhost:4000/adobe-clickstream-data-feed-self-service-admin-panel/</guid>
         <content type="html" xml:base="/adobe-clickstream-data-feed-self-service-admin-panel/">&lt;p&gt;I’ve written several posts about the Adobe Analytics Analytics (née Clickstream) Data Feed (links: &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/&quot;&gt;2&lt;/a&gt;,&lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/&quot;&gt;3&lt;/a&gt;) over the past several years. The &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/reference/analytics-data-feed.html&quot;&gt;Analytics Data Feed&lt;/a&gt; is an invaluable tool for moving beyond aggregate-level reporting information about your customers to really in-depth, customer-level analytics.&lt;/p&gt;
 
 &lt;p&gt;While the Analytics Data Feed is nowhere as easy to use as the Adobe UI, Report Builder, Analytics Workspace or even &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt;, the hardest part for me when I was a digital analytics consultant was just obtaining the files in the first place (to say nothing of restarting a failed feed)! Luckily, Adobe has now built an interface accessible by any Adobe Analytics admin, removing the need for ClientCare to set up and maintain feeds.&lt;/p&gt;
@@ -177,8 +177,8 @@
         
         <pubDate>Wed, 18 Jan 2017 00:00:00 -0500</pubDate>
         <link>
-        http://randyzwitch.com/building-data-science-workstation-2017/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/building-data-science-workstation-2017/</guid>
+        http://localhost:4000/building-data-science-workstation-2017/</link>
+        <guid isPermaLink="true">http://localhost:4000/building-data-science-workstation-2017/</guid>
         <content type="html" xml:base="/building-data-science-workstation-2017/">&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;i need some kind of super computer to parse a multi-gigabyte XML file, &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt;&lt;/p&gt;&amp;mdash; jason thompson (@usujason) &lt;a href=&quot;https://twitter.com/usujason/status/821429000270528512&quot;&gt;January 17, 2017&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -279,8 +279,8 @@
         
         <pubDate>Tue, 13 Dec 2016 00:00:00 -0500</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-10-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-10-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-10-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-10-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-10-release-notes/">&lt;p&gt;Version 1.4.10 of RSiteCatalyst brings a handful of new &lt;code class=&quot;highlighter-rouge&quot;&gt;Get*&lt;/code&gt; methods, &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDatawarehouse&lt;/code&gt; and a couple of bugs fixes/low-level code improvements.&lt;/p&gt;
 
 &lt;h2 id=&quot;queuedatawarehouse&quot;&gt;QueueDatawarehouse&lt;/h2&gt;
@@ -377,8 +377,8 @@
         
         <pubDate>Mon, 10 Oct 2016 00:00:00 -0400</pubDate>
         <link>
-        http://randyzwitch.com/wordpress-jekyll-30x-speedup/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/wordpress-jekyll-30x-speedup/</guid>
+        http://localhost:4000/wordpress-jekyll-30x-speedup/</link>
+        <guid isPermaLink="true">http://localhost:4000/wordpress-jekyll-30x-speedup/</guid>
         <content type="html" xml:base="/wordpress-jekyll-30x-speedup/">&lt;p&gt;About a month ago, I switched this blog from WordPress hosted on Bluehost to Jekyll on GitHub Pages. I suspected moving to a static website would be faster than generated HTML via PHP, and it is certainly cheaper (GitHub Pages is “free”). But it wasn’t until I needed a dataset for doing some dataset visualization development that I realize how much of an improvement it has been!&lt;/p&gt;
 
 &lt;h2 id=&quot;packages-packages-packages&quot;&gt;Packages, Packages, Packages&lt;/h2&gt;
@@ -507,10 +507,10 @@
 
 </description>
         
-        <pubDate>Thu, 21 Jul 2016 04:25:02 -0400</pubDate>
+        <pubDate>Thu, 21 Jul 2016 08:25:02 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-bulk-download-version-1-4-9-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-bulk-download-version-1-4-9-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-bulk-download-version-1-4-9-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-bulk-download-version-1-4-9-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-bulk-download-version-1-4-9-release-notes/">&lt;p&gt;&lt;em&gt;This blog post also serves as release notes for RSiteCatalyst v1.4.9, as only one feature was added (batch report request and download). But it’s a feature big enough for its own post!&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Recently, I was asked how I would approach replicating the &lt;a href=&quot;http://33sticks.com/rsitecatalyst-market-basket-analysis-adobe-analytics/&quot;&gt;market basket analysis&lt;/a&gt; blog post I wrote for &lt;a href=&quot;http://33sticks.com/&quot;&gt;33 Sticks&lt;/a&gt;, but using a lot more data. Like, months and months of order-level data. While you &lt;em&gt;might&lt;/em&gt; be able to submit multiple months worth of data in a single RSiteCatalyst call, it’s a lot more elegant to request data from the Adobe Analytics API in several calls. With the new batch-submit and batch-receive functionality in RSiteCatalyst, this process can be a LOT faster.&lt;/p&gt;
@@ -653,13 +653,13 @@
 
 </description>
         
-        <pubDate>Tue, 24 May 2016 07:11:20 -0400</pubDate>
+        <pubDate>Tue, 24 May 2016 11:11:20 +0000</pubDate>
         <link>
-        http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-data-feed-calculations/</guid>
+        http://localhost:4000/adobe-analytics-clickstream-data-feed-calculations/</link>
+        <guid isPermaLink="true">http://localhost:4000/adobe-analytics-clickstream-data-feed-calculations/</guid>
         <content type="html" xml:base="/adobe-analytics-clickstream-data-feed-calculations/">&lt;p&gt;In a previous post, I outlined how to load &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/&quot;&gt;daily Adobe Analytics Clickstream data feeds&lt;/a&gt; into a PostgreSQL database. While this isn’t a long-term scalable solution for large e-commerce companies doing millions of page views per day, for exploratory analysis a relational database structure can work well until a more robust solution is put into place (such as Hadoop/Spark).&lt;/p&gt;
 
-&lt;h2 id=&quot;data-validation-groan&quot;&gt;Data Validation &lt;groan&gt;&lt;/groan&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;data-validation-&quot;&gt;Data Validation &lt;groan&gt;&lt;/groan&gt;&lt;/h2&gt;
 
 &lt;p&gt;Before digging too deeply into the data, we should validate that data from the data feed in our database (&lt;a href=&quot;https://gist.github.com/randyzwitch/7a9c48e7132e6ed9dfb0d02ec906961c&quot;&gt;custom database view code&lt;/a&gt;) matches what we observe from other sources (mainly, the Adobe Analytics interface and/or &lt;a href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt;). Given the Adobe Analytics data feed represents an export of the underlying data, and Adobe provides the formulas in the &lt;a href=&quot;https://marketing.adobe.com/resources/help/en_US/sc/clickstream/datafeeds_calculate.html&quot;&gt;data feed documentation&lt;/a&gt;, &lt;em&gt;in theory&lt;/em&gt; you should be able to replicate the numbers exactly:&lt;/p&gt;
 
@@ -888,17 +888,17 @@
       <item>
         <title>Adobe: Give Credit. You DID NOT Write RSiteCatalyst.</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;EDIT 5/10/2016 1:30pm: Several folks from Adobe Analytics/Adobe Marketing Cloud have contacted me, and everything is resolved. I can’t untweet other people’s retweets/shares or delete comments on LinkedIn, but if everyone could stop sharing any more that would be great. 🙂&lt;/strong&gt;
-* * *&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;EDIT 5/10/2016 1:30pm: Several folks from Adobe Analytics/Adobe Marketing Cloud have contacted me, and everything is resolved. I can’t untweet other people’s retweets/shares or delete comments on LinkedIn, but if everyone could stop sharing any more that would be great. 🙂&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
 
 </description>
         
-        <pubDate>Mon, 09 May 2016 08:31:51 -0400</pubDate>
+        <pubDate>Mon, 09 May 2016 12:31:51 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-not-adobe-product/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-not-adobe-product/</guid>
-        <content type="html" xml:base="/rsitecatalyst-not-adobe-product/">&lt;p&gt;&lt;strong&gt;EDIT 5/10/2016 1:30pm: Several folks from Adobe Analytics/Adobe Marketing Cloud have contacted me, and everything is resolved. I can’t untweet other people’s retweets/shares or delete comments on LinkedIn, but if everyone could stop sharing any more that would be great. 🙂&lt;/strong&gt;
-* * *&lt;/p&gt;
+        http://localhost:4000/rsitecatalyst-not-adobe-product/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-not-adobe-product/</guid>
+        <content type="html" xml:base="/rsitecatalyst-not-adobe-product/">&lt;p&gt;&lt;strong&gt;EDIT 5/10/2016 1:30pm: Several folks from Adobe Analytics/Adobe Marketing Cloud have contacted me, and everything is resolved. I can’t untweet other people’s retweets/shares or delete comments on LinkedIn, but if everyone could stop sharing any more that would be great. 🙂&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
 
 &lt;p&gt;As an &lt;a href=&quot;https://github.com/randyzwitch&quot;&gt;author of several open-source software projects&lt;/a&gt;, I’ve taken for granted that people using the software share the same community values as I do. Open-source authors provide their code “&lt;a href=&quot;http://www.howtogeek.com/howto/31717/what-do-the-phrases-free-speech-vs.-free-beer-really-mean/&quot;&gt;free&lt;/a&gt;” to the community so that others may benefit without having to re-invent the wheel. The only &lt;em&gt;expectation&lt;/em&gt; (but not an actual &lt;em&gt;requirement&lt;/em&gt; per se), is attribution to the package author(s) as a thank you for the time and effort they put into writing and maintaining a quality piece of software.&lt;/p&gt;
 
@@ -950,10 +950,10 @@
 
 </description>
         
-        <pubDate>Tue, 05 Apr 2016 07:41:53 -0400</pubDate>
+        <pubDate>Tue, 05 Apr 2016 11:41:53 +0000</pubDate>
         <link>
-        http://randyzwitch.com/travisci-10minute-timeout-build-error/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/travisci-10minute-timeout-build-error/</guid>
+        http://localhost:4000/travisci-10minute-timeout-build-error/</link>
+        <guid isPermaLink="true">http://localhost:4000/travisci-10minute-timeout-build-error/</guid>
         <content type="html" xml:base="/travisci-10minute-timeout-build-error/">&lt;p&gt;As part of getting &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/&quot;&gt;RSiteCatalyst 1.4.8 ready for CRAN&lt;/a&gt;, I’ve managed to accumulate hundreds of &lt;a href=&quot;https://github.com/hadley/testthat&quot;&gt;testthat&lt;/a&gt; tests across 63 test files. Each of these tests runs on &lt;a href=&quot;http://randyzwitch.com/authentication-travis-ci/&quot;&gt;Travis CI against an authenticated API&lt;/a&gt;, and the API frequently queues long-running reports. Long-story-short, my builds started failing, creating the error log message quoted below:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -1031,10 +1031,10 @@ OK&lt;/p&gt;
 
 </description>
         
-        <pubDate>Mon, 04 Apr 2016 06:05:15 -0400</pubDate>
+        <pubDate>Mon, 04 Apr 2016 10:05:15 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-8-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-8-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-8-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-8-release-notes/">&lt;p&gt;For being in RSiteCatalyst retirement, I’m ending up working on more functionality lately ¯_(ツ)_/¯. Here are the changes for RSiteCatalyst 1.4.8, which should be &lt;a href=&quot;https://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot;&gt;available on CRAN&lt;/a&gt; shortly:&lt;/p&gt;
 
 &lt;h2 id=&quot;segment-stacking&quot;&gt;Segment Stacking&lt;/h2&gt;
@@ -1088,10 +1088,10 @@ OK&lt;/p&gt;
 
 </description>
         
-        <pubDate>Fri, 18 Mar 2016 10:42:23 -0400</pubDate>
+        <pubDate>Fri, 18 Mar 2016 14:42:23 +0000</pubDate>
         <link>
-        http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-data-feed-relational-database/</guid>
+        http://localhost:4000/adobe-analytics-clickstream-data-feed-relational-database/</link>
+        <guid isPermaLink="true">http://localhost:4000/adobe-analytics-clickstream-data-feed-relational-database/</guid>
         <content type="html" xml:base="/adobe-analytics-clickstream-data-feed-relational-database/">&lt;p&gt;In my previous post about the &lt;a href=&quot;http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/&quot;&gt;Adobe Analytics Clickstream Data Feed&lt;/a&gt;, I showed how it was possible to take a single day worth of data and build a dataframe in R. However, most likely your analysis will require using multiple days/weeks/months of data, and given the size and complexity of the feed, loading the files into a relational database makes a lot of sense.&lt;/p&gt;
 
 &lt;p&gt;Although there may be database-specific “fast-load” tools more appropriate for this application, this blog post will show how to handle this process using only R and &lt;a href=&quot;http://www.postgresql.org/download/&quot;&gt;PostgresSQL&lt;/a&gt;.&lt;/p&gt;
@@ -1309,10 +1309,10 @@ OK&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         
-        <pubDate>Mon, 22 Feb 2016 05:34:44 -0500</pubDate>
+        <pubDate>Mon, 22 Feb 2016 10:34:44 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-adobe-analytics-python/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-adobe-analytics-python/</guid>
+        http://localhost:4000/rsitecatalyst-adobe-analytics-python/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-adobe-analytics-python/</guid>
         <content type="html" xml:base="/rsitecatalyst-adobe-analytics-python/">&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;
   &lt;p dir=&quot;ltr&quot; lang=&quot;en&quot;&gt;
     &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt; Do you know if anyone has gotten RSiteCat running in a Jupyter Notebook that ran RPY2? Tired of using 2 different environments
@@ -1383,10 +1383,10 @@ OK&lt;/p&gt;
 
 </description>
         
-        <pubDate>Mon, 01 Feb 2016 04:24:04 -0500</pubDate>
+        <pubDate>Mon, 01 Feb 2016 09:24:04 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-7-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-7-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-7-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-7-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-7-release-notes/">&lt;p&gt;It seems as though I missed release notes for version RSiteCatalyst 1.4.6, so we’ll do those and RSiteCatalyst 1.4.7 (now on CRAN) and the same time…&lt;/p&gt;
 
 &lt;h2 id=&quot;rsitecatalyst-146&quot;&gt;RSiteCatalyst 1.4.6&lt;/h2&gt;
@@ -1423,10 +1423,10 @@ OK&lt;/p&gt;
 
 </description>
         
-        <pubDate>Thu, 28 Jan 2016 04:53:42 -0500</pubDate>
+        <pubDate>Thu, 28 Jan 2016 09:53:42 +0000</pubDate>
         <link>
-        http://randyzwitch.com/gnu-parallel-medium-data/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/gnu-parallel-medium-data/</guid>
+        http://localhost:4000/gnu-parallel-medium-data/</link>
+        <guid isPermaLink="true">http://localhost:4000/gnu-parallel-medium-data/</guid>
         <content type="html" xml:base="/gnu-parallel-medium-data/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2016/01/million-files-size.png&quot; alt=&quot;GNU Parallel Cat Unix&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;More often that I would like, I receive datasets where the data has only been partially cleaned, such as the picture on the right: hundreds, thousands…even millions of tiny files. Usually when this happens, the data all have the same format (such as having being generated by sensors or other memory-constrained devices).&lt;/p&gt;
@@ -1691,10 +1691,10 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Thu, 31 Dec 2015 08:17:30 -0500</pubDate>
+        <pubDate>Thu, 31 Dec 2015 13:17:30 +0000</pubDate>
         <link>
-        http://randyzwitch.com/21st-century-c-error-64-osx/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/21st-century-c-error-64-osx/</guid>
+        http://localhost:4000/21st-century-c-error-64-osx/</link>
+        <guid isPermaLink="true">http://localhost:4000/21st-century-c-error-64-osx/</guid>
         <content type="html" xml:base="/21st-century-c-error-64-osx/">&lt;p&gt;To end 2015, I decided to finally learn C, instead of making it a 2016 resolution! I had previously done the &lt;a href=&quot;http://c.learncodethehardway.org/book/&quot;&gt;‘Learn C The Hard Way’&lt;/a&gt; tutorials, taken about a year off, and thus forgotten everything.&lt;/p&gt;
 
 &lt;p&gt;Rather than re-do the same material, I decided to get &lt;a href=&quot;http://shop.oreilly.com/product/0636920033677.do&quot;&gt;’21st Century C’&lt;/a&gt; from O’Reilly and work through that. Unfortunately, there is an error/misprint in the very beginning chapters that makes doing the exercises near impossible on OSX. This error manifests itself as &lt;code class=&quot;highlighter-rouge&quot;&gt;c99: invalid argument 'all' to -W Error 64&lt;/code&gt;. If you encounter this error on OSX (I’m using OSX 10.11.2 El Capitan as of writing this post), here are three methods for fixing the issue.&lt;/p&gt;
@@ -1805,10 +1805,10 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 &lt;/blockquote&gt;
 </description>
         
-        <pubDate>Fri, 21 Aug 2015 06:42:13 -0400</pubDate>
+        <pubDate>Fri, 21 Aug 2015 10:42:13 +0000</pubDate>
         <link>
-        http://randyzwitch.com/well-thought-out-business-requirements/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/well-thought-out-business-requirements/</guid>
+        http://localhost:4000/well-thought-out-business-requirements/</link>
+        <guid isPermaLink="true">http://localhost:4000/well-thought-out-business-requirements/</guid>
         <content type="html" xml:base="/well-thought-out-business-requirements/">&lt;blockquote class=&quot;twitter-tweet&quot; data-partner=&quot;tweetdeck&quot;&gt;
   &lt;p dir=&quot;ltr&quot; lang=&quot;en&quot;&gt;
     &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt; how to get (reasonably) well thought-through requirements from business people?
@@ -1829,7 +1829,7 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 &lt;p&gt;In all seriousness, I’ve found there are a few great ways for an analyst to refine a “question” like the one above into an actionable plan of attack. So the next time you get a jargon-filled, completely generic analysis request such as the one above, try these four tactics.&lt;/p&gt;
 
-&lt;h3 id=&quot;all-requests-should-be-phrased-in-the-form-of-a-question&quot;&gt;1. All Requests Should Be Phrased In The Form Of A Question&lt;/h3&gt;
+&lt;h3 id=&quot;1-all-requests-should-be-phrased-in-the-form-of-a-question&quot;&gt;1. All Requests Should Be Phrased In The Form Of A Question&lt;/h3&gt;
 
 &lt;p&gt;The first thing to notice about the mock interaction above is that there are no question marks; it’s not a question! For an analyst or developer to work effectively, &lt;em&gt;questions&lt;/em&gt; need to be presented, not bland &lt;em&gt;statements&lt;/em&gt;. For example, a refinement series of questions from the analyst might include:&lt;/p&gt;
 
@@ -1841,13 +1841,13 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 &lt;p&gt;Note that in all three of the refinement questions above, you are taking a generic idea and really drilling into what is needed. It is &lt;em&gt;the analyst&lt;/em&gt; that is the expert in the techniques for analyzing data, so the analyst should be helping the business person to take a raw analysis request and make it into answerable questions.&lt;/p&gt;
 
-&lt;h3 id=&quot;separate-the-tools-from-the-question&quot;&gt;2. Separate The Tools From The Question&lt;/h3&gt;
+&lt;h3 id=&quot;2-separate-the-tools-from-the-question&quot;&gt;2. Separate The Tools From The Question&lt;/h3&gt;
 
 &lt;p&gt;The second thing to notice in the mock interaction above is the statement “&lt;em&gt;using SAS&lt;/em&gt;”. I didn’t write that to pick on SAS, but rather, this exact statement was said to me early in my career. I had a boss who would try and guess which tool was appropriate for the question he was asking. I presume that he was trying to gauge how hard he thought the problem was, or try to signal to me how hard he thought the problem was. In the end, a plain SQL query with the results copied into an Excel table was all that was necessary.&lt;/p&gt;
 
 &lt;p&gt;As the analyst, confirm whether &lt;em&gt;the tool&lt;/em&gt; is actually part of the &lt;em&gt;deliverable&lt;/em&gt;. Meaning, if you need to deliver a Tableau workbook, ok, specifying “use Tableau” is an important part of the business question. But if the requirement is “production-quality visualizations”, Tableau may or may not be the right tool or might just be one part of a larger workflow.&lt;/p&gt;
 
-&lt;h3 id=&quot;every-question-is-interesting-to-someone-solve-the-valuable-ones&quot;&gt;3. Every Question Is Interesting To Someone. Solve The Valuable Ones.&lt;/h3&gt;
+&lt;h3 id=&quot;3-every-question-is-interesting-to-someone-solve-the-valuable-ones&quot;&gt;3. Every Question Is Interesting To Someone. Solve The Valuable Ones.&lt;/h3&gt;
 
 &lt;p&gt;Paraphrasing the aphorism “&lt;em&gt;The path to hell is paved with good intentions&lt;/em&gt;”, the path to doing low-value work your entire career is answering questions that start ”Wouldn’t it be interesting if…”.&lt;/p&gt;
 
@@ -1855,7 +1855,7 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 &lt;p&gt;So always have estimates of the business impact of what you are currently working on and ask for the same estimate of those who ask for your time. Projects that are &lt;em&gt;valuable&lt;/em&gt; to the business are “interesting”, everything else is just &lt;em&gt;making work&lt;/em&gt; for other people.&lt;/p&gt;
 
-&lt;h3 id=&quot;dont-just-solved-the-stated-question-solve-the-unstated-question-too&quot;&gt;4. Don’t Just Solved The Stated Question. Solve The Unstated Question Too.&lt;/h3&gt;
+&lt;h3 id=&quot;4-dont-just-solved-the-stated-question-solve-the-unstated-question-too&quot;&gt;4. Don’t Just Solved The Stated Question. Solve The Unstated Question Too.&lt;/h3&gt;
 
 &lt;p&gt;Finally, when I read the mock interaction above, there are actually &lt;em&gt;two&lt;/em&gt; questions:&lt;/p&gt;
 
@@ -1884,10 +1884,10 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Mon, 17 Aug 2015 05:43:36 -0400</pubDate>
+        <pubDate>Mon, 17 Aug 2015 09:43:36 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-5-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-5-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-5-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-5-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-5-release-notes/">&lt;p&gt;It’s only been a month since the &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/&quot;&gt;last RSiteCatalyst update&lt;/a&gt;, and this update is also a pretty minor update in terms of functionality.&lt;/p&gt;
 
 &lt;h2 id=&quot;set-your-own-endpoint&quot;&gt;Set Your Own Endpoint&lt;/h2&gt;
@@ -1914,10 +1914,10 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Fri, 14 Aug 2015 06:29:41 -0400</pubDate>
+        <pubDate>Fri, 14 Aug 2015 10:29:41 +0000</pubDate>
         <link>
-        http://randyzwitch.com/juliacon-2015-everyday-analytics-and-visualization-video/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/juliacon-2015-everyday-analytics-and-visualization-video/</guid>
+        http://localhost:4000/juliacon-2015-everyday-analytics-and-visualization-video/</link>
+        <guid isPermaLink="true">http://localhost:4000/juliacon-2015-everyday-analytics-and-visualization-video/</guid>
         <content type="html" xml:base="/juliacon-2015-everyday-analytics-and-visualization-video/">&lt;p&gt;At long last, here’s the video of my presentation from JuliaCon 2015, discussion common analytics tasks and visualization. This is really two talks, the first being an example of using the citibike NYC API to analyze ridership of their public bike program, and the second a discussion of the Vega.jl package.&lt;/p&gt;
 
 &lt;p&gt;Speaking at JuliaCon 2015 at MIT CSAIL is the professional highlight of my year; hopefully even more of you will attend next year.&lt;/p&gt;
@@ -1938,10 +1938,10 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Fri, 07 Aug 2015 16:07:12 -0400</pubDate>
+        <pubDate>Fri, 07 Aug 2015 20:07:12 +0000</pubDate>
         <link>
-        http://randyzwitch.com/apple-macbook-pro-model-a1286-late-2008-vintage/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/apple-macbook-pro-model-a1286-late-2008-vintage/</guid>
+        http://localhost:4000/apple-macbook-pro-model-a1286-late-2008-vintage/</link>
+        <guid isPermaLink="true">http://localhost:4000/apple-macbook-pro-model-a1286-late-2008-vintage/</guid>
         <content type="html" xml:base="/apple-macbook-pro-model-a1286-late-2008-vintage/">&lt;p&gt;It’s hard to believe it’s been over 2.5 years since I wrote about my experience with Apple trying to get my &lt;a href=&quot;http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/&quot;&gt;Broken MacBook Pro Hinge&lt;/a&gt; fixed. Since that time, my Late 2008 MacBook Pro continued to work flawlessly, most of the time keeping up with the scientific programming I would do in R, Python or Julia.&lt;/p&gt;
 
 &lt;p&gt;Unfortunately, it seems near impossible (if not completely impossible) to get an OEM A1281 battery as a drop-in replacement. When I went to the Apple Store at Suburban Square, PA, the “Genius” that looked at my computer took 15-20 minutes to look on the Apple website (which I obviously did before arriving, so no value-add there), only to show me a battery in stock that didn’t fit my model of computer. Only after shaming him into looking up the actual part number, was he able to utter the phrase:&lt;/p&gt;
@@ -1974,10 +1974,10 @@ real	8m22.674s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;9.05x faster than s
 
 </description>
         
-        <pubDate>Thu, 06 Aug 2015 16:21:50 -0400</pubDate>
+        <pubDate>Thu, 06 Aug 2015 20:21:50 +0000</pubDate>
         <link>
-        http://randyzwitch.com/authentication-travis-ci/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/authentication-travis-ci/</guid>
+        http://localhost:4000/authentication-travis-ci/</link>
+        <guid isPermaLink="true">http://localhost:4000/authentication-travis-ci/</guid>
         <content type="html" xml:base="/authentication-travis-ci/">&lt;p&gt;As I’ve become more serious about contributing in the open-source community, having quality tests for my packages has been something I’ve spent much more time on than when I was just writing quick-and-dirty code for my own purposes. My most used open-sourced package is &lt;a href=&quot;http://randyzwitch.com/tags/#rsitecatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt;, which accesses the Adobe Analytics (authenticated) API, which poses a problem: how do you maintain a project on GitHub with a full test suite, while at the same time not hard-coding your credentials in plain sight for everyone to see?&lt;/p&gt;
 
 &lt;p&gt;The answer ends up being using &lt;a href=&quot;http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables&quot;&gt;encrypted environment variables&lt;/a&gt; within &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI&lt;/a&gt;.&lt;/p&gt;
@@ -2179,10 +2179,10 @@ Pro Tip: You can add it automatically by running with --add.&lt;/code&gt;&lt;/pr
 
 </description>
         
-        <pubDate>Tue, 04 Aug 2015 05:00:35 -0400</pubDate>
+        <pubDate>Tue, 04 Aug 2015 09:00:35 +0000</pubDate>
         <link>
-        http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-clickstream-raw-data-feed/</guid>
+        http://localhost:4000/adobe-analytics-clickstream-raw-data-feed/</link>
+        <guid isPermaLink="true">http://localhost:4000/adobe-analytics-clickstream-raw-data-feed/</guid>
         <content type="html" xml:base="/adobe-analytics-clickstream-raw-data-feed/">&lt;blockquote&gt;
   &lt;p&gt;“Well, first you need a TMS and a three-tiered data layer, then some jQuery with a node backend to inject customer data into the page asynchronously if you want to avoid cookie-based limitations with cross-domain tracking and be Internet Explorer 4 compatible…”&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2465,10 +2465,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 13 Jul 2015 05:40:20 -0400</pubDate>
+        <pubDate>Mon, 13 Jul 2015 09:40:20 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-4-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-4-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-4-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-4-release-notes/">&lt;p&gt;It’s been about six months since the last &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/&quot;&gt;RSiteCatalyst update&lt;/a&gt;, and this update is really just a single bug fix, but a big bug fix at that!&lt;/p&gt;
 
 &lt;h3 id=&quot;sparse-data--opaque-error-messages&quot;&gt;Sparse Data = Opaque Error Messages&lt;/h3&gt;
@@ -2510,10 +2510,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Thu, 21 May 2015 08:56:07 -0400</pubDate>
+        <pubDate>Thu, 21 May 2015 12:56:07 +0000</pubDate>
         <link>
-        http://randyzwitch.com/vega-jl-julia/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/vega-jl-julia/</guid>
+        http://localhost:4000/vega-jl-julia/</link>
+        <guid isPermaLink="true">http://localhost:4000/vega-jl-julia/</guid>
         <content type="html" xml:base="/vega-jl-julia/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2015/05/pie-300x251.png&quot; alt=&quot;pie&quot; /&gt;
 &lt;img src=&quot;/wp-content/uploads/2015/05/donut-e1432224478621.png&quot; alt=&quot;donut&quot; /&gt;&lt;/p&gt;
 
@@ -2559,10 +2559,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 20 Jan 2015 04:01:19 -0500</pubDate>
+        <pubDate>Tue, 20 Jan 2015 09:01:19 +0000</pubDate>
         <link>
-        http://randyzwitch.com/sessionizing-log-data-using-data-table-follow-2/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-using-data-table-follow-2/</guid>
+        http://localhost:4000/sessionizing-log-data-using-data-table-follow-2/</link>
+        <guid isPermaLink="true">http://localhost:4000/sessionizing-log-data-using-data-table-follow-2/</guid>
         <content type="html" xml:base="/sessionizing-log-data-using-data-table-follow-2/">&lt;p&gt;Thanks to user &lt;a title=&quot;dnlbrky comment&quot; href=&quot;http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/#comment-16205&quot; target=&quot;_blank&quot;&gt;dnlbrky&lt;/a&gt;, we now have a third way to accomplish sessionizing log data for any arbitrary time out period (see methods &lt;a href=&quot;/sessionizing-log-data-sql/&quot; title=&quot;Sessionizing Log Data Using SQL&quot;&gt;1&lt;/a&gt; and &lt;a href=&quot;/sessionizing-log-data-dplyr-r-window-functions/&quot; title=&quot;Sessionizing Log Data Using dplyr [Follow-up]&quot;&gt;2&lt;/a&gt;), this time using data.table from R along with magrittr for piping:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -2624,10 +2624,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 13 Jan 2015 11:24:52 -0500</pubDate>
+        <pubDate>Tue, 13 Jan 2015 16:24:52 +0000</pubDate>
         <link>
-        http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-dplyr-r-window-functions/</guid>
+        http://localhost:4000/sessionizing-log-data-dplyr-r-window-functions/</link>
+        <guid isPermaLink="true">http://localhost:4000/sessionizing-log-data-dplyr-r-window-functions/</guid>
         <content type="html" xml:base="/sessionizing-log-data-dplyr-r-window-functions/">&lt;p&gt;Last week, I wrote a blog post showing how to &lt;a href=&quot;http://randyzwitch.com/sessionizing-log-data-sql&quot;&gt;sessionize log data using standard SQL&lt;/a&gt;. The main idea of that post is that if your analytics platform supports window functions (like Postgres and Hive do), you can make quick work out of sessionizing logs. Here’s the winning query:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -2803,10 +2803,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Thu, 08 Jan 2015 06:57:56 -0500</pubDate>
+        <pubDate>Thu, 08 Jan 2015 11:57:56 +0000</pubDate>
         <link>
-        http://randyzwitch.com/sessionizing-log-data-sql/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/sessionizing-log-data-sql/</guid>
+        http://localhost:4000/sessionizing-log-data-sql/</link>
+        <guid isPermaLink="true">http://localhost:4000/sessionizing-log-data-sql/</guid>
         <content type="html" xml:base="/sessionizing-log-data-sql/">&lt;p&gt;Over my career as a predictive modeler/data scientist, the most important step(s) in any data project without question have been data cleaning and feature engineering. By taking the data you have, correcting flaws and reformulating raw data into additional business-specific concepts, you ensure that you move beyond pure mathematical optimization and actually solve a &lt;em&gt;business problem&lt;/em&gt;. While “big data” is often held up as the future of knowing everything, when it comes down to it, a Hadoop cluster is more often a “Ha-dump” cluster: the place data gets dumped without any proper ETL.&lt;/p&gt;
 
 &lt;p&gt;For this blog post, I’m going to highlight a common request for time-series data: combining discrete events into sessions. Whether you are dealing with sensor data, television viewing data, digital analytics data or any other stream of events, the problem of interest is usually how a human interacts with a machine over a given period of time, not each individual event.&lt;/p&gt;
@@ -2936,10 +2936,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 06 Jan 2015 08:00:40 -0500</pubDate>
+        <pubDate>Tue, 06 Jan 2015 13:00:40 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-3-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-3-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-3-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-3-release-notes/">&lt;p&gt;It’s a new year, so…new version of RSiteCatalyst on CRAN! For the most part, this release fixes a handful of bugs that weren’t noticed with the prior release 1.4.2 (oops!), but there are pieces of additional functionality.&lt;/p&gt;
 
 &lt;h2 id=&quot;new-functionality-data-feed-monitoring&quot;&gt;New functionality: Data Feed monitoring&lt;/h2&gt;
@@ -2966,7 +2966,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 &lt;p&gt;To avoid future errors like the ones mentioned above, a full test suite using &lt;a href=&quot;https://github.com/hadley/testthat&quot;&gt;testthat&lt;/a&gt; has been added to RSiteCatalyst and monitored via &lt;a href=&quot;https://travis-ci.org/randyzwitch/RSiteCatalyst&quot;&gt;Travis CI&lt;/a&gt;. While there is coverage for every public function within the package, there are likely additional tests that can be added for functionality I didn’t cover. If anyone out there has particularly weird cases they use and aren’t incorporated in the &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/tree/master/tests/testthat&quot;&gt;test suite&lt;/a&gt;, please feel free to file an issue or submit a pull request and I’ll figure out how to incorporate it into the test suite.&lt;/p&gt;
 
-&lt;h2 id=&quot;deldatawarehouse-apidel&quot;&gt;&lt;del&gt;DataWarehouse API&lt;/del&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;datawarehouse-api&quot;&gt;&lt;del&gt;DataWarehouse API&lt;/del&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;del&gt;Finally, the last bit of changes to RSiteCatalyst in v1.4.3 are internal preparations for a new package I plan to release in the coming months: &lt;a title=&quot;AdobeDW DataWarehouse&quot; href=&quot;https://github.com/randyzwitch/AdobeDW&quot; target=&quot;_blank&quot;&gt;AdobeDW&lt;/a&gt;. Several folks have asked for the ability to control Data Warehouse reports via R; for various reasons, I thought it made sense to break this out from RSiteCatalyst into its own package. If there are any R-and-Adobe-Analytics enthusiasts out there that would like to help development, please let me know! &lt;/del&gt;&lt;/p&gt;
 
@@ -2986,10 +2986,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 15 Dec 2014 05:22:46 -0500</pubDate>
+        <pubDate>Mon, 15 Dec 2014 10:22:46 +0000</pubDate>
         <link>
-        http://randyzwitch.com/data-science-command-line-review-janssens/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/data-science-command-line-review-janssens/</guid>
+        http://localhost:4000/data-science-command-line-review-janssens/</link>
+        <guid isPermaLink="true">http://localhost:4000/data-science-command-line-review-janssens/</guid>
         <content type="html" xml:base="/data-science-command-line-review-janssens/">&lt;p&gt;Admission: I didn’t &lt;em&gt;really know&lt;/em&gt; how computers worked until around 2012.&lt;/p&gt;
 
 &lt;p&gt;For the majority of my career, I’ve worked for large companies with centralized IT functions. Like many statisticians, I fell into a comfortable position of learning SAS in a Windows environment, had Ops people to fix any Unix problems I’d run into and DBAs to load data into a relational database environment.&lt;/p&gt;
@@ -3040,10 +3040,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 08 Dec 2014 12:12:58 -0500</pubDate>
+        <pubDate>Mon, 08 Dec 2014 17:12:58 +0000</pubDate>
         <link>
-        http://randyzwitch.com/twitter-api-julia/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/twitter-api-julia/</guid>
+        http://localhost:4000/twitter-api-julia/</link>
+        <guid isPermaLink="true">http://localhost:4000/twitter-api-julia/</guid>
         <content type="html" xml:base="/twitter-api-julia/">&lt;p&gt;This is possibly the latest “announcement” of a package ever, given that &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl&quot;&gt;Twitter.jl&lt;/a&gt; has existed on &lt;a href=&quot;https://github.com/JuliaLang/METADATA.jl&quot; title=&quot;Julia METADATA&quot;&gt;METADATA&lt;/a&gt; for nearly a year now, but that’s how things go sometimes. Here’s how to get started with Twitter.jl.&lt;/p&gt;
 
 &lt;h2 id=&quot;hello-world&quot;&gt;Hello, World!&lt;/h2&gt;
@@ -3122,10 +3122,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Wed, 03 Dec 2014 18:01:05 -0500</pubDate>
+        <pubDate>Wed, 03 Dec 2014 23:01:05 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-2-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-2-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-2-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-2-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-2-release-notes/">&lt;p&gt;RSiteCatalyst version 1.4.2 is now available on CRAN. This update was primarily bug fixes with one additional feature added.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -3152,10 +3152,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Thu, 20 Nov 2014 05:07:55 -0500</pubDate>
+        <pubDate>Thu, 20 Nov 2014 10:07:55 +0000</pubDate>
         <link>
-        http://randyzwitch.com/excel-destroys-data/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/excel-destroys-data/</guid>
+        http://localhost:4000/excel-destroys-data/</link>
+        <guid isPermaLink="true">http://localhost:4000/excel-destroys-data/</guid>
         <content type="html" xml:base="/excel-destroys-data/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2014/11/pie-charts-are-better.png&quot; alt=&quot;All you pie-chart haters are wishing I used one here&quot; /&gt;&lt;/p&gt;
 
 &lt;div&gt;
@@ -3210,10 +3210,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 18 Nov 2014 04:11:06 -0500</pubDate>
+        <pubDate>Tue, 18 Nov 2014 09:11:06 +0000</pubDate>
         <link>
-        http://randyzwitch.com/julia-metaprogramming-refactoring/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/julia-metaprogramming-refactoring/</guid>
+        http://localhost:4000/julia-metaprogramming-refactoring/</link>
+        <guid isPermaLink="true">http://localhost:4000/julia-metaprogramming-refactoring/</guid>
         <content type="html" xml:base="/julia-metaprogramming-refactoring/">&lt;p&gt;It’s been nearly a year since I wrote &lt;a href=&quot;https://github.com/randyzwitch/Twitter.jl/&quot;&gt;Twitter.jl&lt;/a&gt;, back when I seemingly had MUCH more free time. In these past 10 months, I’ve used Julia quite a bit to develop other packages, and I try to use it at work when I know I’m not going to be collaborating with others (since my colleagues don’t know Julia, not because it’s bad for collaboration!).&lt;/p&gt;
 
 &lt;p&gt;One of the things that’s obvious from my earlier Julia code is that I didn’t understand how powerful metaprogramming can be, so here’s a simple example where I can replace 50 lines of Julia code with 10.&lt;/p&gt;
@@ -3387,10 +3387,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 10 Nov 2014 05:01:36 -0500</pubDate>
+        <pubDate>Mon, 10 Nov 2014 10:01:36 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-1-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-1-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-1-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-1-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-1-release-notes/">&lt;h2 id=&quot;changes&quot;&gt;Changes&lt;/h2&gt;
 
 &lt;p&gt;Version 1.4.1 of RSiteCatalyst is now available on CRAN. There were a handful of bug fixes and new features added, including:&lt;/p&gt;
@@ -3436,10 +3436,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 &lt;/blockquote&gt;
 </description>
         
-        <pubDate>Fri, 07 Nov 2014 09:43:53 -0500</pubDate>
+        <pubDate>Fri, 07 Nov 2014 14:43:53 +0000</pubDate>
         <link>
-        http://randyzwitch.com/declaring-twitter-bankruptcy/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/declaring-twitter-bankruptcy/</guid>
+        http://localhost:4000/declaring-twitter-bankruptcy/</link>
+        <guid isPermaLink="true">http://localhost:4000/declaring-twitter-bankruptcy/</guid>
         <content type="html" xml:base="/declaring-twitter-bankruptcy/">&lt;blockquote class=&quot;twitter-tweet&quot; data-partner=&quot;tweetdeck&quot;&gt;
   &lt;p&gt;
     Is Twitter bankruptcy a thing? Delete all the people you follow and force yourself to re-discover them again?
@@ -3486,10 +3486,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Thu, 06 Nov 2014 16:24:00 -0500</pubDate>
+        <pubDate>Thu, 06 Nov 2014 21:24:00 +0000</pubDate>
         <link>
-        http://randyzwitch.com/twitter-breakoutdetection-r-package-evaluation/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/twitter-breakoutdetection-r-package-evaluation/</guid>
+        http://localhost:4000/twitter-breakoutdetection-r-package-evaluation/</link>
+        <guid isPermaLink="true">http://localhost:4000/twitter-breakoutdetection-r-package-evaluation/</guid>
         <content type="html" xml:base="/twitter-breakoutdetection-r-package-evaluation/">&lt;p&gt;A couple of weeks ago, Twitter open-sourced their &lt;a href=&quot;https://blog.twitter.com/2014/breakout-detection-in-the-wild&quot;&gt;BreakoutDetection&lt;/a&gt; package for R, a package designed to determine shifts in time-series data. The &lt;a href=&quot;https://blog.twitter.com/2014/breakout-detection-in-the-wild&quot;&gt;Twitter announcement&lt;/a&gt; does a great job of explaining the main technique for detection (E-Divisive with Medians), so I won’t rehash that material here. Rather, I wanted to see how this package works relative to the &lt;a href=&quot;http://randyzwitch.com/anomaly-detection-adobe-analytics-api/&quot;&gt;anomaly detection&lt;/a&gt; feature in the Adobe Analytics API, which I’ve &lt;a href=&quot;http://randyzwitch.com/anomaly-detection-adobe-analytics-api/&quot;&gt;written about previously&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;getting-time-series-data-using-rsitecatalyst&quot;&gt;Getting Time-Series Data Using RSiteCatalyst&lt;/h2&gt;
@@ -3585,10 +3585,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Wed, 10 Sep 2014 17:27:10 -0400</pubDate>
+        <pubDate>Wed, 10 Sep 2014 21:27:10 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-website-pathing-sankey-charts/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-website-pathing-sankey-charts/</guid>
+        http://localhost:4000/rsitecatalyst-website-pathing-sankey-charts/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-website-pathing-sankey-charts/</guid>
         <content type="html" xml:base="/rsitecatalyst-website-pathing-sankey-charts/">&lt;p&gt;In my prior post on &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-d3-network-graphs/&quot; title=&quot;Visualizing Website Structure With Network Graphs&quot;&gt;visualizing website structure using network graphs&lt;/a&gt;, I referenced that network graphs showed the pairwise relationships between two pages (in a bi-directional manner). However, if you want to analyze how your visitors are pathing through your site, you can visualize your data using a Sankey chart.&lt;/p&gt;
 
 &lt;h2 id=&quot;visualizing-single-page-to-next-page-pathing&quot;&gt;Visualizing Single Page-to-Next Page Pathing&lt;/h2&gt;
@@ -3718,10 +3718,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Tue, 09 Sep 2014 04:01:39 -0400</pubDate>
+        <pubDate>Tue, 09 Sep 2014 08:01:39 +0000</pubDate>
         <link>
-        http://randyzwitch.com/creating-stacked-bar-chart-seaborn/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/creating-stacked-bar-chart-seaborn/</guid>
+        http://localhost:4000/creating-stacked-bar-chart-seaborn/</link>
+        <guid isPermaLink="true">http://localhost:4000/creating-stacked-bar-chart-seaborn/</guid>
         <content type="html" xml:base="/creating-stacked-bar-chart-seaborn/">&lt;p&gt;The other day I was having a heck of a time trying to figure out how to make a stacked bar chart in Seaborn. But in true open-source/community fashion, I ended up getting a response from the creator of Seaborn via Twitter:&lt;/p&gt;
 
 &lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot; data-conversation=&quot;none&quot;&gt;
@@ -3844,10 +3844,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 08 Sep 2014 02:40:38 -0400</pubDate>
+        <pubDate>Mon, 08 Sep 2014 06:40:38 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-d3-network-graphs/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-d3-network-graphs/</guid>
+        http://localhost:4000/rsitecatalyst-d3-network-graphs/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-d3-network-graphs/</guid>
         <content type="html" xml:base="/rsitecatalyst-d3-network-graphs/">&lt;p&gt;Last week, &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/&quot;&gt;version 1.4 of RSiteCatalyst&lt;/a&gt; was released, and now it’s possible to get site pathing information directly within R. Now, it’s easy to create impressive looking network graphs from your Adobe Analytics data using &lt;a href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot;&gt;RSiteCatalyst&lt;/a&gt; and &lt;a href=&quot;http://cran.r-project.org/web/packages/d3Network/index.html&quot;&gt;d3Network&lt;/a&gt;. In this blog post, I will cover simple and force-directed network graphs, which show the pairwise representation between pages. In a follow-up blog post, I will show how to visualize longer paths using &lt;a href=&quot;http://www.sankey-diagrams.com/&quot;&gt;Sankey diagrams&lt;/a&gt;, also from the d3Network package.&lt;/p&gt;
 
 &lt;h2 id=&quot;obtainingpathing-data-with-queuepathing&quot;&gt;Obtaining Pathing Data With QueuePathing&lt;/h2&gt;
@@ -4124,10 +4124,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 01 Sep 2014 16:30:14 -0400</pubDate>
+        <pubDate>Mon, 01 Sep 2014 20:30:14 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-4-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-4-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-4-release-notes/">&lt;p&gt;It felt like it would never happen, but &lt;a href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot;&gt;RSiteCatalyst v1.4&lt;/a&gt; is now available on CRAN! There are numerous changes in this version of the package, so unlike previous posts, there won’t be any code examples.&lt;/p&gt;
 
 &lt;h2 id=&quot;this-version-is-one-big-breaking-change&quot;&gt;THIS VERSION IS ONE BIG BREAKING CHANGE&lt;/h2&gt;
@@ -4176,10 +4176,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Fri, 29 Aug 2014 11:16:24 -0400</pubDate>
+        <pubDate>Fri, 29 Aug 2014 15:16:24 +0000</pubDate>
         <link>
-        http://randyzwitch.com/visualizing-analytics-languages-venneuler-jl/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/visualizing-analytics-languages-venneuler-jl/</guid>
+        http://localhost:4000/visualizing-analytics-languages-venneuler-jl/</link>
+        <guid isPermaLink="true">http://localhost:4000/visualizing-analytics-languages-venneuler-jl/</guid>
         <content type="html" xml:base="/visualizing-analytics-languages-venneuler-jl/">&lt;p&gt;It often doesn’t take much to get me off track, and on a holiday weekend…well, I was just begging for a fun way to shirk. Enter Harlan Harris:&lt;/p&gt;
 
 &lt;blockquote class=&quot;twitter-tweet&quot; data-cards=&quot;hidden&quot; data-partner=&quot;tweetdeck&quot;&gt;
@@ -4311,10 +4311,10 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 </description>
         
-        <pubDate>Mon, 14 Jul 2014 08:01:10 -0400</pubDate>
+        <pubDate>Mon, 14 Jul 2014 12:01:10 +0000</pubDate>
         <link>
-        http://randyzwitch.com/string-interpolation-julia/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/string-interpolation-julia/</guid>
+        http://localhost:4000/string-interpolation-julia/</link>
+        <guid isPermaLink="true">http://localhost:4000/string-interpolation-julia/</guid>
         <content type="html" xml:base="/string-interpolation-julia/">&lt;p&gt;In a previous post, I showed how I frequently use &lt;a href=&quot;http://randyzwitch.com/julia-odbc-jl/&quot;&gt;Julia as a ‘glue’ language&lt;/a&gt; to connect multiple systems in a complicated data pipeline. For this blog post, I will show two more examples where I use Julia for general programming, rather than for computationally-intense programs.&lt;/p&gt;
 
 &lt;h2 id=&quot;string-buildingintroduction&quot;&gt;String Building: Introduction&lt;/h2&gt;
@@ -4587,10 +4587,10 @@ group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Thu, 26 Jun 2014 07:18:36 -0400</pubDate>
+        <pubDate>Thu, 26 Jun 2014 11:18:36 +0000</pubDate>
         <link>
-        http://randyzwitch.com/r-language-oddities/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/r-language-oddities/</guid>
+        http://localhost:4000/r-language-oddities/</link>
+        <guid isPermaLink="true">http://localhost:4000/r-language-oddities/</guid>
         <content type="html" xml:base="/r-language-oddities/">&lt;p&gt;Lately, I’ve been feeling that I’m spreading myself too thin in terms of programming languages. At work, I spend most of my time in &lt;a title=&quot;Hive blog posts&quot; href=&quot;http://randyzwitch.com/tags/#hive&quot; target=&quot;_blank&quot;&gt;Hive&lt;/a&gt;/SQL, with the occasional Python for my smaller data. I really prefer &lt;a href=&quot;http://randyzwitch.com/tags/#julia&quot;&gt;Julia&lt;/a&gt;, but I’m alone at work on that one. And since I maintain a package on CRAN (&lt;a title=&quot;RSiteCatalyst&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;), I frequently spend my evenings bug fix programming in R. Then, there’s the desire to learn a Java-based language like Scala (or, Java)…maybe Spark for my Hadoop work…&lt;/p&gt;
 
 &lt;p&gt;So last night, when I ran into this series of follies with R, it really makes me wonder if I really understand how R works.&lt;/p&gt;
@@ -4708,10 +4708,10 @@ group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Tue, 24 Jun 2014 04:57:31 -0400</pubDate>
+        <pubDate>Tue, 24 Jun 2014 08:57:31 +0000</pubDate>
         <link>
-        http://randyzwitch.com/julia-odbc-jl/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/julia-odbc-jl/</guid>
+        http://localhost:4000/julia-odbc-jl/</link>
+        <guid isPermaLink="true">http://localhost:4000/julia-odbc-jl/</guid>
         <content type="html" xml:base="/julia-odbc-jl/">&lt;p&gt;While much of the focus in the Julia community has been on the performance aspects of Julia relative to other scientific computing languages, Julia is also perfectly suited to ‘glue’ together multiple data sources/languages. In this blog post, I will cover how to create an interactive plot using &lt;a title=&quot;Gadfly.jl documentation&quot; href=&quot;http://dcjones.github.io/Gadfly.jl/&quot; target=&quot;_blank&quot;&gt;Gadfly.jl&lt;/a&gt;, by first preparing the data using Hadoop and &lt;a title=&quot;Teradata Aster&quot; href=&quot;http://www.asterdata.com/&quot; target=&quot;_blank&quot;&gt;Teradata Aster&lt;/a&gt; via &lt;a title=&quot;Julia ODBC&quot; href=&quot;https://github.com/quinnj/ODBC.jl&quot; target=&quot;_blank&quot;&gt;ODBC.jl&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The example problem I am going to solve is calculating and visualizing the number of airplanes by hour in the air at any given time in the U.S. for the year 1987. Because of the structure and storage of the underlying data, I will need to write some custom Hive code, upload the data to Teradata Aster via a command-line utility, re-calculate the number of flights per hour using a built-in Aster function, then using Julia to visualize the data.&lt;/p&gt;
@@ -5018,15 +5018,15 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Thu, 12 Jun 2014 09:01:18 -0400</pubDate>
+        <pubDate>Thu, 12 Jun 2014 13:01:18 +0000</pubDate>
         <link>
-        http://randyzwitch.com/hive-five-hard-won-lessons/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/hive-five-hard-won-lessons/</guid>
+        http://localhost:4000/hive-five-hard-won-lessons/</link>
+        <guid isPermaLink="true">http://localhost:4000/hive-five-hard-won-lessons/</guid>
         <content type="html" xml:base="/hive-five-hard-won-lessons/">&lt;p&gt;&lt;em&gt;EDIT, 9/8/2016: Hive has come a long way in the two years since I’ve written this. While some of the code snippets might still work, it’s likely the case that this information is so out-of-date to be nothing more than a reflection of working with Hadoop in 2014.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;I’ve been spending a ton of time lately on the data &lt;em&gt;engineering&lt;/em&gt; side of ‘data science’, so I’ve been writing a lot of Hive queries. Hive is a great tool for querying large amounts of data, without having to know very much about the underpinnings of Hadoop. Unfortunately, there are a lot of things about Hive (version 0.12 and before) that aren’t quite the same as SQL and have caused me a bunch of frustration; here they are, in no particular order.&lt;/p&gt;
 
-&lt;h2 id=&quot;set-hive-temp-directory-tosame-as-final-output-directory&quot;&gt;1. Set Hive Temp directory To Same As Final Output Directory&lt;/h2&gt;
+&lt;h2 id=&quot;1-set-hive-temp-directory-tosame-as-final-output-directory&quot;&gt;1. Set Hive Temp directory To Same As Final Output Directory&lt;/h2&gt;
 
 &lt;p&gt;When doing a “Create Table As” (CTAS) statement in Hive, &lt;a title=&quot;Hive scratch directory&quot; href=&quot;http://doc.mapr.com/display/MapR/Hive#Hive-HiveScratchDirectory&quot; target=&quot;_blank&quot;&gt;Hive allocates temp space for the Map and Reduce portions of the job&lt;/a&gt;. If you’re not lucky, the temp space for the job will be somewhere different than where your table actually ends up being saved, resulting in TWO I/O operations instead of just one. This can lead to a painful delay in when your Hive job says it is finished vs. when the table becomes available (one time, I saw a 30 hour delay writing 5TB of data).&lt;/p&gt;
 
@@ -5034,13 +5034,13 @@ order by 1,2;&quot;&lt;/span&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;hive.optimize.insert.dest.volume&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;column-aliasing-in-group-byorder-by&quot;&gt;2. Column Aliasing In Group By/Order By&lt;/h2&gt;
+&lt;h2 id=&quot;2column-aliasing-in-group-byorder-by&quot;&gt;2. Column Aliasing In Group By/Order By&lt;/h2&gt;
 
 &lt;p&gt;Not sure why this isn’t a default, but if you want to be able to reference your column names by position (i.e. &lt;code class=&quot;highlighter-rouge&quot;&gt;group by 1,2&lt;/code&gt;) instead of by name (i.e. &lt;code class=&quot;highlighter-rouge&quot;&gt;group by name, age&lt;/code&gt;), then run this at the beginning of your session:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;hive.groupby.orderby.position.alias&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;be-aware-of-predicate-push-down-rules&quot;&gt;3. Be Aware Of Predicate Push-Down Rules&lt;/h2&gt;
+&lt;h2 id=&quot;3-be-aware-of-predicate-push-down-rules&quot;&gt;3. Be Aware Of Predicate Push-Down Rules&lt;/h2&gt;
 
 &lt;p&gt;In Hive, you can get great performance gains if you A) partition your table by commonly used columns/business concepts (i.e. Day, State, Market, etc.) and B) you use the partitions in a &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt; clause. These are known as &lt;a href=&quot;https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Select#LanguageManualSelect-PartitionBasedQueries&quot;&gt;partition-based queries&lt;/a&gt;. Otherwise, if you don’t use a partition in your &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt; clause, you will get a full table scan.&lt;/p&gt;
 
@@ -5081,7 +5081,7 @@ order by 1,2;&quot;&lt;/span&gt;
 
 &lt;p&gt;If you don’t want to think about the different rules, you can generally put your limiting clauses inside your &lt;code class=&quot;highlighter-rouge&quot;&gt;JOIN&lt;/code&gt; clause instead of on your &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt; clause. It &lt;em&gt;should&lt;/em&gt; just be a matter of preference (until your query performance indicates it isn’t!)&lt;/p&gt;
 
-&lt;h2 id=&quot;calculate-and-append-percentiles-using-cross-join&quot;&gt;4. Calculate And Append Percentiles Using CROSS JOIN&lt;/h2&gt;
+&lt;h2 id=&quot;4-calculate-and-append-percentiles-using-cross-join&quot;&gt;4. Calculate And Append Percentiles Using CROSS JOIN&lt;/h2&gt;
 
 &lt;p&gt;Suppose you want to calculate the top 10% of your customers by sales. If you try to do the following, Hive will complain about needing a &lt;code class=&quot;highlighter-rouge&quot;&gt;GROUP BY&lt;/code&gt;, because &lt;code class=&quot;highlighter-rouge&quot;&gt;percentile_approx()&lt;/code&gt; is a summary function:&lt;/p&gt;
 
@@ -5100,7 +5100,7 @@ order by 1,2;&quot;&lt;/span&gt;
 
 &lt;p&gt;To get around the the need for a &lt;code class=&quot;highlighter-rouge&quot;&gt;GROUP BY&lt;/code&gt;, we can use a &lt;code class=&quot;highlighter-rouge&quot;&gt;CROSS JOIN&lt;/code&gt;. A &lt;code class=&quot;highlighter-rouge&quot;&gt;CROSS JOIN&lt;/code&gt; is another name for a Cartesian Join, meaning all of the rows from the first table will be joined to ALL of the rows of the second table. Because the subquery only returns one row, the &lt;code class=&quot;highlighter-rouge&quot;&gt;CROSS JOIN&lt;/code&gt; provides the desired affect of joining the percentile values back to the original table while keeping the same number of rows from the original table. Generally, you don’t want to do a &lt;code class=&quot;highlighter-rouge&quot;&gt;CROSS JOIN&lt;/code&gt; (because relational data generally is joined on a key), but this is a good use case.&lt;/p&gt;
 
-&lt;h2 id=&quot;calculating-a-histogram&quot;&gt;5.  Calculating a Histogram&lt;/h2&gt;
+&lt;h2 id=&quot;5-calculating-a-histogram&quot;&gt;5.  Calculating a Histogram&lt;/h2&gt;
 
 &lt;p&gt;Creating a histogram using Hive should be as simple as calling the &lt;a href=&quot;https://cwiki.apache.org/confluence/display/Hive/StatisticsAndDataMining#StatisticsAndDataMining-histogram_numeric():Estimatingfrequencydistributions&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;histogram_numeric()&lt;/code&gt;&lt;/a&gt; function. However, the syntax and results of this function are just plain weird. To create a histogram, you can run the following:&lt;/p&gt;
 
@@ -5196,10 +5196,10 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Tue, 13 May 2014 09:27:39 -0400</pubDate>
+        <pubDate>Tue, 13 May 2014 13:27:39 +0000</pubDate>
         <link>
-        http://randyzwitch.com/r-json-jsonlite-sprintf-paste/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/r-json-jsonlite-sprintf-paste/</guid>
+        http://localhost:4000/r-json-jsonlite-sprintf-paste/</link>
+        <guid isPermaLink="true">http://localhost:4000/r-json-jsonlite-sprintf-paste/</guid>
         <content type="html" xml:base="/r-json-jsonlite-sprintf-paste/">&lt;p&gt;When I set out to build &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst&quot;&gt;RSiteCatalyst&lt;/a&gt;, I had a few major goals: learn R, build &lt;a href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot;&gt;CRAN&lt;/a&gt;-worthy package and learn the &lt;a href=&quot;https://marketing.adobe.com/developer/en_US/documentation&quot;&gt;Adobe Analytics API&lt;/a&gt;. As I reflect back on how the package has evolved over the past two years and what I’ve learned, I think my greatest learning was around how to deal with JSON (and strings in general).  &lt;/p&gt;
 
 &lt;p&gt;JSON is ubiquitous as a data-transfer mechanism over the web, and R does a decent job providing the functionality to not only read JSON but also to create JSON. There are at least three methods I know of to build JSON strings, and this post will cover the pros and cons of each method.&lt;/p&gt;
@@ -5313,10 +5313,10 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Fri, 25 Apr 2014 10:05:57 -0400</pubDate>
+        <pubDate>Fri, 25 Apr 2014 14:05:57 +0000</pubDate>
         <link>
-        http://randyzwitch.com/sql-workbench-apache-hadoop-hive/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/sql-workbench-apache-hadoop-hive/</guid>
+        http://localhost:4000/sql-workbench-apache-hadoop-hive/</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-workbench-apache-hadoop-hive/</guid>
         <content type="html" xml:base="/sql-workbench-apache-hadoop-hive/">&lt;p&gt;If you’ve spent any non-trivial amount of time working with Hadoop and Hive at the command line, you’ve likely wished that you could interact with Hadoop like you would any other database. If you’re lucky, your Hadoop administrator has already installed the &lt;a href=&quot;http://gethue.com/&quot;&gt;Apache Hue&lt;/a&gt; front-end to your cluster, which allows for &lt;a href=&quot;http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/&quot;&gt;interacting with Hadoop via an easy-to-use browser interface&lt;/a&gt;. However, if you don’t have Hue, Hive also supports access via JDBC; the downside is, setup is not as easy as including a single JDBC driver.&lt;/p&gt;
 
 &lt;p&gt;While there are paid database administration tools such as &lt;a href=&quot;http://www.aquafold.com/dbspecific/apache_hive_client.html&quot;&gt;Aqua Data Studio&lt;/a&gt; that support Hive, I’m an open source kind of guy, so this tutorial will show you how to use &lt;a href=&quot;http://www.sql-workbench.net/&quot;&gt;SQL Workbench&lt;/a&gt; to access Hive via JDBC. This tutorial assumes that you are proficient enough to get SQL Workbench installed on whatever computing platform you are using (Windows, OSX, or Linux).&lt;/p&gt;
@@ -5386,10 +5386,10 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Mon, 10 Mar 2014 07:28:21 -0400</pubDate>
+        <pubDate>Mon, 10 Mar 2014 11:28:21 +0000</pubDate>
         <link>
-        http://randyzwitch.com/real-time-reporting-adobe-analytics-api/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/real-time-reporting-adobe-analytics-api/</guid>
+        http://localhost:4000/real-time-reporting-adobe-analytics-api/</link>
+        <guid isPermaLink="true">http://localhost:4000/real-time-reporting-adobe-analytics-api/</guid>
         <content type="html" xml:base="/real-time-reporting-adobe-analytics-api/">&lt;p&gt;Starting with &lt;a href=&quot;http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/&quot;&gt;version 1.3.1 of RSiteCatalyst&lt;/a&gt;, you can now access the &lt;a href=&quot;https://developer.omniture.com/en_US/documentation/sitecatalyst-reporting/c-real-time#concept_AD1D9EC2BC9C4897B9DE3C99D0066B8E&quot;&gt;real-time reporting capabilities of the Adobe Analytics API&lt;/a&gt; through a familiar R interface. Here’s how to get started…&lt;/p&gt;
 
 &lt;h2 id=&quot;getrealtimeconfiguration&quot;&gt;GetRealTimeConfiguration&lt;/h2&gt;
@@ -5493,10 +5493,10 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Tue, 04 Feb 2014 04:44:19 -0500</pubDate>
+        <pubDate>Tue, 04 Feb 2014 09:44:19 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-3-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-3-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-3-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-3-release-notes/">&lt;p&gt;Version 1.3 of the RSiteCatalyst package to access the Adobe Analytics API is now available on CRAN! Changes include:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -5615,10 +5615,10 @@ order by 1,2;&quot;&lt;/span&gt;
 
 </description>
         
-        <pubDate>Sun, 12 Jan 2014 15:25:32 -0500</pubDate>
+        <pubDate>Sun, 12 Jan 2014 20:25:32 +0000</pubDate>
         <link>
-        http://randyzwitch.com/getting-started-hadoop-hive-pig/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/getting-started-hadoop-hive-pig/</guid>
+        http://localhost:4000/getting-started-hadoop-hive-pig/</link>
+        <guid isPermaLink="true">http://localhost:4000/getting-started-hadoop-hive-pig/</guid>
         <content type="html" xml:base="/getting-started-hadoop-hive-pig/">&lt;p&gt;We’ve finally made it to the final post in this tutorial! In my prior posts about getting started with &lt;a title=&quot;Hadoop posts&quot; href=&quot;http://randyzwitch.com/tags/#hadoop&quot; target=&quot;_blank&quot;&gt;Hadoop&lt;/a&gt;, we’ve covered the entire lifecycle from how to set up a small cluster using Amazon EC2 and Cloudera through how to load data using Hue. With our data loaded in HDFS, we can finally move on to the actual analysis portion of the &lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;airline dataset&lt;/a&gt; using Hive and Pig.&lt;/p&gt;
 
 &lt;h2 id=&quot;basic-descriptive-statistics-using-hive&quot;&gt;Basic Descriptive Statistics Using Hive&lt;/h2&gt;
@@ -5698,10 +5698,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 02 Jan 2014 08:58:51 -0500</pubDate>
+        <pubDate>Thu, 02 Jan 2014 13:58:51 +0000</pubDate>
         <link>
-        http://randyzwitch.com/creating-dummy-variables-data-frame-r/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/creating-dummy-variables-data-frame-r/</guid>
+        http://localhost:4000/creating-dummy-variables-data-frame-r/</link>
+        <guid isPermaLink="true">http://localhost:4000/creating-dummy-variables-data-frame-r/</guid>
         <content type="html" xml:base="/creating-dummy-variables-data-frame-r/">&lt;p&gt;On Quora, a question was asked about how to fix the error of the &lt;a title=&quot;Error in Random Forest 32 levels categorical variable&quot; href=&quot;https://www.quora.com/Random-Forests/How-can-I-fix-the-error-in-the-package-randomForest&quot; target=&quot;_blank&quot;&gt;randomForest package in R not being able to handle more than 32 levels in a categorical variable&lt;/a&gt;. Seeing as how I’ve seen this question asked on Kaggle forums, StackOverflow and elsewhere, here’s the answer: code your own &lt;em&gt;dummy variables&lt;/em&gt; instead of relying on Factors!&lt;/p&gt;
 
 &lt;h2 id=&quot;code-snippet&quot;&gt;Code snippet&lt;/h2&gt;
@@ -5758,10 +5758,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Mon, 09 Dec 2013 04:46:30 -0500</pubDate>
+        <pubDate>Mon, 09 Dec 2013 09:46:30 +0000</pubDate>
         <link>
-        http://randyzwitch.com/adobe-analytics-implementation-documentation/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/adobe-analytics-implementation-documentation/</guid>
+        http://localhost:4000/adobe-analytics-implementation-documentation/</link>
+        <guid isPermaLink="true">http://localhost:4000/adobe-analytics-implementation-documentation/</guid>
         <content type="html" xml:base="/adobe-analytics-implementation-documentation/">&lt;p&gt;When I was working as a digital analytics consultant, no question quite had the ability to cause belly laughs AND angst as, “Can you send me an updated copy of your implementation documentation?” I saw companies that were spending six-or-seven-figures annually on their analytics infrastructure, multi-millions in salary for employees and yet the only way to understand what data they were collecting was to inspect their JavaScript code.&lt;/p&gt;
 
 &lt;p&gt;Luckily for Adobe Analytics customers, the API provides a means of generating the framework for a properly-documented implementation. Here’s how to do it using &lt;a title=&quot;RSiteCatalyst CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt;.&lt;/p&gt;
@@ -5867,10 +5867,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 21 Nov 2013 15:13:11 -0500</pubDate>
+        <pubDate>Thu, 21 Nov 2013 20:13:11 +0000</pubDate>
         <link>
-        http://randyzwitch.com/ipython-notebook-amazon-ec2/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/ipython-notebook-amazon-ec2/</guid>
+        http://localhost:4000/ipython-notebook-amazon-ec2/</link>
+        <guid isPermaLink="true">http://localhost:4000/ipython-notebook-amazon-ec2/</guid>
         <content type="html" xml:base="/ipython-notebook-amazon-ec2/">&lt;p&gt;Last week, I wrote a guest blog post at &lt;a title=&quot;Guest post at Bad Hessian&quot; href=&quot;http://badhessian.org/2013/11/cluster-computing-for-027hr-using-amazon-ec2-and-ipython-notebook/&quot; target=&quot;_blank&quot;&gt;Bad Hessian&lt;/a&gt; about how to use IPython Notebook along with Amazon EC2 as your data science &amp;amp; analytics platform. I won’t reproduce the whole article here, but if you are interested in step-by-step instruction on how to setup an Amazon EC2 instance to use IPython Notebook, see the SlideShare presentation below which outlines the steps needed to setup a remote IPython Notebook environment (or, &lt;a title=&quot;amazon-ec2-ipython-installation PDF&quot; href=&quot;http://randyzwitch.com/wp-content/uploads/2013/11/cluster-computing-ipython-ec2.pdf&quot; target=&quot;_blank&quot;&gt;PDF download&lt;/a&gt;).&lt;/p&gt;
 
 &lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/28501345&quot; width=&quot;476&quot; height=&quot;400&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
@@ -5996,10 +5996,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 19 Nov 2013 03:48:18 -0500</pubDate>
+        <pubDate>Tue, 19 Nov 2013 08:48:18 +0000</pubDate>
         <link>
-        http://randyzwitch.com/line-numbers-ipython-notebook/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/line-numbers-ipython-notebook/</guid>
+        http://localhost:4000/line-numbers-ipython-notebook/</link>
+        <guid isPermaLink="true">http://localhost:4000/line-numbers-ipython-notebook/</guid>
         <content type="html" xml:base="/line-numbers-ipython-notebook/">&lt;p&gt;Lately, I’ve been using Jupyter Notebooks for all of my Python and Julia coding. The ability to develop and submit small snippets of code and create plots inline is just so useful that it has broken the stranglehold of using an IDE while I’m coding. However, the one thing that was missing for a smooth transition was line numbers in the cells; luckily, this can be achieved in two ways.&lt;/p&gt;
 
 &lt;h2 id=&quot;keyboard-shortcut&quot;&gt;Keyboard Shortcut&lt;/h2&gt;
@@ -6048,10 +6048,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 05 Nov 2013 03:29:16 -0500</pubDate>
+        <pubDate>Tue, 05 Nov 2013 08:29:16 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-2-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-2-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-2-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-2-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-2-release-notes/">&lt;p&gt;Version 1.2 of the &lt;a title=&quot;RSiteCatalyst CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst&lt;/a&gt; package to access the Adobe Analytics API is now available on CRAN! Changes include:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -6098,10 +6098,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 17 Sep 2013 10:41:01 -0400</pubDate>
+        <pubDate>Tue, 17 Sep 2013 14:41:01 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-k-means-clustering/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-k-means-clustering/</guid>
+        http://localhost:4000/rsitecatalyst-k-means-clustering/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-k-means-clustering/</guid>
         <content type="html" xml:base="/rsitecatalyst-k-means-clustering/">&lt;p&gt;One of the key tenets to doing impactful digital analysis is understanding what your visitors are trying to accomplish. One of the easiest methods to do this is by analyzing the words your visitors use to arrive on site (search keywords) and what words they are using while on the site (on-site search). &lt;/p&gt;
 
 &lt;p&gt;Although Google has made it much more difficult to analyze search keywords over the past several years (due to their passing of &lt;a title=&quot;(not provided): Using R and the Google Analytics API&quot; href=&quot;http://randyzwitch.com/r-google-analytics-api/&quot; target=&quot;_blank&quot;&gt;“(not provided)”&lt;/a&gt; instead of the actual keywords), we can create customer intent segments based on the keywords that are still being passed using unsupervised clustering methods such as k-means clustering.&lt;/p&gt;
@@ -6220,11 +6220,13 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 &lt;h2 id=&quot;guessing-at-k-a-first-run-at-clustering&quot;&gt;Guessing at ‘k’: A First Run at Clustering&lt;/h2&gt;
 
 &lt;p&gt;Once we have our data set up, we can very quickly run the k-means algorithm within R. The one downside to using k-means clustering as a technique is that the user must choose ‘k’, the number of clusters expected from the dataset. In absence of any heuristics about what ‘k’ to use, I can guess that there are five topics on this blog:
-1. Data Science
-2. Digital Analytics  
-3. R
-4. Julia
-5. WordPress&lt;/p&gt;
+1. Data Science&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Digital Analytics  &lt;/li&gt;
+  &lt;li&gt;R&lt;/li&gt;
+  &lt;li&gt;Julia&lt;/li&gt;
+  &lt;li&gt;WordPress&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;Running the following code, we can see if the algorithm agrees:&lt;/p&gt;
 
@@ -6322,10 +6324,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Mon, 02 Sep 2013 15:57:45 -0400</pubDate>
+        <pubDate>Mon, 02 Sep 2013 19:57:45 +0000</pubDate>
         <link>
-        http://randyzwitch.com/python-pypy-julia-r-pqr-jit-just-in-time-compiler/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/python-pypy-julia-r-pqr-jit-just-in-time-compiler/</guid>
+        http://localhost:4000/python-pypy-julia-r-pqr-jit-just-in-time-compiler/</link>
+        <guid isPermaLink="true">http://localhost:4000/python-pypy-julia-r-pqr-jit-just-in-time-compiler/</guid>
         <content type="html" xml:base="/python-pypy-julia-r-pqr-jit-just-in-time-compiler/">&lt;p&gt;Recently I’ve been spending a lot of time trying to learn &lt;a title=&quot;Julia language&quot; href=&quot;http://julialang.org/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt; by doing the problems at &lt;a title=&quot;Project Euler&quot; href=&quot;http://projecteuler.net/&quot; target=&quot;_blank&quot;&gt;Project Euler&lt;/a&gt;. What’s great about these problems is that it gets me out of my normal design patterns, since I don’t generally think about prime numbers, factorials and other number theory problems during my normal workday. These problems have also given me the opportunity to really think about how computers work, since Julia allows the programmer to pass type declarations to the just-in-time compiler (JIT).&lt;/p&gt;
 
 &lt;p&gt;As I’ve been working on optimizing my Julia code, I decided to figure out how fast this problem can be solved using any of the languages/techniques I know. So I decided to benchmark one of the Project Euler problems using &lt;a title=&quot;Julia language&quot; href=&quot;http://julialang.org/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt;, &lt;a title=&quot;Python language&quot; href=&quot;http://python.org/&quot; target=&quot;_blank&quot;&gt;Python&lt;/a&gt;, &lt;a title=&quot;Numba&quot; href=&quot;http://numba.pydata.org/&quot; target=&quot;_blank&quot;&gt;Python with Numba&lt;/a&gt;, &lt;a title=&quot;Pypy&quot; href=&quot;http://pypy.org/&quot; target=&quot;_blank&quot;&gt;PyPy&lt;/a&gt;, &lt;a title=&quot;R&quot; href=&quot;http://cran.us.r-project.org/&quot; target=&quot;_blank&quot;&gt;R&lt;/a&gt;, R using the &lt;a title=&quot;R compiler&quot; href=&quot;http://stat.ethz.ch/R-manual/R-devel/library/compiler/html/compile.html&quot; target=&quot;_blank&quot;&gt;compiler&lt;/a&gt; package, &lt;a title=&quot;pqR&quot; href=&quot;http://radfordneal.wordpress.com/2013/06/22/announcing-pqr-a-faster-version-of-r/&quot; target=&quot;_blank&quot;&gt;pqR&lt;/a&gt; and pqR using the compiler package. Here’s what I found…&lt;/p&gt;
@@ -6405,10 +6407,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Sun, 25 Aug 2013 09:54:32 -0400</pubDate>
+        <pubDate>Sun, 25 Aug 2013 13:54:32 +0000</pubDate>
         <link>
-        http://randyzwitch.com/rsitecatalyst-version-1-1-release-notes/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/rsitecatalyst-version-1-1-release-notes/</guid>
+        http://localhost:4000/rsitecatalyst-version-1-1-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-1-release-notes/</guid>
         <content type="html" xml:base="/rsitecatalyst-version-1-1-release-notes/">&lt;p&gt;&lt;a title=&quot;RSiteCatalyst on CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/RSiteCatalyst/index.html&quot; target=&quot;_blank&quot;&gt;RSiteCatalyst &lt;/a&gt;version 1.1 is now available on CRAN. Changes from version 1 include:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -6430,10 +6432,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 22 Aug 2013 14:03:19 -0400</pubDate>
+        <pubDate>Thu, 22 Aug 2013 18:03:19 +0000</pubDate>
         <link>
-        http://randyzwitch.com/hadoop-creating-tables-hive/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/hadoop-creating-tables-hive/</guid>
+        http://localhost:4000/hadoop-creating-tables-hive/</link>
+        <guid isPermaLink="true">http://localhost:4000/hadoop-creating-tables-hive/</guid>
         <content type="html" xml:base="/hadoop-creating-tables-hive/">&lt;p&gt;In the previous three tutorials (&lt;a title=&quot;Hadoop for beginners&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot; target=&quot;_blank&quot;&gt;1&lt;/a&gt;, &lt;a title=&quot;Building Hadoop cluster on Amazon EC2&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/&quot; target=&quot;_blank&quot;&gt;2&lt;/a&gt;, &lt;a title=&quot;Loading data Hadoop Hue&quot; href=&quot;http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/&quot; target=&quot;_blank&quot;&gt;3&lt;/a&gt;), we’ve covered the background of Hadoop, how to build a proof-of-concept Hadoop cluster using Amazon EC2 and how to upload a .zip file to the cluster using Hue. In Part 4, we’ll use the data uploaded from the .zip file to create a master table of all files, as well as creating a view.&lt;/p&gt;
 
 &lt;h2 id=&quot;creating-tables-using-hive&quot;&gt;Creating Tables Using Hive&lt;/h2&gt;
@@ -6544,10 +6546,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 15 Aug 2013 06:57:56 -0400</pubDate>
+        <pubDate>Thu, 15 Aug 2013 10:57:56 +0000</pubDate>
         <link>
-        http://randyzwitch.com/anomaly-detection-adobe-analytics-api/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/anomaly-detection-adobe-analytics-api/</guid>
+        http://localhost:4000/anomaly-detection-adobe-analytics-api/</link>
+        <guid isPermaLink="true">http://localhost:4000/anomaly-detection-adobe-analytics-api/</guid>
         <content type="html" xml:base="/anomaly-detection-adobe-analytics-api/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2013/08/anomaly-detection-adobe-analytics.jpg&quot; alt=&quot;anomaly-detection-adobe-analytics&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As digital marketers &amp;amp; analysts, we’re often asked to quantify when a metric goes beyond just random variation and becomes an actual “unexpected” result. In cases such as &lt;em&gt;A/B..N&lt;/em&gt; testing, it’s easy to calculate a t-test to quantify the difference between two testing populations, but &lt;a title=&quot;Why t-test not appropriate for time-series&quot; href=&quot;http://www.indiana.edu/~statmath/stat/all/ttest/ttest1.html&quot; target=&quot;_blank&quot;&gt;for time-series metrics, using a t-test is likely not appropriate&lt;/a&gt;.&lt;/p&gt;
@@ -6630,10 +6632,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 06 Aug 2013 06:05:38 -0400</pubDate>
+        <pubDate>Tue, 06 Aug 2013 10:05:38 +0000</pubDate>
         <link>
-        http://randyzwitch.com/julia-import-data/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/julia-import-data/</guid>
+        http://localhost:4000/julia-import-data/</link>
+        <guid isPermaLink="true">http://localhost:4000/julia-import-data/</guid>
         <content type="html" xml:base="/julia-import-data/">&lt;p&gt;Importing tabular data into Julia can be done in (at least) three ways: reading a delimited file into an array, reading a delimited file into a DataFrame and accessing databases using ODBC.&lt;/p&gt;
 
 &lt;h3 id=&quot;reading-a-file-into-an-array-using-readdlm&quot;&gt;Reading a file into an array using readdlm&lt;/h3&gt;
@@ -6800,10 +6802,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Wed, 31 Jul 2013 08:34:58 -0400</pubDate>
+        <pubDate>Wed, 31 Jul 2013 12:34:58 +0000</pubDate>
         <link>
-        http://randyzwitch.com/amazon-elastic-map-reduce-mrjob-python/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/amazon-elastic-map-reduce-mrjob-python/</guid>
+        http://localhost:4000/amazon-elastic-map-reduce-mrjob-python/</link>
+        <guid isPermaLink="true">http://localhost:4000/amazon-elastic-map-reduce-mrjob-python/</guid>
         <content type="html" xml:base="/amazon-elastic-map-reduce-mrjob-python/">&lt;p&gt;In a previous rant about &lt;a title=&quot;Data Science &amp;amp; Innovation&quot; href=&quot;http://randyzwitch.com/data-science-innovation/&quot; target=&quot;_blank&quot;&gt;data science &amp;amp; innovation&lt;/a&gt;, I made reference to a problem I’m having at work where I wanted to classify roughly a quarter-billion URLs by predicted website content (without having to actually visit the website). A few colleagues have asked how you go about even starting to solve a problem like that, and the answer is &lt;em&gt;massively parallel processing&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;attacking-the-problem-using-a-local-machine&quot;&gt;Attacking the problem using a local machine&lt;/h2&gt;
@@ -6933,10 +6935,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Tue, 23 Jul 2013 08:16:34 -0400</pubDate>
+        <pubDate>Tue, 23 Jul 2013 12:16:34 +0000</pubDate>
         <link>
-        http://randyzwitch.com/julia-language-beginners/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/julia-language-beginners/</guid>
+        http://localhost:4000/julia-language-beginners/</link>
+        <guid isPermaLink="true">http://localhost:4000/julia-language-beginners/</guid>
         <content type="html" xml:base="/julia-language-beginners/">&lt;p&gt;Over the past month or so, I’ve been playing with a new scientific programming language called ‘&lt;a title=&quot;Julia language&quot; href=&quot;http://julialang.org/&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt;’, which aims to be a high-level language with performance approaching that of C. With that goal in mind, Julia could be a replacement for the ‘multi-language’ problem of needing to move between R, Python, MATLAB, C, Fortran, Scala, etc. within a single scientific programming project.  Here are some observations that might be helpful for others looking to get started with Julia.&lt;/p&gt;
 
 &lt;h3 id=&quot;get-used-to-git-and-make&quot;&gt;Get used to ‘Git’ and ‘make’&lt;/h3&gt;
@@ -7099,10 +7101,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Wed, 22 May 2013 07:39:19 -0400</pubDate>
+        <pubDate>Wed, 22 May 2013 11:39:19 +0000</pubDate>
         <link>
-        http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/uploading-data-hadoop-amazon-ec2-cloudera-part-3/</guid>
+        http://localhost:4000/uploading-data-hadoop-amazon-ec2-cloudera-part-3/</link>
+        <guid isPermaLink="true">http://localhost:4000/uploading-data-hadoop-amazon-ec2-cloudera-part-3/</guid>
         <content type="html" xml:base="/uploading-data-hadoop-amazon-ec2-cloudera-part-3/">&lt;p&gt;In part 2 of the “Getting Started Using Hadoop” series, I discussed how to &lt;a title=&quot;Build a Hadoop cluster Amazon EC2&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/&quot; target=&quot;_blank&quot;&gt;build a Hadoop cluster on Amazon EC2&lt;/a&gt; using Cloudera CDH. This post will cover how to get your data into the Hadoop Distributed File System (HDFS) using the publicly available “&lt;a title=&quot;Airline dataset&quot; href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot; target=&quot;_blank&quot;&gt;Airline Dataset&lt;/a&gt;”. While there are multiple ways to upload data into HDFS, this post will only cover the easiest method, which is to use the Hue ‘File Browser’ interface.&lt;/p&gt;
 
 &lt;h2 id=&quot;loading-data-into-hdfs-using-hue&quot;&gt;Loading data into HDFS using Hue&lt;/h2&gt;
@@ -7152,10 +7154,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 &lt;/blockquote&gt;
 </description>
         
-        <pubDate>Fri, 17 May 2013 06:28:47 -0400</pubDate>
+        <pubDate>Fri, 17 May 2013 10:28:47 +0000</pubDate>
         <link>
-        http://randyzwitch.com/data-science-innovation/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/data-science-innovation/</guid>
+        http://localhost:4000/data-science-innovation/</link>
+        <guid isPermaLink="true">http://localhost:4000/data-science-innovation/</guid>
         <content type="html" xml:base="/data-science-innovation/">&lt;blockquote class=&quot;twitter-tweet&quot; data-conversation=&quot;none&quot;&gt;
   &lt;p&gt;
     @&lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;randyzwitch&lt;/a&gt; @&lt;a href=&quot;https://twitter.com/benjamingaines&quot;&gt;benjamingaines&lt;/a&gt; @&lt;a href=&quot;https://twitter.com/usujason&quot;&gt;usujason&lt;/a&gt; I am envisioning the data science equivalent of an autonomous vehicle pileup.
@@ -7230,10 +7232,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 25 Apr 2013 13:33:48 -0400</pubDate>
+        <pubDate>Thu, 25 Apr 2013 17:33:48 +0000</pubDate>
         <link>
-        http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-2/</guid>
+        http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-2/</link>
+        <guid isPermaLink="true">http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-2/</guid>
         <content type="html" xml:base="/big-data-hadoop-amazon-ec2-cloudera-part-2/">&lt;p&gt;In &lt;a title=&quot;Getting Started With Hadoop, Part 1&quot; href=&quot;http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot; target=&quot;_blank&quot;&gt;Part 1 of this series&lt;/a&gt;, I discussed some of the basic concepts around Hadoop, specifically when it’s appropriate to use Hadoop to solve your data engineering problems and the terminology of the Hadoop eco-system. This post will cover how to install your own Hadoop cluster on Amazon EC2 using Cloudera Manager.&lt;/p&gt;
 
 &lt;p&gt;Like prior posts talking about &lt;a title=&quot;Amazon EC2 posts&quot; href=&quot;http://randyzwitch.com/tags/#amazon_ec2&quot; target=&quot;_blank&quot;&gt;Amazon EC2&lt;/a&gt;, this post assumes you have some basic facility with Linux, submitting instructions via the command line, etc. Because really, if you’re interested in Hadoop, using the command line probably isn’t a limiting factor!&lt;/p&gt;
@@ -7264,10 +7266,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Thu, 18 Apr 2013 08:47:15 -0400</pubDate>
+        <pubDate>Thu, 18 Apr 2013 12:47:15 +0000</pubDate>
         <link>
-        http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/big-data-hadoop-amazon-ec2-cloudera-part-1/</guid>
+        http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-1/</guid>
         <content type="html" xml:base="/big-data-hadoop-amazon-ec2-cloudera-part-1/">&lt;p&gt;For the last couple of days I’ve been at the eMetrics conference in San Francisco. There were several panels that discussed big data, both from an engineering standpoint as well as how to adopt newer technologies from a business perspective.&lt;/p&gt;
 
 &lt;p&gt;Unfortunately, there wasn’t a whole lot of practical information on how to actually get started using ‘big data’ technologies, of which Hadoop is one.  Luckily, it’s fairly easy to create a proof-of-concept Hadoop cluster using Amazon EC2 and Cloudera.&lt;/p&gt;
@@ -7332,10 +7334,10 @@ store avg_distance into '/user/hue/avg_distance';&lt;span class=&quot;w&quot;&gt
 
 </description>
         
-        <pubDate>Mon, 08 Apr 2013 12:36:07 -0400</pubDate>
+        <pubDate>Mon, 08 Apr 2013 16:36:07 +0000</pubDate>
         <link>
-        http://randyzwitch.com/r-amazon-ec2/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/r-amazon-ec2/</guid>
+        http://localhost:4000/r-amazon-ec2/</link>
+        <guid isPermaLink="true">http://localhost:4000/r-amazon-ec2/</guid>
         <content type="html" xml:base="/r-amazon-ec2/">&lt;p&gt;If you’re an R user, you’ve surely heard all the hype around ‘big data’ and how R is commonly used to analyze these volumes of data. One thing that’s often missing from the discussion is HOW to work around issues using big data and R, specifically how to deal with the fact that R stores all its objects in-memory.&lt;/p&gt;
 
 &lt;p&gt;While you can use packages such as &lt;a title=&quot;ff package&quot; href=&quot;http://cran.r-project.org/web/packages/ff/index.html&quot; target=&quot;_blank&quot;&gt;ff&lt;/a&gt; and &lt;a title=&quot;bigmemory&quot; href=&quot;http://cran.r-project.org/web/packages/bigmemory/index.html&quot; target=&quot;_blank&quot;&gt;bigmemory&lt;/a&gt; to overcome the in-memory limits of your local machine, these additional packages do require some re-engineering of your code. Instead, consider using &lt;a title=&quot;Amazon Web Services&quot; href=&quot;http://aws.amazon.com/ec2/&quot; target=&quot;_blank&quot;&gt;Amazon EC2&lt;/a&gt; to provision the resources you need.  Here are two ways to get started…&lt;/p&gt;
@@ -7471,10 +7473,10 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Wed, 03 Apr 2013 06:10:09 -0400</pubDate>
+        <pubDate>Wed, 03 Apr 2013 10:10:09 +0000</pubDate>
         <link>
-        http://randyzwitch.com/automated-re-install-of-packages-for-r-3-0/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/automated-re-install-of-packages-for-r-3-0/</guid>
+        http://localhost:4000/automated-re-install-of-packages-for-r-3-0/</link>
+        <guid isPermaLink="true">http://localhost:4000/automated-re-install-of-packages-for-r-3-0/</guid>
         <content type="html" xml:base="/automated-re-install-of-packages-for-r-3-0/">&lt;p&gt;With the big release of &lt;a title=&quot;R 3.0 introduction&quot; href=&quot;http://www.r-bloggers.com/r-3-0-0-is-released-whats-new-and-how-to-upgrade/&quot; target=&quot;_blank&quot;&gt;R 3.0&lt;/a&gt; today comes an unfortunate side effect of needing to re-install all of your packages. Luckily, R provides a pretty easy method of getting all of your packages into a list for automated re-install.  Here’s how to do it for OSX users with a default install to the Library:&lt;/p&gt;
 
 &lt;p&gt;For Windows users, the same general process should work, assuming you change the file reference in the &lt;em&gt;installed.packages&lt;/em&gt; function to the proper Windows location. The one downside to this method is that only packages that are &lt;a title=&quot;CRAN&quot; href=&quot;http://cran.r-project.org/&quot; target=&quot;_blank&quot;&gt;listed on CRAN&lt;/a&gt; will be reinstalled, so if you installed anything using devtools, you’ll need to re-install those packages again. But at the very least, the code snippet above is a quick way to re-install most of your packages. EDIT, 4/4/13: Per Noam below, you can also use a more direct method: &lt;code class=&quot;highlighter-rouge&quot;&gt;update.packages(ask=FALSE, checkBuilt = TRUE)&lt;/code&gt;&lt;/p&gt;</content>
@@ -7489,10 +7491,10 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Mon, 25 Feb 2013 12:15:46 -0500</pubDate>
+        <pubDate>Mon, 25 Feb 2013 17:15:46 +0000</pubDate>
         <link>
-        http://randyzwitch.com/r-error-message-fun/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/r-error-message-fun/</guid>
+        http://localhost:4000/r-error-message-fun/</link>
+        <guid isPermaLink="true">http://localhost:4000/r-error-message-fun/</guid>
         <content type="html" xml:base="/r-error-message-fun/">&lt;p&gt;For the last month or so I’ve been working on an R package to make accessing the &lt;a title=&quot;Omniture Reporting API&quot; href=&quot;https://developer.omniture.com/&quot; target=&quot;_blank&quot;&gt;Adobe (Omniture) Digital Marketing Suite Reporting API&lt;/a&gt; easier.  As part of this development effort, I’m at the point where I’m intentionally introducing errors into my function inputs, trying to guess some of the ways users might incorrectly input arguments into each function.  Imagine my surprise when I saw this:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -7522,10 +7524,10 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Fri, 11 Jan 2013 11:27:33 -0500</pubDate>
+        <pubDate>Fri, 11 Jan 2013 16:27:33 +0000</pubDate>
         <link>
-        http://randyzwitch.com/r-google-analytics-api/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/r-google-analytics-api/</guid>
+        http://localhost:4000/r-google-analytics-api/</link>
+        <guid isPermaLink="true">http://localhost:4000/r-google-analytics-api/</guid>
         <content type="html" xml:base="/r-google-analytics-api/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2013/01/google-not-provided.png&quot; alt=&quot;(not provided) terms from Google average 35%-60% of all organic search terms&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;wp-caption-text&quot;&gt;
@@ -7723,10 +7725,10 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Mon, 17 Dec 2012 08:22:51 -0500</pubDate>
+        <pubDate>Mon, 17 Dec 2012 13:22:51 +0000</pubDate>
         <link>
-        http://randyzwitch.com/sqldf-package-r/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/sqldf-package-r/</guid>
+        http://localhost:4000/sqldf-package-r/</link>
+        <guid isPermaLink="true">http://localhost:4000/sqldf-package-r/</guid>
         <content type="html" xml:base="/sqldf-package-r/">&lt;p&gt;This video covers how to run SQL queries using the ‘sqldf’ package within R. This sqldf tutorial was part of a &lt;a href=&quot;http://keystonesolutions.com&quot;&gt;Keystone Solutions&lt;/a&gt; podcast discussion about data science and what skills beginning analysts should be learning to improve their skill set.&lt;/p&gt;
 
 &lt;p&gt;The example files from this tutorial can be downloaded from this link:&lt;/p&gt;
@@ -7745,10 +7747,10 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Wed, 21 Nov 2012 12:44:30 -0500</pubDate>
+        <pubDate>Wed, 21 Nov 2012 17:44:30 +0000</pubDate>
         <link>
-        http://randyzwitch.com/back-to-top-wordpress-scrappy/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/back-to-top-wordpress-scrappy/</guid>
+        http://localhost:4000/back-to-top-wordpress-scrappy/</link>
+        <guid isPermaLink="true">http://localhost:4000/back-to-top-wordpress-scrappy/</guid>
         <content type="html" xml:base="/back-to-top-wordpress-scrappy/">&lt;p&gt;In a previous post, I discussed how to &lt;a href=&quot;http://randyzwitch.com/removing-powered-by-wordpress-scrappy/&quot; title=&quot;Remove Powered By WordPress Scrappy theme&quot;&gt;remove “Powered By WordPress”&lt;/a&gt; from the footer of the Scrappy theme.  You might also want to add a “Back to Top” link in the footer, especially if your blog has a lot of vertical distance from the top to the bottom.  Here’s how to do it…&lt;/p&gt;
 
 &lt;h2 id=&quot;step-1-modifying-the-scrappy-headerphp-file&quot;&gt;Step 1:  Modifying the Scrappy header.php file&lt;/h2&gt;
@@ -7828,10 +7830,10 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Fri, 09 Nov 2012 08:40:01 -0500</pubDate>
+        <pubDate>Fri, 09 Nov 2012 13:40:01 +0000</pubDate>
         <link>
-        http://randyzwitch.com/overlay-histogram-in-r/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/overlay-histogram-in-r/</guid>
+        http://localhost:4000/overlay-histogram-in-r/</link>
+        <guid isPermaLink="true">http://localhost:4000/overlay-histogram-in-r/</guid>
         <content type="html" xml:base="/overlay-histogram-in-r/">&lt;p&gt;This video explains how to overlay histogram plots in R for 3 common cases: overlaying a histogram with a normal curve, overlaying a histogram with a density curve, and overlaying a histogram with a second data series plotted on a secondary axis.&lt;/p&gt;
 
 &lt;p&gt;Note: Towards the end of the video (maybe minute 14 or so), I make a language error when talking about the &lt;code class=&quot;highlighter-rouge&quot;&gt;padj&lt;/code&gt; parameter in the mtext function…the setting doesn’t “left truncated” the label, I meant “right align”, “left align”, etc.&lt;/p&gt;
@@ -7955,10 +7957,10 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Fri, 07 Sep 2012 08:07:45 -0400</pubDate>
+        <pubDate>Fri, 07 Sep 2012 12:07:45 +0000</pubDate>
         <link>
-        http://randyzwitch.com/video-r-rstudio-rcmdr-rattle/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/video-r-rstudio-rcmdr-rattle/</guid>
+        http://localhost:4000/video-r-rstudio-rcmdr-rattle/</link>
+        <guid isPermaLink="true">http://localhost:4000/video-r-rstudio-rcmdr-rattle/</guid>
         <content type="html" xml:base="/video-r-rstudio-rcmdr-rattle/">&lt;p&gt;I did a screencast for my co-workers to show how to get started with R, specifically what a base installation of R looks like, then showing how to improve your workflow using RStudio, Rcmdr or rattle.  The examples are somewhat pedestrian, but it gives a feel for what using R actually looks like.&lt;/p&gt;
 
 &lt;p&gt;If you have any questions, comments, or jeers about how bad I am at R, feel free to leave a comment in the comments section!&lt;/p&gt;
@@ -7976,10 +7978,10 @@ sudo apt-get install mongodb&lt;span class=&quot;w&quot;&gt;
 
 </description>
         
-        <pubDate>Mon, 06 Aug 2012 06:54:18 -0400</pubDate>
+        <pubDate>Mon, 06 Aug 2012 10:54:18 +0000</pubDate>
         <link>
-        http://randyzwitch.com/getting-started-using-r-rcmdr/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/getting-started-using-r-rcmdr/</guid>
+        http://localhost:4000/getting-started-using-r-rcmdr/</link>
+        <guid isPermaLink="true">http://localhost:4000/getting-started-using-r-rcmdr/</guid>
         <content type="html" xml:base="/getting-started-using-r-rcmdr/">&lt;p&gt;In my first post in this series, I discussed &lt;a title=&quot;Getting Started Using R, Part 1:  RStudio&quot; href=&quot;http://randyzwitch.com/getting-started-using-rstudio/&quot; target=&quot;_blank&quot;&gt;RStudio&lt;/a&gt;, an IDE that adds significant functionality and consistency to a basic installation of R.  In this post, I will discuss &lt;a title=&quot;Rcmdr download at CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/Rcmdr/index.html&quot; target=&quot;_blank&quot;&gt;Rcmdr&lt;/a&gt;, a GUI that provides the ability to do basic business statistics without having to code in R.&lt;/p&gt;
 
 &lt;h2 id=&quot;rcmdr-r-commander&quot;&gt;Rcmdr (“R Commander”)&lt;/h2&gt;
@@ -8037,10 +8039,10 @@ Boxplot output created by Rcmdr
 
 </description>
         
-        <pubDate>Sat, 04 Aug 2012 07:58:14 -0400</pubDate>
+        <pubDate>Sat, 04 Aug 2012 11:58:14 +0000</pubDate>
         <link>
-        http://randyzwitch.com/getting-started-using-rstudio/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/getting-started-using-rstudio/</guid>
+        http://localhost:4000/getting-started-using-rstudio/</link>
+        <guid isPermaLink="true">http://localhost:4000/getting-started-using-rstudio/</guid>
         <content type="html" xml:base="/getting-started-using-rstudio/">&lt;p&gt;&lt;del&gt;Despite &lt;a href=&quot;http://randyzwitch.com/learning-r-sas/&quot; title=&quot;Learning R has really made me appreciate SAS&quot;&gt;my preference for SAS over R&lt;/a&gt;,&lt;/del&gt; there are some add-ons to “basic” R that I’ve found that have made my learning process way easier. While I’m still in my infancy in learning R, I feel like once I found these additional tools, my ability to use R to get work done improved significantly.&lt;/p&gt;
 
 &lt;p&gt;In this first post of three, I’ll discuss &lt;a title=&quot;R Studio main site&quot; href=&quot;http://rstudio.org/&quot; target=&quot;_blank&quot;&gt;RStudio&lt;/a&gt;, a more friendly access point to the default installation of R.  My second post will discuss &lt;a title=&quot;Rcmdr download at CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/Rcmdr/index.html&quot; target=&quot;_blank&quot;&gt;Rcmdr&lt;/a&gt;, a GUI developed for students taking a basic college-level course in Statistics.  The third post will cover &lt;a title=&quot;rattle download CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/rattle/index.html&quot; target=&quot;_blank&quot;&gt;rattle&lt;/a&gt;, a GUI specifically designed for data mining (as opposed to more general statistics like &lt;a title=&quot;Rcmdr download at CRAN&quot; href=&quot;http://cran.r-project.org/web/packages/Rcmdr/index.html&quot; target=&quot;_blank&quot;&gt;Rcmdr&lt;/a&gt;).&lt;/p&gt;
@@ -8080,10 +8082,10 @@ R Studio is an IDE that dramatically improves the R experience
 
 </description>
         
-        <pubDate>Wed, 25 Jul 2012 07:34:03 -0400</pubDate>
+        <pubDate>Wed, 25 Jul 2012 11:34:03 +0000</pubDate>
         <link>
-        http://randyzwitch.com/learning-r-sas/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/learning-r-sas/</guid>
+        http://localhost:4000/learning-r-sas/</link>
+        <guid isPermaLink="true">http://localhost:4000/learning-r-sas/</guid>
         <content type="html" xml:base="/learning-r-sas/">&lt;p&gt;EDIT, 9/9/2016: Four years later, this blog post is a comical look back in time. It’s hard to believe that I could think this way! Having used R (and Python, Julia), I will never return back to the constraints of using SAS. The inflexible nature of everything having to be a Dataset in SAS vs. the infinite flexibility of data structures in programming-oriented languages makes it no contest.&lt;/p&gt;
 
 &lt;p&gt;But I’ll leave this here to remind myself how today’s frustration leads to tomorrow’s breakthroughs.&lt;/p&gt;
@@ -8144,10 +8146,10 @@ R Studio is an IDE that dramatically improves the R experience
 
 </description>
         
-        <pubDate>Tue, 17 Jul 2012 20:14:04 -0400</pubDate>
+        <pubDate>Wed, 18 Jul 2012 00:14:04 +0000</pubDate>
         <link>
-        http://randyzwitch.com/least-useful-omniture-reports/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/least-useful-omniture-reports/</guid>
+        http://localhost:4000/least-useful-omniture-reports/</link>
+        <guid isPermaLink="true">http://localhost:4000/least-useful-omniture-reports/</guid>
         <content type="html" xml:base="/least-useful-omniture-reports/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2012/07/data-squirrel-262x300.png&quot; alt=&quot;data-squirrel&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;wp-caption-text&quot;&gt;
@@ -8231,10 +8233,10 @@ Just because data CAN be captured doesn't mean it SHOULD be!
 
 </description>
         
-        <pubDate>Mon, 25 Jun 2012 16:38:57 -0400</pubDate>
+        <pubDate>Mon, 25 Jun 2012 20:38:57 +0000</pubDate>
         <link>
-        http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/broken-macbook-pro-hinge-fixed-free/</guid>
+        http://localhost:4000/broken-macbook-pro-hinge-fixed-free/</link>
+        <guid isPermaLink="true">http://localhost:4000/broken-macbook-pro-hinge-fixed-free/</guid>
         <content type="html" xml:base="/broken-macbook-pro-hinge-fixed-free/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2012/06/macbook-pro-broken-hinge-screen.jpg&quot; alt=&quot;macbook pro broken hinge&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;wp-caption-text&quot;&gt;
@@ -8317,10 +8319,10 @@ Just because data CAN be captured doesn't mean it SHOULD be!
 
 </description>
         
-        <pubDate>Thu, 14 Jun 2012 04:42:36 -0400</pubDate>
+        <pubDate>Thu, 14 Jun 2012 08:42:36 +0000</pubDate>
         <link>
-        http://randyzwitch.com/twitter-promoted-tweets/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/twitter-promoted-tweets/</guid>
+        http://localhost:4000/twitter-promoted-tweets/</link>
+        <guid isPermaLink="true">http://localhost:4000/twitter-promoted-tweets/</guid>
         <content type="html" xml:base="/twitter-promoted-tweets/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2012/06/twitter-promoted-tweets-spam.png&quot; alt=&quot;twitter-promoted-tweets-spam&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;wp-caption-text&quot;&gt;
@@ -8363,10 +8365,10 @@ Left: #WWDC (Apple developer conference)           Right: #EdLoverDanc
 
 </description>
         
-        <pubDate>Thu, 07 Jun 2012 04:37:28 -0400</pubDate>
+        <pubDate>Thu, 07 Jun 2012 08:37:28 +0000</pubDate>
         <link>
-        http://randyzwitch.com/google-adsense-and-wordpress/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/google-adsense-and-wordpress/</guid>
+        http://localhost:4000/google-adsense-and-wordpress/</link>
+        <guid isPermaLink="true">http://localhost:4000/google-adsense-and-wordpress/</guid>
         <content type="html" xml:base="/google-adsense-and-wordpress/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2012/06/google-adsense-wordpress-300x240.png&quot; alt=&quot;Google Adsense graphic&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;There are as many reasons to blog as there are people on Earth.  Whether it’s to use a blog as a personal diary, a means to share something you are passionate about (like &lt;a title=&quot;Food blog&quot; href=&quot;http://zwitchen.com/&quot; target=&quot;_blank&quot;&gt;cooking&lt;/a&gt;, as my wife does), a “voice” for your professional career or something else, eventually the question comes up:  should I try and earn advertising income from Google AdSense from my readership?&lt;/p&gt;
@@ -8412,10 +8414,10 @@ Some weeks I make a few bucks, many I make nothing!
 
 </description>
         
-        <pubDate>Wed, 06 Jun 2012 13:31:39 -0400</pubDate>
+        <pubDate>Wed, 06 Jun 2012 17:31:39 +0000</pubDate>
         <link>
-        http://randyzwitch.com/customize-adobe-sitecatalyst-menu/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/customize-adobe-sitecatalyst-menu/</guid>
+        http://localhost:4000/customize-adobe-sitecatalyst-menu/</link>
+        <guid isPermaLink="true">http://localhost:4000/customize-adobe-sitecatalyst-menu/</guid>
         <content type="html" xml:base="/customize-adobe-sitecatalyst-menu/">&lt;blockquote class=&quot;twitter-tweet&quot; data-conversation=&quot;none&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/nancyskoons&quot;&gt;@nancyskoons&lt;/a&gt; &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt; &lt;a href=&quot;https://twitter.com/shawncreed&quot;&gt;@shawncreed&lt;/a&gt; Best Practice #1: Customizing anything is better than customizing nothing. &lt;a href=&quot;https://twitter.com/hashtag/measure?src=hash&quot;&gt;#measure&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/omniture?src=hash&quot;&gt;#omniture&lt;/a&gt;&lt;/p&gt;&amp;mdash; Jason Egan (@jasonegan) &lt;a href=&quot;https://twitter.com/jasonegan/status/210398632082538497&quot;&gt;June 6, 2012&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -8431,13 +8433,13 @@ Default Omniture report menu
 
 &lt;p&gt;Simple modifications such as 1) Hiding Omniture variables and products not in use, 2) organizing reports by logical business function, and 3) placing custom reports and calculated metrics next to the standard SiteCatalyst reports will get users to making decisions with their data that much faster.&lt;/p&gt;
 
-&lt;h2 id=&quot;hide-omniture-variables-and-products-not-being-used&quot;&gt;1)  Hide Omniture variables and products not being used&lt;/h2&gt;
+&lt;h2 id=&quot;1-hide-omniture-variables-and-products-not-being-used&quot;&gt;1)  Hide Omniture variables and products not being used&lt;/h2&gt;
 
 &lt;p&gt;Do your users a favor and hide the Omniture products such as Test &amp;amp; Target, Survey, and Genesis if you aren’t using them.  Same thing with any custom traffic (props) and custom conversion variables (eVars) that aren’t being used.  Nothing will distract your users faster than clicking on folders with advertisements (T&amp;amp;T, Survey) or worse, frustrate the user by making them wonder “What data is &lt;em&gt;supposed to be&lt;/em&gt; in this report?”&lt;/p&gt;
 
 &lt;p&gt;Just by hiding or disabling these empty reports and tools advertisements, you should see an increased confidence in data quality.  Or at the very least, keep the conversation from taking a detour.&lt;/p&gt;
 
-&lt;h2 id=&quot;organize-sitecatalyst-reports-by-logical-business-function&quot;&gt;2)  Organize SiteCatalyst reports by logical business function&lt;/h2&gt;
+&lt;h2 id=&quot;2-organize-sitecatalyst-reports-by-logical-business-function&quot;&gt;2)  Organize SiteCatalyst reports by logical business function&lt;/h2&gt;
 
 &lt;p&gt;Your internal users aren’t thinking about Omniture variable structures when they are trying to find the answer to their business questions.  So why do we keep our data artificially separated by “Custom Events”, “Custom Conversions” and “Custom Traffic”?&lt;/p&gt;
 
@@ -8459,7 +8461,7 @@ Default Omniture report menu
 
 &lt;p&gt;The list above isn’t meant to be exhaustive, or necessarily how you should organize your SiteCatalyst menus.  But for me, organizing the reports by the business function keeps my business thinking flowing, rather than trying to remember how Omniture was implemented by variable type.&lt;/p&gt;
 
-&lt;h2 id=&quot;place-custom-reports-and-calculated-metrics-next-to-the-standard-sitecatalyst-reports&quot;&gt;3)  Place custom reports and calculated metrics next to the standard SiteCatalyst reports&lt;/h2&gt;
+&lt;h2 id=&quot;3-place-custom-reports-and-calculated-metrics-next-to-the-standard-sitecatalyst-reports&quot;&gt;3)  Place custom reports and calculated metrics next to the standard SiteCatalyst reports&lt;/h2&gt;
 
 &lt;p&gt;This is probably more like “2b” to the above, but there’s no reason to keep custom reports and calculated metric reports segregated either.  Custom reports happen because of a specific business need, and the same thing with calculated metrics.  By placing these reports along with the out-of-the-box reports from SiteCatalyst, you take away the artificial distinction between data natively in SiteCatalyst and business-specific data populated by a web developer.&lt;/p&gt;
 
@@ -8493,10 +8495,10 @@ Default Omniture report menu
 
 </description>
         
-        <pubDate>Thu, 10 May 2012 04:05:02 -0400</pubDate>
+        <pubDate>Thu, 10 May 2012 08:05:02 +0000</pubDate>
         <link>
-        http://randyzwitch.com/bounce-rate-modification-google-analytics-cutroni/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/bounce-rate-modification-google-analytics-cutroni/</guid>
+        http://localhost:4000/bounce-rate-modification-google-analytics-cutroni/</link>
+        <guid isPermaLink="true">http://localhost:4000/bounce-rate-modification-google-analytics-cutroni/</guid>
         <content type="html" xml:base="/bounce-rate-modification-google-analytics-cutroni/">&lt;p&gt;A few months back, Justin Cutroni posted on his &lt;a title=&quot;Justin Cutroni web analytics blog&quot; href=&quot;http://cutroni.com/blog&quot; target=&quot;_blank&quot;&gt;blog&lt;/a&gt; some jQuery code that &lt;a title=&quot;Modifying Bounce Rate and Time on Site in Google Analytics&quot; href=&quot;http://cutroni.com/blog/2012/02/21/advanced-content-tracking-with-google-analytics-part-1/&quot; target=&quot;_blank&quot;&gt;modifies how Google Analytics tracks content&lt;/a&gt;.  Specifically, the code snippet changes how bounce rate and time on site are calculated, creates a custom variable to classify whether visitors are “Readers” vs. “Scanners” and adds some Google Analytics events to track how far down the page visitors are reading.&lt;/p&gt;
 
 &lt;p&gt;Given that this blog is fairly technical and specific in nature, I was interested in seeing how the standard Google Analytics metrics would change if I implemented this code and how my changes &lt;a title=&quot;Justin Cutroni bounce rate code results&quot; href=&quot;http://cutroni.com/blog/2012/02/23/advanced-content-tracking-with-google-analytics-part-2/&quot; target=&quot;_blank&quot;&gt;compared to Justin’s&lt;/a&gt;.  I’ve always suspected my bounce rate in the 80-90% range didn’t really represent whether people were finding value in my content.  The results were quite surprising to say the least!&lt;/p&gt;
@@ -8573,10 +8575,10 @@ Hard to see because of the Y-axis, but Avg. Visit Duration increases significant
 
 </description>
         
-        <pubDate>Fri, 27 Apr 2012 04:24:21 -0400</pubDate>
+        <pubDate>Fri, 27 Apr 2012 08:24:21 +0000</pubDate>
         <link>
-        http://randyzwitch.com/adobe-discover-3-first-impressions/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/adobe-discover-3-first-impressions/</guid>
+        http://localhost:4000/adobe-discover-3-first-impressions/</link>
+        <guid isPermaLink="true">http://localhost:4000/adobe-discover-3-first-impressions/</guid>
         <content type="html" xml:base="/adobe-discover-3-first-impressions/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2012/04/adobe-discover-logo.png&quot; alt=&quot;Adobe Discover&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;With yesterday’s code release, &lt;del&gt;Omniture&lt;/del&gt; Adobe released version 3 of their “Discover” tool, THE way to perform web analysis within the Adobe Digital Marketing Suite.  While SiteCatalyst has its place for basic reporting, to really dig deep into your data for actionable insights there’s no substitute to using Discover.&lt;/p&gt;
@@ -8639,10 +8641,10 @@ You should prefer green, not carbon.
 
 </description>
         
-        <pubDate>Mon, 23 Apr 2012 17:23:37 -0400</pubDate>
+        <pubDate>Mon, 23 Apr 2012 21:23:37 +0000</pubDate>
         <link>
-        http://randyzwitch.com/removing-powered-by-wordpress-scrappy/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/removing-powered-by-wordpress-scrappy/</guid>
+        http://localhost:4000/removing-powered-by-wordpress-scrappy/</link>
+        <guid isPermaLink="true">http://localhost:4000/removing-powered-by-wordpress-scrappy/</guid>
         <content type="html" xml:base="/removing-powered-by-wordpress-scrappy/">&lt;p&gt;My wife started a &lt;a title=&quot;Zwitchen.com | What's Cookin'?&quot; href=&quot;http://zwitchen.com&quot; target=&quot;_blank&quot;&gt;food blog&lt;/a&gt; this weekend and decided to use the &lt;a title=&quot;Scrappy WordPress theme&quot; href=&quot;http://wordpress.org/extend/themes/scrappy&quot; target=&quot;_blank&quot;&gt;“Scrappy” WordPress theme&lt;/a&gt; by &lt;a href=&quot;http://carolinethemes.com/2011/11/04/scrappy/&quot; target=&quot;_blank&quot;&gt;Caroline Moore&lt;/a&gt;.  But like all WordPress themes, there are a few customizations that are usually made to personalize the theme, the first of which is removing “Powered by WordPress” in the footer.&lt;/p&gt;
 
 &lt;p&gt;This blog post is essentially the same as my prior blog post about &lt;a title=&quot;Removing Powered by WordPress from Twenty Eleven theme&quot; href=&quot;http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/&quot; target=&quot;_blank&quot;&gt;removing “Powered by WordPress” from the Twenty Eleven theme&lt;/a&gt;, but of course, for the Scrappy theme!  This post assumes you’ve created a &lt;a title=&quot;Creating a WordPress child theme&quot; href=&quot;http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/&quot; target=&quot;_blank&quot;&gt;child theme&lt;/a&gt; already, so that the changes you make persist even if the theme gets updated by the original author.&lt;/p&gt;
@@ -8709,10 +8711,10 @@ Modified WordPress Scrappy footer (with slightly different pattern!)
 
 </description>
         
-        <pubDate>Thu, 19 Apr 2012 03:45:22 -0400</pubDate>
+        <pubDate>Thu, 19 Apr 2012 07:45:22 +0000</pubDate>
         <link>
-        http://randyzwitch.com/optimizely-wordpress-install/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/optimizely-wordpress-install/</guid>
+        http://localhost:4000/optimizely-wordpress-install/</link>
+        <guid isPermaLink="true">http://localhost:4000/optimizely-wordpress-install/</guid>
         <content type="html" xml:base="/optimizely-wordpress-install/">&lt;p&gt;If you’ve spent any time working in digital marketing or analytics, you’re already familiar with the power of A/B testing.  A/B testing (and it’s more complicated brother &lt;a href=&quot;http://www.smashingmagazine.com/2011/04/04/multivariate-testing-101-a-scientific-method-of-optimizing-design/&quot; target=&quot;_blank&quot;&gt;multivariate testing&lt;/a&gt;) allows site owners to find out optimal combinations of site design and content for their visitors &lt;em&gt;without having to directly ask/inconvenience the user&lt;/em&gt;.  All it takes to improve a website is forming a hypothesis of something that could work better, creating multiple versions of a page (or other content), setting up the experiment…and the money flows in faster than you can count it.  At least, that’s the hope!&lt;/p&gt;
 
 &lt;p&gt;At the enterprise level, there are plenty of testing tools such as &lt;a href=&quot;http://www.omniture.com/en/products/conversion/test-and-target&quot; target=&quot;_blank&quot;&gt;Omniture Test &amp;amp; Target&lt;/a&gt;, &lt;a href=&quot;http://www.sitespect.com/&quot; target=&quot;_blank&quot;&gt;SiteSpect&lt;/a&gt;, &lt;a href=&quot;http://webtrends.com/products/optimize/&quot; target=&quot;_blank&quot;&gt;WebTrends Optimize&lt;/a&gt;, and &lt;a href=&quot;http://www.monetate.com&quot; target=&quot;_blank&quot;&gt;Monetate&lt;/a&gt;, but these tools are cost-prohibitive to all but the largest websites.  Google provides &lt;a href=&quot;www.google.com/websiteoptimizer&quot; target=&quot;_blank&quot;&gt;Google Website Optimizer&lt;/a&gt; (for free!), but that has often been viewed as difficult to manage, especially for dynamically created websites.  That’s where &lt;a href=&quot;http://www.optimizely.com&quot; target=&quot;_blank&quot;&gt;Optimizely&lt;/a&gt; comes in.&lt;/p&gt;
@@ -8759,10 +8761,10 @@ Clicking on the &quot;Implementation&quot; link gives you your JavaScript code
 
 </description>
         
-        <pubDate>Wed, 22 Feb 2012 03:15:18 -0500</pubDate>
+        <pubDate>Wed, 22 Feb 2012 08:15:18 +0000</pubDate>
         <link>
-        http://randyzwitch.com/omniture-sitecatalyst-target-report/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/omniture-sitecatalyst-target-report/</guid>
+        http://localhost:4000/omniture-sitecatalyst-target-report/</link>
+        <guid isPermaLink="true">http://localhost:4000/omniture-sitecatalyst-target-report/</guid>
         <content type="html" xml:base="/omniture-sitecatalyst-target-report/">&lt;p&gt;Of the hundreds of stock reports and capabilities present within Adobe (Omniture) SiteCatalyst, calculating year-over-year growth isn’t the easiest thing to do.  And while conversion reports (eVars) have the “Compare Dates” functionality within the calendar menu, we can’t quickly plot the difference between two time periods within a dashboard.  This is where the Omniture SiteCatalyst Target report comes in handy.&lt;/p&gt;
 
 &lt;h2 id=&quot;setting-up-your-goal&quot;&gt;Setting up your “Goal”&lt;/h2&gt;
@@ -8831,10 +8833,10 @@ Omniture SiteCatalyst Target Report - &quot;Variance&quot; option
 
 </description>
         
-        <pubDate>Fri, 16 Dec 2011 05:41:26 -0500</pubDate>
+        <pubDate>Fri, 16 Dec 2011 10:41:26 +0000</pubDate>
         <link>
-        http://randyzwitch.com/klout-perk-wahooly/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/klout-perk-wahooly/</guid>
+        http://localhost:4000/klout-perk-wahooly/</link>
+        <guid isPermaLink="true">http://localhost:4000/klout-perk-wahooly/</guid>
         <content type="html" xml:base="/klout-perk-wahooly/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2011/12/klout-perk-wahooly.png&quot; alt=&quot;klout-perk-wahooly&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;wp-caption-text&quot;&gt;
@@ -8904,10 +8906,10 @@ Omniture SiteCatalyst Target Report - &quot;Variance&quot; option
 
 </description>
         
-        <pubDate>Thu, 01 Dec 2011 03:26:24 -0500</pubDate>
+        <pubDate>Thu, 01 Dec 2011 08:26:24 +0000</pubDate>
         <link>
-        http://randyzwitch.com/100-miles-for-charitywater-update-1/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/100-miles-for-charitywater-update-1/</guid>
+        http://localhost:4000/100-miles-for-charitywater-update-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/100-miles-for-charitywater-update-1/</guid>
         <content type="html" xml:base="/100-miles-for-charitywater-update-1/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2011/12/100milesfor-charitywater.png&quot; alt=&quot;charity:water campaign progress&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;wp-caption-text&quot;&gt;
@@ -8930,10 +8932,10 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Thu, 27 Oct 2011 10:09:09 -0400</pubDate>
+        <pubDate>Thu, 27 Oct 2011 14:09:09 +0000</pubDate>
         <link>
-        http://randyzwitch.com/charitywater-campaign/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/charitywater-campaign/</guid>
+        http://localhost:4000/charitywater-campaign/</link>
+        <guid isPermaLink="true">http://localhost:4000/charitywater-campaign/</guid>
         <content type="html" xml:base="/charitywater-campaign/">&lt;p&gt;&lt;a href=&quot;http://mycharitywater.org/100milesforcharitywater&quot;&gt;&lt;img class=&quot;alignright&quot; style=&quot;border: 1px solid black;&quot; src=&quot;http://i1.wp.com/www.charitywater.org/media/banners/220x220_8glasses.jpg?resize=220%2C220&quot; alt=&quot;&quot; border=&quot;1&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;In the past couple of weeks, I’ve started a project through the &lt;a title=&quot;What is the Analysis Exchange?&quot; href=&quot;http://www.webanalyticsdemystified.com/ae/what-is-analysis-exchange.asp&quot; target=&quot;_blank&quot;&gt;Analysis Exchange&lt;/a&gt; working with &lt;a title=&quot;Jason Thompson&quot; href=&quot;http://emptymind.org/&quot; target=&quot;_blank&quot;&gt;Jason Thompson&lt;/a&gt; and &lt;a title=&quot;charity:water&quot; href=&quot;http://www.charitywater.org/&quot; target=&quot;_blank&quot;&gt;charity:water&lt;/a&gt;.  If you’re not familiar with the Analysis Exchange, it’s a program where aspiring web analysts and grizzled veterans* volunteer to provide analytics services to charities.  Through the Analysis Exchange, charities are helped, students are mentored, and the World is a slightly better place than when the project was started.&lt;/p&gt;
@@ -8962,10 +8964,10 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Fri, 21 Oct 2011 07:18:47 -0400</pubDate>
+        <pubDate>Fri, 21 Oct 2011 11:18:47 +0000</pubDate>
         <link>
-        http://randyzwitch.com/page-navigation-wordpress-twenty-eleven/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/page-navigation-wordpress-twenty-eleven/</guid>
+        http://localhost:4000/page-navigation-wordpress-twenty-eleven/</link>
+        <guid isPermaLink="true">http://localhost:4000/page-navigation-wordpress-twenty-eleven/</guid>
         <content type="html" xml:base="/page-navigation-wordpress-twenty-eleven/">&lt;p&gt;By default, most WordPress themes (including Twenty Eleven) have relatively weak page-to-page navigation.  Users can improve content structure on their WordPress blogs by using categories, tags, and custom menus, but one navigation element that’s a bit more difficult to modify are the “Next Page/Previous Page” links.  These links are great if you want to move a page at a time, but if your blog has lots of pages, users won’t easily be able to navigate very deeply into your content.  That’s where a page navigation menu comes in handy.&lt;/p&gt;
 
 &lt;p&gt;Here’s how to implement page navigation, using a plugin and a simple modification to the WordPress Twenty Eleven theme.&lt;/p&gt;
@@ -9024,20 +9026,11 @@ Donations come in spurts, but the running continues!
 &lt;/div&gt;
 </description>
         
-        <pubDate>Tue, 18 Oct 2011 03:21:31 -0400</pubDate>
+        <pubDate>Tue, 18 Oct 2011 07:21:31 +0000</pubDate>
         <link>
-        http://randyzwitch.com/google-analytics-individual-qualification/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/google-analytics-individual-qualification/</guid>
-        <content type="html" xml:base="/google-analytics-individual-qualification/">&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
-&lt;html lang=&quot;en-US&quot;&gt;
-&lt;meta charset=&quot;utf-8&quot; /&gt;
-&lt;title&gt;Redirecting…&lt;/title&gt;
-&lt;link rel=&quot;canonical&quot; href=&quot;/tags/#google_analytics&quot; /&gt;
-&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=/tags/#google_analytics&quot; /&gt;
-&lt;h1&gt;Redirecting…&lt;/h1&gt;
-&lt;a href=&quot;/tags/#google_analytics&quot;&gt;Click here if you are not redirected.&lt;/a&gt;
-&lt;script&gt;location=&quot;/tags/#google_analytics&quot;&lt;/script&gt;
-&lt;/html&gt;</content>
+        http://localhost:4000/google-analytics-individual-qualification/</link>
+        <guid isPermaLink="true">http://localhost:4000/google-analytics-individual-qualification/</guid>
+        <content type="html" xml:base="/google-analytics-individual-qualification/"></content>
       </item>
       
     
@@ -9049,10 +9042,10 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Fri, 14 Oct 2011 11:07:29 -0400</pubDate>
+        <pubDate>Fri, 14 Oct 2011 15:07:29 +0000</pubDate>
         <link>
-        http://randyzwitch.com/iphone-4s-activation-issues/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/iphone-4s-activation-issues/</guid>
+        http://localhost:4000/iphone-4s-activation-issues/</link>
+        <guid isPermaLink="true">http://localhost:4000/iphone-4s-activation-issues/</guid>
         <content type="html" xml:base="/iphone-4s-activation-issues/">&lt;p&gt;When the iPhone 4S was announced on October 4th, there was much gnashing of teeth by Apple fanboys and stock market &lt;a title=&quot;Yahoo Finance Apple 4S&quot; href=&quot;http://finance.yahoo.com/blogs/breakout/apple-iphone-4s-opens-door-competitors-analyst-210516885.html&quot; target=&quot;_blank&quot;&gt;analysts&lt;/a&gt; about how this “lackluster” iPhone refresh was going to allow competitors to overtake Apple. That without a re-designed case and bigger screen and more storage and…and…and. All of the rumors (and the subsequent disappointment) ignored one of the simple economic realities of the cell phone market:&lt;/p&gt;
 
 &lt;p style=&quot;padding-left: 30px;&quot;&gt;
@@ -9111,10 +9104,10 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Thu, 06 Oct 2011 04:40:58 -0400</pubDate>
+        <pubDate>Thu, 06 Oct 2011 08:40:58 +0000</pubDate>
         <link>
-        http://randyzwitch.com/google-analytics-seo-reports-inaccurate/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/google-analytics-seo-reports-inaccurate/</guid>
+        http://localhost:4000/google-analytics-seo-reports-inaccurate/</link>
+        <guid isPermaLink="true">http://localhost:4000/google-analytics-seo-reports-inaccurate/</guid>
         <content type="html" xml:base="/google-analytics-seo-reports-inaccurate/">&lt;p&gt;On October 4th, Google announced that the &lt;a href=&quot;http://analytics.blogspot.com/2011/10/webmaster-tools-in-google-analytics-for.html&quot;&gt;Webmaster Tools/Google Analytics integration&lt;/a&gt; was now available to all users. The three new reports (Queries, Landing Pages, and Geographical Summary) are intended to allow site owners and content creators to monitor how well their content is indexed in Google for their keywords of interest across time, all within the Google Analytics interface.  However, based on my preliminary research from the first few days of data, I have to question the current algorithm’s accuracy.&lt;/p&gt;
 
 &lt;h2 id=&quot;google-analytics-seo-reports-impressions-clicks-average-position-ctr&quot;&gt;Google Analytics SEO reports:  Impressions, Clicks,  Average Position, CTR&lt;/h2&gt;
@@ -9171,10 +9164,10 @@ Donations come in spurts, but the running continues!
 
 </description>
         
-        <pubDate>Wed, 05 Oct 2011 04:22:22 -0400</pubDate>
+        <pubDate>Wed, 05 Oct 2011 08:22:22 +0000</pubDate>
         <link>
-        http://randyzwitch.com/an-afternoon-with-edward-tufte/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/an-afternoon-with-edward-tufte/</guid>
+        http://localhost:4000/an-afternoon-with-edward-tufte/</link>
+        <guid isPermaLink="true">http://localhost:4000/an-afternoon-with-edward-tufte/</guid>
         <content type="html" xml:base="/an-afternoon-with-edward-tufte/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2011/10/tufte-data-visualization-300x225.jpg&quot; alt=&quot;tufte-data-visualization&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;wp-caption-text&quot;&gt;
@@ -9198,7 +9191,7 @@ There had to be 400+ people in the seminar!
 
 &lt;p&gt;These books are so dense with information that it will probably take me a month or more to read each book!&lt;/p&gt;
 
-&lt;h2 id=&quot;span-classapple-style-span-stylecolor-000000-font-weight-boldif-your-data-are-boring-youve-got-the-wrong-dataspan&quot;&gt;&lt;span class=&quot;Apple-style-span&quot; style=&quot;color: #000000; font-weight: bold;&quot;&gt;If your data are boring, you’ve got the wrong data&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;if-your-data-are-boring-youve-got-the-wrong-data&quot;&gt;&lt;span class=&quot;Apple-style-span&quot; style=&quot;color: #000000; font-weight: bold;&quot;&gt;If your data are boring, you’ve got the wrong data&lt;/span&gt;&lt;/h2&gt;
 
 &lt;div&gt;
   &lt;p&gt;
@@ -9248,10 +9241,10 @@ There had to be 400+ people in the seminar!
 
 </description>
         
-        <pubDate>Sun, 02 Oct 2011 07:10:37 -0400</pubDate>
+        <pubDate>Sun, 02 Oct 2011 11:10:37 +0000</pubDate>
         <link>
-        http://randyzwitch.com/google-analytics-custom-variables/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/google-analytics-custom-variables/</guid>
+        http://localhost:4000/google-analytics-custom-variables/</link>
+        <guid isPermaLink="true">http://localhost:4000/google-analytics-custom-variables/</guid>
         <content type="html" xml:base="/google-analytics-custom-variables/">&lt;p&gt;Once you’ve &lt;a title=&quot;Google Analytics for WordPress: Two Methods&quot; href=&quot;http://randyzwitch.com/2011/08/google-analytics-for-wordpress/&quot; target=&quot;_blank&quot;&gt;implemented&lt;/a&gt; Google Analytics on your WordPress blog, you’ll likely find that the default reports aren’t providing the site-specific information you are looking for…or, maybe just not at the level of aggregation you’d prefer.   Google Analytics custom variables provide a method of capturing your site-specific information, depending on whether the information changes once per visitor, once per session, or once per page.  Examples of custom variable usage includes:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -9377,10 +9370,10 @@ WordPress Categories in Google Analytics Custom Variable 2
 
 </description>
         
-        <pubDate>Tue, 27 Sep 2011 11:29:42 -0400</pubDate>
+        <pubDate>Tue, 27 Sep 2011 15:29:42 +0000</pubDate>
         <link>
-        http://randyzwitch.com/wordpress-remove-this-entry-was-posted-in/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/wordpress-remove-this-entry-was-posted-in/</guid>
+        http://localhost:4000/wordpress-remove-this-entry-was-posted-in/</link>
+        <guid isPermaLink="true">http://localhost:4000/wordpress-remove-this-entry-was-posted-in/</guid>
         <content type="html" xml:base="/wordpress-remove-this-entry-was-posted-in/">&lt;p&gt;In prior &lt;a title=&quot;Removing “Powered by WordPress” in Twenty Eleven&quot; href=&quot;http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/&quot; target=&quot;_blank&quot;&gt;posts&lt;/a&gt;, I’ve commented that I’m a fan of clean, sleek design when it comes to WordPress themes.  I’ve added the “breadcrumb” style navigation to the top of my posts, which makes the “This Entry was Posted in &lt;category&gt;&quot; and &quot;Bookmark the Permalink&quot; text at the bottom of each post redundant.&lt;/category&gt;&lt;/p&gt;
 
 &lt;p&gt;Here’s how to remove/modify both of these messages through a simple change to the &lt;code class=&quot;highlighter-rouge&quot;&gt;content-single.php&lt;/code&gt; file.&lt;/p&gt;
@@ -9487,20 +9480,11 @@ WordPress Categories in Google Analytics Custom Variable 2
 &lt;/div&gt;
 </description>
         
-        <pubDate>Tue, 13 Sep 2011 07:06:58 -0400</pubDate>
+        <pubDate>Tue, 13 Sep 2011 11:06:58 +0000</pubDate>
         <link>
-        http://randyzwitch.com/xchange-2011-think-tank/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/xchange-2011-think-tank/</guid>
-        <content type="html" xml:base="/xchange-2011-think-tank/">&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
-&lt;html lang=&quot;en-US&quot;&gt;
-&lt;meta charset=&quot;utf-8&quot; /&gt;
-&lt;title&gt;Redirecting…&lt;/title&gt;
-&lt;link rel=&quot;canonical&quot; href=&quot;/tags/#Analytics&quot; /&gt;
-&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=/tags/#Analytics&quot; /&gt;
-&lt;h1&gt;Redirecting…&lt;/h1&gt;
-&lt;a href=&quot;/tags/#Analytics&quot;&gt;Click here if you are not redirected.&lt;/a&gt;
-&lt;script&gt;location=&quot;/tags/#Analytics&quot;&lt;/script&gt;
-&lt;/html&gt;</content>
+        http://localhost:4000/xchange-2011-think-tank/</link>
+        <guid isPermaLink="true">http://localhost:4000/xchange-2011-think-tank/</guid>
+        <content type="html" xml:base="/xchange-2011-think-tank/"></content>
       </item>
       
     
@@ -9512,10 +9496,10 @@ WordPress Categories in Google Analytics Custom Variable 2
 
 </description>
         
-        <pubDate>Fri, 09 Sep 2011 07:53:04 -0400</pubDate>
+        <pubDate>Fri, 09 Sep 2011 11:53:04 +0000</pubDate>
         <link>
-        http://randyzwitch.com/disable-mobile-theme-in-wordpress/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/disable-mobile-theme-in-wordpress/</guid>
+        http://localhost:4000/disable-mobile-theme-in-wordpress/</link>
+        <guid isPermaLink="true">http://localhost:4000/disable-mobile-theme-in-wordpress/</guid>
         <content type="html" xml:base="/disable-mobile-theme-in-wordpress/">&lt;p&gt;With smartphone usage on the rise, you might wonder why anyone would want to disable mobile support in WordPress (specifically, in the Twenty Eleven theme).  Answer: It’s poorly implemented, or at minimum sub-optimal in its default settings.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2011/09/wordpress-mobile.png&quot; alt=&quot;wordpress-mobile&quot; /&gt;&lt;/p&gt;
@@ -9563,10 +9547,10 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Sat, 03 Sep 2011 07:33:11 -0400</pubDate>
+        <pubDate>Sat, 03 Sep 2011 11:33:11 +0000</pubDate>
         <link>
-        http://randyzwitch.com/google-plus-button-wordpress-twenty-eleven/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/google-plus-button-wordpress-twenty-eleven/</guid>
+        http://localhost:4000/google-plus-button-wordpress-twenty-eleven/</link>
+        <guid isPermaLink="true">http://localhost:4000/google-plus-button-wordpress-twenty-eleven/</guid>
         <content type="html" xml:base="/google-plus-button-wordpress-twenty-eleven/">&lt;p&gt;If you’ve been anywhere on the internet in the past few months, you’ve seen the +1 button from Google right next to Facebook, Twitter, StumbleUpon and other social media sharing buttons.  It’s pretty clear that Google intends the “plus one” to be THE most important form of approval on the ‘net, integrating all those “plusses” into search results as well as showing them within the Google+ Plus network.&lt;/p&gt;
 
 &lt;p&gt;Here’s how to integrate the Google Plus button on the WordPress Twenty Eleven theme.&lt;/p&gt;
@@ -9644,10 +9628,10 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Wed, 24 Aug 2011 04:22:15 -0400</pubDate>
+        <pubDate>Wed, 24 Aug 2011 08:22:15 +0000</pubDate>
         <link>
-        http://randyzwitch.com/prevent-google-analytics-tracking-logged-in/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/prevent-google-analytics-tracking-logged-in/</guid>
+        http://localhost:4000/prevent-google-analytics-tracking-logged-in/</link>
+        <guid isPermaLink="true">http://localhost:4000/prevent-google-analytics-tracking-logged-in/</guid>
         <content type="html" xml:base="/prevent-google-analytics-tracking-logged-in/">&lt;p&gt;In a previous &lt;a title=&quot;WordPress Stats or Google Analytics?  Yes!&quot; href=&quot;http://randyzwitch.com/2011/07/wordpress-stats-or-google-analytics/&quot; target=&quot;_blank&quot;&gt;post&lt;/a&gt;, I discussed how it’s useful to have &lt;em&gt;both&lt;/em&gt; WordPress Stats and Google Analytics installed on a WordPress blog; the former can be used as a quick dashboard to check in on the day’s traffic, and the latter can be used for more advanced analysis. But in order to keep our datasets comparable, we need to track users in a similar manner.&lt;/p&gt;
 
 &lt;h2 id=&quot;how-do-wordpress-stats-and-google-analytics-differ&quot;&gt;How do WordPress Stats and Google Analytics differ?&lt;/h2&gt;
@@ -9745,10 +9729,10 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Sat, 20 Aug 2011 06:14:38 -0400</pubDate>
+        <pubDate>Sat, 20 Aug 2011 10:14:38 +0000</pubDate>
         <link>
-        http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/removing-powered-by-wordpress-twenty-eleven/</guid>
+        http://localhost:4000/removing-powered-by-wordpress-twenty-eleven/</link>
+        <guid isPermaLink="true">http://localhost:4000/removing-powered-by-wordpress-twenty-eleven/</guid>
         <content type="html" xml:base="/removing-powered-by-wordpress-twenty-eleven/">&lt;p&gt;So far in the child theme tutorials for the WordPress Twenty Eleven theme, we’ve created a &lt;a title=&quot;Twenty Eleven Child Theme: Creating CSS file&quot; href=&quot;http://randyzwitch.com/2011/07/twenty-eleven-child-theme-creating-css-file/&quot; target=&quot;_blank&quot;&gt;custom CSS&lt;/a&gt; file and &lt;a title=&quot;Twenty Eleven Child Theme:  Custom Header&quot; href=&quot;http://randyzwitch.com/2011/07/custom-header-twenty-eleven-child-theme/&quot; target=&quot;_blank&quot;&gt;custom header&lt;/a&gt;.  Now, let’s add a custom footer and remove “Powered by WordPress”.&lt;/p&gt;
 
 &lt;p&gt;The first step to having a custom footer for your Twenty Eleven child theme is to copy the &lt;code class=&quot;highlighter-rouge&quot;&gt;footer.php&lt;/code&gt; file from the parent Twenty Eleven theme into your directory.  You will find this file on your server here:&lt;/p&gt;
@@ -9810,10 +9794,10 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Tue, 16 Aug 2011 04:19:40 -0400</pubDate>
+        <pubDate>Tue, 16 Aug 2011 08:19:40 +0000</pubDate>
         <link>
-        http://randyzwitch.com/google-analytics-for-wordpress/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/google-analytics-for-wordpress/</guid>
+        http://localhost:4000/google-analytics-for-wordpress/</link>
+        <guid isPermaLink="true">http://localhost:4000/google-analytics-for-wordpress/</guid>
         <content type="html" xml:base="/google-analytics-for-wordpress/">&lt;p&gt;There are two ways to install Google Analytics for WordPress:  manually in your theme or by using a plugin.  While most of this post will cover the manual installation of the tracking code, I will also briefly discuss some of the WordPress Google Analytics plugins I have used over the years.&lt;/p&gt;
 
 &lt;p&gt;Note:  This post isn’t going to cover creating an account at Google, since most people have at least one already through Gmail, Google+, YouTube, Picasa, etc.  However, if you do need help setting up a Google Analytics account, there is a great video provided by Google as part of their Conversion University series:  &lt;a href=&quot;http://services.google.com/analytics/breeze/en/installing_ga_code/index.html&quot; title=&quot;Google Analytics Video&quot;&gt;Creating a Google Analytics account&lt;/a&gt;&lt;/p&gt;
@@ -9852,10 +9836,10 @@ Any CSS mods and the mobile theme breaks down
 
 </description>
         
-        <pubDate>Fri, 29 Jul 2011 17:23:16 -0400</pubDate>
+        <pubDate>Fri, 29 Jul 2011 21:23:16 +0000</pubDate>
         <link>
-        http://randyzwitch.com/comment-bubble-twenty-eleven/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/comment-bubble-twenty-eleven/</guid>
+        http://localhost:4000/comment-bubble-twenty-eleven/</link>
+        <guid isPermaLink="true">http://localhost:4000/comment-bubble-twenty-eleven/</guid>
         <content type="html" xml:base="/comment-bubble-twenty-eleven/">&lt;p&gt;If you’re like me, one of the things that seems odd about the WordPress Twenty Eleven theme is the comment bubble in the upper right of each post on the front page of the blog.  If you don’t know what I’m talking about, here’s a picture:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2011/07/wordpress-twenty-eleven-comment-bubble.png&quot; alt=&quot;wordpress-twenty-eleven-comment-bubble&quot; /&gt;&lt;/p&gt;
@@ -9908,10 +9892,10 @@ We need to look for &quot;comment-link&quot; in our WordPress template
 
 </description>
         
-        <pubDate>Fri, 22 Jul 2011 09:57:14 -0400</pubDate>
+        <pubDate>Fri, 22 Jul 2011 13:57:14 +0000</pubDate>
         <link>
-        http://randyzwitch.com/wordpress-stats-or-google-analytics/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/wordpress-stats-or-google-analytics/</guid>
+        http://localhost:4000/wordpress-stats-or-google-analytics/</link>
+        <guid isPermaLink="true">http://localhost:4000/wordpress-stats-or-google-analytics/</guid>
         <content type="html" xml:base="/wordpress-stats-or-google-analytics/">&lt;p&gt;To understand the success of your blog content and site design, you need actionable data on your visitors and how they are interacting with your site.  Whether to use WordPress Stats or Google Analytics (or both) to obtain this data depends on your goals.&lt;/p&gt;
 
 &lt;h2 id=&quot;wordpress-stats-plugin&quot;&gt;WordPress Stats plugin&lt;/h2&gt;
@@ -9962,10 +9946,10 @@ Google Analytics dashboard from The Fuqua Experience
 
 </description>
         
-        <pubDate>Wed, 20 Jul 2011 09:16:53 -0400</pubDate>
+        <pubDate>Wed, 20 Jul 2011 13:16:53 +0000</pubDate>
         <link>
-        http://randyzwitch.com/custom-header-twenty-eleven-child-theme/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/custom-header-twenty-eleven-child-theme/</guid>
+        http://localhost:4000/custom-header-twenty-eleven-child-theme/</link>
+        <guid isPermaLink="true">http://localhost:4000/custom-header-twenty-eleven-child-theme/</guid>
         <content type="html" xml:base="/custom-header-twenty-eleven-child-theme/">&lt;p&gt;In a previous &lt;a href=&quot;http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/&quot;&gt;post&lt;/a&gt; about creating a child theme for Twenty-Eleven, we created a custom CSS file using the &lt;a title=&quot;Import CSS rule&quot; href=&quot;http://www.w3.org/TR/CSS2/cascade.html#at-import&quot; target=&quot;_blank&quot;&gt;@import CSS rule&lt;/a&gt;.  Technically, the new CSS file is all that is needed to create a child theme in WordPress, but &lt;em&gt;just&lt;/em&gt; changing the colors and font styles isn’t that much fun.  If it’s worth making your own WordPress child theme, it’s worth changing _everything…_starting with creating a custom header file.&lt;/p&gt;
 
 &lt;h2 id=&quot;creating-a-custom-header-file-for-our-child-theme&quot;&gt;Creating a custom header file for our child theme&lt;/h2&gt;
@@ -10023,10 +10007,10 @@ After: 1000px by 225 px
 
 </description>
         
-        <pubDate>Wed, 13 Jul 2011 07:52:32 -0400</pubDate>
+        <pubDate>Wed, 13 Jul 2011 11:52:32 +0000</pubDate>
         <link>
-        http://randyzwitch.com/social-influence-another-fico/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/social-influence-another-fico/</guid>
+        http://localhost:4000/social-influence-another-fico/</link>
+        <guid isPermaLink="true">http://localhost:4000/social-influence-another-fico/</guid>
         <content type="html" xml:base="/social-influence-another-fico/">&lt;p&gt;&lt;img src=&quot;/wp-content/uploads/2011/07/zwitch-klout-july-2011.png&quot; alt=&quot;zwitch-klout-july-2011&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;wp-caption-text&quot;&gt;
@@ -10035,7 +10019,7 @@ After: 1000px by 225 px
 
 &lt;p&gt;Not a day goes by without another article being published about how social media will change business forever.  Several companies have sprung up in the past several years including &lt;a title=&quot;Klout&quot; href=&quot;http://klout.com&quot; target=&quot;_blank&quot;&gt;Klout&lt;/a&gt;, &lt;a title=&quot;Twitalyzer&quot; href=&quot;http://twitalyzer.com/&quot; target=&quot;_blank&quot;&gt;Twitalyzer&lt;/a&gt;, and &lt;a title=&quot;Peer Index&quot; href=&quot;http://peerindex.net&quot; target=&quot;_blank&quot;&gt;PeerIndex&lt;/a&gt; that attempt to measure the value of social media usage, or more broadly, ‘social influence’.  As I read articles about how social influence is now used by companies to ‘&lt;a title=&quot;Facebook Fan Gating&quot; href=&quot;http://blog.milestoneinternet.com/industry-news/facebook-fan-gates/&quot; target=&quot;_blank&quot;&gt;Fan-gate&lt;/a&gt;’ or ‘&lt;a title=&quot;Klout gate&quot; href=&quot;http://mashable.com/2011/06/22/klout-gate/&quot; target=&quot;_blank&quot;&gt;Klout-gate&lt;/a&gt;’ their pages with special content and offers, I can’t help but draw a comparison to the ubiquitous FICO credit score.&lt;/p&gt;
 
-&lt;h2 id=&quot;fico-likelihood-a-customer-will-go-span-styletext-decoration-underline90-days-delinquent-within-2-yearsspan&quot;&gt;FICO:  Likelihood a customer will go &lt;span style=&quot;text-decoration: underline;&quot;&gt;90 days delinquent within 2 years&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;fico-likelihood-a-customer-will-go-90-days-delinquent-within-2-years&quot;&gt;FICO:  Likelihood a customer will go &lt;span style=&quot;text-decoration: underline;&quot;&gt;90 days delinquent within 2 years&lt;/span&gt;&lt;/h2&gt;
 
 &lt;p&gt;What was once just use to determine credit-worthiness, FICO has morphed into a way to customize car insurance rates, evaluate candidates for job openings, decide whether to rent an apartment to a tenant, etc.  While arguments have be made that there is a &lt;em&gt;correlation&lt;/em&gt; between low FICO scores and a lot of undesirable behaviors, it’s quite another to blindly segment customers using credit attributes for non-credit purposes.  Yet this behavior happens all the time…&lt;/p&gt;
 
@@ -10073,10 +10057,10 @@ After: 1000px by 225 px
 
 </description>
         
-        <pubDate>Sun, 10 Jul 2011 08:37:42 -0400</pubDate>
+        <pubDate>Sun, 10 Jul 2011 12:37:42 +0000</pubDate>
         <link>
-        http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/twenty-eleven-child-theme-creating-css-file/</guid>
+        http://localhost:4000/twenty-eleven-child-theme-creating-css-file/</link>
+        <guid isPermaLink="true">http://localhost:4000/twenty-eleven-child-theme-creating-css-file/</guid>
         <content type="html" xml:base="/twenty-eleven-child-theme-creating-css-file/">&lt;p&gt;With the Twenty Eleven child theme directory &lt;a title=&quot;Picking a WordPress Theme:  Fancy or Basic?&quot; href=&quot;http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/&quot; target=&quot;_blank&quot;&gt;created&lt;/a&gt; as “twentyeleven-child” in the ‘/wp-content/themes’ directory, we’re now ready to create the first file as part of the child theme: the CSS file.&lt;/p&gt;
 
 &lt;p&gt;While we &lt;em&gt;could&lt;/em&gt; just copy the existing CSS file from the Twenty Eleven theme (&lt;code class=&quot;highlighter-rouge&quot;&gt;style.css&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;/wp-content/themes/twentyeleven directory&lt;/code&gt;) and modify that file directly, if we do that then we will lose track of the changes that were made relative to the original Twenty Eleven styling.  So what we’re going to do is create a new CSS file to hold our changes, with a reference back to the original CSS file.&lt;/p&gt;
@@ -10145,10 +10129,10 @@ Template: twentyeleven */
 
 </description>
         
-        <pubDate>Sat, 09 Jul 2011 03:43:20 -0400</pubDate>
+        <pubDate>Sat, 09 Jul 2011 07:43:20 +0000</pubDate>
         <link>
-        http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/</link>
-        <guid isPermaLink="true">http://randyzwitch.com/wordpress-theme-twentyeleven-athualpa/</guid>
+        http://localhost:4000/wordpress-theme-twentyeleven-athualpa/</link>
+        <guid isPermaLink="true">http://localhost:4000/wordpress-theme-twentyeleven-athualpa/</guid>
         <content type="html" xml:base="/wordpress-theme-twentyeleven-athualpa/">&lt;h2 id=&quot;a-complicated-wordpress-theme-may-look-better&quot;&gt;A complicated WordPress theme may LOOK better…&lt;/h2&gt;
 
 &lt;p&gt;As I referenced in a prior post&amp;lt;/a&amp;gt;, when I was getting &lt;a href=&quot;http://the-fuqua-experience.com&quot;&gt;The Fuqua Experience&lt;/a&gt; (TFE) off the ground, I tried to find good-looking themes to complement my writing.  For a while, I used the &lt;a href=&quot;http://cutline.tubetorial.com/&quot;&gt;Cutline 3-column split&lt;/a&gt; theme, because I liked the spartan nature of the theme.  I figured that all that white-space could be filled up with crazy tag-cloud widgets, Google Adsense ads, Twitter feeds…the web equivalent of Tufte’s “&lt;a title=&quot;Business Week Chartjunk&quot; href=&quot;http://images.businessweek.com/ss/09/06/0608_tufte/7.htm&quot; target=&quot;_blank&quot;&gt;chartjunk&lt;/a&gt;.”&lt;/p&gt;
