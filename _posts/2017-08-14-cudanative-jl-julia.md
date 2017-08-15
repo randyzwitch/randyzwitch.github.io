@@ -13,7 +13,7 @@ tags:
 - CUDA
 - GPU
 ---
-[Code as Julia Jupyter Notebook](randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb)
+[Code as Julia Jupyter Notebook](http://randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb)
 
 Julia has the reputation as a "fast" language in that it's possible to write high-performing code. However, what I appreciate most about Julia is not just that the code is fast, but rather that Julia makes high-performance concepts _accessible_ without having to have a deep computer science or compiled language background (neither of which I possess!)
 
@@ -166,4 +166,4 @@ There are myriad things I learned from this project, but most important is that 
 
 Over time, I'm sure I'll get better results as I learn more about CUDA, as CUDAnative.jl continues to smooth out the rough edges, etc. But the fact that as a beginner that I could achieve such large speedups in just an hour or two of coding and sparse CUDAnative.jl documentation bodes well for the future of GPU computing in Julia.
 
-[Code as Julia Jupyter Notebook](randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb)
+[Code as Julia Jupyter Notebook](http://randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb)
