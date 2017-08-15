@@ -11,6 +11,8 @@ tags:
 - Graph Databases
 - Hadoop
 - Data Visualization
+- CUDA
+
 ---
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">i need some kind of super computer to parse a multi-gigabyte XML file, <a href="https://twitter.com/randyzwitch">@randyzwitch</a></p>&mdash; jason thompson (@usujason) <a href="https://twitter.com/usujason/status/821429000270528512">January 17, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

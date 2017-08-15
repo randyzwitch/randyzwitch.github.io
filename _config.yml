@@ -3,7 +3,6 @@ plugins:
 - jekyll-seo-tag
 - jekyll-sitemap
 - jekyll-paginate
-- jekyll-admin
 - jekyll-gist
 - jekyll-redirect-from
 highlighter: rouge

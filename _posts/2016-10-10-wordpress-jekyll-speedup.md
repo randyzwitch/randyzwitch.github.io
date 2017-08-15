@@ -9,6 +9,7 @@ category: Analytics
 tags:
 - Julia
 - Data Visualization
+- ECharts
 ---
 
 About a month ago, I switched this blog from WordPress hosted on Bluehost to Jekyll on GitHub Pages. I suspected moving to a static website would be faster than generated HTML via PHP, and it is certainly cheaper (GitHub Pages is "free"). But it wasn't until I needed a dataset for doing some dataset visualization development that I realize how much of an improvement it has been!

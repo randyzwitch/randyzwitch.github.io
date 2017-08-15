@@ -8,6 +8,249 @@
     
       
       <item>
+        <title>Parallelizing Distance Calculations Using A GPU With CUDAnative.jl</title>
+        
+          <description>&lt;p&gt;&lt;a href=&quot;randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 14 Aug 2017 00:00:00 -0400</pubDate>
+        <link>
+        http://localhost:4000/cudanative-jl-julia/</link>
+        <guid isPermaLink="true">http://localhost:4000/cudanative-jl-julia/</guid>
+        <content type="html" xml:base="/cudanative-jl-julia/">&lt;p&gt;&lt;a href=&quot;randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Julia has the reputation as a “fast” language in that it’s possible to write high-performing code. However, what I appreciate most about Julia is not just that the code is fast, but rather that Julia makes high-performance concepts &lt;em&gt;accessible&lt;/em&gt; without having to have a deep computer science or compiled language background (neither of which I possess!)&lt;/p&gt;
+
+&lt;p&gt;For version 0.6 of Julia, another milestone has been reached in the “accessible” high-performance category: the ability to &lt;a href=&quot;https://julialang.org/blog/2017/03/cudanative&quot;&gt;run Julia code natively on NVIDIA GPUs&lt;/a&gt; through the &lt;a href=&quot;https://github.com/JuliaGPU/CUDAnative.jl&quot;&gt;CUDAnative.jl&lt;/a&gt; package. While CUDAnative.jl is still very much in its development stages, the package is already far-enough along that within a few hours, as a complete beginner to GPU programming, I was able to see in excess of 20x speedups for my toy example to calculate haversine distance.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://julialang.org/blog/2017/03/cudanative&quot;&gt;CUDAnative.jl introduction blog post&lt;/a&gt; and &lt;a href=&quot;http://juliagpu.github.io/CUDAnative.jl/stable/#Installation-1&quot;&gt;documentation&lt;/a&gt; cover the installation process in-depth, so I won’t repeat the details here. I’m already a regular compile-from-source Julia user and I found the installation process pretty easy on my &lt;a href=&quot;http://randyzwitch.com/building-data-science-workstation-2017/&quot;&gt;CUDA-enabled Ubuntu workstation&lt;/a&gt;. If you can already do TensorFlow, Keras or other GPU tutorials on your computer, getting CUDAnative.jl to work shouldn’t take more than 10-15 minutes.&lt;/p&gt;
+
+&lt;h2 id=&quot;julia-cpu-implementation&quot;&gt;Julia CPU Implementation&lt;/h2&gt;
+
+&lt;p&gt;To get a feel for what sort of speedup I could expect from using a GPU, I wrote a naive implementation of a distance matrix calculation in Julia:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#https://github.com/quinnj/Rosetta-Julia/blob/master/src/Haversine.jl&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;haversine&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lon1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lon2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;6372.8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;asin&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sind&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosd&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosd&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sind&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lon2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt; pairwise_dist&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;})&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Pre-allocate, since size is known&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;}(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Brute force fill in each cell, ignore that distance [i,j] = distance [j,i]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+            &lt;span class=&quot;nd&quot;&gt;@inbounds&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;haversine&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#Example benchmark call&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lat10000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lon10000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;120&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@time&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;native_julia_cellwise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pairwise_dist&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat10000&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon10000&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The above code takes a pair of lat/lon values, then calculates the &lt;a href=&quot;https://rosettacode.org/wiki/Haversine_formula&quot;&gt;haversine distance&lt;/a&gt; between the two points. This algorithm is naive in that a distance matrix is symmetric (i.e. the distance between A to B is the same from B to A), so I could’ve done half the work by setting &lt;code class=&quot;highlighter-rouge&quot;&gt;result[i,j]&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;result[j,i]&lt;/code&gt; to the same value, but as a measure of work for a benchmark this toy example is fine. Also note that this implementation runs on a single core, no CPU-core-level parallelization has been implemented.&lt;/p&gt;
+
+&lt;p&gt;Or to put all that another way: if someone wanted to tackle this problem without thinking very hard, the implementation might look like this.&lt;/p&gt;
+
+&lt;h2 id=&quot;cudanativejl-implementation&quot;&gt;CUDAnative.jl Implementation&lt;/h2&gt;
+
+&lt;p&gt;There are two parts to the CUDAnative.jl implementation: the kernel (i.e. the actual calculation) and the boilerplate code for coordinating the writing to/from the CPU and GPU.&lt;/p&gt;
+
+&lt;h4 id=&quot;kernel-code&quot;&gt;Kernel Code&lt;/h4&gt;
+
+&lt;p&gt;The kernel code has similarities to the CPU implementation, with a few key differences:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Method signature is one lat/lon point vs. the lat/lon vectors, rather than a pairwise distance calculation&lt;/li&gt;
+  &lt;li&gt;Boilerplate code for thread index on the GPU (0-indexed vs. normal Julia 1-indexing)&lt;/li&gt;
+  &lt;li&gt;The trigonometric functions need to be prepended with &lt;code class=&quot;highlighter-rouge&quot;&gt;CUDAnative.&lt;/code&gt;, to differentiate that the GPU functions aren’t the same as the functions from Base Julia&lt;/li&gt;
+  &lt;li&gt;Rather than return an array as part of the function return, we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;out&lt;/code&gt; keyword argument to write directly to the GPU memory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUDAnative&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUDAdrv&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#Calculate one point vs. all other points simultaneously&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt; kernel_haversine&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;latpoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lonpoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AbstractVector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AbstractVector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AbstractVector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;})&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Thread index&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#Need to do the n-1 dance, since CUDA expects 0 and Julia does 1-indexing&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blockIdx&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blockDim&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;threadIdx&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;6372.8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUDAnative&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;asin&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CUDAnative&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CUDAnative&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sind&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;latpoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUDAnative&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cosd&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUDAnative&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cosd&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;latpoint&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUDAnative&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sind&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lonpoint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Return nothing, since we're writing directly to the out array allocated on GPU&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nothing&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;coordination-code&quot;&gt;Coordination Code&lt;/h4&gt;
+
+&lt;p&gt;The coordination code is similar to what you might see in a &lt;code class=&quot;highlighter-rouge&quot;&gt;main()&lt;/code&gt; function in C or Java, where the kernel is applied to the input data. I am using the &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; keyword with the default value of &lt;code class=&quot;highlighter-rouge&quot;&gt;CuDevice(0)&lt;/code&gt; to indicate that the code should be run on the first (in my case, only) GPU device.&lt;/p&gt;
+
+&lt;p&gt;The remainder of the code has comments on its purpose, primarily:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transfer Julia CPU arrays to GPU arrays (&lt;code class=&quot;highlighter-rouge&quot;&gt;CuArray&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Set number of threads/blocks&lt;/li&gt;
+  &lt;li&gt;Calculate distance between a point and all other points in the array, write back to CPU&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#validated kernel_haversine/distmat returns same answer as CPU haversine method (not shown)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt; distmat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;};&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CuDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CuDevice&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Create a context&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CuContext&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Change to objects with CUDA context&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;d_lat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CuArray&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;d_lon&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CuArray&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;d_out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CuArray&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;}(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Calculate number of calculations, threads, blocks&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;len&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;threads&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;blocks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ceil&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;threads&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Julia side accumulation of results to relieve GPU memory pressure&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;accum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;}(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# run and time the test&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;secs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUDAdrv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@elapsed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+            &lt;span class=&quot;nd&quot;&gt;@cuda&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blocks&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;threads&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_haversine&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d_lat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d_lon&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d_out&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;accum&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;[:,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;}(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d_out&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Clean up context&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;destroy!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#Return timing and bring results back to Julia&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secs&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accum&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#Example benchmark call&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distmat&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat10000&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon10000&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;≈&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;native_julia_cellwise&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#validate results equivalent CPU and GPU&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The code is written to process one row of the distance matrix at a time to minimize GPU memory usage. By writing out the results to the CPU after each loop iteration, I have &lt;code class=&quot;highlighter-rouge&quot;&gt;n-1&lt;/code&gt; extra CPU transfers, which is less performant than calculating all the distances first then transferring, but my consumer-grade GPU with 6GB of RAM would run out of GPU memory before completing the calculation otherwise.&lt;/p&gt;
+
+&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
+
+&lt;p&gt;The performance characteristics of the CPU and GPU calculations are below for various sizes of distance matrices. Having not done any GPU calculations before, I was surprised to see how much of a penalty there is writing back and forth to the GPU. As you can see from the navy-blue line, the execution time is fixed for matrices of size 1 to 1000, representing the fixed cost of moving the data from the CPU to the GPU.&lt;/p&gt;
+
+&lt;p&gt;Of course, once we get above 1000x1000 matrices, the GPU really starts to shine. Due to the log scale, it’s a bit hard to see the magnitude differences, but at 100000x100000 there is a &lt;strong&gt;23x&lt;/strong&gt; reduction in execution time (565.008s CPU vs. 24.32s GPU).&lt;/p&gt;
+
+&lt;div id=&quot;linep&quot; style=&quot;height:400px;width:800px;&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    // Initialize after dom ready
+    var myChart = echarts.init(document.getElementById(&quot;linep&quot;));
+
+    // Load data into the ECharts instance
+    myChart.setOption(
+{&quot;xAxis&quot;:[{&quot;splitNumber&quot;:5,&quot;axisLine&quot;:{&quot;show&quot;:false,&quot;onZero&quot;:true,&quot;lineStyle&quot;:{&quot;normal&quot;:{},&quot;emphasis&quot;:{}}},&quot;axisLabel&quot;:{&quot;show&quot;:true,&quot;interval&quot;:&quot;auto&quot;,&quot;rotate&quot;:0,&quot;inside&quot;:false,&quot;formatter&quot;:&quot;{value}&quot;,&quot;margin&quot;:8},&quot;scale&quot;:true,&quot;gridIndex&quot;:0,&quot;name&quot;:&quot;Matrix dimensions (square)&quot;,&quot;minInterval&quot;:0,&quot;zlevel&quot;:0,&quot;triggerEvent&quot;:false,&quot;z&quot;:0,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;lineStyle&quot;:{&quot;normal&quot;:{},&quot;emphasis&quot;:{}}},&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;middle&quot;,&quot;nameGap&quot;:30,&quot;silent&quot;:true,&quot;type&quot;:&quot;log&quot;}],&quot;ec_charttype&quot;:&quot;xy plot&quot;,&quot;series&quot;:[{&quot;name&quot;:&quot;CPU&quot;,&quot;yAxisIndex&quot;:0,&quot;xAxisIndex&quot;:0,&quot;smooth&quot;:true,&quot;data&quot;:[[1.0,6.0e-6],[10.0,1.7e-5],[100.0,0.001091],[1000.0,0.090409],[10000.0,5.620437],[100000.0,565.008425]],&quot;markLine&quot;:{&quot;data&quot;:[],&quot;lineStyle&quot;:{&quot;normal&quot;:{},&quot;emphasis&quot;:{}}},&quot;large&quot;:true,&quot;type&quot;:&quot;line&quot;,&quot;largeThreshold&quot;:2000},{&quot;name&quot;:&quot;GPU&quot;,&quot;yAxisIndex&quot;:0,&quot;xAxisIndex&quot;:0,&quot;smooth&quot;:true,&quot;data&quot;:[[1.0,0.14232168],[10.0,0.15084915],[100.0,0.15897949],[1000.0,0.16998644],[10000.0,0.6376571],[100000.0,24.32015]],&quot;markLine&quot;:{&quot;data&quot;:[],&quot;lineStyle&quot;:{&quot;normal&quot;:{},&quot;emphasis&quot;:{}}},&quot;large&quot;:true,&quot;type&quot;:&quot;line&quot;,&quot;largeThreshold&quot;:2000}],&quot;theme&quot;:{&quot;geo&quot;:{&quot;label&quot;:{&quot;normal&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#000000&quot;}},&quot;emphasis&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;rgb(100,0,0)&quot;}}},&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderColor&quot;:&quot;#444444&quot;,&quot;borderWidth&quot;:0.5,&quot;areaColor&quot;:&quot;#eeeeee&quot;},&quot;emphasis&quot;:{&quot;borderColor&quot;:&quot;#444444&quot;,&quot;borderWidth&quot;:1,&quot;areaColor&quot;:&quot;rgba(255,215,0,0.8)&quot;}}},&quot;parallel&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;},&quot;emphasis&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;}}},&quot;markPoint&quot;:{&quot;label&quot;:{&quot;normal&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#eeeeee&quot;}},&quot;emphasis&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#eeeeee&quot;}}}},&quot;visualMap&quot;:{&quot;color&quot;:[&quot;#e01f54&quot;,&quot;#e7dbc3&quot;]},&quot;funnel&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;},&quot;emphasis&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;}}},&quot;bar&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;barBorderColor&quot;:&quot;#ccc&quot;,&quot;barBorderWidth&quot;:0},&quot;emphasis&quot;:{&quot;barBorderColor&quot;:&quot;#ccc&quot;,&quot;barBorderWidth&quot;:0}}},&quot;map&quot;:{&quot;label&quot;:{&quot;normal&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#000000&quot;}},&quot;emphasis&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;rgb(100,0,0)&quot;}}},&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderColor&quot;:&quot;#444444&quot;,&quot;borderWidth&quot;:0.5,&quot;areaColor&quot;:&quot;#eeeeee&quot;},&quot;emphasis&quot;:{&quot;borderColor&quot;:&quot;#444444&quot;,&quot;borderWidth&quot;:1,&quot;areaColor&quot;:&quot;rgba(255,215,0,0.8)&quot;}}},&quot;scatter&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;},&quot;emphasis&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;}}},&quot;pie&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;},&quot;emphasis&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;}}},&quot;graph&quot;:{&quot;label&quot;:{&quot;normal&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#eeeeee&quot;}}},&quot;symbolSize&quot;:4,&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;}},&quot;smooth&quot;:false,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;color&quot;:[&quot;#e01f54&quot;,&quot;#001852&quot;,&quot;#f5e8c8&quot;,&quot;#b8d2c7&quot;,&quot;#c6b38e&quot;,&quot;#a4d8c2&quot;,&quot;#f3d999&quot;,&quot;#d3758f&quot;,&quot;#dcc392&quot;,&quot;#2e4783&quot;,&quot;#82b6e9&quot;,&quot;#ff6347&quot;,&quot;#a092f1&quot;,&quot;#0a915d&quot;,&quot;#eaf889&quot;,&quot;#6699FF&quot;,&quot;#ff6666&quot;,&quot;#3cb371&quot;,&quot;#d5b158&quot;,&quot;#38b6b6&quot;],&quot;lineStyle&quot;:{&quot;normal&quot;:{&quot;color&quot;:&quot;#aaaaaa&quot;,&quot;width&quot;:1}}},&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;line&quot;:{&quot;symbolSize&quot;:4,&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:1}},&quot;smooth&quot;:false,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;lineStyle&quot;:{&quot;normal&quot;:{&quot;width&quot;:2}}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderColor0&quot;:&quot;#b8d2c7&quot;,&quot;color&quot;:&quot;#e01f54&quot;,&quot;borderColor&quot;:&quot;#f5e8c8&quot;,&quot;borderWidth&quot;:1,&quot;color0&quot;:&quot;#001852&quot;}}},&quot;sankey&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;},&quot;emphasis&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#333&quot;}},&quot;axisLabel&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;show&quot;:true},&quot;splitLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#ccc&quot;]}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.3)&quot;,&quot;rgba(200,200,200,0.3)&quot;]},&quot;show&quot;:false},&quot;axisTick&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#333&quot;}}},&quot;toolbox&quot;:{&quot;iconStyle&quot;:{&quot;normal&quot;:{&quot;borderColor&quot;:&quot;#999999&quot;},&quot;emphasis&quot;:{&quot;borderColor&quot;:&quot;#666666&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#333&quot;}},&quot;axisLabel&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;show&quot;:true},&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#ccc&quot;]}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.3)&quot;,&quot;rgba(200,200,200,0.3)&quot;]},&quot;show&quot;:false},&quot;axisTick&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#333&quot;}}},&quot;tooltip&quot;:{&quot;axisPointer&quot;:{&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#cccccc&quot;,&quot;width&quot;:1},&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#cccccc&quot;,&quot;width&quot;:1}}},&quot;timeline&quot;:{&quot;label&quot;:{&quot;normal&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#293c55&quot;}},&quot;emphasis&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#293c55&quot;}}},&quot;controlStyle&quot;:{&quot;normal&quot;:{&quot;color&quot;:&quot;#293c55&quot;,&quot;borderColor&quot;:&quot;#293c55&quot;,&quot;borderWidth&quot;:0.5},&quot;emphasis&quot;:{&quot;color&quot;:&quot;#293c55&quot;,&quot;borderColor&quot;:&quot;#293c55&quot;,&quot;borderWidth&quot;:0.5}},&quot;checkpointStyle&quot;:{&quot;color&quot;:&quot;#e43c59&quot;,&quot;borderColor&quot;:&quot;rgba(194,53,49,0.5)&quot;},&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;color&quot;:&quot;#293c55&quot;,&quot;borderWidth&quot;:1},&quot;emphasis&quot;:{&quot;color&quot;:&quot;#a9334c&quot;}},&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#293c55&quot;,&quot;width&quot;:1}},&quot;radar&quot;:{&quot;symbolSize&quot;:4,&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:1}},&quot;smooth&quot;:false,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;lineStyle&quot;:{&quot;normal&quot;:{&quot;width&quot;:2}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#333&quot;}},&quot;axisLabel&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;show&quot;:true},&quot;splitLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#ccc&quot;]}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.3)&quot;,&quot;rgba(200,200,200,0.3)&quot;]},&quot;show&quot;:false},&quot;axisTick&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#333&quot;}}},&quot;textStyle&quot;:{},&quot;gauge&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;},&quot;emphasis&quot;:{&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;}}},&quot;boxplot&quot;:{&quot;itemStyle&quot;:{&quot;normal&quot;:{&quot;borderWidth&quot;:1},&quot;emphasis&quot;:{&quot;borderWidth&quot;:2}}},&quot;color&quot;:[&quot;#e01f54&quot;,&quot;#001852&quot;,&quot;#f5e8c8&quot;,&quot;#b8d2c7&quot;,&quot;#c6b38e&quot;,&quot;#a4d8c2&quot;,&quot;#f3d999&quot;,&quot;#d3758f&quot;,&quot;#dcc392&quot;,&quot;#2e4783&quot;,&quot;#82b6e9&quot;,&quot;#ff6347&quot;,&quot;#a092f1&quot;,&quot;#0a915d&quot;,&quot;#eaf889&quot;,&quot;#6699FF&quot;,&quot;#ff6666&quot;,&quot;#3cb371&quot;,&quot;#d5b158&quot;,&quot;#38b6b6&quot;],&quot;title&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333333&quot;},&quot;subtextStyle&quot;:{&quot;color&quot;:&quot;#aaaaaa&quot;}},&quot;dataZoom&quot;:{&quot;dataBackgroundColor&quot;:&quot;rgba(47,69,84,0.3)&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333333&quot;},&quot;handleSize&quot;:&quot;100%&quot;,&quot;handleColor&quot;:&quot;#a7b7cc&quot;,&quot;fillerColor&quot;:&quot;rgba(167,183,204,0.4)&quot;,&quot;backgroundColor&quot;:&quot;rgba(47,69,84,0)&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#333&quot;}},&quot;axisLabel&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;show&quot;:true},&quot;splitLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#ccc&quot;]}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.3)&quot;,&quot;rgba(200,200,200,0.3)&quot;]},&quot;show&quot;:false},&quot;axisTick&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#333&quot;}}},&quot;legend&quot;:{&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333333&quot;}}},&quot;yAxis&quot;:[{&quot;splitNumber&quot;:5,&quot;axisLine&quot;:{&quot;show&quot;:false,&quot;onZero&quot;:true,&quot;lineStyle&quot;:{&quot;normal&quot;:{},&quot;emphasis&quot;:{}}},&quot;axisLabel&quot;:{&quot;show&quot;:true,&quot;interval&quot;:&quot;auto&quot;,&quot;rotate&quot;:0,&quot;inside&quot;:false,&quot;formatter&quot;:&quot;{value}&quot;,&quot;margin&quot;:8},&quot;scale&quot;:true,&quot;gridIndex&quot;:0,&quot;name&quot;:&quot;Time in seconds&quot;,&quot;minInterval&quot;:0,&quot;zlevel&quot;:0,&quot;triggerEvent&quot;:false,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;middle&quot;,&quot;nameGap&quot;:50,&quot;silent&quot;:true,&quot;type&quot;:&quot;log&quot;}],&quot;toolbox&quot;:{&quot;feature&quot;:{},&quot;orient&quot;:&quot;vertical&quot;,&quot;itemSize&quot;:15,&quot;height&quot;:&quot;auto&quot;,&quot;zlevel&quot;:0,&quot;z&quot;:2,&quot;itemGap&quot;:20,&quot;right&quot;:&quot;auto&quot;,&quot;top&quot;:&quot;center&quot;,&quot;width&quot;:&quot;auto&quot;,&quot;show&quot;:false,&quot;showTitle&quot;:true},&quot;ec_width&quot;:800,&quot;ec_height&quot;:400,&quot;grid&quot;:[{&quot;height&quot;:&quot;auto&quot;,&quot;show&quot;:false,&quot;width&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;}],&quot;title&quot;:[{&quot;left&quot;:&quot;center&quot;,&quot;borderColor&quot;:&quot;transparent&quot;,&quot;bottom&quot;:&quot;auto&quot;,&quot;padding&quot;:5,&quot;zlevel&quot;:0,&quot;borderWidth&quot;:1,&quot;target&quot;:&quot;blank&quot;,&quot;z&quot;:2,&quot;itemGap&quot;:5,&quot;shadowOffsetY&quot;:0,&quot;shadowOffsetX&quot;:0,&quot;right&quot;:&quot;auto&quot;,&quot;top&quot;:&quot;auto&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;color&quot;:&quot;#000&quot;,&quot;fontSize&quot;:14,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;show&quot;:true,&quot;text&quot;:&quot;Haversine distance: CPU vs. GPU&quot;}],&quot;legend&quot;:{&quot;itemWidth&quot;:25,&quot;data&quot;:[&quot;CPU&quot;,&quot;GPU&quot;],&quot;borderColor&quot;:&quot;transparent&quot;,&quot;orient&quot;:&quot;horizontal&quot;,&quot;bottom&quot;:&quot;auto&quot;,&quot;height&quot;:&quot;auto&quot;,&quot;zlevel&quot;:0,&quot;padding&quot;:5,&quot;borderWidth&quot;:1,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;z&quot;:2,&quot;align&quot;:&quot;auto&quot;,&quot;itemGap&quot;:10,&quot;itemHeight&quot;:14,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;shadowOffsetY&quot;:0,&quot;shadowOffsetX&quot;:0,&quot;right&quot;:&quot;right&quot;,&quot;top&quot;:&quot;middle&quot;,&quot;width&quot;:&quot;auto&quot;,&quot;selectedMode&quot;:true,&quot;show&quot;:true}}
+);
+&lt;/script&gt;
+
+&lt;h2 id=&quot;what-i-learned&quot;&gt;What I Learned&lt;/h2&gt;
+
+&lt;p&gt;There are myriad things I learned from this project, but most important is that GPGPU processing can be accessible for people like myself without a CS background. Julia isn’t the first high-level language to provide CUDA functionality, but the fact that the code is so similar to native Julia makes GPU computing something I can include in my toolbox &lt;em&gt;today&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Over time, I’m sure I’ll get better results as I learn more about CUDA, as CUDAnative.jl continues to smooth out the rough edges, etc. But the fact that as a beginner that I could achieve such large speedups in just an hour or two of coding and sparse CUDAnative.jl documentation bodes well for the future of GPU computing in Julia.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>RSiteCatalyst Version 1.4.13 Release Notes</title>
         
           <description>&lt;p&gt;This blog post will be fairly short, given the minor nature of the update.&lt;/p&gt;
