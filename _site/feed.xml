@@ -10,7 +10,7 @@
       <item>
         <title>Parallelizing Distance Calculations Using A GPU With CUDAnative.jl</title>
         
-          <description>&lt;p&gt;&lt;a href=&quot;randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 
 </description>
         
@@ -18,7 +18,7 @@
         <link>
         http://localhost:4000/cudanative-jl-julia/</link>
         <guid isPermaLink="true">http://localhost:4000/cudanative-jl-julia/</guid>
-        <content type="html" xml:base="/cudanative-jl-julia/">&lt;p&gt;&lt;a href=&quot;randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+        <content type="html" xml:base="/cudanative-jl-julia/">&lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Julia has the reputation as a “fast” language in that it’s possible to write high-performing code. However, what I appreciate most about Julia is not just that the code is fast, but rather that Julia makes high-performance concepts &lt;em&gt;accessible&lt;/em&gt; without having to have a deep computer science or compiled language background (neither of which I possess!)&lt;/p&gt;
 
@@ -245,7 +245,7 @@
 
 &lt;p&gt;Over time, I’m sure I’ll get better results as I learn more about CUDA, as CUDAnative.jl continues to smooth out the rough edges, etc. But the fact that as a beginner that I could achieve such large speedups in just an hour or two of coding and sparse CUDAnative.jl documentation bodes well for the future of GPU computing in Julia.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb&quot;&gt;Code as Julia Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content>
       </item>
       
     
