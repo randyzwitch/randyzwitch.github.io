@@ -13,6 +13,8 @@ tags:
 - CUDA
 - GPU
 ---
+Hacker News discussion: [link](https://news.ycombinator.com/item?id=15021244)
+
 [Code as Julia Jupyter Notebook](http://randyzwitch.com/notebooks/cudanative_haversine_julia_example.ipynb)
 
 Julia has the reputation as a "fast" language in that it's possible to write high-performing code. However, what I appreciate most about Julia is not just that the code is fast, but rather that Julia makes high-performance concepts _accessible_ without having to have a deep computer science or compiled language background (neither of which I possess!)
