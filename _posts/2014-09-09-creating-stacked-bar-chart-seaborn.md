@@ -10,6 +10,9 @@ tags:
   - Data Visualization
   - Python
 ---
+
+[Download chart data](http://randyzwitch.com/wp-content/uploads/2014/09/stacked_bar.csv)
+
 The other day I was having a heck of a time trying to figure out how to make a stacked bar chart in Seaborn. But in true open-source/community fashion, I ended up getting a response from the creator of Seaborn via Twitter:
 
 <blockquote class="twitter-tweet" lang="en" data-conversation="none">
@@ -89,3 +92,5 @@ for item in ([bottom_plot.xaxis.label, bottom_plot.yaxis.label] +
 ## Don't Overthink Things!
 
 In the end, creating a stacked bar chart in Seaborn took me 4 hours to mess around trying everything under the sun, then 15 minutes once I remembered what a stacked bar chart actually represents. Hopefully this will save someone else from my same misery.
+
+[Download chart data](http://randyzwitch.com/wp-content/uploads/2014/09/stacked_bar.csv)
