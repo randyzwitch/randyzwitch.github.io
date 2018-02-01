@@ -81,6 +81,112 @@
 
 <h1 class="entry-title">
 
+    <a href="/mapd-install-load-data/">Getting Started With MapD: Docker Install and Loading Data</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">February 1, 2018</a> &times; DataScience
+      </div>
+  </div>
+  <div class="content">
+    <p>It’s been nearly five years since I wrote about <a href="http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-1/">Getting Started with Hadoop</a> for big data. In those years, there have been incremental improvements in columnar file formats and dramatic computation speed improvements with Apache Spark, but I still wouldn’t call the Hadoop ecosystem convenient for actual data <em>analysis</em>.  During this same time period, thanks to <a href="https://developer.nvidia.com/">NVIDIA</a> and their <a href="https://devblogs.nvidia.com/even-easier-introduction-cuda/">CUDA library</a> for general-purpose calculations on GPUs, graphics cards went from enabling visuals on a computer to enabling massively-parallel calculations as well.</p>
+
+<p>Building upon CUDA is <a href="https://www.mapd.com/">MapD</a>, an analytics platform that allows for super-fast SQL queries and interactive visualizations. In this blog post, I’ll show how to use Docker to install <a href="https://www.mapd.com/blog/2017/05/08/mapd-open-sources-gpu-powered-database/">MapD Community Edition</a> and load <a href="http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx">hourly electricity demand</a> data to analyze.</p>
+
+<h2 id="installing-mapd-ce-using-dockernvidia-docker">Installing MapD CE using Docker/nvidia-docker</h2>
+
+<p>While CUDA makes it <em>possible</em> to do calculations on GPUs, I wouldn’t go as far as to say it is easy, including just getting everything installed! Luckily, there is Docker and <a href="https://devblogs.nvidia.com/nvidia-docker-gpu-server-application-deployment-made-easy/">nvidia-docker</a>, which provide all-in-one <em>containers</em> with all necessary drivers and libraries installed to build upon. MapD provides instructions for installing <a href="https://www.mapd.com/docs/latest/getting-started/docker-gpu-ce-recipe/">MapD CE using nvidia-docker</a>, with the main installation command as follows:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="c">##make sure you have nvidia-docker version 1 installed, not version 2!</span>
+nvidia-docker run -d -v <span class="nv">$HOME</span>/mapd-docker-storage:/mapd-storage -p 9090-9092:9090-9092 -v <span class="se">\</span>
+ /usr/share/glvnd/egl_vendor.d:/usr/share/glvnd/egl_vendor.d mapd/mapd-ce-cuda<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>When you kickoff this command (I’m using a ssh terminal into a <a href="http://randyzwitch.com/building-data-science-workstation-2017/">remote Ubuntu desktop</a>), Docker will download all the required images from the <code class="highlighter-rouge">mapd/mapd-ce-cuda</code>repository and start a background process for the MapD database and the Immerse visualization interface/web server:</p>
+
+<p><img src="/assets/img/docker-dl-images.png" alt="docker images" /></p>
+
+<p>Once all of the images are downloaded, you can find the container that was created using <code class="highlighter-rouge">docker container ls</code>, then run <code class="highlighter-rouge">docker exec -it &lt;container id&gt; bash</code> to start the container and drop you into a Bash shell (on the container). From this point, MapD Community Edition will be running!</p>
+
+<p><img src="/assets/img/docker-container-ls.png" alt="docker ls" /></p>
+
+<h2 id="loading-data-using-the-immerse-interface">Loading Data Using the Immerse Interface</h2>
+
+<p>Once the Bash shell opens in the terminal, you can now interact with MapD via the Docker container. However, for beginning exploration, it’s much simpler to use the Immerse Web Interface at <code class="highlighter-rouge">localhost:9092</code>:</p>
+
+<p><img src="/assets/img/mapd-immerse.png" alt="mapd immerse" /></p>
+
+<p>Uploading data via the Data Manager interface is reasonably performant for smaller files; a test file with four columns and million or so rows loaded in a few seconds (dependent on your upload speed, obviously):</p>
+
+<p><img src="/assets/img/mapd-import-table.png" alt="mapd data manager" /></p>
+
+<p>Edit the column names and types if you want (the CSV reader gets it right for me most of the time). Then, once the ‘Save Table’ button is clicked, MapD will import the CSV data into a columnar binary format, so that the GPU can operate directly on the data rather than reading from the CSV each query.</p>
+
+<h2 id="loading-data-using-the-command-line">Loading Data Using the Command Line</h2>
+
+<p>While browser GUIs are great for some things, I’m still very much a command-line guy, at least for things like loading data. MapD provides the <code class="highlighter-rouge">mapdql</code> interface to load data and query, very much like psql for Postgres and other databases. To load my 4.9 million * 4 column dataset, I used the following commands:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></td><td class="code"><pre><span class="gp">$ </span>docker container ls
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                              NAMES
+51be4b888448        mapd/mapd-ce-cuda   <span class="s2">"/bin/sh -c '/mapd/s…"</span>   44 hours ago        Up 44 hours         0.0.0.0:9090-9092-&gt;9090-9092/tcp   nifty_heisenberg
+
+<span class="gp">$ </span>docker <span class="nb">exec</span> -it 51be4b888448 bash
+<span class="gp">root@1f64b2dcc316:/mapd# </span>bin/mapdql
+Password: &lt;default is <span class="s2">"HyperInteractive"</span>&gt;
+User mapd connected to database mapd
+
+<span class="gp">mapdql&gt; </span>create table hourly_loads<span class="o">(</span>
+<span class="gp">..&gt; </span>ACTUAL_DATE DATE,
+<span class="gp">..&gt; </span>ZONE_NAME TEXT,
+<span class="gp">..&gt; </span>HOUR_ENDING SMALLINT,
+<span class="gp">..&gt; </span>MW FLOAT<span class="o">)</span>;
+
+<span class="gp">mapdql&gt; </span>copy hourly_loads from <span class="s1">'hourly_loads.csv'</span>;
+Result
+Loaded: 4898472 recs, Rejected: 0 recs <span class="k">in </span>0.923000 secs<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>The <a href="https://www.mapd.com/docs/latest/mapd-core-guide/data-definition/">DDL</a> for MapD seems pretty much the same as every other database language. First you define a table’s columns and their types, then you can use the <code class="highlighter-rouge">copy</code> command to load data from a CSV. The statement that prints upon success begins to give an indication of the speed MapD provides, loading nearly 5 million records in less than a second.</p>
+
+<h2 id="simplistic-query-performance">Simplistic Query Performance</h2>
+
+<p>Up this point, I’ve intentionally not described the data I uploaded into MapD; in my next post, I’ll cover the dataset I’m using and how I converted the data from Excel spreadsheets into a CSV. But before ending this post, I wanted to show a brief summary of the performance of MapD:</p>
+
+<p><img src="/assets/img/mapd-query-speed.png" alt="mapd query speed" /></p>
+
+<p>The first query shows a simple record count by the <code class="highlighter-rouge">hour_ending</code> dimension in my table, something you might run if you weren’t too familiar with the table. You’ll notice that running this <code class="highlighter-rouge">group by</code> across the 5 million row dataset took 5143ms, which isn’t so fast. What’s going on?</p>
+
+<p>Because this is the first query from a cold start, MapD needs to load data into GPU RAM. So while the first query takes a few seconds, the second query displays a <em>warmed-up</em> level of performance: 212ms to scan 5 million rows, filter by a few values of the <code class="highlighter-rouge">zone_name</code> column, then grouping by <code class="highlighter-rouge">hour_ending</code>. For reference, a <a href="https://sciencing.com/fast-blink-eye-5199669.html">human blink takes 100-400 ms</a>, so this second query quite literally finished in the blink of an eye…</p>
+
+<h2 id="dashboards-streaming-data-and-more">Dashboards, Streaming Data and more…</h2>
+
+<p>This first blog post just scratched the surface on what is possible using just the Community Edition of MapD. In future blog posts, I will provide the code to create the dataset, do some basic descriptive statistics, and even do some analysis and dashboarding of historical electricity demand.</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
     <a href="/cudanative-jl-julia/">Parallelizing Distance Calculations Using A GPU With CUDAnative.jl</a>
 
 </h1>
@@ -349,45 +455,6 @@
     <hr>
   </div>
 
-<h1 class="entry-title">
-
-    <a href="/rsitecatalyst-version-1-4-12-release-notes/">RSiteCatalyst Version 1.4.12 (and 1.4.11) Release Notes</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">April 10, 2017</a> &times; Analytics
-      </div>
-  </div>
-  <div class="content">
-    <p>I released version 1.4.12 of RSiteCatalyst before I wrote the release notes for version 1.4.11, so this blog post will treat both releases as one. Users should upgrade directly to version 1.4.12 as the releases are cumulative in nature.</p>
-
-<h2 id="get-method-additions">Get* method additions</h2>
-
-<p>Two <code class="highlighter-rouge">Get*</code> methods were added in this release: <code class="highlighter-rouge">GetClickMapReporting</code> and <code class="highlighter-rouge">GetPreviousServerCalls</code>, mostly for completeness. Analytics users will likely not need to use these methods, but they are useful for <a href="http://randyzwitch.com/adobe-analytics-implementation-documentation/">generating documentation</a>.</p>
-
-<h2 id="bug-fixes">Bug fixes</h2>
-
-<ul>
-  <li>Fixed <code class="highlighter-rouge">GetLogin</code> function, adding <code class="highlighter-rouge">selected_ims_group_list</code> parameter to response (caused test suite failure)</li>
-  <li>Fixed issue with <code class="highlighter-rouge">ViewProcessingRules</code> where nested rules threw errors (#214)</li>
-  <li>Fixed issue with <code class="highlighter-rouge">GetMarketingChannelRules</code> where nested rules threw errors, <code class="highlighter-rouge">matches</code> column duplicated values across rows (#180)</li>
-  <li>Added ability to use a segment in <code class="highlighter-rouge">QueueDataWarehouse</code> function, which was previously implemented incorrectly (#216)</li>
-  <li>Fixed issue with <code class="highlighter-rouge">QueueDataWarehouse</code> not returning the proper number of results when <code class="highlighter-rouge">enqueueOnly = FALSE</code></li>
-  <li>Fixed encoding for <code class="highlighter-rouge">QueueDataWarehouse</code> to correctly use UTF-8-BOM (#198)</li>
-  <li>Fixed parser for <code class="highlighter-rouge">GetFeeds</code>, to unnest ‘activity’ data frame into discrete columns</li>
-  <li>Fixed issue where message <code class="highlighter-rouge">Error in if (!is.null(elements[i, ]$classification) &amp;&amp; nchar(elements[i, : missing value where TRUE/FALSE needed</code> displayed when using multiple elements in a <code class="highlighter-rouge">Queue*</code> function (#207)</li>
-</ul>
-
-<h2 id="community-contributions-an-adobe-summit-bounce">Community Contributions (An Adobe Summit bounce?!)</h2>
-
-<p>In the past month, the number of GitHub issues submitted has increased dramatically, a good problem to have!</p>
-
-<p>I encourage all users of the software to continue reporting bugs via GitHub issues, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.</p>
-
-    <hr>
-  </div>
-
 
 <!-- Pagination links -->
 
@@ -543,6 +610,10 @@
   
     
       <a href="/page37">37</a>
+    
+  
+    
+      <a href="/page38">38</a>
     
   
 
@@ -938,6 +1009,10 @@
 						  
 						
 					
+						
+						  
+							<li data-section='/mapd-install-load-data/'><a href='/mapd-install-load-data/'>Getting Started With MapD: Docker Install and Loading Data</a></li>
+						  
 						
 						  
 							<li data-section='/cudanative-jl-julia/'><a href='/cudanative-jl-julia/'>Parallelizing Distance Calculations Using A GPU With CUDAnative.jl</a></li>

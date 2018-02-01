@@ -8,6 +8,112 @@
     
       
       <item>
+        <title>Getting Started With MapD: Docker Install and Loading Data</title>
+        
+          <description>&lt;p&gt;It’s been nearly five years since I wrote about &lt;a href=&quot;http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot;&gt;Getting Started with Hadoop&lt;/a&gt; for big data. In those years, there have been incremental improvements in columnar file formats and dramatic computation speed improvements with Apache Spark, but I still wouldn’t call the Hadoop ecosystem convenient for actual data &lt;em&gt;analysis&lt;/em&gt;.  During this same time period, thanks to &lt;a href=&quot;https://developer.nvidia.com/&quot;&gt;NVIDIA&lt;/a&gt; and their &lt;a href=&quot;https://devblogs.nvidia.com/even-easier-introduction-cuda/&quot;&gt;CUDA library&lt;/a&gt; for general-purpose calculations on GPUs, graphics cards went from enabling visuals on a computer to enabling massively-parallel calculations as well.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
+        <link>
+        http://localhost:4000/mapd-install-load-data/</link>
+        <guid isPermaLink="true">http://localhost:4000/mapd-install-load-data/</guid>
+        <content type="html" xml:base="/mapd-install-load-data/">&lt;p&gt;It’s been nearly five years since I wrote about &lt;a href=&quot;http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot;&gt;Getting Started with Hadoop&lt;/a&gt; for big data. In those years, there have been incremental improvements in columnar file formats and dramatic computation speed improvements with Apache Spark, but I still wouldn’t call the Hadoop ecosystem convenient for actual data &lt;em&gt;analysis&lt;/em&gt;.  During this same time period, thanks to &lt;a href=&quot;https://developer.nvidia.com/&quot;&gt;NVIDIA&lt;/a&gt; and their &lt;a href=&quot;https://devblogs.nvidia.com/even-easier-introduction-cuda/&quot;&gt;CUDA library&lt;/a&gt; for general-purpose calculations on GPUs, graphics cards went from enabling visuals on a computer to enabling massively-parallel calculations as well.&lt;/p&gt;
+
+&lt;p&gt;Building upon CUDA is &lt;a href=&quot;https://www.mapd.com/&quot;&gt;MapD&lt;/a&gt;, an analytics platform that allows for super-fast SQL queries and interactive visualizations. In this blog post, I’ll show how to use Docker to install &lt;a href=&quot;https://www.mapd.com/blog/2017/05/08/mapd-open-sources-gpu-powered-database/&quot;&gt;MapD Community Edition&lt;/a&gt; and load &lt;a href=&quot;http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx&quot;&gt;hourly electricity demand&lt;/a&gt; data to analyze.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-mapd-ce-using-dockernvidia-docker&quot;&gt;Installing MapD CE using Docker/nvidia-docker&lt;/h2&gt;
+
+&lt;p&gt;While CUDA makes it &lt;em&gt;possible&lt;/em&gt; to do calculations on GPUs, I wouldn’t go as far as to say it is easy, including just getting everything installed! Luckily, there is Docker and &lt;a href=&quot;https://devblogs.nvidia.com/nvidia-docker-gpu-server-application-deployment-made-easy/&quot;&gt;nvidia-docker&lt;/a&gt;, which provide all-in-one &lt;em&gt;containers&lt;/em&gt; with all necessary drivers and libraries installed to build upon. MapD provides instructions for installing &lt;a href=&quot;https://www.mapd.com/docs/latest/getting-started/docker-gpu-ce-recipe/&quot;&gt;MapD CE using nvidia-docker&lt;/a&gt;, with the main installation command as follows:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;##make sure you have nvidia-docker version 1 installed, not version 2!&lt;/span&gt;
+nvidia-docker run -d -v &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/mapd-docker-storage:/mapd-storage -p 9090-9092:9090-9092 -v &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ /usr/share/glvnd/egl_vendor.d:/usr/share/glvnd/egl_vendor.d mapd/mapd-ce-cuda&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When you kickoff this command (I’m using a ssh terminal into a &lt;a href=&quot;http://randyzwitch.com/building-data-science-workstation-2017/&quot;&gt;remote Ubuntu desktop&lt;/a&gt;), Docker will download all the required images from the &lt;code class=&quot;highlighter-rouge&quot;&gt;mapd/mapd-ce-cuda&lt;/code&gt;repository and start a background process for the MapD database and the Immerse visualization interface/web server:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/docker-dl-images.png&quot; alt=&quot;docker images&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once all of the images are downloaded, you can find the container that was created using &lt;code class=&quot;highlighter-rouge&quot;&gt;docker container ls&lt;/code&gt;, then run &lt;code class=&quot;highlighter-rouge&quot;&gt;docker exec -it &amp;lt;container id&amp;gt; bash&lt;/code&gt; to start the container and drop you into a Bash shell (on the container). From this point, MapD Community Edition will be running!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/docker-container-ls.png&quot; alt=&quot;docker ls&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;loading-data-using-the-immerse-interface&quot;&gt;Loading Data Using the Immerse Interface&lt;/h2&gt;
+
+&lt;p&gt;Once the Bash shell opens in the terminal, you can now interact with MapD via the Docker container. However, for beginning exploration, it’s much simpler to use the Immerse Web Interface at &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:9092&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/mapd-immerse.png&quot; alt=&quot;mapd immerse&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Uploading data via the Data Manager interface is reasonably performant for smaller files; a test file with four columns and million or so rows loaded in a few seconds (dependent on your upload speed, obviously):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/mapd-import-table.png&quot; alt=&quot;mapd data manager&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Edit the column names and types if you want (the CSV reader gets it right for me most of the time). Then, once the ‘Save Table’ button is clicked, MapD will import the CSV data into a columnar binary format, so that the GPU can operate directly on the data rather than reading from the CSV each query.&lt;/p&gt;
+
+&lt;h2 id=&quot;loading-data-using-the-command-line&quot;&gt;Loading Data Using the Command Line&lt;/h2&gt;
+
+&lt;p&gt;While browser GUIs are great for some things, I’m still very much a command-line guy, at least for things like loading data. MapD provides the &lt;code class=&quot;highlighter-rouge&quot;&gt;mapdql&lt;/code&gt; interface to load data and query, very much like psql for Postgres and other databases. To load my 4.9 million * 4 column dataset, I used the following commands:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;docker container ls
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                              NAMES
+51be4b888448        mapd/mapd-ce-cuda   &lt;span class=&quot;s2&quot;&gt;&quot;/bin/sh -c '/mapd/s…&quot;&lt;/span&gt;   44 hours ago        Up 44 hours         0.0.0.0:9090-9092-&amp;gt;9090-9092/tcp   nifty_heisenberg
+
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; -it 51be4b888448 bash
+&lt;span class=&quot;gp&quot;&gt;root@1f64b2dcc316:/mapd# &lt;/span&gt;bin/mapdql
+Password: &amp;lt;default is &lt;span class=&quot;s2&quot;&gt;&quot;HyperInteractive&quot;&lt;/span&gt;&amp;gt;
+User mapd connected to database mapd
+
+&lt;span class=&quot;gp&quot;&gt;mapdql&amp;gt; &lt;/span&gt;create table hourly_loads&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;..&amp;gt; &lt;/span&gt;ACTUAL_DATE DATE,
+&lt;span class=&quot;gp&quot;&gt;..&amp;gt; &lt;/span&gt;ZONE_NAME TEXT,
+&lt;span class=&quot;gp&quot;&gt;..&amp;gt; &lt;/span&gt;HOUR_ENDING SMALLINT,
+&lt;span class=&quot;gp&quot;&gt;..&amp;gt; &lt;/span&gt;MW FLOAT&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+
+&lt;span class=&quot;gp&quot;&gt;mapdql&amp;gt; &lt;/span&gt;copy hourly_loads from &lt;span class=&quot;s1&quot;&gt;'hourly_loads.csv'&lt;/span&gt;;
+Result
+Loaded: 4898472 recs, Rejected: 0 recs &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;0.923000 secs&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://www.mapd.com/docs/latest/mapd-core-guide/data-definition/&quot;&gt;DDL&lt;/a&gt; for MapD seems pretty much the same as every other database language. First you define a table’s columns and their types, then you can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;copy&lt;/code&gt; command to load data from a CSV. The statement that prints upon success begins to give an indication of the speed MapD provides, loading nearly 5 million records in less than a second.&lt;/p&gt;
+
+&lt;h2 id=&quot;simplistic-query-performance&quot;&gt;Simplistic Query Performance&lt;/h2&gt;
+
+&lt;p&gt;Up this point, I’ve intentionally not described the data I uploaded into MapD; in my next post, I’ll cover the dataset I’m using and how I converted the data from Excel spreadsheets into a CSV. But before ending this post, I wanted to show a brief summary of the performance of MapD:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/mapd-query-speed.png&quot; alt=&quot;mapd query speed&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The first query shows a simple record count by the &lt;code class=&quot;highlighter-rouge&quot;&gt;hour_ending&lt;/code&gt; dimension in my table, something you might run if you weren’t too familiar with the table. You’ll notice that running this &lt;code class=&quot;highlighter-rouge&quot;&gt;group by&lt;/code&gt; across the 5 million row dataset took 5143ms, which isn’t so fast. What’s going on?&lt;/p&gt;
+
+&lt;p&gt;Because this is the first query from a cold start, MapD needs to load data into GPU RAM. So while the first query takes a few seconds, the second query displays a &lt;em&gt;warmed-up&lt;/em&gt; level of performance: 212ms to scan 5 million rows, filter by a few values of the &lt;code class=&quot;highlighter-rouge&quot;&gt;zone_name&lt;/code&gt; column, then grouping by &lt;code class=&quot;highlighter-rouge&quot;&gt;hour_ending&lt;/code&gt;. For reference, a &lt;a href=&quot;https://sciencing.com/fast-blink-eye-5199669.html&quot;&gt;human blink takes 100-400 ms&lt;/a&gt;, so this second query quite literally finished in the blink of an eye…&lt;/p&gt;
+
+&lt;h2 id=&quot;dashboards-streaming-data-and-more&quot;&gt;Dashboards, Streaming Data and more…&lt;/h2&gt;
+
+&lt;p&gt;This first blog post just scratched the surface on what is possible using just the Community Edition of MapD. In future blog posts, I will provide the code to create the dataset, do some basic descriptive statistics, and even do some analysis and dashboarding of historical electricity demand.&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>Parallelizing Distance Calculations Using A GPU With CUDAnative.jl</title>
         
           <description>&lt;p&gt;Hacker News discussion: &lt;a href=&quot;https://news.ycombinator.com/item?id=15021244&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
@@ -3959,7 +4065,7 @@ left join search_engines on sc.post_search_engine = search_engines.id
       <item>
         <title>Creating A Stacked Bar Chart in Seaborn</title>
         
-          <description>&lt;p&gt;The other day I was having a heck of a time trying to figure out how to make a stacked bar chart in Seaborn. But in true open-source/community fashion, I ended up getting a response from the creator of Seaborn via Twitter:&lt;/p&gt;
+          <description>&lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/wp-content/uploads/2014/09/stacked_bar.csv&quot;&gt;Download chart data&lt;/a&gt;&lt;/p&gt;
 
 </description>
         
@@ -3967,7 +4073,9 @@ left join search_engines on sc.post_search_engine = search_engines.id
         <link>
         http://localhost:4000/creating-stacked-bar-chart-seaborn/</link>
         <guid isPermaLink="true">http://localhost:4000/creating-stacked-bar-chart-seaborn/</guid>
-        <content type="html" xml:base="/creating-stacked-bar-chart-seaborn/">&lt;p&gt;The other day I was having a heck of a time trying to figure out how to make a stacked bar chart in Seaborn. But in true open-source/community fashion, I ended up getting a response from the creator of Seaborn via Twitter:&lt;/p&gt;
+        <content type="html" xml:base="/creating-stacked-bar-chart-seaborn/">&lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/wp-content/uploads/2014/09/stacked_bar.csv&quot;&gt;Download chart data&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The other day I was having a heck of a time trying to figure out how to make a stacked bar chart in Seaborn. But in true open-source/community fashion, I ended up getting a response from the creator of Seaborn via Twitter:&lt;/p&gt;
 
 &lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot; data-conversation=&quot;none&quot;&gt;
   &lt;p&gt;
@@ -4077,7 +4185,9 @@ left join search_engines on sc.post_search_engine = search_engines.id
 
 &lt;h2 id=&quot;dont-overthink-things&quot;&gt;Don’t Overthink Things!&lt;/h2&gt;
 
-&lt;p&gt;In the end, creating a stacked bar chart in Seaborn took me 4 hours to mess around trying everything under the sun, then 15 minutes once I remembered what a stacked bar chart actually represents. Hopefully this will save someone else from my same misery.&lt;/p&gt;</content>
+&lt;p&gt;In the end, creating a stacked bar chart in Seaborn took me 4 hours to mess around trying everything under the sun, then 15 minutes once I remembered what a stacked bar chart actually represents. Hopefully this will save someone else from my same misery.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://randyzwitch.com/wp-content/uploads/2014/09/stacked_bar.csv&quot;&gt;Download chart data&lt;/a&gt;&lt;/p&gt;</content>
       </item>
       
     
