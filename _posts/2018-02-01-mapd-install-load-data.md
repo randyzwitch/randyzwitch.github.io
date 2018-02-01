@@ -87,3 +87,10 @@ Because this is the first query from a cold start, MapD needs to load data into 
 ## Dashboards, Streaming Data and more...
 
 This first blog post just scratched the surface on what is possible using just the Community Edition of MapD. In future blog posts, I will provide the code to create the dataset, do some basic descriptive statistics, and even do some analysis and dashboarding of historical electricity demand.
+
+__Update, 2/1/2018 4:49 p.m.__
+
+Per Todd Mostak from MapD, the second query would likely even run faster than 212ms, had I run it again:
+
+<blockquote class="twitter-tweet" data-conversation="none" data-cards="hidden" data-partner="tweetdeck"><p lang="en" dir="ltr">Also fyi that 212ms query will likely run faster if you run it again (even changing the literals). MapD compiles queries the first time it sees a new query plan but then can reuse the same compiled code if you change literals (like for zone_name).</p>&mdash; Todd Mostak (@ToddMostak) <a href="https://twitter.com/ToddMostak/status/959181487848525824?ref_src=twsrc%5Etfw">February 1, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

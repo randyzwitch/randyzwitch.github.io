@@ -108,7 +108,14 @@ Loaded: 4898472 recs, Rejected: 0 recs &lt;span class=&quot;k&quot;&gt;in &lt;/s
 
 &lt;h2 id=&quot;dashboards-streaming-data-and-more&quot;&gt;Dashboards, Streaming Data and more…&lt;/h2&gt;
 
-&lt;p&gt;This first blog post just scratched the surface on what is possible using just the Community Edition of MapD. In future blog posts, I will provide the code to create the dataset, do some basic descriptive statistics, and even do some analysis and dashboarding of historical electricity demand.&lt;/p&gt;</content>
+&lt;p&gt;This first blog post just scratched the surface on what is possible using just the Community Edition of MapD. In future blog posts, I will provide the code to create the dataset, do some basic descriptive statistics, and even do some analysis and dashboarding of historical electricity demand.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update, 2/1/2018 4:49 p.m.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Per Todd Mostak from MapD, the second query would likely even run faster than 212ms, had I run it again:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-conversation=&quot;none&quot; data-cards=&quot;hidden&quot; data-partner=&quot;tweetdeck&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Also fyi that 212ms query will likely run faster if you run it again (even changing the literals). MapD compiles queries the first time it sees a new query plan but then can reuse the same compiled code if you change literals (like for zone_name).&lt;/p&gt;&amp;mdash; Todd Mostak (@ToddMostak) &lt;a href=&quot;https://twitter.com/ToddMostak/status/959181487848525824?ref_src=twsrc%5Etfw&quot;&gt;February 1, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content>
       </item>
       
     
