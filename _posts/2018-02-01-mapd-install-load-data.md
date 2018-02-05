@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started With MapD: Docker Install and Loading Data'
+title: 'Getting Started With MapD, Part 1: Docker Install and Loading Data'
 date: '2018-02-01'
 author: Randy Zwitch
 layout: post
@@ -11,6 +11,7 @@ tags:
 - SQL
 - CUDA
 - GPU
+- MapD
 ---
 
 It's been nearly five years since I wrote about [Getting Started with Hadoop](http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-1/) for big data. In those years, there have been incremental improvements in columnar file formats and dramatic computation speed improvements with Apache Spark, but I still wouldn't call the Hadoop ecosystem convenient for actual data _analysis_.  During this same time period, thanks to [NVIDIA](https://developer.nvidia.com/) and their [CUDA library](https://devblogs.nvidia.com/even-easier-introduction-cuda/) for general-purpose calculations on GPUs, graphics cards went from enabling visuals on a computer to enabling massively-parallel calculations as well.
