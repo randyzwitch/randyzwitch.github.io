@@ -20,4 +20,8 @@ Enjoy!
 
 _Edit: For those of you who would like to follow-along using the actual [presentation code](https://github.com/randyzwitch/juliacon2015), it is available on GitHub._
 
-<iframe src="https://www.youtube.com/embed/0F8tC3ofH4g" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+## CitiBank Bike Data
+<iframe src="https://www.youtube.com/embed/0F8tC3ofH4g?start=135" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+
+## Vega.jl Presentation
+<iframe src="https://www.youtube.com/embed/0F8tC3ofH4g?start=3005" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
