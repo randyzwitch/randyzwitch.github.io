@@ -8,6 +8,46 @@
     
       
       <item>
+        <title>Getting Started With MapD, Part 2: Electricity Dataset and Python</title>
+        
+          <description>
+</description>
+        
+        <pubDate>Fri, 16 Feb 2018 00:00:00 -0500</pubDate>
+        <link>
+        http://localhost:4000/mapd-install-load-data/</link>
+        <guid isPermaLink="true">http://localhost:4000/mapd-install-load-data/</guid>
+        <content type="html" xml:base="/mapd-install-load-data/"></content>
+      </item>
+      
+    
+      
+      <item>
+        <title>RSiteCatalyst Version 1.4.14 Release Notes</title>
+        
+          <description>&lt;p&gt;Like the last several updates, this blog post will be fairly short, given only a single bug fix was added.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 16 Feb 2018 00:00:00 -0500</pubDate>
+        <link>
+        http://localhost:4000/rsitecatalyst-version-1-4-14-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-14-release-notes/</guid>
+        <content type="html" xml:base="/rsitecatalyst-version-1-4-14-release-notes/">&lt;p&gt;Like the last several updates, this blog post will be fairly short, given only a single bug fix was added.&lt;/p&gt;
+
+&lt;p&gt;Thanks again to GitHub user &lt;a href=&quot;https://github.com/leocwlau&quot;&gt;leocwlau&lt;/a&gt; who &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues/232&quot;&gt;reported&lt;/a&gt; that the &lt;code class=&quot;highlighter-rouge&quot;&gt;GetReportSuiteGroups&lt;/code&gt; function added an additional field AND provided the &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/pull/233&quot;&gt;solution&lt;/a&gt;. No other bug fixes were made, nor was any additional functionality added.&lt;/p&gt;
+
+&lt;p&gt;Version 1.4.14 of RSiteCatalyst was submitted to CRAN today and should be available for download in the coming days.&lt;/p&gt;
+
+&lt;h2 id=&quot;community-contributions&quot;&gt;Community Contributions&lt;/h2&gt;
+&lt;p&gt;As I’ve mentioned in many a blog post before this one, I encourage all users of the software to continue reporting bugs via &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues&quot;&gt;GitHub issues&lt;/a&gt;, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Please don’t email directly via the email in the RSiteCatalyst package, it will not be returned. Having a valid email contact in the package is a requirement to have a package listed on CRAN so they can contact the package author, it is not meant to imply I can/will provide endless, personalized support for free.&lt;/em&gt;&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>Getting Started With MapD, Part 1: Docker Install and Loading Data</title>
         
           <description>&lt;p&gt;It’s been nearly five years since I wrote about &lt;a href=&quot;http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot;&gt;Getting Started with Hadoop&lt;/a&gt; for big data. In those years, there have been incremental improvements in columnar file formats and dramatic computation speed improvements with Apache Spark, but I still wouldn’t call the Hadoop ecosystem convenient for actual data &lt;em&gt;analysis&lt;/em&gt;.  During this same time period, thanks to &lt;a href=&quot;https://developer.nvidia.com/&quot;&gt;NVIDIA&lt;/a&gt; and their &lt;a href=&quot;https://devblogs.nvidia.com/even-easier-introduction-cuda/&quot;&gt;CUDA library&lt;/a&gt; for general-purpose calculations on GPUs, graphics cards went from enabling visuals on a computer to enabling massively-parallel calculations as well.&lt;/p&gt;
