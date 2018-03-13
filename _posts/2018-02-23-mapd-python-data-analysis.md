@@ -18,7 +18,7 @@ In my [previous MapD post](http://randyzwitch.com/mapd-install-load-data/), I lo
 
 ## PJM Metered Load Data
 
-I started off my career at [PJM](http://pjm.com/) doing long-term electricity demand forecasting, to help power engineers do transmission line studies for reliability and to support expansion of the electrical grid in the U.S. Because PJM is a quasi-government agency, they provide over [25 years of hourly electricity usage](http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx) for the Eastern and Central U.S., both in aggregate and in by local power region (roughly, the local power company territories).
+I started off my career at [PJM](http://pjm.com/) doing long-term electricity demand forecasting, to help power engineers do transmission line studies for reliability and to support expansion of the electrical grid in the U.S. Because PJM is a quasi-government agency, they provide over [25 years of hourly electricity usage](http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx) for the Eastern and Central U.S., both in aggregate and by local power region (roughly, the local power company territories).
 
 However, just because the data is available doesn't mean it's _convenient_, and unfortunately, the data are stored as Excel spreadsheets. This is easily remedied using pandas (`v0.22.0`, `python3.6`):
 

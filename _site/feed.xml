@@ -22,7 +22,7 @@
 
 &lt;h2 id=&quot;pjm-metered-load-data&quot;&gt;PJM Metered Load Data&lt;/h2&gt;
 
-&lt;p&gt;I started off my career at &lt;a href=&quot;http://pjm.com/&quot;&gt;PJM&lt;/a&gt; doing long-term electricity demand forecasting, to help power engineers do transmission line studies for reliability and to support expansion of the electrical grid in the U.S. Because PJM is a quasi-government agency, they provide over &lt;a href=&quot;http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx&quot;&gt;25 years of hourly electricity usage&lt;/a&gt; for the Eastern and Central U.S., both in aggregate and in by local power region (roughly, the local power company territories).&lt;/p&gt;
+&lt;p&gt;I started off my career at &lt;a href=&quot;http://pjm.com/&quot;&gt;PJM&lt;/a&gt; doing long-term electricity demand forecasting, to help power engineers do transmission line studies for reliability and to support expansion of the electrical grid in the U.S. Because PJM is a quasi-government agency, they provide over &lt;a href=&quot;http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx&quot;&gt;25 years of hourly electricity usage&lt;/a&gt; for the Eastern and Central U.S., both in aggregate and by local power region (roughly, the local power company territories).&lt;/p&gt;
 
 &lt;p&gt;However, just because the data is available doesn’t mean it’s &lt;em&gt;convenient&lt;/em&gt;, and unfortunately, the data are stored as Excel spreadsheets. This is easily remedied using pandas (&lt;code class=&quot;highlighter-rouge&quot;&gt;v0.22.0&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;python3.6&lt;/code&gt;):&lt;/p&gt;
 
