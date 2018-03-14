@@ -793,8 +793,7 @@ Loaded: 4898472 recs, Rejected: 0 recs &lt;span class=&quot;k&quot;&gt;in &lt;/s
       <item>
         <title>Building a Data Science Workstation (2017)</title>
         
-          <description>&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;i need some kind of super computer to parse a multi-gigabyte XML file, &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt;&lt;/p&gt;&amp;mdash; jason thompson (@usujason) &lt;a href=&quot;https://twitter.com/usujason/status/821429000270528512&quot;&gt;January 17, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+          <description>&lt;p&gt;Update, 3/14/2018: While I’ve still maintained the same basic workstation, I have done some upgrades. Before GPU prices skyrocketed, I added a 1080ti to workstation along with the 1060. However, this required an upgrade of my case to fit both. I ended up getting a &lt;a href=&quot;https://www.corsair.com/uk/en/Categories/Products/Cases/Graphite-Series%E2%84%A2-760T-Full-Tower-Windowed-Case/p/CC-9011073-WW&quot;&gt;Corsair 760T&lt;/a&gt;, which is an enormous increase in space over the Corsair mid-tower I had before.&lt;/p&gt;
 
 </description>
         
@@ -802,7 +801,18 @@ Loaded: 4898472 recs, Rejected: 0 recs &lt;span class=&quot;k&quot;&gt;in &lt;/s
         <link>
         http://localhost:4000/building-data-science-workstation-2017/</link>
         <guid isPermaLink="true">http://localhost:4000/building-data-science-workstation-2017/</guid>
-        <content type="html" xml:base="/building-data-science-workstation-2017/">&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;i need some kind of super computer to parse a multi-gigabyte XML file, &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt;&lt;/p&gt;&amp;mdash; jason thompson (@usujason) &lt;a href=&quot;https://twitter.com/usujason/status/821429000270528512&quot;&gt;January 17, 2017&lt;/a&gt;&lt;/blockquote&gt;
+        <content type="html" xml:base="/building-data-science-workstation-2017/">&lt;p&gt;Update, 3/14/2018: While I’ve still maintained the same basic workstation, I have done some upgrades. Before GPU prices skyrocketed, I added a 1080ti to workstation along with the 1060. However, this required an upgrade of my case to fit both. I ended up getting a &lt;a href=&quot;https://www.corsair.com/uk/en/Categories/Products/Cases/Graphite-Series%E2%84%A2-760T-Full-Tower-Windowed-Case/p/CC-9011073-WW&quot;&gt;Corsair 760T&lt;/a&gt;, which is an enormous increase in space over the Corsair mid-tower I had before.&lt;/p&gt;
+
+&lt;p&gt;Since I was already in the case, I also added a AIO water-cooler to my CPU, a &lt;a href=&quot;https://www.corsair.com/us/en/Categories/Products/Cooling/Hydro-Series%E2%84%A2-H115i-PRO-RGB-280mm-Liquid-CPU-Cooler/p/CW-9060032-WW&quot;&gt;Corsair H115i Pro&lt;/a&gt;. While this wasn’t strictly necessary (I wasn’t having overheating issues with a single GPU and overclocked CPU), with two GPUs I figured that it was a good precaution. The water-cooler is also much quieter than my original air-cooled heatsink, which is nice.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/data-science-workstation-2018.JPG&quot; alt=&quot;data science workstation 2018&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So now I have a huge amount of open space, which is great for airflow, a dual-GPU rig and depending on how you calculate things, I’m at around $3000 for a workstation that should serve me well into the next several years (hopefully more!)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(&lt;em&gt;original post below&lt;/em&gt;)&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;i need some kind of super computer to parse a multi-gigabyte XML file, &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;@randyzwitch&lt;/a&gt;&lt;/p&gt;&amp;mdash; jason thompson (@usujason) &lt;a href=&quot;https://twitter.com/usujason/status/821429000270528512&quot;&gt;January 17, 2017&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;For all the downsides of social media these days, the people I’ve met and the inside jokes bring me immense joy. From just this one tweet, several people messaged me aghast at 1) the idea of multi-gigabyte XML and that 2) I apparently have a computer for just this purpose!&lt;/p&gt;

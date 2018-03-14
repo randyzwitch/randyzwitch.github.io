@@ -14,6 +14,17 @@ tags:
 - CUDA
 
 ---
+Update, 3/14/2018: While I've still maintained the same basic workstation, I have done some upgrades. Before GPU prices skyrocketed, I added a 1080ti to workstation along with the 1060. However, this required an upgrade of my case to fit both. I ended up getting a [Corsair 760T](https://www.corsair.com/uk/en/Categories/Products/Cases/Graphite-Series%E2%84%A2-760T-Full-Tower-Windowed-Case/p/CC-9011073-WW), which is an enormous increase in space over the Corsair mid-tower I had before.
+
+Since I was already in the case, I also added a AIO water-cooler to my CPU, a [Corsair H115i Pro](https://www.corsair.com/us/en/Categories/Products/Cooling/Hydro-Series%E2%84%A2-H115i-PRO-RGB-280mm-Liquid-CPU-Cooler/p/CW-9060032-WW). While this wasn't strictly necessary (I wasn't having overheating issues with a single GPU and overclocked CPU), with two GPUs I figured that it was a good precaution. The water-cooler is also much quieter than my original air-cooled heatsink, which is nice.
+
+![data science workstation 2018](/assets/img/data-science-workstation-2018.JPG)
+
+So now I have a huge amount of open space, which is great for airflow, a dual-GPU rig and depending on how you calculate things, I'm at around $3000 for a workstation that should serve me well into the next several years (hopefully more!)
+
+----
+
+(_original post below_)
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">i need some kind of super computer to parse a multi-gigabyte XML file, <a href="https://twitter.com/randyzwitch">@randyzwitch</a></p>&mdash; jason thompson (@usujason) <a href="https://twitter.com/usujason/status/821429000270528512">January 17, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
