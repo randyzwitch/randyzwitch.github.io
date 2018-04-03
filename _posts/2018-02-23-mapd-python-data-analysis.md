@@ -27,10 +27,10 @@ import os
 import pandas as pd
 
 #change to directory with files for convenience
-os.chdir("~/electricity_data/")
+os.chdir("~/electricity_data")
 
 #first sheet in workbook contains all info for years 1993-1999
-df1993_1999 = [pd.read_excel(str(x) + "-hourly-loads.xls") for x in range(1993,1999)]
+df1993_1999 = [pd.read_excel(str(x) + "-hourly-loads.xls", usecols = "A:Z") for x in range(1993,1999)]
 
 #melt, append df1993-df1999 together
 df_melted = pd.DataFrame()
@@ -41,38 +41,40 @@ for x in df1993_1999:
 
 #multiple sheets to concatenate
 #too much variation for a one-liner
-d2000 = pd.read_excel("2000-hourly-loads.xls", sheet_name = [x for x in range(2,17)])
-d2001 = pd.read_excel("2001-hourly-loads.xls", sheet_name = None)
-d2002 = pd.read_excel("2002-hourly-loads.xls", sheet_name = [x for x in range(1,18)])
-d2003 = pd.read_excel("2003-hourly-loads.xls", sheet_name = [x for x in range(1,19)])
-d2004 = pd.read_excel("2004-hourly-loads.xls", sheet_name = [x for x in range(2,24)])
-d2005 = pd.read_excel("2005-hourly-loads.xls", sheet_name = [x for x in range(2,27)])
-d2006 = pd.read_excel("2006-hourly-loads.xls", sheet_name = [x for x in range(3,29)])
-d2007 = pd.read_excel("2007-hourly-loads.xls", sheet_name = [x for x in range(3,29)])
-d2008 = pd.read_excel("2008-hourly-loads.xls", sheet_name = [x for x in range(3,29)])
-d2009 = pd.read_excel("2009-hourly-loads.xls", sheet_name = [x for x in range(3,29)])
-d2010 = pd.read_excel("2010-hourly-loads.xls", sheet_name = [x for x in range(3,29)])
-d2011 = pd.read_excel("2011-hourly-loads.xls", sheet_name = [x for x in range(3,33)])
-d2012 = pd.read_excel("2012-hourly-loads.xls", sheet_name = [x for x in range(3,33)])
-d2013 = pd.read_excel("2013-hourly-loads.xls", sheet_name = [x for x in range(3,34)])
-d2014 = pd.read_excel("2014-hourly-loads.xls", sheet_name = [x for x in range(3,34)])
-d2015 = pd.read_excel("2015-hourly-loads.xls", sheet_name = [x for x in range(3,40)])
-d2016 = pd.read_excel("2016-hourly-loads.xls", sheet_name = [x for x in range(3,40)])
-d2017 = pd.read_excel("2017-hourly-loads.xls", sheet_name = [x for x in range(3,42)])
-d2018 = pd.read_excel("2018-hourly-loads.xls", sheet_name = [x for x in range(3,40)])
+d2000 = pd.read_excel("2000-hourly-loads.xls", sheet_name = [x for x in range(2,17)], usecols = "A:Z")
+d2001 = pd.read_excel("2001-hourly-loads.xls", sheet_name = None, usecols = "A:Z")
+d2002 = pd.read_excel("2002-hourly-loads.xls", sheet_name = [x for x in range(1,18)], usecols = "A:Z")
+d2003 = pd.read_excel("2003-hourly-loads.xls", sheet_name = [x for x in range(1,19)], usecols = "A:Z")
+d2004 = pd.read_excel("2004-hourly-loads.xls", sheet_name = [x for x in range(2,24)], usecols = "A:Z")
+d2005 = pd.read_excel("2005-hourly-loads.xls", sheet_name = [x for x in range(2,27)], usecols = "A:Z")
+d2006 = pd.read_excel("2006-hourly-loads.xls", sheet_name = [x for x in range(3,29)], usecols = "A:Z")
+d2007 = pd.read_excel("2007-hourly-loads.xls", sheet_name = [x for x in range(3,29)], usecols = "A:Z")
+d2008 = pd.read_excel("2008-hourly-loads.xls", sheet_name = [x for x in range(3,29)], usecols = "A:Z")
+d2009 = pd.read_excel("2009-hourly-loads.xls", sheet_name = [x for x in range(3,29)], usecols = "A:Z")
+d2010 = pd.read_excel("2010-hourly-loads.xls", sheet_name = [x for x in range(3,29)], usecols = "A:Z")
+d2011 = pd.read_excel("2011-hourly-loads.xls", sheet_name = [x for x in range(3,32)], usecols = "A:Z")
+d2012 = pd.read_excel("2012-hourly-loads.xls", sheet_name = [x for x in range(3,33)], usecols = "A:Z")
+d2013 = pd.read_excel("2013-hourly-loads.xls", sheet_name = [x for x in range(3,34)], usecols = "A:Z")
+d2014 = pd.read_excel("2014-hourly-loads.xls", sheet_name = [x for x in range(3,34)], usecols = "A:Z")
+d2015 = pd.read_excel("2015-hourly-loads.xls", sheet_name = [x for x in range(3,40)], usecols = "B:AA")
+d2016 = pd.read_excel("2016-hourly-loads.xls", sheet_name = [x for x in range(3,40)], usecols = "B:AA")
+d2017 = pd.read_excel("2017-hourly-loads.xls", sheet_name = [x for x in range(3,42)], usecols = "B:AA")
+d2018 = pd.read_excel("2018-hourly-loads.xls", sheet_name = [x for x in range(3,40)], usecols = "B:AA")
 
 #loop over dataframes, read in matrix-formatted data, melt to normalized form
-for l in [d2000, d2001, d2002, d2003, d2004, d2005, d2006, d2007, d2008, d2009, d2010,
-          d2011, d2012, d2013, d2014, d2015,d2016,d2017,d2018]:
+for ord in [d2000, d2001, d2002, d2003, d2004, d2005, d2006, d2007, d2008, d2009, d2010,
+            d2011, d2012, d2013, d2014, d2015, d2016, d2017, d2018]:
 
-    for k in l:
-        temp = l[k].iloc[:, 0:26]
-        temp.columns = df1993_1999[1].columns.tolist()
+    for key in ord:
+        temp = ord[key]
+        temp.columns = df1993_1999[1].columns.tolist() #standardize column names
+        temp["ACTUAL_DATE"] = pd.to_datetime(temp["ACTUAL_DATE"]) #force datetime, excel reader wonky
         df_melted = df_melted.append(pd.melt(temp, id_vars=['ACTUAL_DATE', 'ZONE_NAME'], var_name = "HOUR_ENDING", value_name = "MW"))
 
-#(4898472, 4)
-#152MB as CSV
-df_melted.to_csv("hourly_loads.csv", index=False)
+#(4941384, 4)
+#130MB as CSV
+#remove any dates that are null, artifacts from excel reader
+df_melted[pd.notnull(df_melted["ACTUAL_DATE"])].to_csv("hourly_loads.csv", index=False)    
 {% endhighlight %}
 
 The code is a bit verbose, if only because I didn't want to spend time to figure out how to programmatically determine how many tabs each workbook has. But the concept is the same each time: read an Excel file, get the data into a dataframe, then convert the data to _long_ form. So instead of having 26 columns (Date, Zone, Hr1-Hr24), we have 4 columns, which is quite frequently a more convenient way to access the data (especially when using SQL).
