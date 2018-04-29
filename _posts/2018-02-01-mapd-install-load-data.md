@@ -23,9 +23,11 @@ Building upon CUDA is [MapD](https://www.mapd.com/), an analytics platform that 
 While CUDA makes it _possible_ to do calculations on GPUs, I wouldn't go as far as to say it is easy, including just getting everything installed! Luckily, there is Docker and [nvidia-docker](https://devblogs.nvidia.com/nvidia-docker-gpu-server-application-deployment-made-easy/), which provide all-in-one _containers_ with all necessary drivers and libraries installed to build upon. MapD provides instructions for installing [MapD CE using nvidia-docker](https://www.mapd.com/docs/latest/getting-started/docker-gpu-ce-recipe/), with the main installation command as follows:
 
 {% highlight bash linenos %}
-##make sure you have nvidia-docker version 1 installed, not version 2!
-nvidia-docker run -d -v $HOME/mapd-docker-storage:/mapd-storage -p 9090-9092:9090-9092 -v \
- /usr/share/glvnd/egl_vendor.d:/usr/share/glvnd/egl_vendor.d mapd/mapd-ce-cuda
+##nvidia-docker version 2
+docker run --runtime=nvidia \
+-v $HOME/mapd-docker-storage:/mapd-storage \
+-p 9090-9092:9090-9092 \
+mapd/mapd-ce-cuda
 {% endhighlight %}
 
 When you kickoff this command (I'm using a ssh terminal into a [remote Ubuntu desktop](http://randyzwitch.com/building-data-science-workstation-2017/)), Docker will download all the required images from the `mapd/mapd-ce-cuda`repository and start a background process for the MapD database and the Immerse visualization interface/web server:

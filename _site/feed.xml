@@ -297,9 +297,13 @@
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
-3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;##make sure you have nvidia-docker version 1 installed, not version 2!&lt;/span&gt;
-nvidia-docker run -d -v &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/mapd-docker-storage:/mapd-storage -p 9090-9092:9090-9092 -v &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- /usr/share/glvnd/egl_vendor.d:/usr/share/glvnd/egl_vendor.d mapd/mapd-ce-cuda&lt;span class=&quot;w&quot;&gt;
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;##nvidia-docker version 2&lt;/span&gt;
+docker run --runtime&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nvidia &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+-v &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/mapd-docker-storage:/mapd-storage &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+-p 9090-9092:9090-9092 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+mapd/mapd-ce-cuda&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;When you kickoff this command (I’m using a ssh terminal into a &lt;a href=&quot;http://randyzwitch.com/building-data-science-workstation-2017/&quot;&gt;remote Ubuntu desktop&lt;/a&gt;), Docker will download all the required images from the &lt;code class=&quot;highlighter-rouge&quot;&gt;mapd/mapd-ce-cuda&lt;/code&gt;repository and start a background process for the MapD database and the Immerse visualization interface/web server:&lt;/p&gt;
