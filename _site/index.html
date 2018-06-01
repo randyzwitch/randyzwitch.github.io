@@ -81,6 +81,102 @@
 
 <h1 class="entry-title">
 
+    <a href="/bulk-loading-postgis/">Bulk Loading Shapefiles Into Postgres/Postgis</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">June 1, 2018</a> &times; Programming
+      </div>
+  </div>
+  <div class="content">
+    <p>Recently I’ve been doing a fair bit of work with geospatial data, mostly on the data preparation side. While there are common data formats, I have found that because so much of this data are sourced from government agencies, the data are often in many files that can be concatenated.</p>
+
+<p>In this example, I will show how to take a few dozen county-level shapefiles of parcel data from Utah and load it into a single table in <a href="https://www.postgresql.org/">Postgres</a>/<a href="https://postgis.net/">Postgis</a>.</p>
+
+<h2 id="step-1-downloading-shapefiles">Step 1: Downloading Shapefiles</h2>
+
+<p>The following shell commands come from an in-progress collaboration with a friend, where we are going to analyze daily air quality in Utah over the past several years. <a href="https://opendata.utah.gov/browse">Utah is open-data-friendly</a>, providing <a href="https://gis.utah.gov/data/cadastre/parcels/#UtahLIRParcels">shapefiles for every parcel of land in Utah</a>.</p>
+
+<p>While it may have been possible to use <code class="highlighter-rouge">wget</code> or <code class="highlighter-rouge">curl</code> to download every shapefile, they are stored within Google Drive with a bunch of hashed URLs, so I just clicked on each file instead of trying to be clever. So if you want to follow along with this blog post exactly, you’ll need to download the 25 zip files of Utah shapefiles:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ls -lrt utah_lir_shapefiles/
+total 408688
+-rw-rw-r-- 1 rzwitch rzwitch    954984 Jun  1 13:10 Parcels_Beaver_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   7183466 Jun  1 13:10 Parcels_BoxElder_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   9152777 Jun  1 13:10 Parcels_Cache_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   3279384 Jun  1 13:10 Parcels_Carbon_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch    356058 Jun  1 13:10 Parcels_Daggett_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch  18908413 Jun  1 13:10 Parcels_Davis_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   3900415 Jun  1 13:10 Parcels_Duchesne_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   2689950 Jun  1 13:10 Parcels_Garfield_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   2156109 Jun  1 13:10 Parcels_Grand_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   8107608 Jun  1 13:10 Parcels_Iron_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   1975537 Jun  1 13:10 Parcels_Juab_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   3273485 Jun  1 13:10 Parcels_Kane_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   2741403 Jun  1 13:10 Parcels_Millard_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   1110627 Jun  1 13:10 Parcels_Morgan_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   2970626 Jun  1 13:10 Parcels_Rich_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch 200183664 Jun  1 13:11 Parcels_SaltLake_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   1397522 Jun  1 13:11 Parcels_SanJuan_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   1576757 Jun  1 13:11 Parcels_Sanpete_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   7911261 Jun  1 13:11 Parcels_Summit_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   4480456 Jun  1 13:11 Parcels_Tooele_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch  69690149 Jun  1 13:11 Parcels_Utah_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch   5025674 Jun  1 13:11 Parcels_Wasatch_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch  35896908 Jun  1 13:11 Parcels_Washington_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch    298313 Jun  1 13:11 Parcels_Wayne_LIR.zip
+-rw-rw-r-- 1 rzwitch rzwitch  23225130 Jun  1 13:11 Parcels_Weber_LIR.zip</code></pre></figure>
+
+<h2 id="step-2-bulk-unzip">Step 2: Bulk Unzip</h2>
+
+<p>With all of these files in the same directory at the same level (i.e. no subfolders), it’s pretty easy to bulk unzip the files, with one caveat: to move the contents of the unzipped files into a new directory, you need to use the <code class="highlighter-rouge">-d</code> flag:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir utah_lir_shapefiles_unzipped <span class="o">&amp;&amp;</span> unzip utah_lir_shapefiles/<span class="se">\*</span>.zip -d utah_lir_shapefiles_unzipped</code></pre></figure>
+
+<p>The reason I created a new directory (<code class="highlighter-rouge">mkdir</code>) and then unzipped the files into a new directory is that when doing analysis, I always like to keep the source data separate, so that I always have the option of starting completely over. It also can make regular expression globs easier :)</p>
+
+<h2 id="step-3-creating-postgis-table-definition">Step 3: Creating Postgis Table Definition</h2>
+
+<p>After all of the county zip files are unzipped, you get 25 sub-directories structured like the following:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ls -ltr
+total 10916
+-rw-rw-rw- 1 rzwitch rzwitch   67868 Sep  3  2017 Parcels_Beaver_LIR.shx
+-rw-rw-rw- 1 rzwitch rzwitch   28280 Sep  3  2017 Parcels_Beaver_LIR.shp.xml
+-rw-rw-rw- 1 rzwitch rzwitch 1503304 Sep  3  2017 Parcels_Beaver_LIR.shp
+-rw-rw-rw- 1 rzwitch rzwitch    3036 Sep  3  2017 Parcels_Beaver_LIR.sbx
+-rw-rw-rw- 1 rzwitch rzwitch   83052 Sep  3  2017 Parcels_Beaver_LIR.sbn
+-rw-rw-rw- 1 rzwitch rzwitch     425 Sep  3  2017 Parcels_Beaver_LIR.prj
+-rw-rw-rw- 1 rzwitch rzwitch 9471508 Sep  3  2017 Parcels_Beaver_LIR.dbf
+-rw-rw-rw- 1 rzwitch rzwitch       5 Sep  3  2017 Parcels_Beaver_LIR.cpg</code></pre></figure>
+
+<p>The .shp files from the 25 counties all have the same format, which is very convenient. In this step, we can use the <code class="highlighter-rouge">shp2pgsql</code> utility that comes with Postgis to read a shapefile, determine the proper schema, then create the table in the database:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">shp2pgsql -I -s 4326 -p utah_lir_shapefiles_unzipped/Parcels_Beaver_LIR/Parcels_Beaver_LIR.shp <span class="se">\</span>
+utahlirparcels  | psql -h localhost -U &lt;username&gt; &lt;database&gt;;</code></pre></figure>
+
+<p>The key flag here is <code class="highlighter-rouge">-p</code>, which means ‘prepare mode’; the shapefile will get read, a table created, but no data loaded. By not loading the data in this step, it makes looping over the files easier later, as no special logic is required to keep the <code class="highlighter-rouge">Parcels_Beaver_LIR.shp</code> from being duplicated in Postgis (because it was never loaded in the first place).</p>
+
+<h2 id="step-4-bulk-loading-shapefiles-into-postgis">Step 4: Bulk Loading Shapefiles into Postgis</h2>
+
+<p>The last steps of the loading process are to 1) get all of the shapefile locations and 2) feed them to shp2pgsql:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>find utah_lir_shapefiles_unzipped/ -type f -name <span class="s1">'*.shp'</span><span class="k">)</span>; <span class="k">do
+  </span>shp2pgsql -I -s 4326 -a <span class="nv">$i</span> utahlirparcels  | psql -h localhost -U &lt;username&gt; &lt;database&gt;;
+<span class="k">done</span>;</code></pre></figure>
+
+<p>To get all of the shapefile locations, I use <code class="highlighter-rouge">find</code> with flags <code class="highlighter-rouge">-type f</code> (files type) and <code class="highlighter-rouge">name</code> to search for the pattern within the directory. This command goes through the entire set of subdirectories and gets all the <code class="highlighter-rouge">.shp</code> files. From there, I iterate over the list of files using <code class="highlighter-rouge">for i in...</code>, then pass the value of <code class="highlighter-rouge">$i</code> into a similar <code class="highlighter-rouge">shp2pgsql</code> as above. However, rather than using flag <code class="highlighter-rouge">-p</code> for ‘prepare’, we are now going to use flag <code class="highlighter-rouge">-a</code> for ‘append’. This will perform an <code class="highlighter-rouge">INSERT INTO utahlirparcels()</code> statement for Postgres, loading in the actual data from the 25 shapefiles.</p>
+
+<h2 id="spend-time-now-to-save-time-later">Spend Time Now To Save Time Later</h2>
+
+<p>Like so much of shell scripting, figuring out these commands took longer than I would’ve expected. Certainly, they took longer to figure out than it would’ve taken to copy-paste a <code class="highlighter-rouge">shp2pgsql</code> 25 times! But by taking the time upfront to figure out a generic method of looping over shapefiles, the next time (and every time after that) I find myself needing to do this, this code will be available to load multiple shapefiles into Postgis.</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
     <a href="/rsitecatalyst-powerbi-desktop-microsoft/">Using RSiteCatalyst With Microsoft PowerBI Desktop</a>
 
 </h1>
@@ -319,31 +415,6 @@
 <h2 id="programmatic-analytics-using-pymapd">Programmatic analytics using pymapd</h2>
 
 <p>While dashboarding can be very effective for keeping senior management up-to-date, the real value of data is unlocked with more in-depth analytics and segmentation. In my next blog post, I’ll cover how to access MapD using <a href="http://pymapd.readthedocs.io/en/latest/">pymapd</a> in Python, doing more advanced visualizations and maybe even some machine learning…</p>
-
-    <hr>
-  </div>
-
-<h1 class="entry-title">
-
-    <a href="/rsitecatalyst-version-1-4-14-release-notes/">RSiteCatalyst Version 1.4.14 Release Notes</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">February 16, 2018</a> &times; Analytics
-      </div>
-  </div>
-  <div class="content">
-    <p>Like the last several updates, this blog post will be fairly short, given only a single bug fix was added.</p>
-
-<p>Thanks again to GitHub user <a href="https://github.com/leocwlau">leocwlau</a> who <a href="https://github.com/randyzwitch/RSiteCatalyst/issues/232">reported</a> that the <code class="highlighter-rouge">GetReportSuiteGroups</code> function added an additional field AND provided the <a href="https://github.com/randyzwitch/RSiteCatalyst/pull/233">solution</a>. No other bug fixes were made, nor was any additional functionality added.</p>
-
-<p>Version 1.4.14 of RSiteCatalyst was submitted to CRAN today and should be available for download in the coming days.</p>
-
-<h2 id="community-contributions">Community Contributions</h2>
-<p>As I’ve mentioned in many a blog post before this one, I encourage all users of the software to continue reporting bugs via <a href="https://github.com/randyzwitch/RSiteCatalyst/issues">GitHub issues</a>, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.</p>
-
-<p><em>Note: Please don’t email directly via the email in the RSiteCatalyst package, it will not be returned. Having a valid email contact in the package is a requirement to have a package listed on CRAN so they can contact the package author, it is not meant to imply I can/will provide endless, personalized support for free.</em></p>
 
     <hr>
   </div>
@@ -1089,6 +1160,10 @@
 						  
 						
 					
+						
+						  
+							<li data-section='/bulk-loading-postgis/'><a href='/bulk-loading-postgis/'>Bulk Loading Shapefiles Into Postgres/Postgis</a></li>
+						  
 						
 						  
 							<li data-section='/travisci-10minute-timeout-build-error/'><a href='/travisci-10minute-timeout-build-error/'>Travis CI: "You Have Too Many Tests LOLZ!"</a></li>
