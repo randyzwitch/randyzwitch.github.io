@@ -109,7 +109,7 @@ find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">
     <span class="o">(</span>the input file name going into parallel, where the <span class="nb">.</span> removes the file extension<span class="o">)</span>
   - <span class="o">&amp;&amp;</span> rm <span class="o">{}</span> is run after the gzip process finishes, removing the original .zip file</code></pre></figure>
 
-<p>As a one-liner, it’s not the hardest to comprehend what’s going on, but it’s also not the most intuitive. The key idea here is that once we find all of the zip files, we can unzip/gzip the files in parallel. Note that this works because each process is independent from the other; a single file itself is being unzipped and then gzipped, just that multiple single-threaded processes are being kicked off at once.</p>
+<p>As a one-liner, it’s not the hardest to comprehend what’s going on, but it’s also not the most intuitive. The key idea here is that once we find all of the zip files, we can unzip/gzip the files in parallel. Note that this works because each process is independent from the other; a single file itself is being unzipped and then gzipped, we’re not unzipping and gzipping a single file in parallel. Just that multiple single-threaded processes are being kicked off at once instead of leaving the other cores in the CPU idle.</p>
 
 <p>Once the unzip-to-gzip process has occurred, then I delete the original zip file. So for the most part, this process can be considered to take constant disk space (if you ignore that 4-8 files are being processed at one time).</p>
 

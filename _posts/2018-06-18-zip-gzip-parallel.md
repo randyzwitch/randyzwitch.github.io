@@ -35,7 +35,7 @@ find . -type f -name '*.zip'
 
 {% endhighlight %}
 
-As a one-liner, it's not the hardest to comprehend what's going on, but it's also not the most intuitive. The key idea here is that once we find all of the zip files, we can unzip/gzip the files in parallel. Note that this works because each process is independent from the other; a single file itself is being unzipped and then gzipped, just that multiple single-threaded processes are being kicked off at once.
+As a one-liner, it's not the hardest to comprehend what's going on, but it's also not the most intuitive. The key idea here is that once we find all of the zip files, we can unzip/gzip the files in parallel. Note that this works because each process is independent from the other; a single file itself is being unzipped and then gzipped, we're not unzipping and gzipping a single file in parallel. Just that multiple single-threaded processes are being kicked off at once instead of leaving the other cores in the CPU idle.
 
 Once the unzip-to-gzip process has occurred, then I delete the original zip file. So for the most part, this process can be considered to take constant disk space (if you ignore that 4-8 files are being processed at one time).
 

@@ -37,7 +37,7 @@ find &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quo
     &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;the input file name going into parallel, where the &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; removes the file extension&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
   - &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; is run after the gzip process finishes, removing the original .zip file&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;As a one-liner, it’s not the hardest to comprehend what’s going on, but it’s also not the most intuitive. The key idea here is that once we find all of the zip files, we can unzip/gzip the files in parallel. Note that this works because each process is independent from the other; a single file itself is being unzipped and then gzipped, just that multiple single-threaded processes are being kicked off at once.&lt;/p&gt;
+&lt;p&gt;As a one-liner, it’s not the hardest to comprehend what’s going on, but it’s also not the most intuitive. The key idea here is that once we find all of the zip files, we can unzip/gzip the files in parallel. Note that this works because each process is independent from the other; a single file itself is being unzipped and then gzipped, we’re not unzipping and gzipping a single file in parallel. Just that multiple single-threaded processes are being kicked off at once instead of leaving the other cores in the CPU idle.&lt;/p&gt;
 
 &lt;p&gt;Once the unzip-to-gzip process has occurred, then I delete the original zip file. So for the most part, this process can be considered to take constant disk space (if you ignore that 4-8 files are being processed at one time).&lt;/p&gt;
 
