@@ -83,7 +83,7 @@ total 10916
 The .shp files from the 25 counties all have the same format, which is very convenient. In this step, we can use the `shp2pgsql` utility that comes with Postgis to read a shapefile, determine the proper schema, then create the table in the database:
 
 {% highlight bash %}
-shp2pgsql -I -s 4326 -p utah_lir_shapefiles_unzipped/Parcels_Beaver_LIR/Parcels_Beaver_LIR.shp \
+shp2pgsql -I -s 26912 -p utah_lir_shapefiles_unzipped/Parcels_Beaver_LIR/Parcels_Beaver_LIR.shp \
 utahlirparcels  | psql -h localhost -U <username> <database>;
 {% endhighlight %}
 
@@ -95,7 +95,7 @@ The last steps of the loading process are to 1) get all of the shapefile locatio
 
 {% highlight bash %}
 for i in $(find utah_lir_shapefiles_unzipped/ -type f -name '*.shp'); do
-  shp2pgsql -I -s 4326 -a $i utahlirparcels  | psql -h localhost -U <username> <database>;
+  shp2pgsql -I -s 26912 -a $i utahlirparcels  | psql -h localhost -U <username> <database>;
 done;
 {% endhighlight %}
 
