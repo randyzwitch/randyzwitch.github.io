@@ -39,7 +39,7 @@
     <script src="https://vega.github.io/vega-editor/vendor/topojson.js"></script>
     <script src="https://vega.github.io/vega-editor/vendor/d3.layout.cloud.js"></script>
     <script src="https://vega.github.io/vega/vega.min.js"></script>
-    <script src="http://randyzwitch.com/ECharts.jl/js/echarts.js"></script>
+    <script src="https://randyzwitch.com/ECharts.jl/js/echarts.js"></script>
 
     <script src="//assets.adobedtm.com/2e90f5d8c55118f75264895eed01c5b940722ec6/satelliteLib-fbd9f28ab46b20a28976329b9139efdbab37d425-staging.js"></script>
 
@@ -192,7 +192,7 @@ total 10916
 
 <p>The .shp files from the 25 counties all have the same format, which is very convenient. In this step, we can use the <code class="highlighter-rouge">shp2pgsql</code> utility that comes with Postgis to read a shapefile, determine the proper schema, then create the table in the database:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">shp2pgsql <span class="nt">-I</span> <span class="nt">-s</span> 4326 <span class="nt">-p</span> utah_lir_shapefiles_unzipped/Parcels_Beaver_LIR/Parcels_Beaver_LIR.shp <span class="se">\</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">shp2pgsql <span class="nt">-I</span> <span class="nt">-s</span> 26912 <span class="nt">-p</span> utah_lir_shapefiles_unzipped/Parcels_Beaver_LIR/Parcels_Beaver_LIR.shp <span class="se">\</span>
 utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U</span> &lt;username&gt; &lt;database&gt;<span class="p">;</span></code></pre></figure>
 
 <p>The key flag here is <code class="highlighter-rouge">-p</code>, which means ‘prepare mode’; the shapefile will get read, a table created, but no data loaded. By not loading the data in this step, it makes looping over the files easier later, as no special logic is required to keep the <code class="highlighter-rouge">Parcels_Beaver_LIR.shp</code> from being duplicated in Postgis (because it was never loaded in the first place).</p>
@@ -202,7 +202,7 @@ utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U<
 <p>The last steps of the loading process are to 1) get all of the shapefile locations and 2) feed them to shp2pgsql:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>find utah_lir_shapefiles_unzipped/ <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s1">'*.shp'</span><span class="k">)</span><span class="p">;</span> <span class="k">do
-  </span>shp2pgsql <span class="nt">-I</span> <span class="nt">-s</span> 4326 <span class="nt">-a</span> <span class="nv">$i</span> utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U</span> &lt;username&gt; &lt;database&gt;<span class="p">;</span>
+  </span>shp2pgsql <span class="nt">-I</span> <span class="nt">-s</span> 26912 <span class="nt">-a</span> <span class="nv">$i</span> utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U</span> &lt;username&gt; &lt;database&gt;<span class="p">;</span>
 <span class="k">done</span><span class="p">;</span></code></pre></figure>
 
 <p>To get all of the shapefile locations, I use <code class="highlighter-rouge">find</code> with flags <code class="highlighter-rouge">-type f</code> (files type) and <code class="highlighter-rouge">name</code> to search for the pattern within the directory. This command goes through the entire set of subdirectories and gets all the <code class="highlighter-rouge">.shp</code> files. From there, I iterate over the list of files using <code class="highlighter-rouge">for i in...</code>, then pass the value of <code class="highlighter-rouge">$i</code> into a similar <code class="highlighter-rouge">shp2pgsql</code> as above. However, rather than using flag <code class="highlighter-rouge">-p</code> for ‘prepare’, we are now going to use flag <code class="highlighter-rouge">-a</code> for ‘append’. This will perform an <code class="highlighter-rouge">INSERT INTO utahlirparcels()</code> statement for Postgres, loading in the actual data from the 25 shapefiles.</p>
