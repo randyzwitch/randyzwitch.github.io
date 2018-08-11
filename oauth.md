@@ -5,4 +5,4 @@ author: Randy Zwitch
 layout: post
 ---
 
-<div id="codekey"></div>
+<div id="codekey" style="height:400px;width:800px;"></div>
