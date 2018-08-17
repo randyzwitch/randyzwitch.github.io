@@ -1,6 +1,6 @@
 ---
 title: Parallel, Disk-Efficient .zip to .gz Conversion
-date: '2018-06-01'
+date: '2018-06-18'
 author: Randy Zwitch
 layout: post
 permalink: /zip-to-gzip-conversion-parallel/
