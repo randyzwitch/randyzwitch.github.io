@@ -81,6 +81,30 @@
 
 <h1 class="entry-title">
 
+    <a href="/mapd-apache-arrow-xgboost/">Data Science Without Leaving the GPU</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">July 23, 2018</a> &times; DataScience
+      </div>
+  </div>
+  <div class="content">
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9I207CIvk5Y?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+
+<p>Data has been growing rapidly for some time now, but CPU-based analytics solutions haven’t been able to sustain the same rate of growth in order to keep up. CPUs in desktop and laptop machines have started adding more cores, but even a 4- or 8-core CPU can only do so much work. Eventually the bottleneck will become not having enough bandwidth to keep all the CPU cores ‘fed’ with data to manipulate. <a href="/big-data-hadoop-amazon-ec2-cloudera-part-1/">Hadoop</a> provides a framework for working with larger datasets, but its distributed nature can often feel like setting it up is more hassle than its worth.</p>
+
+<p>GPU-based analytics solutions provide a great middle-ground; high-parallelism via thousands of GPU cores, while not having to automatically use a networked, multi-node architecture such as Hadoop. A single <a href="/building-data-science-workstation-2017/">data science workstation</a> with 2-4  GPUs can reasonably handle hundreds of millions of records, especially when using the <a href="https://www.mapd.com/blog/scaling-pandas-to-the-billions-with-ibis-and-mapd/">Ibis backend for MapD</a>.</p>
+
+<p>In this webinar, I demonstrate how to do each step of a machine learning workflow, from exploring a dataset to adding features to estimating an xgboost model for predicting the amount of tip a user will give after a taxi ride. Because MapD incorporates Apache Arrow under the hood for its data transfer, this can all be done seamlessly by passing pointers, rather than needing expensive I/O operations, between each tool used. Not having to transfer the data off of the GPU has interesting implications for analytics, which I also discuss towards the end of the talk.</p>
+
+<p>Enjoy!</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
     <a href="/zip-to-gzip-conversion-parallel/">Parallel, Disk-Efficient .zip to .gz Conversion</a>
 
 </h1>
@@ -210,58 +234,6 @@ utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U<
 <h2 id="spend-time-now-to-save-time-later">Spend Time Now To Save Time Later</h2>
 
 <p>Like so much of shell scripting, figuring out these commands took longer than I would’ve expected. Certainly, they took longer to figure out than it would’ve taken to copy-paste a <code class="highlighter-rouge">shp2pgsql</code> 25 times! But by taking the time upfront to figure out a generic method of looping over shapefiles, the next time (and every time after that) I find myself needing to do this, this code will be available to load multiple shapefiles into Postgis.</p>
-
-    <hr>
-  </div>
-
-<h1 class="entry-title">
-
-    <a href="/rsitecatalyst-powerbi-desktop-microsoft/">Using RSiteCatalyst With Microsoft PowerBI Desktop</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">March 13, 2018</a> &times; Analytics
-      </div>
-  </div>
-  <div class="content">
-    <p>With pretty regular frequency I get emails asking if RSiteCatalyst can be used with <a href="https://powerbi.microsoft.com/en-us/">Microsoft Power BI</a>. While admittedly I’m not a frequent user of the Windows operating system (nor dashboarding tools like Tableau or Power BI), I am pleased to report that it is fact possible to call the <a href="https://marketing.adobe.com/developer/documentation/analytics-reporting-1-4/whatsnew">Adobe Analytics API</a> with Power BI via RSiteCatalyst!</p>
-
-<h2 id="step-1-call-adobe-analytics-api-using-get-data-menu">Step 1: Call Adobe Analytics API Using <code class="highlighter-rouge">Get Data</code> Menu</h2>
-
-<p>The majority of getting RSiteCatalyst to work within Power BI desktop is getting the R script correct. From the <code class="highlighter-rouge">Get Data</code> menu, choose the <code class="highlighter-rouge">More...</code> menu option to bring up all of the data import tools that Power BI defines:</p>
-
-<p><img src="/assets/img/rsitecatalyst-powerbi-getdata.png" alt="rsitecatalyst powerbi get data" /></p>
-
-<p>Once you choose ‘R Script’, an input box will open where you can place your RSiteCatalyst function calls:</p>
-
-<p><img src="/assets/img/rsitecatalyst-powerbi-rscript.png" alt="rsitecatalyst powerbi rscript" /></p>
-
-<p>After hitting ‘OK’, Power BI will evaluate your R code, determining which statements return a <code class="highlighter-rouge">data.frame</code> (which is the only allowable data structure imported into Power BI). You can choose which <code class="highlighter-rouge">data.frame(s)</code> you want to import from the ‘Navigator’ window:</p>
-
-<p><img src="/assets/img/rsitecatalyst-powerbi-navigator.png" alt="rsitecatalyst powerbi navigator" /></p>
-
-<p>Once you hit ‘OK’, Power BI imports the data and you can use your Adobe Analytics data just as you would in R with RSiteCatalyst (or, like any other data source like CSV or database…)</p>
-
-<h2 id="limitations">Limitations</h2>
-
-<p>While it’s possible to call RSiteCatalyst through Power BI, there are some limitations to keep in mind.</p>
-
-<p>First, RSiteCatalyst will only work with Microsoft Power BI <em>Desktop</em>, which is installed locally on your machine. The Power BI Service, which is more of a shared dashboard/data store environment, <a href="https://docs.microsoft.com/en-us/power-bi/service-r-packages-support#requirements-and-limitations-of-r-packages">does not allow external API calls</a> as part of its security model. So while you can analyze your data locally, you cannot share dashboards to the Power BI Service.</p>
-
-<p>The second limitation I’ve noticed is that Power BI doesn’t read from from a <code class="highlighter-rouge">.Renviron</code> file (at least, not from the default Windows location that R GUI reads). So you will need to place your credentials directly in the R script, which is never really ideal (though, may not be a big deal all things considered).</p>
-
-<p>Finally, the R script runs synchronously, so when placing multiple calls in the same R script you will need to wait for all of the <code class="highlighter-rouge">data.frame</code> results before you can use them within Power BI. This is the same default behavior within R, sans using <a href="https://rstudio.github.io/promises/">Promises</a> or parallelism of some sort, but it’s still important to keep in mind.</p>
-
-<h2 id="dashboards-dashboards-dashboards">Dashboards, Dashboards, Dashboards!</h2>
-
-<p>With a few minutes work, I was able to create this rudimentary dashboard (<a href="/assets/r_code/rsitecatalyst_powerbi_example.R">R code</a>):</p>
-
-<p><img src="/assets/img/rsitecatalyst-powerbi-dashboard.png" alt="rsitecatalyst powerbi dashboard" /></p>
-
-<p>Someone with more interesting/higher volume data could surely do better. But the most important thing in my opinion is that Microsoft has built an awesome integration with R and that creating dashboards in Power BI is <em>waaaaaay</em> easier than the last time I tried to create a dashboard using Excel and the Adobe Report Builder plugin.</p>
-
-<p>Happy dashboarding!</p>
 
     <hr>
   </div>
@@ -429,6 +401,10 @@ utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U<
   
     
       <a href="/page39">39</a>
+    
+  
+    
+      <a href="/page40">40</a>
     
   
 
@@ -832,6 +808,10 @@ utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U<
 						  
 						
 					
+						
+						  
+							<li data-section='/mapd-apache-arrow-xgboost/'><a href='/mapd-apache-arrow-xgboost/'>Data Science Without Leaving the GPU</a></li>
+						  
 						
 						  
 							<li data-section='/mapd-pjm-electricity-data/'><a href='/mapd-pjm-electricity-data/'>Getting Started With MapD, Part 2: Electricity Dataset</a></li>

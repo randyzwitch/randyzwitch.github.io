@@ -8,6 +8,30 @@
     
       
       <item>
+        <title>Data Science Without Leaving the GPU</title>
+        
+          <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/9I207CIvk5Y?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+</description>
+        
+        <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+        <link>
+        http://localhost:4000/mapd-apache-arrow-xgboost/</link>
+        <guid isPermaLink="true">http://localhost:4000/mapd-apache-arrow-xgboost/</guid>
+        <content type="html" xml:base="/mapd-apache-arrow-xgboost/">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/9I207CIvk5Y?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Data has been growing rapidly for some time now, but CPU-based analytics solutions haven’t been able to sustain the same rate of growth in order to keep up. CPUs in desktop and laptop machines have started adding more cores, but even a 4- or 8-core CPU can only do so much work. Eventually the bottleneck will become not having enough bandwidth to keep all the CPU cores ‘fed’ with data to manipulate. &lt;a href=&quot;/big-data-hadoop-amazon-ec2-cloudera-part-1/&quot;&gt;Hadoop&lt;/a&gt; provides a framework for working with larger datasets, but its distributed nature can often feel like setting it up is more hassle than its worth.&lt;/p&gt;
+
+&lt;p&gt;GPU-based analytics solutions provide a great middle-ground; high-parallelism via thousands of GPU cores, while not having to automatically use a networked, multi-node architecture such as Hadoop. A single &lt;a href=&quot;/building-data-science-workstation-2017/&quot;&gt;data science workstation&lt;/a&gt; with 2-4  GPUs can reasonably handle hundreds of millions of records, especially when using the &lt;a href=&quot;https://www.mapd.com/blog/scaling-pandas-to-the-billions-with-ibis-and-mapd/&quot;&gt;Ibis backend for MapD&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In this webinar, I demonstrate how to do each step of a machine learning workflow, from exploring a dataset to adding features to estimating an xgboost model for predicting the amount of tip a user will give after a taxi ride. Because MapD incorporates Apache Arrow under the hood for its data transfer, this can all be done seamlessly by passing pointers, rather than needing expensive I/O operations, between each tool used. Not having to transfer the data off of the GPU has interesting implications for analytics, which I also discuss towards the end of the talk.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>Parallel, Disk-Efficient .zip to .gz Conversion</title>
         
           <description>&lt;p&gt;Similar to my last post about needing to &lt;a href=&quot;https://randyzwitch.com/bulk-loading-postgis/&quot;&gt;merge shapefiles using Postgis&lt;/a&gt;, I recently downloaded a bunch of energy data from the federal government. 13,370 files to be exact. While the data size itself isn’t that large (~8GB, compressed), an open-source tool I was looking to evaluate only supports &lt;em&gt;gzip&lt;/em&gt; compression instead of the &lt;em&gt;zip&lt;/em&gt; compressed files I actually had.&lt;/p&gt;
