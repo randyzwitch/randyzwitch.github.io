@@ -8,6 +8,115 @@
     
       
       <item>
+        <title>Creating a MapD ODBC Connection in RStudio Server</title>
+        
+          <description>&lt;p&gt;&lt;img src=&quot;/assets/img/mapd-odbc-rstudio-connection.png&quot; alt=&quot;MapD ODBC RStudio Server&quot; /&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 21 Aug 2018 00:00:00 -0400</pubDate>
+        <link>
+        http://localhost:4000/mapd-odbc-rstudio-server/</link>
+        <guid isPermaLink="true">http://localhost:4000/mapd-odbc-rstudio-server/</guid>
+        <content type="html" xml:base="/mapd-odbc-rstudio-server/">&lt;p&gt;&lt;img src=&quot;/assets/img/mapd-odbc-rstudio-connection.png&quot; alt=&quot;MapD ODBC RStudio Server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In my post &lt;a href=&quot;https://www.mapd.com/blog/installing-mapd-on-microsoft-azure/&quot;&gt;&lt;em&gt;Installing MapD on Microsoft Azure&lt;/em&gt;&lt;/a&gt;, I showed how to install MapD Community Edition on Microsoft Azure, using Ubuntu 16.04 LTS as the base image. One thing I glossed over during the firewall/security section was that I opened ports for Jupyter Notebook and other data science tools, but I didn’t actually show how to install any of those tools.&lt;/p&gt;
+
+&lt;p&gt;For this post, I’ll cover how to install MapD ODBC drivers and create a connection within RStudio server.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-installing-rstudio-server-on-microsoft-azure&quot;&gt;1. Installing RStudio Server on Microsoft Azure&lt;/h2&gt;
+
+&lt;p&gt;With an &lt;a href=&quot;https://github.com/mapd/mapd_on_azure&quot;&gt;Ubuntu VM running MapD&lt;/a&gt;, installing RStudio Server takes but a handful of commands. The &lt;a href=&quot;https://www.rstudio.com/products/rstudio/download-server/&quot;&gt;RStudio Server download&lt;/a&gt;/install page has fantastic instructions, but if you are looking for &lt;a href=&quot;https://www.jumpingrivers.com/blog/hosting-rstudio-server-on-azure/&quot;&gt;Azure-specific RStudio Server install&lt;/a&gt; instructions, this blog post from &lt;a href=&quot;https://www.jumpingrivers.com/&quot;&gt;Jumping Rivers&lt;/a&gt; does a great job.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-installing-an-odbc-driver-manager&quot;&gt;2. Installing an ODBC Driver Manager&lt;/h2&gt;
+
+&lt;p&gt;There are two major ODBC driver managers for Linux and macOS: &lt;a href=&quot;http://www.unixodbc.org/&quot;&gt;unixODBC&lt;/a&gt; and &lt;a href=&quot;http://www.iodbc.org/dataspace/doc/iodbc/wiki/iodbcWiki/WelcomeVisitors&quot;&gt;iODBC&lt;/a&gt;. I have had more overall ODBC driver installation success with unixODBC than iODBC; here are the instructions for building unixODBC from source:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#download source and extract&lt;/span&gt;
+wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.7.tar.gz
+gunzip unixODBC&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xvf unixODBC&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.tar
+
+&lt;span class=&quot;c&quot;&gt;#compile and install&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;unixODBC-2.3.7
+./configure
+make
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you want to check everything is installed correctly, you can run the following command:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;odbc_config &lt;span class=&quot;nt&quot;&gt;--cflags&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#result&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DHAVE_UNISTD_H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-DHAVE_PWD_H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-DHAVE_SYS_TYPES_H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-DHAVE_LONG_LONG&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-DSIZEOF_LONG_INT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8 &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/local/include&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;3-installing-mapd-odbc-driver-system-wide&quot;&gt;3. Installing MapD ODBC Driver System-wide&lt;/h2&gt;
+
+&lt;p&gt;With unixODBC installed, the next step is to &lt;a href=&quot;https://www.mapd.com/docs/latest/6_odbc.html&quot;&gt;install the MapD ODBC drivers&lt;/a&gt;. ODBC drivers for MapD are provided as part of &lt;a href=&quot;https://www.mapd.com/platform/downloads/&quot;&gt;MapD Enterprise Edition&lt;/a&gt;, so you’ll need to contact your sales representative to get the appropriate version for your MapD installation.&lt;/p&gt;
+
+&lt;p&gt;For Linux, the MapD ODBC drivers are provided as a tarball, which when extracted provides all of the necessary ODBC driver files:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#make a directory to extract files into&lt;/span&gt;
+mkdir mapd_odbc &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;mapd_odbc
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xvf&lt;/span&gt; ../mapd_odbc_installer_linux_3.80.1.36.tar.gz
+
+&lt;span class=&quot;c&quot;&gt;#move to /opt/mapd/mapd_odbc (or wherever the other MapD files are)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .. &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; mv mapd_odbc /opt/mapd/mapd_odbc&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;By convention, MapD suggests placing the ODBC drivers in the same directory as your installation (frequently, &lt;code class=&quot;highlighter-rouge&quot;&gt;/opt/mapd&lt;/code&gt;). Wherever you choose to place the directory, you need add that location into the &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/odbcinst.ini&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;MapD Driver]
+Driver          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /opt/mapd/mapd_odbc/libs/libODBC.so&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;At this point, we have everything we need to define a connection string within R using &lt;code class=&quot;highlighter-rouge&quot;&gt;odbc&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odbc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbConnect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odbc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odbc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Driver&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MapD Driver&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Database&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mapd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UID&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mapd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PWD&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;helloRusers!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Port&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9091&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Depending on your use case/security preferences, there are two downsides to this method: 1) the credentials are in plain-text in the middle of the script and 2) the &lt;a href=&quot;https://support.rstudio.com/hc/en-us/articles/115010915687-Using-RStudio-Connections&quot;&gt;RStudio Connection window&lt;/a&gt; also shows the credentials in connection window in plain-text until you delete the connection. This can be remedied by defining a DSN (data source name).&lt;/p&gt;
+
+&lt;h2 id=&quot;4-defining-a-dsn&quot;&gt;4. Defining A DSN&lt;/h2&gt;
+
+&lt;p&gt;A DSN is what people usually think of when installing ODBC drivers, as it holds some/all of the actual details for connecting to the database. DSN files can be placed in two locations: system-wide in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/obdc.ini&lt;/code&gt; or in an individual user’s home directory (needs to be &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.odbc.ini&lt;/code&gt;, a hidden file).&lt;/p&gt;
+
+&lt;p&gt;In order to have the credentials completely masked in the RStudio session, place the following in the &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/obdc.ini&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;MapD Production]
+&lt;span class=&quot;nv&quot;&gt;Driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;MapD Driver
+&lt;span class=&quot;nv&quot;&gt;PWD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;helloRusers!
+&lt;span class=&quot;nv&quot;&gt;UID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mapd
+&lt;span class=&quot;nv&quot;&gt;HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;localhost
+&lt;span class=&quot;nv&quot;&gt;DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mapd
+&lt;span class=&quot;nv&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;9091&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Within the RStudio Connection pane, we can now test our DSN:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/mapd-odbc-rstudio-dsn-test.png&quot; alt=&quot;MapD ODBC RStudio Server DSN Test&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With the DSN defined, the R connection code becomes much shorter, with no credentials exposed within the R session:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;library&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;DBI&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+con &amp;lt;- dbConnect&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;odbc::odbc&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;MapD Production&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;odbc-a-big-bag-of-hurt-but-super-useful&quot;&gt;ODBC: A Big Bag Of Hurt, But Super Useful&lt;/h2&gt;
+
+&lt;p&gt;While the instructions above aren’t the easiest to work through, once you have ODBC set up and working one time, it’s usually just a matter of appending various credentials to the existing files to add databases.&lt;/p&gt;
+
+&lt;p&gt;From a MapD perspective, ODBC is supported through our Enterprise Edition, but it is the &lt;em&gt;slowest&lt;/em&gt; way to work with the database. Up to this point, we’ve focused mostly on supporting Python through the &lt;a href=&quot;https://github.com/mapd/pymapd&quot;&gt;pymapd&lt;/a&gt; package and the &lt;a href=&quot;https://www.mapd.com/blog/scaling-pandas-to-the-billions-with-ibis-and-mapd/&quot;&gt;MapD Ibis backend&lt;/a&gt;, but there’s no reason technical reason why R can’t also be a first-class citizen.&lt;/p&gt;
+
+&lt;p&gt;So if you’re interested in helping develop an R package for MapD, whether using &lt;a href=&quot;https://rstudio.github.io/reticulate/articles/introduction.html&quot;&gt;reticulate&lt;/a&gt; to wrap pymapd or to help develop Apache Thrift bindings and Apache Arrow native code, &lt;a href=&quot;https://twitter.com/randyzwitch&quot;&gt;send me a Twitter message&lt;/a&gt; or &lt;a href=&quot;https://www.linkedin.com/in/randyzwitch/&quot;&gt;connect via LinkedIn&lt;/a&gt; (or any other way to contact me) and we’ll figure out how to collaborate!&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>Data Science Without Leaving the GPU</title>
         
           <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/9I207CIvk5Y?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;

@@ -81,6 +81,115 @@
 
 <h1 class="entry-title">
 
+    <a href="/mapd-odbc-rstudio-server/">Creating a MapD ODBC Connection in RStudio Server</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">August 21, 2018</a> &times; Programming
+      </div>
+  </div>
+  <div class="content">
+    <p><img src="/assets/img/mapd-odbc-rstudio-connection.png" alt="MapD ODBC RStudio Server" /></p>
+
+<p>In my post <a href="https://www.mapd.com/blog/installing-mapd-on-microsoft-azure/"><em>Installing MapD on Microsoft Azure</em></a>, I showed how to install MapD Community Edition on Microsoft Azure, using Ubuntu 16.04 LTS as the base image. One thing I glossed over during the firewall/security section was that I opened ports for Jupyter Notebook and other data science tools, but I didn’t actually show how to install any of those tools.</p>
+
+<p>For this post, I’ll cover how to install MapD ODBC drivers and create a connection within RStudio server.</p>
+
+<h2 id="1-installing-rstudio-server-on-microsoft-azure">1. Installing RStudio Server on Microsoft Azure</h2>
+
+<p>With an <a href="https://github.com/mapd/mapd_on_azure">Ubuntu VM running MapD</a>, installing RStudio Server takes but a handful of commands. The <a href="https://www.rstudio.com/products/rstudio/download-server/">RStudio Server download</a>/install page has fantastic instructions, but if you are looking for <a href="https://www.jumpingrivers.com/blog/hosting-rstudio-server-on-azure/">Azure-specific RStudio Server install</a> instructions, this blog post from <a href="https://www.jumpingrivers.com/">Jumping Rivers</a> does a great job.</p>
+
+<h2 id="2-installing-an-odbc-driver-manager">2. Installing an ODBC Driver Manager</h2>
+
+<p>There are two major ODBC driver managers for Linux and macOS: <a href="http://www.unixodbc.org/">unixODBC</a> and <a href="http://www.iodbc.org/dataspace/doc/iodbc/wiki/iodbcWiki/WelcomeVisitors">iODBC</a>. I have had more overall ODBC driver installation success with unixODBC than iODBC; here are the instructions for building unixODBC from source:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#download source and extract</span>
+wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.7.tar.gz
+gunzip unixODBC<span class="k">*</span>.tar.gz
+<span class="nb">tar </span>xvf unixODBC<span class="k">*</span>.tar
+
+<span class="c">#compile and install</span>
+<span class="nb">cd </span>unixODBC-2.3.7
+./configure
+make
+<span class="nb">sudo </span>make install</code></pre></figure>
+
+<p>If you want to check everything is installed correctly, you can run the following command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">odbc_config <span class="nt">--cflags</span>
+
+<span class="c">#result</span>
+<span class="nt">-DHAVE_UNISTD_H</span> <span class="nt">-DHAVE_PWD_H</span> <span class="nt">-DHAVE_SYS_TYPES_H</span> <span class="nt">-DHAVE_LONG_LONG</span> <span class="nt">-DSIZEOF_LONG_INT</span><span class="o">=</span>8 <span class="nt">-I</span>/usr/local/include</code></pre></figure>
+
+<h2 id="3-installing-mapd-odbc-driver-system-wide">3. Installing MapD ODBC Driver System-wide</h2>
+
+<p>With unixODBC installed, the next step is to <a href="https://www.mapd.com/docs/latest/6_odbc.html">install the MapD ODBC drivers</a>. ODBC drivers for MapD are provided as part of <a href="https://www.mapd.com/platform/downloads/">MapD Enterprise Edition</a>, so you’ll need to contact your sales representative to get the appropriate version for your MapD installation.</p>
+
+<p>For Linux, the MapD ODBC drivers are provided as a tarball, which when extracted provides all of the necessary ODBC driver files:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#make a directory to extract files into</span>
+mkdir mapd_odbc <span class="o">&amp;&amp;</span> <span class="nb">cd </span>mapd_odbc
+<span class="nb">tar</span> <span class="nt">-xvf</span> ../mapd_odbc_installer_linux_3.80.1.36.tar.gz
+
+<span class="c">#move to /opt/mapd/mapd_odbc (or wherever the other MapD files are)</span>
+<span class="nb">cd</span> .. <span class="o">&amp;&amp;</span> mv mapd_odbc /opt/mapd/mapd_odbc</code></pre></figure>
+
+<p>By convention, MapD suggests placing the ODBC drivers in the same directory as your installation (frequently, <code class="highlighter-rouge">/opt/mapd</code>). Wherever you choose to place the directory, you need add that location into the <code class="highlighter-rouge">/etc/odbcinst.ini</code> file:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>MapD Driver]
+Driver          <span class="o">=</span> /opt/mapd/mapd_odbc/libs/libODBC.so</code></pre></figure>
+
+<p>At this point, we have everything we need to define a connection string within R using <code class="highlighter-rouge">odbc</code>:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">odbc</span><span class="p">)</span><span class="w">
+
+</span><span class="n">conn</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dbConnect</span><span class="p">(</span><span class="n">odbc</span><span class="o">::</span><span class="n">odbc</span><span class="p">(),</span><span class="w">
+                  </span><span class="n">Driver</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"MapD Driver"</span><span class="p">,</span><span class="w">
+                  </span><span class="n">Server</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"localhost"</span><span class="p">,</span><span class="w">
+                  </span><span class="n">Database</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"mapd"</span><span class="p">,</span><span class="w">
+                  </span><span class="n">UID</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">"mapd"</span><span class="p">,</span><span class="w">
+                  </span><span class="n">PWD</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">"helloRusers!"</span><span class="p">,</span><span class="w">
+                  </span><span class="n">Port</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="m">9091</span><span class="p">)</span></code></pre></figure>
+
+<p>Depending on your use case/security preferences, there are two downsides to this method: 1) the credentials are in plain-text in the middle of the script and 2) the <a href="https://support.rstudio.com/hc/en-us/articles/115010915687-Using-RStudio-Connections">RStudio Connection window</a> also shows the credentials in connection window in plain-text until you delete the connection. This can be remedied by defining a DSN (data source name).</p>
+
+<h2 id="4-defining-a-dsn">4. Defining A DSN</h2>
+
+<p>A DSN is what people usually think of when installing ODBC drivers, as it holds some/all of the actual details for connecting to the database. DSN files can be placed in two locations: system-wide in <code class="highlighter-rouge">/etc/obdc.ini</code> or in an individual user’s home directory (needs to be <code class="highlighter-rouge">~/.odbc.ini</code>, a hidden file).</p>
+
+<p>In order to have the credentials completely masked in the RStudio session, place the following in the <code class="highlighter-rouge">/etc/obdc.ini</code> file:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>MapD Production]
+<span class="nv">Driver</span><span class="o">=</span>MapD Driver
+<span class="nv">PWD</span><span class="o">=</span>helloRusers!
+<span class="nv">UID</span><span class="o">=</span>mapd
+<span class="nv">HOST</span><span class="o">=</span>localhost
+<span class="nv">DATABASE</span><span class="o">=</span>mapd
+<span class="nv">PORT</span><span class="o">=</span>9091</code></pre></figure>
+
+<p>Within the RStudio Connection pane, we can now test our DSN:</p>
+
+<p><img src="/assets/img/mapd-odbc-rstudio-dsn-test.png" alt="MapD ODBC RStudio Server DSN Test" /></p>
+
+<p>With the DSN defined, the R connection code becomes much shorter, with no credentials exposed within the R session:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">library<span class="o">(</span>DBI<span class="o">)</span>
+con &lt;- dbConnect<span class="o">(</span>odbc::odbc<span class="o">()</span>, <span class="s2">"MapD Production"</span><span class="o">)</span></code></pre></figure>
+
+<h2 id="odbc-a-big-bag-of-hurt-but-super-useful">ODBC: A Big Bag Of Hurt, But Super Useful</h2>
+
+<p>While the instructions above aren’t the easiest to work through, once you have ODBC set up and working one time, it’s usually just a matter of appending various credentials to the existing files to add databases.</p>
+
+<p>From a MapD perspective, ODBC is supported through our Enterprise Edition, but it is the <em>slowest</em> way to work with the database. Up to this point, we’ve focused mostly on supporting Python through the <a href="https://github.com/mapd/pymapd">pymapd</a> package and the <a href="https://www.mapd.com/blog/scaling-pandas-to-the-billions-with-ibis-and-mapd/">MapD Ibis backend</a>, but there’s no reason technical reason why R can’t also be a first-class citizen.</p>
+
+<p>So if you’re interested in helping develop an R package for MapD, whether using <a href="https://rstudio.github.io/reticulate/articles/introduction.html">reticulate</a> to wrap pymapd or to help develop Apache Thrift bindings and Apache Arrow native code, <a href="https://twitter.com/randyzwitch">send me a Twitter message</a> or <a href="https://www.linkedin.com/in/randyzwitch/">connect via LinkedIn</a> (or any other way to contact me) and we’ll figure out how to collaborate!</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
     <a href="/mapd-apache-arrow-xgboost/">Data Science Without Leaving the GPU</a>
 
 </h1>
@@ -138,102 +247,6 @@ find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">
 <p>Once the unzip-to-gzip process has occurred, then I delete the original zip file. So for the most part, this process can be considered to take constant disk space (if you ignore that 4-8 files are being processed at one time).</p>
 
 <p>Like many one-liners, this took longer to figure out than was actually worth the time savings. But such is life, and now it’s available in the wild for the next person who wonders how to do something like this!</p>
-
-    <hr>
-  </div>
-
-<h1 class="entry-title">
-
-    <a href="/bulk-loading-postgis/">Bulk Loading Shapefiles Into Postgres/Postgis</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">June 1, 2018</a> &times; Programming
-      </div>
-  </div>
-  <div class="content">
-    <p>Recently I’ve been doing a fair bit of work with geospatial data, mostly on the data preparation side. While there are common data formats, I have found that because so much of this data are sourced from government agencies, the data are often in many files that can be concatenated.</p>
-
-<p>In this example, I will show how to take a few dozen county-level shapefiles of parcel data from Utah and load it into a single table in <a href="https://www.postgresql.org/">Postgres</a>/<a href="https://postgis.net/">Postgis</a>.</p>
-
-<h2 id="step-1-downloading-shapefiles">Step 1: Downloading Shapefiles</h2>
-
-<p>The following shell commands come from an in-progress collaboration with a friend, where we are going to analyze daily air quality in Utah over the past several years. <a href="https://opendata.utah.gov/browse">Utah is open-data-friendly</a>, providing <a href="https://gis.utah.gov/data/cadastre/parcels/#UtahLIRParcels">shapefiles for every parcel of land in Utah</a>.</p>
-
-<p>While it may have been possible to use <code class="highlighter-rouge">wget</code> or <code class="highlighter-rouge">curl</code> to download every shapefile, they are stored within Google Drive with a bunch of hashed URLs, so I just clicked on each file instead of trying to be clever. So if you want to follow along with this blog post exactly, you’ll need to download the 25 zip files of Utah shapefiles:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-lrt</span> utah_lir_shapefiles/
-total 408688
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch    954984 Jun  1 13:10 Parcels_Beaver_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   7183466 Jun  1 13:10 Parcels_BoxElder_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   9152777 Jun  1 13:10 Parcels_Cache_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   3279384 Jun  1 13:10 Parcels_Carbon_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch    356058 Jun  1 13:10 Parcels_Daggett_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch  18908413 Jun  1 13:10 Parcels_Davis_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   3900415 Jun  1 13:10 Parcels_Duchesne_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   2689950 Jun  1 13:10 Parcels_Garfield_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   2156109 Jun  1 13:10 Parcels_Grand_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   8107608 Jun  1 13:10 Parcels_Iron_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   1975537 Jun  1 13:10 Parcels_Juab_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   3273485 Jun  1 13:10 Parcels_Kane_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   2741403 Jun  1 13:10 Parcels_Millard_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   1110627 Jun  1 13:10 Parcels_Morgan_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   2970626 Jun  1 13:10 Parcels_Rich_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch 200183664 Jun  1 13:11 Parcels_SaltLake_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   1397522 Jun  1 13:11 Parcels_SanJuan_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   1576757 Jun  1 13:11 Parcels_Sanpete_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   7911261 Jun  1 13:11 Parcels_Summit_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   4480456 Jun  1 13:11 Parcels_Tooele_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch  69690149 Jun  1 13:11 Parcels_Utah_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch   5025674 Jun  1 13:11 Parcels_Wasatch_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch  35896908 Jun  1 13:11 Parcels_Washington_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch    298313 Jun  1 13:11 Parcels_Wayne_LIR.zip
-<span class="nt">-rw-rw-r--</span> 1 rzwitch rzwitch  23225130 Jun  1 13:11 Parcels_Weber_LIR.zip</code></pre></figure>
-
-<h2 id="step-2-bulk-unzip">Step 2: Bulk Unzip</h2>
-
-<p>With all of these files in the same directory at the same level (i.e. no subfolders), it’s pretty easy to bulk unzip the files, with one caveat: to move the contents of the unzipped files into a new directory, you need to use the <code class="highlighter-rouge">-d</code> flag:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir utah_lir_shapefiles_unzipped <span class="o">&amp;&amp;</span> unzip utah_lir_shapefiles/<span class="se">\*</span>.zip <span class="nt">-d</span> utah_lir_shapefiles_unzipped</code></pre></figure>
-
-<p>The reason I created a new directory (<code class="highlighter-rouge">mkdir</code>) and then unzipped the files into a new directory is that when doing analysis, I always like to keep the source data separate, so that I always have the option of starting completely over. It also can make regular expression globs easier :)</p>
-
-<h2 id="step-3-creating-postgis-table-definition">Step 3: Creating Postgis Table Definition</h2>
-
-<p>After all of the county zip files are unzipped, you get 25 sub-directories structured like the following:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">ls</span> <span class="nt">-ltr</span>
-total 10916
-<span class="nt">-rw-rw-rw-</span> 1 rzwitch rzwitch   67868 Sep  3  2017 Parcels_Beaver_LIR.shx
-<span class="nt">-rw-rw-rw-</span> 1 rzwitch rzwitch   28280 Sep  3  2017 Parcels_Beaver_LIR.shp.xml
-<span class="nt">-rw-rw-rw-</span> 1 rzwitch rzwitch 1503304 Sep  3  2017 Parcels_Beaver_LIR.shp
-<span class="nt">-rw-rw-rw-</span> 1 rzwitch rzwitch    3036 Sep  3  2017 Parcels_Beaver_LIR.sbx
-<span class="nt">-rw-rw-rw-</span> 1 rzwitch rzwitch   83052 Sep  3  2017 Parcels_Beaver_LIR.sbn
-<span class="nt">-rw-rw-rw-</span> 1 rzwitch rzwitch     425 Sep  3  2017 Parcels_Beaver_LIR.prj
-<span class="nt">-rw-rw-rw-</span> 1 rzwitch rzwitch 9471508 Sep  3  2017 Parcels_Beaver_LIR.dbf
-<span class="nt">-rw-rw-rw-</span> 1 rzwitch rzwitch       5 Sep  3  2017 Parcels_Beaver_LIR.cpg</code></pre></figure>
-
-<p>The .shp files from the 25 counties all have the same format, which is very convenient. In this step, we can use the <code class="highlighter-rouge">shp2pgsql</code> utility that comes with Postgis to read a shapefile, determine the proper schema, then create the table in the database:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">shp2pgsql <span class="nt">-I</span> <span class="nt">-s</span> 26912 <span class="nt">-p</span> utah_lir_shapefiles_unzipped/Parcels_Beaver_LIR/Parcels_Beaver_LIR.shp <span class="se">\</span>
-utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U</span> &lt;username&gt; &lt;database&gt;<span class="p">;</span></code></pre></figure>
-
-<p>The key flag here is <code class="highlighter-rouge">-p</code>, which means ‘prepare mode’; the shapefile will get read, a table created, but no data loaded. By not loading the data in this step, it makes looping over the files easier later, as no special logic is required to keep the <code class="highlighter-rouge">Parcels_Beaver_LIR.shp</code> from being duplicated in Postgis (because it was never loaded in the first place).</p>
-
-<h2 id="step-4-bulk-loading-shapefiles-into-postgis">Step 4: Bulk Loading Shapefiles into Postgis</h2>
-
-<p>The last steps of the loading process are to 1) get all of the shapefile locations and 2) feed them to shp2pgsql:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>find utah_lir_shapefiles_unzipped/ <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s1">'*.shp'</span><span class="k">)</span><span class="p">;</span> <span class="k">do
-  </span>shp2pgsql <span class="nt">-I</span> <span class="nt">-s</span> 26912 <span class="nt">-a</span> <span class="nv">$i</span> utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U</span> &lt;username&gt; &lt;database&gt;<span class="p">;</span>
-<span class="k">done</span><span class="p">;</span></code></pre></figure>
-
-<p>To get all of the shapefile locations, I use <code class="highlighter-rouge">find</code> with flags <code class="highlighter-rouge">-type f</code> (files type) and <code class="highlighter-rouge">name</code> to search for the pattern within the directory. This command goes through the entire set of subdirectories and gets all the <code class="highlighter-rouge">.shp</code> files. From there, I iterate over the list of files using <code class="highlighter-rouge">for i in...</code>, then pass the value of <code class="highlighter-rouge">$i</code> into a similar <code class="highlighter-rouge">shp2pgsql</code> as above. However, rather than using flag <code class="highlighter-rouge">-p</code> for ‘prepare’, we are now going to use flag <code class="highlighter-rouge">-a</code> for ‘append’. This will perform an <code class="highlighter-rouge">INSERT INTO utahlirparcels()</code> statement for Postgres, loading in the actual data from the 25 shapefiles.</p>
-
-<h2 id="spend-time-now-to-save-time-later">Spend Time Now To Save Time Later</h2>
-
-<p>Like so much of shell scripting, figuring out these commands took longer than I would’ve expected. Certainly, they took longer to figure out than it would’ve taken to copy-paste a <code class="highlighter-rouge">shp2pgsql</code> 25 times! But by taking the time upfront to figure out a generic method of looping over shapefiles, the next time (and every time after that) I find myself needing to do this, this code will be available to load multiple shapefiles into Postgis.</p>
 
     <hr>
   </div>
@@ -987,6 +1000,10 @@ utahlirparcels  | psql <span class="nt">-h</span> localhost <span class="nt">-U<
 						  
 						
 					
+						
+						  
+							<li data-section='/mapd-odbc-rstudio-server/'><a href='/mapd-odbc-rstudio-server/'>Creating a MapD ODBC Connection in RStudio Server</a></li>
+						  
 						
 						  
 							<li data-section='/zip-to-gzip-conversion-parallel/'><a href='/zip-to-gzip-conversion-parallel/'>Parallel, Disk-Efficient .zip to .gz Conversion</a></li>
