@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /xchange-2011-think-tank/
 category: Analytics
+published: false
 description: The Xchange 2011 Think Tank is the smaller conference before the conference. But there was just as much learning taking place on the boat.
 redirect_to: /tags/#Analytics
 tags:

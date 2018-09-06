@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /google-plus-button-wordpress-twenty-eleven/
 category: Design
+published: false
 description: It's clear that Google+ Plus isn't going away. Here's how to install the +1 button on WordPress Twenty Eleven to get those \"plus ones\"!
 tags:
   - Child Theme

@@ -6,6 +6,7 @@ layout: post
 permalink: /social-influence-another-fico/
 description: Like FICO, social influence scores measure a very specific behavior. It's a shame social 'influence' is starting to be misappropriated.
 category: Social
+published: false
 tags:
   - Klout
   - Peer Index

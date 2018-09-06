@@ -86,6 +86,22 @@
 </h1>
   <div id="meta-content">
       <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">September 6, 2018</a> &times; Programming
+      </div>
+  </div>
+  <div class="content">
+    
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
+    <a href="/mapd-odbc-rstudio-server/">Creating a MapD ODBC Connection in RStudio Server</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
           Randy Zwitch &times; <a href="/">August 21, 2018</a> &times; Programming
       </div>
   </div>
@@ -208,45 +224,6 @@ con &lt;- dbConnect<span class="o">(</span>odbc::odbc<span class="o">()</span>, 
 <p>In this webinar, I demonstrate how to do each step of a machine learning workflow, from exploring a dataset to adding features to estimating an xgboost model for predicting the amount of tip a user will give after a taxi ride. Because MapD incorporates Apache Arrow under the hood for its data transfer, this can all be done seamlessly by passing pointers, rather than needing expensive I/O operations, between each tool used. Not having to transfer the data off of the GPU has interesting implications for analytics, which I also discuss towards the end of the talk.</p>
 
 <p>Enjoy!</p>
-
-    <hr>
-  </div>
-
-<h1 class="entry-title">
-
-    <a href="/zip-to-gzip-conversion-parallel/">Parallel, Disk-Efficient .zip to .gz Conversion</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">June 18, 2018</a> &times; Programming
-      </div>
-  </div>
-  <div class="content">
-    <p>Similar to my last post about needing to <a href="https://randyzwitch.com/bulk-loading-postgis/">merge shapefiles using Postgis</a>, I recently downloaded a bunch of energy data from the federal government. 13,370 files to be exact. While the data size itself isn’t that large (~8GB, compressed), an open-source tool I was looking to evaluate only supports <em>gzip</em> compression instead of the <em>zip</em> compressed files I actually had.</p>
-
-<p>While I could’ve used this opportunity to merge the files together into one and do all the data cleaning, I became obsessed with figuring out how to just switch the compression scheme. Here’s the one-liner that emerged:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s1">'*.zip'</span> | parallel <span class="s2">"unzip -p -q {} | gzip &gt; {.}.gz &amp;&amp; rm {}"</span>
-
-find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s1">'*.zip'</span>
-  - find all zip files <span class="k">in </span>the current directory, including subdirectories
-
-| parallel
-  - take input list passed by find <span class="nb">command</span>, run some <span class="nb">command </span>against each argument <span class="k">in </span>parallel
-
-<span class="s2">"unzip -p -q {} | gzip &gt; {.}.gz &amp;&amp; rm {}"</span>
-  - unzip a file, with flags <span class="nt">-p</span> to pass data to STDOUT and <span class="nt">-q</span> <span class="k">for </span>quiet mode
-  - <span class="o">{}</span> represents the input file, which comes from list passed by find
-  - gzip takes STDOUT as its input, writes to a file whose name is determined by <span class="o">{</span>.<span class="o">}</span>
-    <span class="o">(</span>the input file name going into parallel, where the <span class="nb">.</span> removes the file extension<span class="o">)</span>
-  - <span class="o">&amp;&amp;</span> rm <span class="o">{}</span> is run after the gzip process finishes, removing the original .zip file</code></pre></figure>
-
-<p>As a one-liner, it’s not the hardest to comprehend what’s going on, but it’s also not the most intuitive. The key idea here is that once we find all of the zip files, we can unzip/gzip the files in parallel. Note that this works because each process is independent from the other; a single file itself is being unzipped and then gzipped, we’re not unzipping and gzipping a single file in parallel. Just that multiple single-threaded processes are being kicked off at once instead of leaving the other cores in the CPU idle.</p>
-
-<p>Once the unzip-to-gzip process has occurred, then I delete the original zip file. So for the most part, this process can be considered to take constant disk space (if you ignore that 4-8 files are being processed at one time).</p>
-
-<p>Like many one-liners, this took longer to figure out than was actually worth the time savings. But such is life, and now it’s available in the wild for the next person who wonders how to do something like this!</p>
 
     <hr>
   </div>
@@ -384,42 +361,6 @@ find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">
       <a href="/page31">31</a>
     
   
-    
-      <a href="/page32">32</a>
-    
-  
-    
-      <a href="/page33">33</a>
-    
-  
-    
-      <a href="/page34">34</a>
-    
-  
-    
-      <a href="/page35">35</a>
-    
-  
-    
-      <a href="/page36">36</a>
-    
-  
-    
-      <a href="/page37">37</a>
-    
-  
-    
-      <a href="/page38">38</a>
-    
-  
-    
-      <a href="/page39">39</a>
-    
-  
-    
-      <a href="/page40">40</a>
-    
-  
 
   
     <a href="/page2">Next &raquo;</a>
@@ -434,116 +375,6 @@ find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">
 			</div>
 			<div class="col-md-3">
 			
-	<div class="panel-group" id="panel-Design">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Design" href="#Design">Design</a>
-			</div>
-			<div id="Design" class="panel-collapse collapse">
-				<div class="panel-body">
-					
-						
-						  
-						
-					
-						
-						  
-							<li data-section='/back-to-top-wordpress-scrappy/'><a href='/back-to-top-wordpress-scrappy/'>Adding a "Back to Top" Link on WordPress</a></li>
-						  
-						
-						  
-							<li data-section='/google-adsense-and-wordpress/'><a href='/google-adsense-and-wordpress/'>Get Rich With Google AdSense And WordPress!</a></li>
-						  
-						
-						  
-							<li data-section='/removing-powered-by-wordpress-scrappy/'><a href='/removing-powered-by-wordpress-scrappy/'>Removing "Powered by WordPress" From Scrappy</a></li>
-						  
-						
-						  
-							<li data-section='/optimizely-wordpress-install/'><a href='/optimizely-wordpress-install/'>How To Install Optimizely on WordPress</a></li>
-						  
-						
-						  
-							<li data-section='/page-navigation-wordpress-twenty-eleven/'><a href='/page-navigation-wordpress-twenty-eleven/'>Page Navigation For WordPress Twenty Eleven</a></li>
-						  
-						
-						  
-							<li data-section='/wordpress-remove-this-entry-was-posted-in/'><a href='/wordpress-remove-this-entry-was-posted-in/'>How To Remove "This entry was posted in" on WordPress single posts</a></li>
-						  
-						
-						  
-							<li data-section='/disable-mobile-theme-in-wordpress/'><a href='/disable-mobile-theme-in-wordpress/'>How to Disable Mobile Theme in WordPress</a></li>
-						  
-						
-						  
-							<li data-section='/google-plus-button-wordpress-twenty-eleven/'><a href='/google-plus-button-wordpress-twenty-eleven/'>Installing Google Plus Button on WordPress</a></li>
-						  
-						
-						  
-							<li data-section='/prevent-google-analytics-tracking-logged-in/'><a href='/prevent-google-analytics-tracking-logged-in/'>Prevent Google Analytics From Tracking Logged-in Users</a></li>
-						  
-						
-						  
-							<li data-section='/removing-powered-by-wordpress-twenty-eleven/'><a href='/removing-powered-by-wordpress-twenty-eleven/'>Removing "Powered by WordPress" in Twenty Eleven</a></li>
-						  
-						
-						  
-							<li data-section='/comment-bubble-twenty-eleven/'><a href='/comment-bubble-twenty-eleven/'>Removing Comment Bubble From Twenty Eleven Theme</a></li>
-						  
-						
-						  
-							<li data-section='/custom-header-twenty-eleven-child-theme/'><a href='/custom-header-twenty-eleven-child-theme/'>Twenty Eleven Child Theme: Custom Header</a></li>
-						  
-						
-						  
-							<li data-section='/twenty-eleven-child-theme-creating-css-file/'><a href='/twenty-eleven-child-theme-creating-css-file/'>Twenty Eleven Child Theme: Creating CSS File</a></li>
-						  
-						
-						  
-							<li data-section='/wordpress-theme-twentyeleven-athualpa/'><a href='/wordpress-theme-twentyeleven-athualpa/'>Picking a WordPress Theme: Fancy or Basic?</a></li>
-						  
-						
-					
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="panel-group" id="panel-Social">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Social" href="#Social">Social</a>
-			</div>
-			<div id="Social" class="panel-collapse collapse">
-				<div class="panel-body">
-					
-						
-						  
-						
-					
-						
-						  
-							<li data-section='/declaring-twitter-bankruptcy/'><a href='/declaring-twitter-bankruptcy/'>Declaring Twitter Bankruptcy</a></li>
-						  
-						
-						  
-							<li data-section='/twitter-promoted-tweets/'><a href='/twitter-promoted-tweets/'>Where's The Relevance, Twitter?</a></li>
-						  
-						
-						  
-							<li data-section='/klout-perk-wahooly/'><a href='/klout-perk-wahooly/'>Claim Your Newest Klout Perk:  An SEC Investigation!</a></li>
-						  
-						
-						  
-							<li data-section='/social-influence-another-fico/'><a href='/social-influence-another-fico/'>Have Social 'Influence' Scores Become Another FICO?</a></li>
-						  
-						
-					
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="panel-group" id="panel-Analytics">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -713,34 +544,6 @@ find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">
 							<li data-section='/omniture-sitecatalyst-target-report/'><a href='/omniture-sitecatalyst-target-report/'>Using Omniture SiteCatalyst Target Report To Calculate YOY growth</a></li>
 						  
 						
-						  
-							<li data-section='/google-analytics-individual-qualification/'><a href='/google-analytics-individual-qualification/'>Google Analytics Individual Qualification (IQ) - Passed!</a></li>
-						  
-						
-						  
-							<li data-section='/google-analytics-seo-reports-inaccurate/'><a href='/google-analytics-seo-reports-inaccurate/'>Google Analytics SEO reports: Not Ready For Primetime?</a></li>
-						  
-						
-						  
-							<li data-section='/an-afternoon-with-edward-tufte/'><a href='/an-afternoon-with-edward-tufte/'>An Afternoon With Edward Tufte</a></li>
-						  
-						
-						  
-							<li data-section='/google-analytics-custom-variables/'><a href='/google-analytics-custom-variables/'>Google Analytics Custom Variables: A Page-Level Example</a></li>
-						  
-						
-						  
-							<li data-section='/xchange-2011-think-tank/'><a href='/xchange-2011-think-tank/'>Xchange 2011: Think Tank and Harbor Cruise</a></li>
-						  
-						
-						  
-							<li data-section='/google-analytics-for-wordpress/'><a href='/google-analytics-for-wordpress/'>Google Analytics for WordPress: Two Methods</a></li>
-						  
-						
-						  
-							<li data-section='/wordpress-stats-or-google-analytics/'><a href='/wordpress-stats-or-google-analytics/'>WordPress Stats or Google Analytics? Yes!</a></li>
-						  
-						
 					
 				</div>
 			</div>
@@ -766,41 +569,6 @@ find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">
 						
 						  
 							<li data-section='/broken-macbook-pro-hinge-fixed-free/'><a href='/broken-macbook-pro-hinge-fixed-free/'>Apple Has Earned a Customer for Life</a></li>
-						  
-						
-						  
-							<li data-section='/iphone-4s-activation-issues/'><a href='/iphone-4s-activation-issues/'>iPhone 4S: A Worthy Upgrade Clouded By Activation Issues</a></li>
-						  
-						
-					
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="panel-group" id="panel-Miscellany">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Miscellany" href="#Miscellany">Miscellany</a>
-			</div>
-			<div id="Miscellany" class="panel-collapse collapse">
-				<div class="panel-body">
-					
-						
-						  
-						
-					
-						
-						  
-							<li data-section='/well-thought-out-business-requirements/'><a href='/well-thought-out-business-requirements/'>Four Tactics For Well Thought Out Business Requirements</a></li>
-						  
-						
-						  
-							<li data-section='/100-miles-for-charitywater-update-1/'><a href='/100-miles-for-charitywater-update-1/'>100 Miles For charity:water - 12/1 Update</a></li>
-						  
-						
-						  
-							<li data-section='/charitywater-campaign/'><a href='/charitywater-campaign/'>100 Miles For charity:water</a></li>
 						  
 						
 					
@@ -1006,6 +774,10 @@ find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">
 						  
 						
 						  
+							<li data-section='/mapd-odbc-rstudio-server/'><a href='/mapd-odbc-rstudio-server/'>Creating a MapD ODBC Connection in RStudio Server</a></li>
+						  
+						
+						  
 							<li data-section='/zip-to-gzip-conversion-parallel/'><a href='/zip-to-gzip-conversion-parallel/'>Parallel, Disk-Efficient .zip to .gz Conversion</a></li>
 						  
 						
@@ -1035,6 +807,29 @@ find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">
 						
 						  
 							<li data-section='/r-error-message-fun/'><a href='/r-error-message-fun/'>The Fun of Error Trapping: R Package Edition</a></li>
+						  
+						
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel-group" id="panel-Miscellany">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				 <a class="panel-title" data-toggle="collapse" data-parent="#panel-Miscellany" href="#Miscellany">Miscellany</a>
+			</div>
+			<div id="Miscellany" class="panel-collapse collapse">
+				<div class="panel-body">
+					
+						
+						  
+						
+					
+						
+						  
+							<li data-section='/well-thought-out-business-requirements/'><a href='/well-thought-out-business-requirements/'>Four Tactics For Well Thought Out Business Requirements</a></li>
 						  
 						
 					

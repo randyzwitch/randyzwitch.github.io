@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /page-navigation-wordpress-twenty-eleven/
 category: Design
+published: false
 description: There are many benefits to adding page navigation for WordPress blogs, including improved reader engagement and SEO. Here's how to do it.
 tags:
   - Child Theme

@@ -6,6 +6,7 @@ layout: post
 guid: http://randyzwitch.com/?p=3108
 permalink: /declaring-twitter-bankruptcy/
 category: Social
+published: false
 description: I've been on Twitter for five years. A lot has changed since then. So I'm declaring 'Twitter Bankruptcy' and starting over. We'll see what happens.
 tags:
   - Thought Experiment

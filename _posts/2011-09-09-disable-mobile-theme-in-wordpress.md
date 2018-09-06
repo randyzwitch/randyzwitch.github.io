@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /disable-mobile-theme-in-wordpress/
 category: Design
+published: false
 description: "With smartphone usage on the rise, why would anyone disable the mobile theme in WordPress Twenty Eleven? Answer: It's poorly implemented."
 tags:
   - CSS

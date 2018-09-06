@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /google-analytics-for-wordpress/
 category: Analytics
+published: false
 description: "There are two ways to implement Google Analytics for WordPress: manually in your theme or by using a plugin. Manually is more flexible."
 tags:
   - Google Analytics

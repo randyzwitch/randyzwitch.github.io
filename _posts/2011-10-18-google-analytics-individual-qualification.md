@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /google-analytics-individual-qualification/
 category: Analytics
+published: false
 description: Now that I've passed the Google Analytics Individual Qualification, I guess there's nothing left to do but to start my own consultancy.
 redirect_to: /tags/#google_analytics
 tags:

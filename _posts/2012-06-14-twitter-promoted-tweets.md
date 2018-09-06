@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /twitter-promoted-tweets/
 category: Social
+published: false
 description: Twitter Promoted Tweets aren't going away. Is it too much to ask for Twitter to provide relevant ones?
 tags:
   - Advertising

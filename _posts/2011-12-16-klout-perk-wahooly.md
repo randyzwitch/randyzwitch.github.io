@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /klout-perk-wahooly/
 category: Social
+published: false
 description: I'm not sure what it is about Klout that keeps me coming back. But to offer the opportunity to get in to an investment scheme? No thanks.
 tags:
   - Klout

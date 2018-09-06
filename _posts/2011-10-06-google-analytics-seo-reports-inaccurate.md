@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /google-analytics-seo-reports-inaccurate/
 category: Analytics
+published: false
 description: Google Analytics, you should probably check your SEO algorithm. I guarantee you I do not average a front page ranking for female body parts.
 tags:
   - Data Accuracy

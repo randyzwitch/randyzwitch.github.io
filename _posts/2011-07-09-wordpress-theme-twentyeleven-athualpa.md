@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /wordpress-theme-twentyeleven-athualpa/
 category: Design
+published: false
 description: I've had past success with the Atahualpa Wordpress theme. But that theme is complex, so I'm going to hack on Twenty Eleven instead.
 tags:
   - Child Theme

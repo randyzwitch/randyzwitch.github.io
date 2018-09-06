@@ -5,6 +5,7 @@ author: Randy Zwitch
 layout: post
 permalink: /twenty-eleven-child-theme-creating-css-file/
 category: Design
+published: false
 description: The first step in creating a Wordpress Twenty Eleven child theme is to create a custom CSS file to hold all of your changes.
 tags:
   - Child Theme
