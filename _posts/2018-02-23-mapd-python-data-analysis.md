@@ -1,19 +1,21 @@
 ---
-title: 'Getting Started With MapD, Part 2: Electricity Dataset'
+title: 'Getting Started With OmniSci, Part 2: Electricity Dataset'
 date: '2018-02-23'
 author: Randy Zwitch
 layout: post
 permalink: /mapd-pjm-electricity-data/
-description: In the previous post, we loaded electricity data into MapD Community Edition. Let's go back and explain the data and extended the example further using MapD Immerse.
+description: In the previous post, we loaded electricity data into OmniSci (formerly MapD) Community Edition. Let's go back and explain the data and extended the example further using OmniSci Immerse.
 category: DataScience
 tags:
 - Data Visualization
 - SQL
 - CUDA
 - GPU
-- MapD
+- OmniSci
 - Python
 ---
+_Edit 10/1/2018: When I wrote this blog post, the company and product were named MapD. I've changed the title to reflect the new company name, but left the MapD references below to hopefully avoid confusion_
+
 In my [previous MapD post](http://randyzwitch.com/mapd-install-load-data/), I loaded [electricity data](http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx) into MapD Community Edition, intentionally ignoring the _what_ of the data to keep that post from being too overwhelming. Now let's take a step back and explain the dataset, show how to format the data using Python that was loaded into MapD, then use the MapD Immerse UI to build a simple dashboard.
 
 ## PJM Metered Load Data

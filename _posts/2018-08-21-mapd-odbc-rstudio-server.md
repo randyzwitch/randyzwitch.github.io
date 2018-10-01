@@ -1,19 +1,21 @@
 ---
-title: Creating a MapD ODBC Connection in RStudio Server
+title: Creating an OmniSci ODBC Connection in RStudio Server
 date: '2018-08-21'
 author: Randy Zwitch
 layout: post
 permalink: /mapd-odbc-rstudio-server/
-description: The connections feature of RStudio is an amazing timesaver, especially when working against several remote servers. Here's how to create the MapD ODBC RStudio connection.
+description: The connections feature of RStudio is an amazing timesaver, especially when working against several remote servers. Here's how to create the OmniSci (formerly MapD) ODBC RStudio connection.
 category: Programming
 tags:
 - R
 - SQL
-- MapD
+- OmniSci
 - RStudio
 - Python
 
 ---
+
+_Edit 10/1/2018: When I wrote this blog post, the company and product were named MapD. I've changed the title to reflect the new company name, but left the MapD references below to hopefully avoid confusion_
 
 ![MapD ODBC RStudio Server](/assets/img/mapd-odbc-rstudio-connection.png)
 

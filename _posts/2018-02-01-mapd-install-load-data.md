@@ -1,22 +1,22 @@
 ---
-title: 'Getting Started With MapD, Part 1: Docker Install and Loading Data'
+title: 'Getting Started With OmniSci, Part 1: Docker Install and Loading Data'
 date: '2018-02-01'
 author: Randy Zwitch
 layout: post
 permalink: /mapd-install-load-data/
-description: MapD Community Edition is a super fast analytics and visualization platform utilizing NVIDIA GPUs. Here's how to get started using Docker.
+description: OmniSci (formerly MapD) Community Edition is a super fast analytics and visualization platform utilizing NVIDIA GPUs. Here's how to get started using Docker.
 category: DataScience
 tags:
 - Data Visualization
 - SQL
 - CUDA
 - GPU
-- MapD
+- OmniSci
 ---
 
 It's been nearly five years since I wrote about [Getting Started with Hadoop](http://localhost:4000/big-data-hadoop-amazon-ec2-cloudera-part-1/) for big data. In those years, there have been incremental improvements in columnar file formats and dramatic computation speed improvements with Apache Spark, but I still wouldn't call the Hadoop ecosystem convenient for actual data _analysis_.  During this same time period, thanks to [NVIDIA](https://developer.nvidia.com/) and their [CUDA library](https://devblogs.nvidia.com/even-easier-introduction-cuda/) for general-purpose calculations on GPUs, graphics cards went from enabling visuals on a computer to enabling massively-parallel calculations as well.
 
-Building upon CUDA is [MapD](https://www.mapd.com/), an analytics platform that allows for super-fast SQL queries and interactive visualizations. In this blog post, I'll show how to use Docker to install [MapD Community Edition](https://www.mapd.com/blog/2017/05/08/mapd-open-sources-gpu-powered-database/) and load [hourly electricity demand](http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx) data to analyze.
+Building upon CUDA is [MapD](https://www.omnisci.com/), an analytics platform that allows for super-fast SQL queries and interactive visualizations. In this blog post, I'll show how to use Docker to install [MapD Community Edition](https://www.omnisci.com/blog/2017/05/08/mapd-open-sources-gpu-powered-database/) and load [hourly electricity demand](http://www.pjm.com/markets-and-operations/ops-analysis/historical-load-data.aspx) data to analyze.
 
 ## Installing MapD CE using Docker/nvidia-docker
 

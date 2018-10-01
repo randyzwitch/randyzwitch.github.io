@@ -10,7 +10,7 @@ tags:
 - Command Line
 - Bash
 - Cron
-- MapD
+- OmniSci
 - Python
 
 ---
@@ -19,7 +19,7 @@ As my Developer Advocate role leads me to doing more and more Sysadmin/Data Engi
 
 ## Data are on an FTP, Need Further Processing
 
-The problem I have is data that exists on a remote FTP, but are in a binary format that is incompatible with loading directly into MapD. My current plan is to use Python to convert the binary format into CSV, but with the data on a server that I don't control, I need to make a copy somewhere else.
+The problem I have is data that exists on a remote FTP, but are in a binary format that is incompatible with loading directly into [OmniSci](https://www.omnisci.com/). My current plan is to use Python to convert the binary format into CSV, but with the data on a server that I don't control, I need to make a copy somewhere else.
 
 It's also the case that the data are roughly 300GB _per day_, streaming in at various intervals across the day, so I need to make sure that any copying I do is thoughtful. Downloading 300GB of data per day is bad enough, doing it multiple times even worse!
 

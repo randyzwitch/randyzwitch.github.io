@@ -94,7 +94,7 @@
 
 <h2 id="data-are-on-an-ftp-need-further-processing">Data are on an FTP, Need Further Processing</h2>
 
-<p>The problem I have is data that exists on a remote FTP, but are in a binary format that is incompatible with loading directly into MapD. My current plan is to use Python to convert the binary format into CSV, but with the data on a server that I don’t control, I need to make a copy somewhere else.</p>
+<p>The problem I have is data that exists on a remote FTP, but are in a binary format that is incompatible with loading directly into <a href="https://www.omnisci.com/">OmniSci</a>. My current plan is to use Python to convert the binary format into CSV, but with the data on a server that I don’t control, I need to make a copy somewhere else.</p>
 
 <p>It’s also the case that the data are roughly 300GB <em>per day</em>, streaming in at various intervals across the day, so I need to make sure that any copying I do is thoughtful. Downloading 300GB of data per day is bad enough, doing it multiple times even worse!</p>
 
@@ -137,7 +137,7 @@ lftp <span class="nt">-e</span> <span class="s2">"mirror -c -e --parallel=20 --v
 
 <h1 class="entry-title">
 
-    <a href="/mapd-odbc-rstudio-server/">Creating a MapD ODBC Connection in RStudio Server</a>
+    <a href="/mapd-odbc-rstudio-server/">Creating an OmniSci ODBC Connection in RStudio Server</a>
 
 </h1>
   <div id="meta-content">
@@ -146,7 +146,9 @@ lftp <span class="nt">-e</span> <span class="s2">"mirror -c -e --parallel=20 --v
       </div>
   </div>
   <div class="content">
-    <p><img src="/assets/img/mapd-odbc-rstudio-connection.png" alt="MapD ODBC RStudio Server" /></p>
+    <p><em>Edit 10/1/2018: When I wrote this blog post, the company and product were named MapD. I’ve changed the title to reflect the new company name, but left the MapD references below to hopefully avoid confusion</em></p>
+
+<p><img src="/assets/img/mapd-odbc-rstudio-connection.png" alt="MapD ODBC RStudio Server" /></p>
 
 <p>In my post <a href="https://www.mapd.com/blog/installing-mapd-on-microsoft-azure/"><em>Installing MapD on Microsoft Azure</em></a>, I showed how to install MapD Community Edition on Microsoft Azure, using Ubuntu 16.04 LTS as the base image. One thing I glossed over during the firewall/security section was that I opened ports for Jupyter Notebook and other data science tools, but I didn’t actually show how to install any of those tools.</p>
 
@@ -255,11 +257,13 @@ con &lt;- dbConnect<span class="o">(</span>odbc::odbc<span class="o">()</span>, 
       </div>
   </div>
   <div class="content">
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9I207CIvk5Y?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+    <p><em>Edit 10/1/2018: When I wrote this blog post, the company and product were named MapD. I’ve changed the title to reflect the new company name, but left the MapD references below to hopefully avoid confusion</em></p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9I207CIvk5Y?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
 
 <p>Data has been growing rapidly for some time now, but CPU-based analytics solutions haven’t been able to sustain the same rate of growth in order to keep up. CPUs in desktop and laptop machines have started adding more cores, but even a 4- or 8-core CPU can only do so much work. Eventually the bottleneck will become not having enough bandwidth to keep all the CPU cores ‘fed’ with data to manipulate. <a href="/big-data-hadoop-amazon-ec2-cloudera-part-1/">Hadoop</a> provides a framework for working with larger datasets, but its distributed nature can often feel like setting it up is more hassle than its worth.</p>
 
-<p>GPU-based analytics solutions provide a great middle-ground; high-parallelism via thousands of GPU cores, while not having to automatically use a networked, multi-node architecture such as Hadoop. A single <a href="/building-data-science-workstation-2017/">data science workstation</a> with 2-4  GPUs can reasonably handle hundreds of millions of records, especially when using the <a href="https://www.mapd.com/blog/scaling-pandas-to-the-billions-with-ibis-and-mapd/">Ibis backend for MapD</a>.</p>
+<p>GPU-based analytics solutions provide a great middle-ground; high-parallelism via thousands of GPU cores, while not having to automatically use a networked, multi-node architecture such as Hadoop. A single <a href="/building-data-science-workstation-2017/">data science workstation</a> with 2-4  GPUs can reasonably handle hundreds of millions of records, especially when using the <a href="https://www.omnisci.com/blog/scaling-pandas-to-the-billions-with-ibis-and-mapd/">Ibis backend for MapD</a>.</p>
 
 <p>In this webinar, I demonstrate how to do each step of a machine learning workflow, from exploring a dataset to adding features to estimating an xgboost model for predicting the amount of tip a user will give after a taxi ride. Because MapD incorporates Apache Arrow under the hood for its data transfer, this can all be done seamlessly by passing pointers, rather than needing expensive I/O operations, between each tool used. Not having to transfer the data off of the GPU has interesting implications for analytics, which I also discuss towards the end of the talk.</p>
 
@@ -635,11 +639,11 @@ con &lt;- dbConnect<span class="o">(</span>odbc::odbc<span class="o">()</span>, 
 						  
 						
 						  
-							<li data-section='/mapd-pjm-electricity-data/'><a href='/mapd-pjm-electricity-data/'>Getting Started With MapD, Part 2: Electricity Dataset</a></li>
+							<li data-section='/mapd-pjm-electricity-data/'><a href='/mapd-pjm-electricity-data/'>Getting Started With OmniSci, Part 2: Electricity Dataset</a></li>
 						  
 						
 						  
-							<li data-section='/mapd-install-load-data/'><a href='/mapd-install-load-data/'>Getting Started With MapD, Part 1: Docker Install and Loading Data</a></li>
+							<li data-section='/mapd-install-load-data/'><a href='/mapd-install-load-data/'>Getting Started With OmniSci, Part 1: Docker Install and Loading Data</a></li>
 						  
 						
 						  
@@ -814,7 +818,7 @@ con &lt;- dbConnect<span class="o">(</span>odbc::odbc<span class="o">()</span>, 
 						  
 						
 						  
-							<li data-section='/mapd-odbc-rstudio-server/'><a href='/mapd-odbc-rstudio-server/'>Creating a MapD ODBC Connection in RStudio Server</a></li>
+							<li data-section='/mapd-odbc-rstudio-server/'><a href='/mapd-odbc-rstudio-server/'>Creating an OmniSci ODBC Connection in RStudio Server</a></li>
 						  
 						
 						  
