@@ -8,6 +8,101 @@
     
       
       <item>
+        <title>Using pandas and pymapd for ETL into OmniSci</title>
+        
+          <description>&lt;p&gt;I’ve got &lt;a href=&quot;https://pydata.org/nyc2018/schedule/presentation/41/&quot;&gt;PyData NYC 2018&lt;/a&gt; in two days and rather finishing up my talk, I just realized that my source data has a silent corruption due to non-standard timestamps. Here’s how I fixed this using pandas and then uploaded the data to &lt;a href=&quot;https://omnisci.com&quot;&gt;OmniSci&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+        <link>
+        http://localhost:4000/omnisci-pymapd-etl/</link>
+        <guid isPermaLink="true">http://localhost:4000/omnisci-pymapd-etl/</guid>
+        <content type="html" xml:base="/omnisci-pymapd-etl/">&lt;p&gt;I’ve got &lt;a href=&quot;https://pydata.org/nyc2018/schedule/presentation/41/&quot;&gt;PyData NYC 2018&lt;/a&gt; in two days and rather finishing up my talk, I just realized that my source data has a silent corruption due to non-standard timestamps. Here’s how I fixed this using pandas and then uploaded the data to &lt;a href=&quot;https://omnisci.com&quot;&gt;OmniSci&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;computers-are-dumb-make-things-easier-for-them&quot;&gt;Computers Are Dumb, MAKE THINGS EASIER FOR THEM!&lt;/h2&gt;
+
+&lt;p&gt;Literally every data tool in the world can read the &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot;&gt;ISO-8601 timestamp format&lt;/a&gt;. Conversely, not every tool in the world can read Excel or whatever horrible other tool people use to generate the CSV files seen in the wild. While I should’ve been more diligent checking my data ingestion, I didn’t until I created a wonky report…&lt;/p&gt;
+
+&lt;p&gt;Let’s take a look at the format that tripped me up:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/excelformatdates.png&quot; alt=&quot;Excel data format sucks&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Month/Day/Year Hour:Minute:Second AM/PM&lt;/code&gt; feels very much like an Excel date format that you get when Excel is used as a display medium. Unfortunately, when you write CSV files like this, the next tool to read them has to understand 1) that these columns are &lt;code class=&quot;highlighter-rouge&quot;&gt;timestamps&lt;/code&gt; and 2) if the user doesn’t specify the format, has to guess the format.&lt;/p&gt;
+
+&lt;p&gt;In my case, I didn’t do descriptive statistics on my timestamp columns and had a silent truncation(!) of the &lt;code class=&quot;highlighter-rouge&quot;&gt;AM/PM&lt;/code&gt; portion of the data. So instead of having 24 hours in the day, the parser read the data as follows (the &lt;code class=&quot;highlighter-rouge&quot;&gt;#AM&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#PM&lt;/code&gt; are my comments for clarity):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;datetime_beginning_utc
+2001-01-01 01:00:00 #AM
+2001-01-01 01:00:00 #PM
+2001-01-01 02:00:00 #AM
+2001-01-01 02:00:00 #PM
+2001-01-01 03:00:00 #AM
+2001-01-01 03:00:00 #PM
+2001-01-01 04:00:00 #AM
+2001-01-01 04:00:00 #PM
+2001-01-01 05:00:00 #AM
+2001-01-01 05:00:00 #PM
+2001-01-01 06:00:00 #AM
+2001-01-01 06:00:00 #PM
+2001-01-01 07:00:00 #AM
+2001-01-01 07:00:00 #PM
+2001-01-01 08:00:00 #AM
+2001-01-01 08:00:00 #PM
+2001-01-01 09:00:00 #AM
+2001-01-01 09:00:00 #PM
+2001-01-01 10:00:00 #AM
+2001-01-01 10:00:00 #PM
+2001-01-01 11:00:00 #AM
+2001-01-01 11:00:00 #PM
+2001-01-01 12:00:00 #AM
+2001-01-01 12:00:00 #PM
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So while the data looks like it was imported correctly (because, it is a &lt;code class=&quot;highlighter-rouge&quot;&gt;timestamp&lt;/code&gt;), it wasn’t until I realized that hours 13-23 were missing from my data that I realized I had an error.&lt;/p&gt;
+
+&lt;h2 id=&quot;pandas-to-the-rescue&quot;&gt;Pandas To The Rescue!&lt;/h2&gt;
+
+&lt;p&gt;Fixing this issue is as straight-forward as reading the CSV into python using pandas and specifying the date format:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/mnt/storage1TB/hrl_load_metered/hrl_load_metered.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;parse_dates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;date_parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;m/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Y &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;I:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;M:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;S &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;p&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/pandasdatetimefix.png&quot; alt=&quot;Yay pandas!&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can see from the code above that pandas has taken our directive about the format and it appears the data have been parsed correctly. A good secondary check here is that the difference in timestamps is &lt;code class=&quot;highlighter-rouge&quot;&gt;-5&lt;/code&gt;, which is the offset of the East Coast of the United States relative to UTC.&lt;/p&gt;
+
+&lt;h2 id=&quot;uploading-to-omnisci-directly-from-pandas&quot;&gt;Uploading to OmniSci Directly From Pandas&lt;/h2&gt;
+
+&lt;p&gt;Since my PyData talk is going to be using OmniSci, I need to upload this corrected data or rebuild all my work (I’ll opt for fixing my source). Luckily, the &lt;a href=&quot;https://pymapd.readthedocs.io/en/latest/&quot;&gt;pymapd&lt;/a&gt; package provides tight integration to an OmniSci database, providing a means of uploading the data directly from a pandas dataframe:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pymapd&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#connect to database&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pymapd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9091&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mapd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;HyperInteractive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mapd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#truncate table so that table definition can be reused&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;truncate table hrl_load_metered&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#re-load data into table&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#with none of the optional arguments, pymapd infers that this is an insert operation, since table name exists&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_table_columnar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hrl_load_metered&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I have a pre-existing table &lt;code class=&quot;highlighter-rouge&quot;&gt;hrl_load_metered&lt;/code&gt; on the database, so I can truncate the table to remove its (incorrect) data but keep the table structure. Then I can use &lt;code class=&quot;highlighter-rouge&quot;&gt;load_table_columnar&lt;/code&gt; to insert the cleaned up data into my table and now my data is correct.&lt;/p&gt;
+
+&lt;h2 id=&quot;computers-may-be-dumb-but-humans-are-lazy&quot;&gt;Computers May Be Dumb, But Humans Are Lazy&lt;/h2&gt;
+
+&lt;p&gt;At the beginning, I joked that computers are dumb. Computers are just tools that do exactly what a human programs them to do, and really, it was my laziness that caused this data error. Luckily, I did catch this before my talk and the fix is pretty easy.&lt;/p&gt;
+
+&lt;p&gt;I’d like to say I’m going to remember to check my data going forward, but in reality, I’m just documenting this here for the next time I make the same, lazy mistake.&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>Mirroring an FTP Using lftp and cron</title>
         
           <description>&lt;p&gt;As my Developer Advocate role leads me to doing more and more Sysadmin/Data Engineer type of work, I continuously find myself looking for more efficient ways of copying data folders to where I need them. While there are a lot of great GUI ETL tools out there, for me the simplest &lt;em&gt;and fastest&lt;/em&gt; way tends to be using linux utilities. Here’s how to mirror an FTP using lftp, with a cron repeater every five minutes.&lt;/p&gt;

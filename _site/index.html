@@ -81,6 +81,101 @@
 
 <h1 class="entry-title">
 
+    <a href="/omnisci-pymapd-etl/">Using pandas and pymapd for ETL into OmniSci</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">October 16, 2018</a> &times; Programming
+      </div>
+  </div>
+  <div class="content">
+    <p>I’ve got <a href="https://pydata.org/nyc2018/schedule/presentation/41/">PyData NYC 2018</a> in two days and rather finishing up my talk, I just realized that my source data has a silent corruption due to non-standard timestamps. Here’s how I fixed this using pandas and then uploaded the data to <a href="https://omnisci.com">OmniSci</a>.</p>
+
+<h2 id="computers-are-dumb-make-things-easier-for-them">Computers Are Dumb, MAKE THINGS EASIER FOR THEM!</h2>
+
+<p>Literally every data tool in the world can read the <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO-8601 timestamp format</a>. Conversely, not every tool in the world can read Excel or whatever horrible other tool people use to generate the CSV files seen in the wild. While I should’ve been more diligent checking my data ingestion, I didn’t until I created a wonky report…</p>
+
+<p>Let’s take a look at the format that tripped me up:</p>
+
+<p><img src="/assets/img/excelformatdates.png" alt="Excel data format sucks" /></p>
+
+<p><code class="highlighter-rouge">Month/Day/Year Hour:Minute:Second AM/PM</code> feels very much like an Excel date format that you get when Excel is used as a display medium. Unfortunately, when you write CSV files like this, the next tool to read them has to understand 1) that these columns are <code class="highlighter-rouge">timestamps</code> and 2) if the user doesn’t specify the format, has to guess the format.</p>
+
+<p>In my case, I didn’t do descriptive statistics on my timestamp columns and had a silent truncation(!) of the <code class="highlighter-rouge">AM/PM</code> portion of the data. So instead of having 24 hours in the day, the parser read the data as follows (the <code class="highlighter-rouge">#AM</code> and <code class="highlighter-rouge">#PM</code> are my comments for clarity):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datetime_beginning_utc
+2001-01-01 01:00:00 #AM
+2001-01-01 01:00:00 #PM
+2001-01-01 02:00:00 #AM
+2001-01-01 02:00:00 #PM
+2001-01-01 03:00:00 #AM
+2001-01-01 03:00:00 #PM
+2001-01-01 04:00:00 #AM
+2001-01-01 04:00:00 #PM
+2001-01-01 05:00:00 #AM
+2001-01-01 05:00:00 #PM
+2001-01-01 06:00:00 #AM
+2001-01-01 06:00:00 #PM
+2001-01-01 07:00:00 #AM
+2001-01-01 07:00:00 #PM
+2001-01-01 08:00:00 #AM
+2001-01-01 08:00:00 #PM
+2001-01-01 09:00:00 #AM
+2001-01-01 09:00:00 #PM
+2001-01-01 10:00:00 #AM
+2001-01-01 10:00:00 #PM
+2001-01-01 11:00:00 #AM
+2001-01-01 11:00:00 #PM
+2001-01-01 12:00:00 #AM
+2001-01-01 12:00:00 #PM
+</code></pre></div></div>
+
+<p>So while the data looks like it was imported correctly (because, it is a <code class="highlighter-rouge">timestamp</code>), it wasn’t until I realized that hours 13-23 were missing from my data that I realized I had an error.</p>
+
+<h2 id="pandas-to-the-rescue">Pandas To The Rescue!</h2>
+
+<p>Fixing this issue is as straight-forward as reading the CSV into python using pandas and specifying the date format:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"/mnt/storage1TB/hrl_load_metered/hrl_load_metered.csv"</span><span class="p">,</span>
+                 <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                 <span class="n">date_parser</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">"</span><span class="si">%</span><span class="s">m/</span><span class="si">%</span><span class="s">d/</span><span class="si">%</span><span class="s">Y </span><span class="si">%</span><span class="s">I:</span><span class="si">%</span><span class="s">M:</span><span class="si">%</span><span class="s">S </span><span class="si">%</span><span class="s">p"</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/assets/img/pandasdatetimefix.png" alt="Yay pandas!" /></p>
+
+<p>We can see from the code above that pandas has taken our directive about the format and it appears the data have been parsed correctly. A good secondary check here is that the difference in timestamps is <code class="highlighter-rouge">-5</code>, which is the offset of the East Coast of the United States relative to UTC.</p>
+
+<h2 id="uploading-to-omnisci-directly-from-pandas">Uploading to OmniSci Directly From Pandas</h2>
+
+<p>Since my PyData talk is going to be using OmniSci, I need to upload this corrected data or rebuild all my work (I’ll opt for fixing my source). Luckily, the <a href="https://pymapd.readthedocs.io/en/latest/">pymapd</a> package provides tight integration to an OmniSci database, providing a means of uploading the data directly from a pandas dataframe:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pymapd</span>
+
+<span class="c">#connect to database</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">pymapd</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9091</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">"mapd"</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">"HyperInteractive"</span><span class="p">,</span> <span class="n">dbname</span><span class="o">=</span><span class="s">"mapd"</span><span class="p">)</span>
+
+<span class="c">#truncate table so that table definition can be reused</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"truncate table hrl_load_metered"</span><span class="p">)</span>
+
+<span class="c">#re-load data into table</span>
+<span class="c">#with none of the optional arguments, pymapd infers that this is an insert operation, since table name exists</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">load_table_columnar</span><span class="p">(</span><span class="s">"hrl_load_metered"</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span></code></pre></figure>
+
+<p>I have a pre-existing table <code class="highlighter-rouge">hrl_load_metered</code> on the database, so I can truncate the table to remove its (incorrect) data but keep the table structure. Then I can use <code class="highlighter-rouge">load_table_columnar</code> to insert the cleaned up data into my table and now my data is correct.</p>
+
+<h2 id="computers-may-be-dumb-but-humans-are-lazy">Computers May Be Dumb, But Humans Are Lazy</h2>
+
+<p>At the beginning, I joked that computers are dumb. Computers are just tools that do exactly what a human programs them to do, and really, it was my laziness that caused this data error. Luckily, I did catch this before my talk and the fix is pretty easy.</p>
+
+<p>I’d like to say I’m going to remember to check my data going forward, but in reality, I’m just documenting this here for the next time I make the same, lazy mistake.</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
     <a href="/mirror-ftp-lftp/">Mirroring an FTP Using lftp and cron</a>
 
 </h1>
@@ -242,32 +337,6 @@ con &lt;- dbConnect<span class="o">(</span>odbc::odbc<span class="o">()</span>, 
 <p>From a MapD perspective, ODBC is supported through our Enterprise Edition, but it is the <em>slowest</em> way to work with the database. Up to this point, we’ve focused mostly on supporting Python through the <a href="https://github.com/mapd/pymapd">pymapd</a> package and the <a href="https://www.mapd.com/blog/scaling-pandas-to-the-billions-with-ibis-and-mapd/">MapD Ibis backend</a>, but there’s no reason technical reason why R can’t also be a first-class citizen.</p>
 
 <p>So if you’re interested in helping develop an R package for MapD, whether using <a href="https://rstudio.github.io/reticulate/articles/introduction.html">reticulate</a> to wrap pymapd or to help develop Apache Thrift bindings and Apache Arrow native code, <a href="https://twitter.com/randyzwitch">send me a Twitter message</a> or <a href="https://www.linkedin.com/in/randyzwitch/">connect via LinkedIn</a> (or any other way to contact me) and we’ll figure out how to collaborate!</p>
-
-    <hr>
-  </div>
-
-<h1 class="entry-title">
-
-    <a href="/mapd-apache-arrow-xgboost/">Data Science Without Leaving the GPU</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">July 23, 2018</a> &times; DataScience
-      </div>
-  </div>
-  <div class="content">
-    <p><em>Edit 10/1/2018: When I wrote this blog post, the company and product were named MapD. I’ve changed the title to reflect the new company name, but left the MapD references below to hopefully avoid confusion</em></p>
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9I207CIvk5Y?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-
-<p>Data has been growing rapidly for some time now, but CPU-based analytics solutions haven’t been able to sustain the same rate of growth in order to keep up. CPUs in desktop and laptop machines have started adding more cores, but even a 4- or 8-core CPU can only do so much work. Eventually the bottleneck will become not having enough bandwidth to keep all the CPU cores ‘fed’ with data to manipulate. <a href="/big-data-hadoop-amazon-ec2-cloudera-part-1/">Hadoop</a> provides a framework for working with larger datasets, but its distributed nature can often feel like setting it up is more hassle than its worth.</p>
-
-<p>GPU-based analytics solutions provide a great middle-ground; high-parallelism via thousands of GPU cores, while not having to automatically use a networked, multi-node architecture such as Hadoop. A single <a href="/building-data-science-workstation-2017/">data science workstation</a> with 2-4  GPUs can reasonably handle hundreds of millions of records, especially when using the <a href="https://www.omnisci.com/blog/scaling-pandas-to-the-billions-with-ibis-and-mapd/">Ibis backend for MapD</a>.</p>
-
-<p>In this webinar, I demonstrate how to do each step of a machine learning workflow, from exploring a dataset to adding features to estimating an xgboost model for predicting the amount of tip a user will give after a taxi ride. Because MapD incorporates Apache Arrow under the hood for its data transfer, this can all be done seamlessly by passing pointers, rather than needing expensive I/O operations, between each tool used. Not having to transfer the data off of the GPU has interesting implications for analytics, which I also discuss towards the end of the talk.</p>
-
-<p>Enjoy!</p>
 
     <hr>
   </div>
@@ -812,6 +881,10 @@ con &lt;- dbConnect<span class="o">(</span>odbc::odbc<span class="o">()</span>, 
 						  
 						
 					
+						
+						  
+							<li data-section='/omnisci-pymapd-etl/'><a href='/omnisci-pymapd-etl/'>Using pandas and pymapd for ETL into OmniSci</a></li>
+						  
 						
 						  
 							<li data-section='/mirror-ftp-lftp/'><a href='/mirror-ftp-lftp/'>Mirroring an FTP Using lftp and cron</a></li>
