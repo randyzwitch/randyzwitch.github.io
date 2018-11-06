@@ -4,7 +4,7 @@ date: 2012-06-25T20:38:57+00:00
 author: Randy Zwitch
 layout: post
 permalink: /broken-macbook-pro-hinge-fixed-free/
-category: Technology
+category: Miscellany
 description: Apple fixed my broken MacBook Pro hinge and screen for free out of warranty, saving me $500. By admitting the defect, they've earned a customer for life.
 tags:
   - Apple
