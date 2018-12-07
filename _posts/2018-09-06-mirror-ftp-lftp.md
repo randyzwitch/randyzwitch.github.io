@@ -57,6 +57,6 @@ lftp -e "mirror -c -e --parallel=20 --verbose /pub/data/nccf/com/nwm/prod /nwmft
 
 ## That's It? YES!
 
-With just a few characters short of a full tweet, you can mirror an entire folder from an FTP, automatically. `lftp` in combination with `cran` helped me factor out hundreds of lines of pre-existing Python code, which not only removed untested, copy-pasted code from the workflow but also added parallel downloading, increasing data throughput.
+With just a few characters short of a full tweet, you can mirror an entire folder from an FTP, automatically. `lftp` in combination with `cron` helped me factor out hundreds of lines of pre-existing Python code, which not only removed untested, copy-pasted code from the workflow but also added parallel downloading, increasing data throughput.
 
 Not bad for a couple of free Linux utilities :)
