@@ -8,6 +8,30 @@
     
       
       <item>
+        <title>PyData NYC 2018&amp;#58; End-to-End Data Science Without Leaving the GPU</title>
+        
+          <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/gQszQcFHcZc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+</description>
+        
+        <pubDate>Fri, 01 Feb 2019 00:00:00 -0500</pubDate>
+        <link>
+        http://localhost:4000/omnisci-cudf-pydata-nyc-2018/</link>
+        <guid isPermaLink="true">http://localhost:4000/omnisci-cudf-pydata-nyc-2018/</guid>
+        <content type="html" xml:base="/omnisci-cudf-pydata-nyc-2018/">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/gQszQcFHcZc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This talk is from October 2018, and so much has changed in the &lt;a href=&quot;https://rapids.ai/&quot;&gt;GOAI/RAPIDS&lt;/a&gt; ecosystem that it’s comical to see how much has changed! Regardless, the high-level concepts of how &lt;a href=&quot;https://www.omnisci.com&quot;&gt;OmniSci&lt;/a&gt; works and the concepts behind GPU dataframes (then: pygdf, now: &lt;a href=&quot;https://github.com/rapidsai/cudf&quot;&gt;cudf&lt;/a&gt;) remain the same, so watching this talk still has value if you are interested in an end-to-end GPU workflow.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.omnisci.com/blog/pymapd_0.7_updated_RAPIDS_support_pyarrow_python_more/&quot;&gt;With the release of pymapd 0.7 a few days ago&lt;/a&gt;, getting started with GPU data science is just a matter of having an NVIDIA GPU and &lt;a href=&quot;https://github.com/omnisci/mapd-core&quot;&gt;OmniSci Core (OSS)&lt;/a&gt; and a quick conda command to set up your environment:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;conda install -c conda-forge -c nvidia -c rapidsai -c numba -c defaults pymapd cudf python=3.6&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;So check out the video, grab the Jupyter Notebook from the &lt;a href=&quot;https://github.com/omnisci/pydatanyc2018&quot;&gt;pydatanyc2018 GitHub repo&lt;/a&gt; and get started with GPU-accelerated data science!&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>Using pandas and pymapd for ETL into OmniSci</title>
         
           <description>&lt;p&gt;I’ve got &lt;a href=&quot;https://pydata.org/nyc2018/schedule/presentation/41/&quot;&gt;PyData NYC 2018&lt;/a&gt; in two days and rather finishing up my talk, I just realized that my source data has a silent corruption due to non-standard timestamps. Here’s how I fixed this using pandas and then uploaded the data to &lt;a href=&quot;https://omnisci.com&quot;&gt;OmniSci&lt;/a&gt;.&lt;/p&gt;
@@ -151,7 +175,7 @@ lftp &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&qu
 
 &lt;h2 id=&quot;thats-it-yes&quot;&gt;That’s It? YES!&lt;/h2&gt;
 
-&lt;p&gt;With just a few characters short of a full tweet, you can mirror an entire folder from an FTP, automatically. &lt;code class=&quot;highlighter-rouge&quot;&gt;lftp&lt;/code&gt; in combination with &lt;code class=&quot;highlighter-rouge&quot;&gt;cran&lt;/code&gt; helped me factor out hundreds of lines of pre-existing Python code, which not only removed untested, copy-pasted code from the workflow but also added parallel downloading, increasing data throughput.&lt;/p&gt;
+&lt;p&gt;With just a few characters short of a full tweet, you can mirror an entire folder from an FTP, automatically. &lt;code class=&quot;highlighter-rouge&quot;&gt;lftp&lt;/code&gt; in combination with &lt;code class=&quot;highlighter-rouge&quot;&gt;cron&lt;/code&gt; helped me factor out hundreds of lines of pre-existing Python code, which not only removed untested, copy-pasted code from the workflow but also added parallel downloading, increasing data throughput.&lt;/p&gt;
 
 &lt;p&gt;Not bad for a couple of free Linux utilities :)&lt;/p&gt;</content>
       </item>
