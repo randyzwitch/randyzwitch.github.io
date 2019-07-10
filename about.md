@@ -1,19 +1,18 @@
 ---
 title: About
-date: 2011-08-25T15:18:57+00:00
+date: 2019-07-10T00:00:00+00:00
 author: Randy Zwitch
 layout: post
 ---
 <!-- ![](/wp-content/uploads/2011/08/randy_head_tight-1.png) -->
 
-I am an economist turned energy forecaster, banker, digital analytics consultant, open source developer and data scientist/engineer. I'm predominantly a user of open-source technologies (R, Python, Julia, MySQL, Postgres, Hadoop) and a heavy Amazon Web Services user (Redshift, DynamoDB, EC2, S3).
+I am Senior Director of Developer Advocacy at [OmniSci](http://omnisci.com), a GPU-accelerated database and analytics platform. This blog covers data science, analytics, and engineering topics I've found interesting over the years as I've worked in varying industries using various open-source technologies.
 
-## A note about technologies used on this website (my pseudo-privacy policy)
+Currently, my main interests are high-performance computing, especially in regards to GPU technology. I'm also the maintainer of [pymapd](https://pymapd.readthedocs.io/en/latest/) (OmniSci Python client), [RSiteCatalyst](https://randyzwitch.com/rsitecatalyst/) (R Adobe Analytics client) and too many Julia packages to list individually. Finally, I also am the creator of [JuliaBloggers](https://www.juliabloggers.com/julia-bloggers-submit-feed/), a WordPress aggregator site for the Julia programming language community.
 
-Any number of web measurement and optimization tools may be installed on this blog at any given time as I look to keep up with the technology of the Internet.
+If you're interested in what I'm doing professionally, you can catch me on the following social networks:
 
-If this type of tracking makes you uncomfortable, note that I have no way of knowing anything about you, as there are no requirements to input PII data on this website
-
-But, if any of this still makes you uncomfortable, please feel free to browse using FireFox or Chrome Private Browsing, AdBlock or similar plugins...really, whatever makes you feel comfortable consuming the content here.
-
-Enjoy!
+- GitHub:  [randyzwitch](https://github.com/randyzwitch)
+- Twitter:  [randyzwitch](https://twitter.com/randyzwitch)
+- LinkedIn: [https://www.linkedin.com/in/randyzwitch/](https://www.linkedin.com/in/randyzwitch/)
+- YouTube: [OmniSci](https://www.youtube.com/channel/UCH8ag3Pm9-FBLKhq9dBBxcw)
