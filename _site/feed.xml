@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>ODSC webinar&amp;#58; End-to-End Data Science Without Leaving the GPU</title>
+        
+          <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/5xBMrO-BSy8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+</description>
+        
+        <pubDate>Thu, 11 Jul 2019 00:00:00 -0400</pubDate>
+        <link>
+        http://localhost:4000/omnisci-cudf-rapids-odsc-webinar/</link>
+        <guid isPermaLink="true">http://localhost:4000/omnisci-cudf-rapids-odsc-webinar/</guid>
+        <content type="html" xml:base="/omnisci-cudf-rapids-odsc-webinar/">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/5xBMrO-BSy8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;In this webinar sponsored by the &lt;a href=&quot;https://odsc.com/&quot;&gt;Open Data Science Conference&lt;/a&gt; (ODSC), I outline a brief history of GPU analytics and the problems that using GPU analytics solves relative to using other parallel computation methods such as Hadoop. I also demonstrate how &lt;a href=&quot;https://www.omnisci.com/&quot;&gt;OmniSci&lt;/a&gt; fits into the broader GPU-accelerated data science workflow, with examples provided using Python.&lt;/p&gt;
+
+&lt;p&gt;Check out the video, grab the Jupyter Notebook from the &lt;a href=&quot;https://github.com/omnisci/odscwebinar&quot;&gt;odscwebinar&lt;/a&gt; repo and get started with OmniSci and GPU-accelerated data science!&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>PyData NYC 2018&amp;#58; End-to-End Data Science Without Leaving the GPU</title>
         
           <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/gQszQcFHcZc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;

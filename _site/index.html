@@ -81,6 +81,26 @@
 
 <h1 class="entry-title">
 
+    <a href="/omnisci-cudf-rapids-odsc-webinar/">ODSC webinar&#58; End-to-End Data Science Without Leaving the GPU</a>
+
+</h1>
+  <div id="meta-content">
+      <div class="post-meta small">
+          Randy Zwitch &times; <a href="/">July 11, 2019</a> &times; DataScience
+      </div>
+  </div>
+  <div class="content">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/5xBMrO-BSy8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>In this webinar sponsored by the <a href="https://odsc.com/">Open Data Science Conference</a> (ODSC), I outline a brief history of GPU analytics and the problems that using GPU analytics solves relative to using other parallel computation methods such as Hadoop. I also demonstrate how <a href="https://www.omnisci.com/">OmniSci</a> fits into the broader GPU-accelerated data science workflow, with examples provided using Python.</p>
+
+<p>Check out the video, grab the Jupyter Notebook from the <a href="https://github.com/omnisci/odscwebinar">odscwebinar</a> repo and get started with OmniSci and GPU-accelerated data science!</p>
+
+    <hr>
+  </div>
+
+<h1 class="entry-title">
+
     <a href="/omnisci-cudf-pydata-nyc-2018/">PyData NYC 2018&#58; End-to-End Data Science Without Leaving the GPU</a>
 
 </h1>
@@ -194,62 +214,6 @@
 <p>At the beginning, I joked that computers are dumb. Computers are just tools that do exactly what a human programs them to do, and really, it was my laziness that caused this data error. Luckily, I did catch this before my talk and the fix is pretty easy.</p>
 
 <p>I’d like to say I’m going to remember to check my data going forward, but in reality, I’m just documenting this here for the next time I make the same, lazy mistake.</p>
-
-    <hr>
-  </div>
-
-<h1 class="entry-title">
-
-    <a href="/mirror-ftp-lftp/">Mirroring an FTP Using lftp and cron</a>
-
-</h1>
-  <div id="meta-content">
-      <div class="post-meta small">
-          Randy Zwitch &times; <a href="/">September 6, 2018</a> &times; Programming
-      </div>
-  </div>
-  <div class="content">
-    <p>As my Developer Advocate role leads me to doing more and more Sysadmin/Data Engineer type of work, I continuously find myself looking for more efficient ways of copying data folders to where I need them. While there are a lot of great GUI ETL tools out there, for me the simplest <em>and fastest</em> way tends to be using linux utilities. Here’s how to mirror an FTP using lftp, with a cron repeater every five minutes.</p>
-
-<h2 id="data-are-on-an-ftp-need-further-processing">Data are on an FTP, Need Further Processing</h2>
-
-<p>The problem I have is data that exists on a remote FTP, but are in a binary format that is incompatible with loading directly into <a href="https://www.omnisci.com/">OmniSci</a>. My current plan is to use Python to convert the binary format into CSV, but with the data on a server that I don’t control, I need to make a copy somewhere else.</p>
-
-<p>It’s also the case that the data are roughly 300GB <em>per day</em>, streaming in at various intervals across the day, so I need to make sure that any copying I do is thoughtful. Downloading 300GB of data per day is bad enough, doing it multiple times even worse!</p>
-
-<h2 id="lftp-mirror-to-the-rescue">lftp <code class="highlighter-rouge">mirror</code> to the Rescue!</h2>
-
-<p>The best choice in my case seems to be copying the files onto a VM I own. <a href="https://lftp.yar.ru/">lftp</a> has an option <code class="highlighter-rouge">mirror</code> to do just that. Here is the one-liner I’m using:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">lftp <span class="nt">-e</span> <span class="s2">"mirror -c -e --parallel=20 --verbose /pub/data/nccf/com/nwm/prod /nwmftp/prod;quit;"</span> ftp.government.gov</code></pre></figure>
-
-<ul>
-  <li><code class="highlighter-rouge">lftp -e</code> : Execute command in quotes. In this case, the FTP allows anonymous access, so no user/pw  arguments needed</li>
-  <li><code class="highlighter-rouge">mirror</code>: Mirror command for lftp</li>
-  <li><code class="highlighter-rouge">-c</code>: If download fails for whatever reason, keep trying (c = “continue”)</li>
-  <li><code class="highlighter-rouge">-e</code>: Delete files on remote that are no longer on source (i.e. keep folders in perfect sync)</li>
-  <li><code class="highlighter-rouge">--parallel</code>: Allow multiple connections for parallel downloading of multiple files</li>
-  <li><code class="highlighter-rouge">--verbose</code>: Print lots of messages, helpful for debugging</li>
-</ul>
-
-<p>With all of the flags in place, the last two arguments are the source (remote FTP) and destination (my VM) directories. Finally, I add a <code class="highlighter-rouge">quit</code> statement to exit <code class="highlighter-rouge">lftp</code> once the mirror process is over. This is mostly hygiene since I plan to run this on a cron scheduler and don’t want to leave the sessions open.</p>
-
-<h2 id="run-this-every-five-minutes-forever">Run This Every Five Minutes, Forever</h2>
-
-<p><code class="highlighter-rouge">cron</code> really is one of the greatest timesavers ever, especially in that it allows super-repetitive work to be automated away, usually with a single line. Here is the line I added after calling <code class="highlighter-rouge">crontab -e</code> on the command-line:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">*</span>/5 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /home/username/pull_from_ftp.sh</code></pre></figure>
-
-<p>Quite simply, “every 5 minutes, run pull_from_ftp.sh”. Creating <code class="highlighter-rouge">pull_from_ftp.sh</code> is as straightforward as creating a text file:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
-lftp <span class="nt">-e</span> <span class="s2">"mirror -c -e --parallel=20 --verbose /pub/data/nccf/com/nwm/prod /nwmftp/prod;quit;"</span> ftp.government.gov</code></pre></figure>
-
-<h2 id="thats-it-yes">That’s It? YES!</h2>
-
-<p>With just a few characters short of a full tweet, you can mirror an entire folder from an FTP, automatically. <code class="highlighter-rouge">lftp</code> in combination with <code class="highlighter-rouge">cron</code> helped me factor out hundreds of lines of pre-existing Python code, which not only removed untested, copy-pasted code from the workflow but also added parallel downloading, increasing data throughput.</p>
-
-<p>Not bad for a couple of free Linux utilities :)</p>
 
     <hr>
   </div>
@@ -623,6 +587,10 @@ lftp <span class="nt">-e</span> <span class="s2">"mirror -c -e --parallel=20 --v
 						  
 						
 					
+						
+						  
+							<li data-section='/omnisci-cudf-rapids-odsc-webinar/'><a href='/omnisci-cudf-rapids-odsc-webinar/'>ODSC webinar&#58; End-to-End Data Science Without Leaving the GPU</a></li>
+						  
 						
 						  
 							<li data-section='/omnisci-cudf-pydata-nyc-2018/'><a href='/omnisci-cudf-pydata-nyc-2018/'>PyData NYC 2018&#58; End-to-End Data Science Without Leaving the GPU</a></li>
