@@ -8,6 +8,32 @@
     
       
       <item>
+        <title>DataOps Summit&amp;#58; Streaming Real-time Telemetry With OmniSci and StreamSets</title>
+        
+          <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/GqLCK3Eohss&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+</description>
+        
+        <pubDate>Thu, 31 Oct 2019 00:00:00 -0400</pubDate>
+        <link>
+        http://localhost:4000/omnisci-dataops-streamsets/</link>
+        <guid isPermaLink="true">http://localhost:4000/omnisci-dataops-streamsets/</guid>
+        <content type="html" xml:base="/omnisci-dataops-streamsets/">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/GqLCK3Eohss&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;In this talk from the &lt;a href=&quot;https://www.dataopssummit-sf.com/&quot;&gt;StreamSets DataOps 2019 conference&lt;/a&gt;, I provide an overview of the &lt;a href=&quot;https://www.omnisci.com/blog/creating-the-omnisci-f1-demo&quot;&gt;data pipeline for the OmniSci F1 Demo&lt;/a&gt;. Using &lt;a href=&quot;https://streamsets.com/opensource&quot;&gt;StreamSets Data Collector&lt;/a&gt; in concert with &lt;a href=&quot;https://kafka.apache.org/&quot;&gt;Apache Kafka&lt;/a&gt; and &lt;a href=&quot;https://github.com/omnisci/omniscidb&quot;&gt;OmniSciDB&lt;/a&gt;, you can create a full real-time data pipeline for telemetry data using only open-source components.&lt;/p&gt;
+
+&lt;p&gt;The talk outlines using the UDP listener for StreamSets to collect packets from the F1 2018 game, writing the packets to Kafka, reading from Kafka and using Groovy to parse the packets, and using the &lt;a href=&quot;https://github.com/omnisci/omnisci-jdbc&quot;&gt;OmniSci JDBC driver&lt;/a&gt; to insert the data into one of nine OmniSciDB tables. With this workflow, you have a robust platform for accelerated analytics, using the power of GPUs for fast computation.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/omnisci/vehicle-telematics-analytics-demo&quot;&gt;https://github.com/omnisci/vehicle-telematics-analytics-demo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Speakerdeck: &lt;a href=&quot;https://speakerdeck.com/omnisci/the-f1-demo-streaming-real-time-telemetry-using-apache-kafka-and-streamsets&quot;&gt;https://speakerdeck.com/omnisci/the-f1-demo-streaming-real-time-telemetry-using-apache-kafka-and-streamsets&lt;/a&gt;&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>ODSC webinar&amp;#58; End-to-End Data Science Without Leaving the GPU</title>
         
           <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/5xBMrO-BSy8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
