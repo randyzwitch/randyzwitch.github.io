@@ -11,6 +11,7 @@ tags:
 - Omniture
 - R
 - RSiteCatalyst
+
 ---
 
 It's been a while since the last update, but RSiteCatalyst is still going strong! Thanks to [Wen](https://github.com/slin30) for submitting a [fix](https://github.com/randyzwitch/RSiteCatalyst/issues/210)/[enhancement](https://github.com/randyzwitch/RSiteCatalyst/issues/239) to enable the ability to use multiple columns from a Classification within the `QueueDataWarehouse` function. No other bug fixes were made, nor was any additional functionality added.
