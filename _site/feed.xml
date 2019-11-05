@@ -8,6 +8,29 @@
     
       
       <item>
+        <title>RSiteCatalyst Version 1.4.16 Release Notes</title>
+        
+          <description>&lt;p&gt;It’s been a while since the last update, but RSiteCatalyst is still going strong! Thanks to &lt;a href=&quot;https://github.com/slin30&quot;&gt;Wen&lt;/a&gt; for submitting a &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues/210&quot;&gt;fix&lt;/a&gt;/&lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues/239&quot;&gt;enhancement&lt;/a&gt; to enable the ability to use multiple columns from a Classification within the &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDataWarehouse&lt;/code&gt; function. No other bug fixes were made, nor was any additional functionality added.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 05 Nov 2019 00:00:00 -0500</pubDate>
+        <link>
+        http://localhost:4000/rsitecatalyst-version-1-4-16-release-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/rsitecatalyst-version-1-4-16-release-notes/</guid>
+        <content type="html" xml:base="/rsitecatalyst-version-1-4-16-release-notes/">&lt;p&gt;It’s been a while since the last update, but RSiteCatalyst is still going strong! Thanks to &lt;a href=&quot;https://github.com/slin30&quot;&gt;Wen&lt;/a&gt; for submitting a &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues/210&quot;&gt;fix&lt;/a&gt;/&lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues/239&quot;&gt;enhancement&lt;/a&gt; to enable the ability to use multiple columns from a Classification within the &lt;code class=&quot;highlighter-rouge&quot;&gt;QueueDataWarehouse&lt;/code&gt; function. No other bug fixes were made, nor was any additional functionality added.&lt;/p&gt;
+
+&lt;p&gt;Version 1.4.16 of RSiteCatalyst was submitted to CRAN yesterday and should be available for download in the coming days.&lt;/p&gt;
+
+&lt;h2 id=&quot;community-contributions&quot;&gt;Community Contributions&lt;/h2&gt;
+&lt;p&gt;As I’ve mentioned in many a blog post before this one, I encourage all users of the software to continue reporting bugs via &lt;a href=&quot;https://github.com/randyzwitch/RSiteCatalyst/issues&quot;&gt;GitHub issues&lt;/a&gt;, and especially if you can provide a working code example. Even better, a fix via pull request will ensure that your bug will be addressed in a timely manner and for the benefit to others in the community.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Please don’t email directly via the email in the RSiteCatalyst package, it will not be returned. Having a valid email contact in the package is a requirement to have a package listed on CRAN so they can contact the package author, it is not meant to imply I can/will provide endless, personalized support for free.&lt;/em&gt;&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>DataOps Summit&amp;#58; Streaming Real-time Telemetry With OmniSci and StreamSets</title>
         
           <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/GqLCK3Eohss&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
