@@ -173,4 +173,5 @@ In the case study above, I've demonstrated that for this problem, threading is t
 Overall, I hope this post has demonstrated that you don't have to fancy yourself a high-frequency trader or a bit-twiddler to find ways to improve your Julia code. The first step is reading the manuals for benchmarking, and then like any other pursuit, the only way to get a feeling for what works is to try things.
 
 <br>
-_All of the code for this blog post can be found in this [GitHub gist](benchmarktools-julia-benchmarking/)_
+
+_All of the code for this blog post can be found in this [GitHub gist](https://gist.github.com/randyzwitch/dbe9ce13aa819a1306d62610bb58b173)_
