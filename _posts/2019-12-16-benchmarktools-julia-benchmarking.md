@@ -24,7 +24,7 @@ As I mentioned above, I've written Julia for many years now, and in that time I'
 julia> using Random, OmniSci, BenchmarkTools, Base.Threads
 
 julia> #change defaults, since examples long-running
-       BenchmarkTools.DEFAULT_PARAMETERS.seconds = 200
+       BenchmarkTools.DEFAULT_PARAMETERS.seconds = 1000
 1000
 
 julia> BenchmarkTools.DEFAULT_PARAMETERS.samples = 5

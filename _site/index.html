@@ -101,7 +101,7 @@
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">Random</span><span class="x">,</span> <span class="n">OmniSci</span><span class="x">,</span> <span class="n">BenchmarkTools</span><span class="x">,</span> <span class="n">Base</span><span class="o">.</span><span class="n">Threads</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c">#change defaults, since examples long-running</span>
-       <span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">DEFAULT_PARAMETERS</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">200</span>
+       <span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">DEFAULT_PARAMETERS</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="mi">1000</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">BenchmarkTools</span><span class="o">.</span><span class="n">DEFAULT_PARAMETERS</span><span class="o">.</span><span class="n">samples</span> <span class="o">=</span> <span class="mi">5</span>
@@ -252,8 +252,9 @@
 
 <p>Overall, I hope this post has demonstrated that you don’t have to fancy yourself a high-frequency trader or a bit-twiddler to find ways to improve your Julia code. The first step is reading the manuals for benchmarking, and then like any other pursuit, the only way to get a feeling for what works is to try things.</p>
 
-<p><br />
-<em>All of the code for this blog post can be found in this <a href="benchmarktools-julia-benchmarking/">GitHub gist</a></em></p>
+<p><br /></p>
+
+<p><em>All of the code for this blog post can be found in this <a href="https://gist.github.com/randyzwitch/dbe9ce13aa819a1306d62610bb58b173">GitHub gist</a></em></p>
 
     <hr>
   </div>

@@ -29,7 +29,7 @@
 &lt;div class=&quot;language-julia highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OmniSci&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BenchmarkTools&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Threads&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#change defaults, since examples long-running&lt;/span&gt;
-       &lt;span class=&quot;n&quot;&gt;BenchmarkTools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DEFAULT_PARAMETERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;BenchmarkTools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DEFAULT_PARAMETERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;
 &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BenchmarkTools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DEFAULT_PARAMETERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;samples&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
@@ -180,8 +180,9 @@
 
 &lt;p&gt;Overall, I hope this post has demonstrated that you don’t have to fancy yourself a high-frequency trader or a bit-twiddler to find ways to improve your Julia code. The first step is reading the manuals for benchmarking, and then like any other pursuit, the only way to get a feeling for what works is to try things.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;All of the code for this blog post can be found in this &lt;a href=&quot;benchmarktools-julia-benchmarking/&quot;&gt;GitHub gist&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;All of the code for this blog post can be found in this &lt;a href=&quot;https://gist.github.com/randyzwitch/dbe9ce13aa819a1306d62610bb58b173&quot;&gt;GitHub gist&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content>
       </item>
       
     
