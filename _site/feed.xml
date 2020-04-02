@@ -8,6 +8,162 @@
     
       
       <item>
+        <title>Building pyarrow with CUDA support</title>
+        
+          <description>&lt;p&gt;The other day I was looking to read an Arrow buffer on GPU using Python, but as far as I could tell, none of the provided pyarrow packages on conda or pip are built with CUDA support. Like many of the packages in the compiled-C-wrapped-by-Python ecosystem, &lt;a href=&quot;http://arrow.apache.org/&quot;&gt;Apache Arrow&lt;/a&gt; is thoroughly documented, but the number of permutations of how you could choose to build &lt;a href=&quot;http://arrow.apache.org/docs/developers/python.html#building-on-linux-and-macos&quot;&gt;pyarrow with CUDA support&lt;/a&gt; quickly becomes overwhelming.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 02 Apr 2020 00:00:00 -0400</pubDate>
+        <link>
+        http://localhost:4000/pyarrow-cuda-support/</link>
+        <guid isPermaLink="true">http://localhost:4000/pyarrow-cuda-support/</guid>
+        <content type="html" xml:base="/pyarrow-cuda-support/">&lt;p&gt;The other day I was looking to read an Arrow buffer on GPU using Python, but as far as I could tell, none of the provided pyarrow packages on conda or pip are built with CUDA support. Like many of the packages in the compiled-C-wrapped-by-Python ecosystem, &lt;a href=&quot;http://arrow.apache.org/&quot;&gt;Apache Arrow&lt;/a&gt; is thoroughly documented, but the number of permutations of how you could choose to build &lt;a href=&quot;http://arrow.apache.org/docs/developers/python.html#building-on-linux-and-macos&quot;&gt;pyarrow with CUDA support&lt;/a&gt; quickly becomes overwhelming.&lt;/p&gt;
+
+&lt;p&gt;In this post, I’ll show how to build pyarrow with CUDA support on Ubuntu using Docker and &lt;a href=&quot;https://docs.python-guide.org/dev/virtualenvs/#lower-level-virtualenv&quot;&gt;virtualenv&lt;/a&gt;. These directions are approximately the same as the official Apache Arrow docs, just that I explain them step-by-step and show only the single build toolchain I used.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-1-docker-with-gpu-support&quot;&gt;Step 1: Docker with GPU support&lt;/h2&gt;
+
+&lt;p&gt;Even though I use Ubuntu 18.04 LTS on a workstation with an NVIDIA GPU, whenever I undertake a project like this, I like to use a Docker container to keep everything isolated. The last thing you want to do is to debug environment errors, changing dependencies for one project and breaking something else. Thankfully, &lt;a href=&quot;https://hub.docker.com/r/nvidia/cuda/&quot;&gt;NVIDIA Docker developer images&lt;/a&gt; are available via DockerHub:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--gpus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;all &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; nvidia/cuda:10.1-devel-ubuntu18.04 bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here, the &lt;code class=&quot;highlighter-rouge&quot;&gt;-it&lt;/code&gt; flag puts us inside the container at a bash prompt, &lt;code class=&quot;highlighter-rouge&quot;&gt;--gpus=all&lt;/code&gt; allows the Docker container to access my workstation’s GPUs and &lt;code class=&quot;highlighter-rouge&quot;&gt;--rm&lt;/code&gt; deletes the container after we’re done to save space.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-2-setting-up-the-ubuntu-docker-container&quot;&gt;Step 2: Setting up the Ubuntu Docker container&lt;/h2&gt;
+
+&lt;p&gt;When you pull Docker containers from DockerHub, frequently they are bare-bones in terms of libraries included, and usually can also be updated. For building pyarrow, it’s useful to install the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt upgrade &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+
+apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+wget &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libssl-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+autoconf &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+flex &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bison &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+llvm-7 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+clang &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+cmake &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+python3-pip &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libjemalloc-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libboost-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libboost-filesystem-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libboost-system-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+libboost-regex-dev  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+python3-dev &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In a later step, we’ll use the Arrow third-party dependency script to ensure all needed dependencies are present, but these are a good start.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-3-cloning-apache-arrow-from-github&quot;&gt;Step 3: Cloning Apache Arrow from GitHub&lt;/h2&gt;
+
+&lt;p&gt;Cloning Arrow from GitHub is pretty straightforward. The &lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout apache-arrow-0.15.0&lt;/code&gt; line is optional; I needed version 0.15.0 for the project I was exploring, but if you want to build from the master branch of Arrow, you can omit that line.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/apache/arrow.git /repos/arrow
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /repos/arrow
+git submodule init &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git submodule update
+git checkout apache-arrow-0.15.0
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PARQUET_TEST_DATA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PWD&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/cpp/submodules/parquet-testing/data&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ARROW_TEST_DATA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PWD&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/testing/data&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;step-4-installing-remaining-apache-arrow-dependencies&quot;&gt;Step 4: Installing remaining Apache Arrow dependencies&lt;/h2&gt;
+
+&lt;p&gt;As mentioned in Step 2, some of the dependencies for building Arrow are system-level and can be installed via apt. To ensure that we have all the remaining third-party dependencies, we can use the provided script in the Arrow repository:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;virtualenv
+virtualenv pyarrow
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ./pyarrow/bin/activate
+pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;six numpy pandas cython pytest hypothesis
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;dist
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ARROW_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/dist
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/dist/lib:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;cpp
+./thirdparty/download_dependencies.sh &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/arrow-thirdparty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The script downloads all of the necessary libraries as well as sets environment variables that are picked up later, which is amazingly helpful.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-5-building-apache-arrow-c-library&quot;&gt;Step 5: Building Apache Arrow C++ library&lt;/h2&gt;
+
+&lt;p&gt;pyarrow links to the Arrow C++ bindings, so it needs to be present before we can build the pyarrow wheel:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+
+cmake &lt;span class=&quot;nt&quot;&gt;-DCMAKE_INSTALL_PREFIX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ARROW_HOME&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DCMAKE_INSTALL_LIBDIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;lib &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_FLIGHT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_GANDIVA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_ORC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_WITH_BZ2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_WITH_ZLIB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_WITH_ZSTD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_WITH_LZ4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_WITH_SNAPPY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_WITH_BROTLI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_PARQUET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_PYTHON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_PLASMA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_BUILD_TESTS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-DARROW_CUDA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ON &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+..
+
+make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt;
+make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is a pretty standard workflow for building a C or C++ library. We create a &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; directory, call &lt;code class=&quot;highlighter-rouge&quot;&gt;cmake&lt;/code&gt; from inside of that directory to set up the options we want to use, then use &lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt; and then &lt;code class=&quot;highlighter-rouge&quot;&gt;make install&lt;/code&gt; to compile and install the library, respectively. I chose all of the &lt;code class=&quot;highlighter-rouge&quot;&gt;-DARROW_*&lt;/code&gt; options above just as a copy/paste from the Arrow documentation; Arrow doesn’t take long to build using these options, but it’s possibly the case that only &lt;code class=&quot;highlighter-rouge&quot;&gt;-DARROW_PYTHON=ON&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;-DARROW_CUDA=ON&lt;/code&gt; are truly necessary to build pyarrow.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-6-building-pyarrow-wheel&quot;&gt;Step 6: Building pyarrow wheel&lt;/h2&gt;
+
+&lt;p&gt;With the Apache Arrow C++ bindings built, we can now build the Python wheel:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /repos/arrow/python
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PYARROW_WITH_PARQUET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PYARROW_WITH_CUDA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+python setup.py build_ext &lt;span class=&quot;nt&quot;&gt;--build-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;release &lt;span class=&quot;nt&quot;&gt;--bundle-arrow-cpp&lt;/span&gt; bdist_wheel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As cmake and make run, you’ll eventually see the following in the build logs, which shows that we’re getting the behavior we want:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cmake &lt;span class=&quot;nt&quot;&gt;--build&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--config&lt;/span&gt; release &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  5%] Compiling Cython CXX &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;_cuda...
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  5%] Built target _cuda_pyx
+Scanning dependencies of target _cuda
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 11%] Building CXX object CMakeFiles/_cuda.dir/_cuda.cpp.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 16%] Linking CXX shared module release/_cuda.cpython-36m-x86_64-linux-gnu.so
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 16%] Built target _cuda
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When the process finishes, the final wheel will be in the &lt;code class=&quot;highlighter-rouge&quot;&gt;/repos/arrow/python/dist&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-7-optional-validate-build&quot;&gt;Step 7 (optional): Validate build&lt;/h2&gt;
+
+&lt;p&gt;If you want to validate that your pyarrow wheel has CUDA installed, you can run the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;pyarrow&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; root@9260485caca3:/repos/arrow/python/dist# pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pyarrow-0.15.1.dev0+g40d468e16.d20200402-cp36-cp36m-linux_x86_64.whl
+Processing ./pyarrow-0.15.1.dev0+g40d468e16.d20200402-cp36-cp36m-linux_x86_64.whl
+Requirement already satisfied: six&amp;gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1.0.0 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /repos/arrow/pyarrow/lib/python3.6/site-packages &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;from &lt;span class=&quot;nv&quot;&gt;pyarrow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;0.15.1.dev0+g40d468e16.d20200402&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1.14.0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Requirement already satisfied: numpy&amp;gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1.14 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /repos/arrow/pyarrow/lib/python3.6/site-packages &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;from &lt;span class=&quot;nv&quot;&gt;pyarrow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;0.15.1.dev0+g40d468e16.d20200402&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1.18.2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Installing collected packages: pyarrow
+Successfully installed pyarrow-0.15.1.dev0+g40d468e16.d20200402
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;pyarrow&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; root@9260485caca3:/repos/arrow/python/dist# python
+Python 3.6.9 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default, Nov  7 2019, 10:44:02&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;GCC 8.3.0] on linux
+Type &lt;span class=&quot;s2&quot;&gt;&quot;help&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;copyright&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;credits&quot;&lt;/span&gt; or &lt;span class=&quot;s2&quot;&gt;&quot;license&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;more information.
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; from pyarrow import cuda
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When the line &lt;code class=&quot;highlighter-rouge&quot;&gt;from pyarrow import cuda&lt;/code&gt; runs without error, then we know that our pyarrow build with CUDA was successful.&lt;/p&gt;</content>
+      </item>
+      
+    
+      
+      <item>
         <title>A Beginner's Look at BenchmarkTools.jl</title>
         
           <description>&lt;p&gt;For the number of years I’ve been programming using Julia, I’ve never really been concerned with performance. Which is to say, I’ve appreciated that &lt;em&gt;other people&lt;/em&gt; are interested in performance and have proven that Julia can be as fast as any other performance language out there. But I’ve never been one to pour over the &lt;a href=&quot;https://docs.julialang.org/en/v1/manual/performance-tips/&quot;&gt;Performance Tips&lt;/a&gt; section of the Julia manual trying to squeeze every last bit of performance.&lt;/p&gt;
