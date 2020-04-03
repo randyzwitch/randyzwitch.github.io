@@ -1,6 +1,6 @@
 ---
 title: Building pyarrow with CUDA support
-date: '2020-04-02'
+date: '2020-04-03'
 author: Randy Zwitch
 layout: post
 permalink: /pyarrow-cuda-support/
