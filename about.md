@@ -18,4 +18,4 @@ If you're interested in what I'm doing professionally, you can catch me on the f
 In my free time, I've taken to building guitars:
 
 - [Zwitch Guitars](https://zwitchguitars.com)
-- [Zwitch Guitars on YouTube](https://www.youtube.com/channel/UCB4PORuA4VdjAzqR3H_FHXw)
+- [Zwitch Guitars on YouTube](https://www.youtube.com/c/zwitchguitars/)
